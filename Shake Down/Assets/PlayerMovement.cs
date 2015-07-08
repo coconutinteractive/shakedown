@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate()
 	{
 		myRigidbody.velocity = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * moveSpeed;
+<<<<<<< HEAD
+=======
+		Debug.Log ("HAHA! I'm hiding this here Adrien!");
+>>>>>>> origin/master
 	}
 
 	private void OnTriggerEnter(Collider c)
