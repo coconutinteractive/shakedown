@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 		Action_Talk,
 
 		Action_None
-	}
 
 	[SerializeField] private PossibleAction currentPossibleAction = PossibleAction.Action_None;
 
@@ -32,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate()
 	{
 		myRigidbody.velocity = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * moveSpeed;
-		
 	}
 
 	private void OnTriggerEnter(Collider c)
