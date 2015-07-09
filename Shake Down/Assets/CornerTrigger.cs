@@ -5,6 +5,8 @@ using System.Linq;
 
 public class CornerTrigger : MonoBehaviour
 {
+	[SerializeField] private bool _isAutomatic = false;
+	public bool isAutomatic {get{return _isAutomatic;}}
 	[SerializeField] private List<GameObject> cameraPoints = new List<GameObject>();
 	private List<CameraPoint> cameraPointsRef = new List<CameraPoint>();
 	[SerializeField] private bool isCrossTrigger = false;

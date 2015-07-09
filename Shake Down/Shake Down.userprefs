@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\PlayerMovement.cs" Line="153" Column="4" />
-      <File FileName="Assets\CornerTrigger.cs" Line="12" Column="61" />
+      <File FileName="Assets\CornerTrigger.cs" Line="9" Column="51" />
+      <File FileName="Assets\PlayerMovement.cs" Line="123" Column="117" />
       <File FileName="..\..\..\..\..\Desktop\scripts\Doors.cs" Line="1" Column="1" />
       <File FileName="Assets\CameraPoint.cs" Line="1" Column="1" />
-      <File FileName="Assets\CameraScript.cs" Line="30" Column="4" />
+      <File FileName="Assets\CameraScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

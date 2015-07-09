@@ -184,7 +184,13 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (c.CompareTag ("Corner Trigger")) 
 		{
-			currentAvailableActions.Add(new AvailableAction(PossibleAction.Action_TurnCorner, KeyCode.W, c.gameObject));
+			if(c.gameObject.GetComponent<CornerTrigger>().isAutomatic)
+			{
+				if(canMove)
+					TurnCorner(new AvailableAction(PossibleAction.Action_TurnCorner, KeyCode.W, c.gameObject));
+			}
+			else
+				currentAvailableActions.Add(new AvailableAction(PossibleAction.Action_TurnCorner, KeyCode.W, c.gameObject));
 		}
 		if(c.CompareTag("Door Trigger"))
 	    {
