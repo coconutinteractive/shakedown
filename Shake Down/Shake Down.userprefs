@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movement_And_Camera\MiniMapCamera.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\Manager_MouseInput.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movement_And_Camera\ShopIconScript.cs" Line="19" Column="3" />
-      <File FileName="Assets\Scripts\Movement_And_Camera\MiniMapCamera.cs" Line="67" Column="58" />
-      <File FileName="Assets\MiniMapScaleButton.cs" Line="16" Column="3" />
-      <File FileName="Assets\MiniMapBackground.cs" Line="8" Column="44" />
-      <File FileName="Assets\MiniMapPlayerTrigger.cs" Line="18" Column="57" />
+      <File FileName="Assets\Scripts\Managers\Manager_MouseInput.cs" Line="35" Column="20" />
+      <File FileName="Assets\Scripts\MiniMap\MiniMapCamera.cs" Line="57" Column="4" />
+      <File FileName="Assets\Scripts\MiniMap\MiniMapBackground.cs" Line="9" Column="45" />
+      <File FileName="Assets\Scripts\MiniMap\ShopIconScript.cs" Line="31" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -19,7 +19,7 @@ public class ShopIconScript : MonoBehaviour
 	{
 		float curDist = Vector3.Distance (transform.position, playerTrigger.transform.position);
 		float curPercentage = curDist / maxDist * 100.0f;
-		transform.localScale = originalScale * (curPercentage * 0.01f) + originalScale * 0.25f;
+		transform.localScale = originalScale * (curPercentage * 0.01f) + originalScale * 0.35f;
 		if (transform.localScale.magnitude > originalScale.magnitude)
 			transform.localScale = originalScale;
 	}

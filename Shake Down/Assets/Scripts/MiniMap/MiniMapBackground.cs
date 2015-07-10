@@ -5,6 +5,7 @@ public class MiniMapBackground : MonoBehaviour
 {
 	private void Start()
 	{
-		GetComponent<Renderer> ().enabled = true;
+		if(GetComponent<Renderer> () != null)
+			GetComponent<Renderer> ().enabled = true;
 	}
 }
