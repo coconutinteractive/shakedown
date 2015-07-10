@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\Manager_MouseInput.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HelpArrow.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\Manager_MouseInput.cs" Line="35" Column="20" />
-      <File FileName="Assets\Scripts\MiniMap\MiniMapCamera.cs" Line="57" Column="4" />
-      <File FileName="Assets\Scripts\MiniMap\MiniMapBackground.cs" Line="9" Column="45" />
-      <File FileName="Assets\Scripts\MiniMap\ShopIconScript.cs" Line="31" Column="3" />
+      <File FileName="Assets\Scripts\Managers\Manager_MouseInput.cs" Line="70" Column="34" />
+      <File FileName="Assets\Scripts\HelpArrow.cs" Line="17" Column="17" />
+      <File FileName="Assets\Scripts\MiniMap\WaypointComponent.cs" Line="16" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
