@@ -9,13 +9,9 @@ public class HelpArrow : MonoBehaviour
 	private void Update()
 	{
 		if(isActive && target != null)
-		{
 			transform.LookAt(target.transform);
-		}
 		else if(target == null && isActive)
-		{
 			Deactivate();
-		}
 	}
 
 	public void Activate(GameObject _newTarget)

@@ -1,11 +1,26 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HelpArrow.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AIParent.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\Manager_MouseInput.cs" Line="70" Column="34" />
-      <File FileName="Assets\Scripts\HelpArrow.cs" Line="17" Column="17" />
-      <File FileName="Assets\Scripts\MiniMap\WaypointComponent.cs" Line="16" Column="29" />
+      <File FileName="Assets\Scripts\AI\AIParent.cs" Line="13" Column="55" />
+      <File FileName="Assets\Scripts\AI\AICitizen.cs" Line="8" Column="17" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs" Line="120" Column="62" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\CornerTrigger.cs" Line="25" Column="49" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="AI" expanded="True">
+                <Node name="AIParent.cs" selected="True" />
+              </Node>
+              <Node name="Movement_And_Camera" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
