@@ -25,6 +25,11 @@ public class CornerTrigger : MonoBehaviour
 		return cameraPointsRef.Find(cpr => cpr.isActive).gameObject;
 	}
 
+	public GameObject GetCitizenCamerapoint(GameObject _currentCamPoint)
+	{
+		return cameraPoints.Find (cp => cp != _currentCamPoint);
+	}
+
 	private void OnDrawGizmos()
 	{
 		if (cameraPoints.Count < 2)
