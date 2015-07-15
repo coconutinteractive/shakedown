@@ -44,7 +44,7 @@ public class Manager_AI : MonoBehaviour
 
 	public void MoveToPoliceStation(GameObject _objectToMove)
 	{
-		GameObject targetPoliceStation = policeStationsList [Random.Range (0, policeStationsList.Count)];
+		GameObject targetPoliceStation = policeStationsList [UnityEngine.Random.Range (0, policeStationsList.Count)];
 		_objectToMove.transform.position = targetPoliceStation.transform.position + targetPoliceStation.transform.forward * 3.0f - targetPoliceStation.transform.up * 0.6f;
 		//_objectToMove.transform.eulerAngles = targetPoliceStation.GetComponent<HouseTrigger> ().cameraPoint.transform.eulerAngles;
 		_objectToMove.GetComponent<AIPoliceman> ().Initialize (targetPoliceStation.GetComponent<HouseTrigger> ().cameraPoint, targetPoliceStation);

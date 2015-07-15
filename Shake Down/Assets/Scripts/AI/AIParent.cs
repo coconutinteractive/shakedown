@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class AIParent : MonoBehaviour 
 {
@@ -18,18 +20,35 @@ public class AIParent : MonoBehaviour
 	protected float currentTimeToDespawn = 0.0f;
 	protected int currentShoppingAmount = 0;
 
+	protected List<GameObject> visibleObjects = new List<GameObject>();
+	[SerializeField] protected LayerMask visionMask;
+
 	public enum CurrentState
 	{
 		CS_Talking,
 		CS_Shopping,
 		CS_Sleeping,
 		CS_Crossing,
+		CS_WaitingToCross,
 		CS_Interrogating,
+		CS_Apprehending,
 
 		CS_Walking
 	}
 
 	[SerializeField] protected CurrentState currentState = CurrentState.CS_Sleeping;
+
+	protected CrossWalk currentCrossWalk = null;
+
+	virtual protected void Start()
+	{
+		InvokeRepeating ("UpdateVisibleObjects", 0.15f, UnityEngine.Random.Range (0.15f, 0.25f));
+	}
+
+	virtual protected void UpdateVisibleObjects()
+	{
+
+	}
 
 	virtual public void Initialize(GameObject _newCamPoint, GameObject _triggerObj)
 	{
@@ -66,7 +85,7 @@ public class AIParent : MonoBehaviour
 		}
 		if(c.CompareTag("Door Trigger"))
 		{
-			//random chance to enter shop
+			//UnityEngine.Random chance to enter shop
 			if(currentState != CurrentState.CS_Walking)
 				return;
 
@@ -75,7 +94,7 @@ public class AIParent : MonoBehaviour
 				return;
 			}
 
-			if(Random.Range(0, 101) < shoppingChance)
+			if(UnityEngine.Random.Range(0, 101) < shoppingChance)
 			{
 				//enter Shop
 				currentState = CurrentState.CS_Shopping;
@@ -86,17 +105,29 @@ public class AIParent : MonoBehaviour
 		if(c.CompareTag("Cross Street Trigger"))
 		{
 			if(isCrossing)
-				Invoke("StopCrossing", Random.Range (0.35f, 0.55f));
+				Invoke("StopCrossing", UnityEngine.Random.Range (0.35f, 0.55f));
 
-			//random chance to cross street
+			//UnityEngine.Random chance to cross street
 			if(currentState != CurrentState.CS_Walking)
 				return;
 
 
-			if(Random.Range (0,101) < triggerRefusalChance)
+			if(UnityEngine.Random.Range (0,101) < triggerRefusalChance)
 			{
-				isCrossing = true;
-				StartCoroutine(CrossStreet(c.gameObject));
+				currentCrossWalk = c.gameObject.GetComponent<CrossWalk>();
+
+				if(currentCrossWalk.currentCWState == CrossWalk.CrosswalkState.CWS_Green)
+				{
+					isCrossing = true;
+					StartCoroutine(CrossStreet(c.gameObject));
+				}
+				else
+				{
+					if(!IsInvoking("WaitForGreenLight"))
+					{
+						InvokeRepeating("WaitForGreenLight", UnityEngine.Random.Range(0.35f, 0.55f), UnityEngine.Random.Range(0.5f, 1.0f));
+					}
+				}
 			}
 		}
 		if(c.CompareTag("House Trigger"))
@@ -114,7 +145,7 @@ public class AIParent : MonoBehaviour
 
 		if(c.CompareTag("Citizen"))
 		{
-			if(Random.Range(0, 101) < talkingChance && currentState == CurrentState.CS_Walking && timeToDespawn >  0.0f)
+			if(UnityEngine.Random.Range(0, 101) < talkingChance && currentState == CurrentState.CS_Walking && timeToDespawn >  0.0f)
 			{
 				if(c.GetComponent<AIParent>().StartTalking())
 				{
@@ -137,7 +168,7 @@ public class AIParent : MonoBehaviour
 
 	private IEnumerator CrossStreet(GameObject _crossingTrigger)
 	{
-		yield return new WaitForSeconds (Random.Range(0.35f, 0.55f));
+		yield return new WaitForSeconds (UnityEngine.Random.Range(0.35f, 0.55f));
 
 		currentState = CurrentState.CS_Crossing;
 
@@ -161,7 +192,7 @@ public class AIParent : MonoBehaviour
 
 	virtual protected IEnumerator TurnCorner()
 	{
-		yield return new WaitForSeconds (Random.Range (0.125f, 0.25f));
+		yield return new WaitForSeconds (UnityEngine.Random.Range (0.125f, 0.25f));
 
 		Vector3 targetEuler = currentCamPoint.transform.eulerAngles;
 		targetEuler.x = transform.eulerAngles.x;
@@ -193,7 +224,7 @@ public class AIParent : MonoBehaviour
 
 	virtual protected int RandomDirection()
 	{
-		if (Random.Range (1, 3) == 1)
+		if (UnityEngine.Random.Range (1, 3) == 1)
 			return 1;
 
 		return -1;
@@ -202,6 +233,18 @@ public class AIParent : MonoBehaviour
 	virtual protected void StopCrossing()
 	{
 		isCrossing = false;
+	}
+
+	virtual protected void WaitForGreenLight()
+	{
+		currentState = CurrentState.CS_WaitingToCross;
+		
+		if(currentCrossWalk.currentCWState == CrossWalk.CrosswalkState.CWS_Green && currentState == CurrentState.CS_WaitingToCross)
+		{
+			isCrossing = true;
+			StartCoroutine(CrossStreet(currentCrossWalk.gameObject));
+			CancelInvoke("WaitForGreenLight");
+		}
 	}
 
 	virtual protected void ResetDayTimers()

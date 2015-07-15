@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\MiniMap\UICamera.cs" />
      <Compile Include="Assets\Scripts\MiniMap\UI_DisplayText.cs" />
      <Compile Include="Assets\Scripts\MiniMap\WaypointComponent.cs" />
+     <Compile Include="Assets\Scripts\Misc\CrossWalk.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CornerTrigger.cs" />

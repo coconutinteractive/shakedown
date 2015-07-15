@@ -16,7 +16,7 @@ public class AIInformant : AIParent
 		
 		if (!_isHome) 
 		{
-			yield return new WaitForSeconds (shoppingTime + Random.Range (-shoppingTime * 0.5f, shoppingTime * 0.5f));
+			yield return new WaitForSeconds (shoppingTime + UnityEngine.Random.Range (-shoppingTime * 0.5f, shoppingTime * 0.5f));
 		}
 		else
 		{

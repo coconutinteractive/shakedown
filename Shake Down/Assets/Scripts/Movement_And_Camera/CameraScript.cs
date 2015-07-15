@@ -28,10 +28,10 @@ public class CameraScript : MonoBehaviour
 			transform.position = Vector3.Lerp (transform.position, targetObj.transform.position, Time.deltaTime * moveSpeed * 2.0f);
 			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetObj.transform.eulerAngles, Time.deltaTime * moveSpeed * 3.0f);
 
-			if(Vector3.Distance(transform.position, targetObj.transform.position) < 0.25f)
+			if(Vector3.Distance(transform.position, targetObj.transform.position) < 0.05f)
 			{
 				//transform.position = targetObj.transform.position;
-				//transform.eulerAngles = targetObj.transform.eulerAngles;
+				transform.eulerAngles = targetObj.transform.eulerAngles;
 				targetObj = playerObj;
 			}
 		}

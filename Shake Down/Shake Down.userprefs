@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AIInformant.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AIPoliceman.cs">
     <Files>
-      <File FileName="Assets\Scripts\AI\AIInformant.cs" Line="6" Column="45" />
-      <File FileName="Assets\Scripts\AI\AIParent.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Managers\Manager_AI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\HouseTrigger.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\AIPoliceman.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AI\AICitizen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs" Line="110" Column="1" />
+      <File FileName="Assets\Scripts\AI\AIParent.cs" Line="188" Column="42" />
+      <File FileName="..\..\..\..\..\Desktop\scripts\Triggers.cs" Line="21" Column="33" />
+      <File FileName="Assets\Scripts\AI\AIPoliceman.cs" Line="17" Column="1" />
+      <File FileName="..\..\..\..\..\Desktop\scripts\Doors.cs" Line="55" Column="27" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\CameraScript.cs" Line="31" Column="79" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,8 +15,10 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
               <Node name="AI" expanded="True">
-                <Node name="AIInformant.cs" selected="True" />
+                <Node name="AIPoliceman.cs" selected="True" />
               </Node>
+              <Node name="Misc" expanded="True" />
+              <Node name="Movement_And_Camera" expanded="True" />
             </Node>
           </Node>
         </State>

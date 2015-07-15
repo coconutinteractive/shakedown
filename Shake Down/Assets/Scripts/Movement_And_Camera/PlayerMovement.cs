@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
 
 public class PlayerMovement : MonoBehaviour 
 {
-	private bool canMove = true;
+	public static event Action onJayWalking;
 
+	private bool canMove = true;
 	public enum PossibleAction
 	{
 		Action_EnterShop,
@@ -24,14 +27,14 @@ public class PlayerMovement : MonoBehaviour
 		public AvailableAction (PossibleAction _action, KeyCode _newActionKey)
 		{
 			this._action = _action;
-			this._ID = Random.Range(0, 10000);
+			this._ID = UnityEngine.Random.Range(0, 10000);
 			this._actionKey = _newActionKey;
 		}
 
 		public AvailableAction (PossibleAction _action, KeyCode _newActionKey, GameObject _triggerObj)
 		{
 			this._action = _action;
-			this._ID = Random.Range(0, 10000);
+			this._ID = UnityEngine.Random.Range(0, 10000);
 			this._actionKey = _newActionKey;
 			this.triggerObj = _triggerObj;
 		}
@@ -45,10 +48,10 @@ public class PlayerMovement : MonoBehaviour
 	private List<AvailableAction> currentAvailableActions = new List<AvailableAction>();
 
 	[SerializeField] private float moveSpeed = 0.0f;
-	[SerializeField] private float turnTime = 0.0f;
 	private Rigidbody myRigidbody = null;
 	private Camera myCamera = null;
-
+	private CrossWalk currentCrosswalk = null;
+	private bool isBeingApprehended = false;
 
 	private void Start()
 	{
@@ -102,6 +105,12 @@ public class PlayerMovement : MonoBehaviour
 			{
 				if(canMove)
 				{
+					if(currentCrosswalk.currentCWState == CrossWalk.CrosswalkState.CWS_Red)
+					{
+						if(onJayWalking != null)
+							onJayWalking();
+					}
+
 					canMove = false;
 					StartCoroutine (CrossStreet(_currentAction));
 				}
@@ -165,14 +174,37 @@ public class PlayerMovement : MonoBehaviour
 		
 		Vector3 targetVec = _currentAction.triggerObj.transform.position + _currentAction.triggerObj.transform.forward * _currentAction.triggerObj.GetComponent<CornerTrigger>().distanceToCross;
 		targetVec.y = transform.position.y;
-
+		
 		while(Vector3.Distance(transform.position, targetVec) > 0.5f)
 		{
 			transform.position = Vector3.Lerp(transform.position, targetVec, Time.deltaTime * moveSpeed * 0.5f);
+			if(isBeingApprehended)
+			{
+				yield return new WaitForSeconds(0.25f);
+				break;
+			}
 			yield return null;
 		}
 
+		if(isBeingApprehended)
+		{
+			newCamPoint =  _currentAction.triggerObj.GetComponent<CornerTrigger> ().SwitchCameraPoint ();
+			myCamera.gameObject.GetComponent<CameraScript> ().MoveTransition (newCamPoint);
+			transform.eulerAngles = new Vector3 (transform.eulerAngles.x, newCamPoint.transform.eulerAngles.y, newCamPoint.transform.eulerAngles.z);
+			targetVec = _currentAction.triggerObj.transform.position;
+			targetVec.y = transform.position.y;
+			while(Vector3.Distance(transform.position, targetVec) > 0.5f)
+			{
+				transform.position = Vector3.Lerp(transform.position, targetVec, Time.deltaTime * moveSpeed * 0.5f);
+				yield return null;
+			}
+
+			yield return new WaitForSeconds(7.5f);
+			isBeingApprehended = false;
+		}
+		
 		canMove = true;
+		yield return null;
 	}
 
 	private void Talk()
@@ -199,6 +231,7 @@ public class PlayerMovement : MonoBehaviour
 		if(c.CompareTag("Cross Street Trigger"))
 		{
 			currentAvailableActions.Add(new AvailableAction(PossibleAction.Action_CrossStreet, KeyCode.S, c.gameObject));
+			currentCrosswalk = c.gameObject.GetComponent<CrossWalk>();
 		}
 		if(c.CompareTag("Talk Trigger"))
 		{
@@ -224,5 +257,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			currentAvailableActions.Remove(currentAvailableActions.Find(aa => aa._action == PossibleAction.Action_Talk));
 		}
+	}
+
+	public void Apprehend()
+	{
+		isBeingApprehended = true;
 	}
 }
