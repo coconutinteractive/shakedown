@@ -21,7 +21,8 @@ public class RoadEndTrigger : MonoBehaviour
 		spawnRot.x = 0.0f;
 		spawnRot.z = 0.0f;
 		_carToSpawn.transform.rotation = spawnRot;
-		_carToSpawn.GetComponent<AICarParent> ().currentCamPoint = camPoint;
 		_carToSpawn.SetActive (true);
+		_carToSpawn.GetComponent<AICarParent> ().enabled = true;
+		_carToSpawn.GetComponent<AICarParent> ().currentCamPoint = camPoint;
 	}
 }

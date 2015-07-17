@@ -74,6 +74,7 @@ public class Manager_AI : MonoBehaviour
 	public void MoveToCarObjectPool(GameObject _carToMove)
 	{
 		_carToMove.SetActive (false);
+		_carToMove.GetComponent<AICarParent> ().enabled = false;
 		_carToMove.transform.position -= Vector3.up * 100.0f;
 		currentSpawnedCars.Remove (_carToMove);
 		carObjectsPool.Add (_carToMove);

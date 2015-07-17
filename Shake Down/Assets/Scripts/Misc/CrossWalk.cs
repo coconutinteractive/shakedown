@@ -18,6 +18,8 @@ public class CrossWalk : MonoBehaviour
 	[SerializeField] private CrosswalkState _currentCWState = CrosswalkState.CWS_Green;
 	public CrosswalkState currentCWState{get{return _currentCWState;}}
 
+	[SerializeField] private CrosswalkTrigger myCrossWalkTrigger = null;
+
 	private void Start()
 	{
 		curTimeToGreen = timeToGreen;
@@ -37,6 +39,8 @@ public class CrossWalk : MonoBehaviour
 			redLightObj.SetActive(true);
 		}
 
+		myCrossWalkTrigger = transform.GetChild (0).gameObject.GetComponent<CrosswalkTrigger> ();
+		myCrossWalkTrigger.UpdateState(currentCWState);
 		StartCoroutine (ChangeState ());
 	}
 
@@ -53,6 +57,7 @@ public class CrossWalk : MonoBehaviour
 					curTimeToRed = timeToRed;
 					greenLightObj.SetActive(false);
 					orangeLightObj.SetActive(true);
+					myCrossWalkTrigger.UpdateState(currentCWState);
 					break;
 				}
 				yield return null;
@@ -67,6 +72,7 @@ public class CrossWalk : MonoBehaviour
 					curTimeToGreen = timeToGreen;
 					orangeLightObj.SetActive(false);
 					redLightObj.SetActive(true);
+					myCrossWalkTrigger.UpdateState(currentCWState);
 					break;
 				}
 				yield return null;
@@ -81,6 +87,7 @@ public class CrossWalk : MonoBehaviour
 					curTimeToOrange = timeToOrange;
 					redLightObj.SetActive(false);
 					greenLightObj.SetActive(true);
+					myCrossWalkTrigger.UpdateState(currentCWState);
 					break;
 				}
 				yield return null;

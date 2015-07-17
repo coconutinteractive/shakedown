@@ -46,13 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RoadEndTrigger.cs" />
      <Compile Include="Assets\Scripts\AI\AICarParent.cs" />
      <Compile Include="Assets\Scripts\AI\AICitizen.cs" />
      <Compile Include="Assets\Scripts\AI\AIInformant.cs" />
      <Compile Include="Assets\Scripts\AI\AIParent.cs" />
      <Compile Include="Assets\Scripts\AI\AIPoliceman.cs" />
+     <Compile Include="Assets\Scripts\AI\CrosswalkTrigger.cs" />
      <Compile Include="Assets\Scripts\AI\HouseTrigger.cs" />
+     <Compile Include="Assets\Scripts\AI\RoadEndTrigger.cs" />
      <Compile Include="Assets\Scripts\AI\StreetCornerTrigger.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_AI.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_MouseInput.cs" />
