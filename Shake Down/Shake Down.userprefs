@@ -1,13 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AIPoliceman.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\AICarParent.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs" Line="110" Column="1" />
-      <File FileName="Assets\Scripts\AI\AIParent.cs" Line="188" Column="42" />
-      <File FileName="..\..\..\..\..\Desktop\scripts\Triggers.cs" Line="21" Column="33" />
-      <File FileName="Assets\Scripts\AI\AIPoliceman.cs" Line="17" Column="1" />
-      <File FileName="..\..\..\..\..\Desktop\scripts\Doors.cs" Line="55" Column="27" />
-      <File FileName="Assets\Scripts\Movement_And_Camera\CameraScript.cs" Line="31" Column="79" />
+      <File FileName="Assets\Scripts\AI\AICarParent.cs" Line="41" Column="84" />
+      <File FileName="Assets\Scripts\AI\AIParent.cs" Line="56" Column="3" />
+      <File FileName="Assets\Scripts\AI\StreetCornerTrigger.cs" Line="24" Column="3" />
+      <File FileName="Assets\RoadEndTrigger.cs" Line="24" Column="71" />
+      <File FileName="Assets\Scripts\Managers\Manager_AI.cs" Line="77" Column="56" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +14,9 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
               <Node name="AI" expanded="True">
-                <Node name="AIPoliceman.cs" selected="True" />
+                <Node name="AICarParent.cs" selected="True" />
               </Node>
-              <Node name="Misc" expanded="True" />
-              <Node name="Movement_And_Camera" expanded="True" />
+              <Node name="Managers" expanded="True" />
             </Node>
           </Node>
         </State>
