@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+[System.Serializable]
 public class AIParent : MonoBehaviour 
 {
+	[SerializeField] protected string name = "";
 	[SerializeField] protected float timeToDespawn = 0.0f;
 	[SerializeField] protected float moveSpeed = 0.0f;
 	[SerializeField] protected float triggerRefusalChance = 0.0f;

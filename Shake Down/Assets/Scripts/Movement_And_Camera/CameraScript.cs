@@ -6,6 +6,7 @@ public class CameraScript : MonoBehaviour
 	private GameObject targetObj = null;
 	private GameObject playerObj = null;
 	[SerializeField] private GameObject currentCameraPoint = null;
+	public GameObject curCamPoint{get{return currentCameraPoint;}}
 	[SerializeField] private float moveSpeed = 0.0f;
 	[SerializeField] private Vector3 cameraOffset = Vector3.zero;
 	private Quaternion myRotation;

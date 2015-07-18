@@ -76,6 +76,9 @@
      <Compile Include="Assets\Scripts\Resources\Resources_Officer.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources_Player.cs" />
      <Compile Include="Assets\Scripts\Resources\Resources_Shopkeeper.cs" />
+     <Compile Include="Assets\Scripts\Saving_Loading\BinarySerialization.cs" />
+     <Compile Include="Assets\Scripts\Saving_Loading\MySerializables.cs" />
+     <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
      <Compile Include="Assets\Scripts\Scenarios\Scenario_01.cs" />
      <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
  <Reference Include="UnityEngine.UI">

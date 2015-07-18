@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class AICitizen : AIParent 
 {
 	protected override IEnumerator EnterBuilding (Collider _trigger, bool _isHome)

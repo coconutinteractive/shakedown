@@ -6,6 +6,19 @@ public class CameraPoint : MonoBehaviour
 	[SerializeField] private bool _isActive = false;
 	public bool isActive {get{return _isActive;} set{_isActive = value;}}
 
+	private int _localID = 0;
+	public int localID{get{return _localID;}}
+	public static int currentID = 1;
+
+	private void Start()
+	{
+		if(_localID == 0)
+		{
+			_localID = currentID;
+			++currentID;
+		}
+	}
+
 	private void OnDrawGizmos()
 	{
 		if(isActive)

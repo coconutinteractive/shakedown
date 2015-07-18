@@ -90,7 +90,6 @@ public class Manager_MouseInput : MonoBehaviour
 				}
 			}
 		}
-
 	}
 
 	private void ClearText(RaycastHit[] _newHits)

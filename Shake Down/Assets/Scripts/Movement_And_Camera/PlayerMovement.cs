@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-
 public class PlayerMovement : MonoBehaviour 
 {
 	public static event Action onJayWalking;
 
+	[SerializeField] private string playerName = "Bacon";
+
 	private bool canMove = true;
+	[System.Serializable]
 	public enum PossibleAction
 	{
 		Action_EnterShop,
@@ -55,9 +57,14 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
+		SavingKeysContainer.OnSaveGame += HandleOnSaveGame;
+		SavingKeysContainer.OnLoadGame += HandleOnLoadGame;
 		myRigidbody = GetComponent<Rigidbody> ();
 		myCamera = Camera.main;
 	}
+
+
+
 
 	private void OnGUI()
 	{
@@ -69,6 +76,20 @@ public class PlayerMovement : MonoBehaviour
 				Execute(currentAction);
 			}
 		}
+
+		if (Input.GetKeyDown (KeyCode.Keypad1))
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_1.saveID);
+		if (Input.GetKeyDown (KeyCode.Keypad2))
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_2.saveID);
+		if (Input.GetKeyDown (KeyCode.Keypad3))
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_3.saveID);
+
+		if(Input.GetKeyDown(KeyCode.Keypad7))
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_1.saveID);
+		if(Input.GetKeyDown(KeyCode.Keypad8))
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_2.saveID);
+		if(Input.GetKeyDown(KeyCode.Keypad9))
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_3.saveID);
 	}
 
 	private void FixedUpdate()
@@ -209,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Talk()
 	{
-		
+			
 	}
 
 	private void OnTriggerEnter(Collider c)
@@ -262,5 +283,25 @@ public class PlayerMovement : MonoBehaviour
 	public void Apprehend()
 	{
 		isBeingApprehended = true;
+	}
+	private void HandleOnSaveGame (string _ID)
+	{
+		BinarySerialization.SaveToPlayerPrefs(_ID + SavingKeysContainer.PLAYER_POSITION, new MySerializables.V3(transform.position));
+		BinarySerialization.SaveToPlayerPrefs(_ID + SavingKeysContainer.PLAYER_ROTATION, new MySerializables.Quat(transform.rotation));
+		BinarySerialization.SaveToPlayerPrefs(_ID + SavingKeysContainer.PLAYER_NAME, playerName);
+		BinarySerialization.SaveToPlayerPrefs(_ID + SavingKeysContainer.PLAYER_CANMOVE, canMove);
+		BinarySerialization.SaveToPlayerPrefs(_ID + SavingKeysContainer.PLAYER_CAMERA_CAMPOINT, myCamera.GetComponent<CameraScript>().curCamPoint.GetComponent<CameraPoint>().localID);
+	}
+	
+	private void HandleOnLoadGame (string _ID)
+	{
+		transform.position = ((MySerializables.V3)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_POSITION))._vector;
+		transform.rotation = ((MySerializables.Quat)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_ROTATION))._quaternion;
+		playerName = (string)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_NAME);
+		canMove = (bool)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_CANMOVE);
+		
+		GameObject savedCamPoint = Manager_AI.Instance.GetSavedCamPoint((int)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_CAMERA_CAMPOINT));
+		myCamera.GetComponent<CameraScript>().MoveTransition(savedCamPoint);
+		savedCamPoint.GetComponent<CameraPoint>().isActive = true;
 	}
 }

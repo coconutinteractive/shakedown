@@ -32,10 +32,17 @@ public class Manager_AI : MonoBehaviour
 	private List<GameObject> currentSpawnedCars = new List<GameObject>();
 	[SerializeField] private List<GameObject> carObjectsPool = new List<GameObject>();
 
+	#region ALL CAM POINTS
+	[SerializeField] private List<GameObject> allCamPoints = new List<GameObject> ();
+
+	#endregion
+
 	static private float CAR_SPAWN_DELAY = 5.0f;
 
 	private void Start()
 	{
+		SavingKeysContainer.InitializeSavedGames ();
+
 		foreach (GameObject curHouse in housesList)
 		{
 			GameObject newCitizen = GameObject.Instantiate(citizenPrefab, curHouse.transform.position + curHouse.transform.forward * 3.0f - curHouse.transform.up * 0.6f, curHouse.transform.rotation) as GameObject;
@@ -86,6 +93,17 @@ public class Manager_AI : MonoBehaviour
 		carSpawnersList [UnityEngine.Random.Range (0, carSpawnersList.Count)].GetComponent<RoadEndTrigger>().SpawnCar (newCar);
 		carObjectsPool.Remove (newCar);
 		currentSpawnedCars.Add (newCar);
+	}
+
+	public GameObject GetSavedCamPoint(int _savedID)
+	{
+		foreach (GameObject curCP in allCamPoints) 
+		{
+			CameraPoint cpRef = curCP.GetComponent<CameraPoint>();
+			if(cpRef.isActive)
+				cpRef.isActive = false;
+		}
+		return allCamPoints.Find (camPoint => camPoint.GetComponent<CameraPoint> ().localID == _savedID);
 	}
 
 }
