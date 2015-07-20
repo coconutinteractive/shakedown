@@ -9,6 +9,20 @@ public class SavingKeysContainer
 	public static event Action<string> OnSaveGame;
 	public static event Action<string> OnLoadGame;
 
+	#region Game Save Data
+	public static bool SAVE1_ISTAKEN = false;
+	public static bool SAVE2_ISTAKEN = false;
+	public static bool SAVE3_ISTAKEN = false;
+
+	public static string SAVE1_ID = "1_";
+	public static string SAVE2_ID = "2_";
+	public static string SAVE3_ID = "3_";
+
+	public static string TIME_STAMP = "TIME_STAMP";
+	public static string TIME_ELAPSED = "TIME_ELAPSED";
+	
+	#endregion
+
 	#region Player Data
 	public static string PLAYER_POSITION = "PLAYER_POSITION";
 	public static string PLAYER_ROTATION = "PLAYER_ROTATION";
@@ -21,27 +35,36 @@ public class SavingKeysContainer
 	public static string BASE_CITIZEN = "CITIZEN_"; // Use this + the citizen's name to save their state to Player Prefs.
 #endregion
 
-	[System.Serializable]
-	public struct GameSave
-	{
-		public string saveID;
-	}
-
-	public static GameSave SAVED_GAME_1, SAVED_GAME_2, SAVED_GAME_3;
-
 	public static void InitializeSavedGames()
 	{
-		SAVED_GAME_1.saveID = "1_";
-		SAVED_GAME_2.saveID = "2_";
-		SAVED_GAME_3.saveID = "3_";
+
 	}
 
 	public static void SaveEvent(string _ID)
 	{
 		OnSaveGame (_ID);
+		BinarySerialization.SaveToPlayerPrefs(_ID, true);	
+
+		if(BinarySerialization.LoadFromPlayerPrefs (_ID + TIME_ELAPSED) == null)
+			BinarySerialization.SaveToPlayerPrefs (_ID + TIME_ELAPSED, PlayerMovement.elapsedTime);
+		else
+			BinarySerialization.SaveToPlayerPrefs (_ID + TIME_ELAPSED, (float)BinarySerialization.LoadFromPlayerPrefs (_ID + TIME_ELAPSED) + PlayerMovement.elapsedTime);
 	}
 	public static void LoadEvent(string _ID)
 	{
 		OnLoadGame (_ID);
+	}
+	public static void DeleteSave(string _ID)
+	{
+		PlayerPrefs.DeleteKey(_ID + PLAYER_POSITION);
+		PlayerPrefs.DeleteKey(_ID + PLAYER_ROTATION);
+		PlayerPrefs.DeleteKey(_ID + PLAYER_NAME);
+		PlayerPrefs.DeleteKey(_ID + PLAYER_CANMOVE);
+		PlayerPrefs.DeleteKey(_ID + PLAYER_CAMERA_CAMPOINT);
+		PlayerPrefs.DeleteKey(_ID + TIME_STAMP);
+		PlayerPrefs.DeleteKey(_ID + TIME_ELAPSED);
+		
+
+		BinarySerialization.SaveToPlayerPrefs(_ID, false);
 	}
 }

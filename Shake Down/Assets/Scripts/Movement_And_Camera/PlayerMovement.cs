@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 	private Camera myCamera = null;
 	private CrossWalk currentCrosswalk = null;
 	private bool isBeingApprehended = false;
+	public static float elapsedTime = 0.0f;
 
 	private void Start()
 	{
@@ -62,9 +63,6 @@ public class PlayerMovement : MonoBehaviour
 		myRigidbody = GetComponent<Rigidbody> ();
 		myCamera = Camera.main;
 	}
-
-
-
 
 	private void OnGUI()
 	{
@@ -77,19 +75,29 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyDown (KeyCode.Keypad1))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_1.saveID);
+		/*if (Input.GetKeyDown (KeyCode.Keypad1))
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE1_ID);
 		if (Input.GetKeyDown (KeyCode.Keypad2))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_2.saveID);
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE2_ID);
 		if (Input.GetKeyDown (KeyCode.Keypad3))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVED_GAME_3.saveID);
+			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE3_ID);
 
 		if(Input.GetKeyDown(KeyCode.Keypad7))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_1.saveID);
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE1_ID);
 		if(Input.GetKeyDown(KeyCode.Keypad8))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_2.saveID);
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE2_ID);
 		if(Input.GetKeyDown(KeyCode.Keypad9))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVED_GAME_3.saveID);
+			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE3_ID);*/
+	}
+
+	private void Update()
+	{
+		elapsedTime += Time.deltaTime;
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			SavingKeysContainer.SaveEvent (Manager_SaveLoad.Instance.loadNewGame.ToString() + "_");
+			Manager_SaveLoad.Instance.displaySaveUI = !Manager_SaveLoad.Instance.displaySaveUI;
+		}
 	}
 
 	private void FixedUpdate()

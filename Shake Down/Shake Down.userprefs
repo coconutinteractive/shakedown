@@ -1,25 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\Manager_SaveLoad.cs">
     <Files>
-      <File FileName="Assets\Scripts\Saving_Loading\BinarySerialization.cs" Line="22" Column="35" />
-      <File FileName="Assets\Scripts\Saving_Loading\MySerializables.cs" Line="48" Column="1" />
-      <File FileName="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" Line="18" Column="11" />
-      <File FileName="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs" Line="92" Column="33" />
-      <File FileName="Assets\Scripts\Movement_And_Camera\CameraScript.cs" Line="30" Column="49" />
-      <File FileName="Assets\Scripts\Managers\Manager_AI.cs" Line="44" Column="39" />
-      <File FileName="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" Line="10" Column="41" />
+      <File FileName="Assets\Scripts\Managers\Manager_SaveLoad.cs" Line="42" Column="22" />
+      <File FileName="Assets\Scripts\Saving_Loading\BinarySerialization.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Saving_Loading\MySerializables.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" Line="51" Column="88" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\Manager_AI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="Managers" expanded="True" />
-              <Node name="Movement_And_Camera" expanded="True">
-                <Node name="PlayerMovement.cs" selected="True" />
+              <Node name="Managers" expanded="True">
+                <Node name="Manager_SaveLoad.cs" selected="True" />
               </Node>
-              <Node name="Saving_Loading" expanded="True" />
+              <Node name="Utils" expanded="True" />
             </Node>
           </Node>
         </State>
