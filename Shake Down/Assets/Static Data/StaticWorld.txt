@@ -1,0 +1,64 @@
+{
+    "Buildings": {
+        "wd_buildings_jewelry": {
+            "id": "wd_buildings_jewelry",
+            "refid": "building_jewelry",
+            "displayname": "ld_buildings_jewelry"
+        },
+        "wd_buildings_clothes": {
+            "id": "wd_buildings_clothes",
+            "refid": "building_clothes",
+            "displayname": "ld_buildings_clothes"
+        },
+        "wd_buildings_gym": {
+            "id": "wd_buildings_gym",
+            "refid": "building_gym",
+            "displayname": "ld_buildings_gymnasium"
+        },
+        "wd_buildings_restaurant": {
+            "id": "wd_buildings_restaurant",
+            "refid": "building_restaurant",
+            "displayname": "ld_buildings_restaurant"
+        },
+        "wd_buildings_butcher": {
+            "id": "wd_buildings_butcher",
+            "refid": "building_butcher",
+            "displayname": "ld_buildings_butcher"
+        },
+        "wd_buildings_safehouse": {
+            "id": "wd_buildings_safehouse",
+            "refid": "building_safehouse",
+            "displayname": "ld_buildings_safehouse"
+        },
+        "wd_buildings_bar": {
+            "id": "wd_buildings_bar",
+            "refid": "building_bar",
+            "displayname": "ld_buildings_bar"
+        },
+        "wd_buildings_police": {
+            "id": "wd_buildings_police",
+            "refid": "building_police",
+            "displayname": "ld_buildings_police"
+        },
+        "wd_buildings_liquor": {
+            "id": "wd_buildings_liquor",
+            "refid": "building_liquor",
+            "displayname": "ld_buildings_liquor"
+        },
+        "wd_buildings_tobacco": {
+            "id": "wd_buildings_tobacco",
+            "refid": "building_tobacco",
+            "displayname": "ld_buildings_tobaccoist"
+        },
+        "wd_buildings_grocery": {
+            "id": "wd_buildings_grocery",
+            "refid": "building_grocery",
+            "displayname": "ld_buildings_grocery"
+        },
+        "wd_buildings_strip_club": {
+            "id": "wd_buildings_strip_club",
+            "refid": "building_strip_club",
+            "displayname": "ld_buildings_strip_club"
+        }
+    }
+}
