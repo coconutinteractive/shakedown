@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Resources_Officer : Resources_Master
 {
-	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity) : base (newID)
+
+	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingintegrity, string gender, string buildingID, string profileImageID = "DefaultFace") : base (newID, gender, buildingID, profileImageID)
 	{
 		_strength = startingStrength;
 		_greed = startingGreed;
-		_integrity = startingIntegrity;
+		_integrity = startingintegrity;
 		Manager_Resources.NewOfficer (this);
 	}
 
@@ -28,12 +30,12 @@ public class Resources_Officer : Resources_Master
 		_greed = (int)Mathf.Clamp (_greed + value, 0, maxGreed);
 	}
 
-	// Integrity
-	private const uint maxIntegrity = 100;
+	// integrity
+	private const uint maxintegrity = 100;
 	[SerializeField] private int _integrity;
 	public int integrity { get { return _integrity; } }
-	public void AugmentIntegrity (int value)
+	public void Augmentintegrity (int value)
 	{
-		_integrity = (int)Mathf.Clamp (_integrity + value, 0, maxIntegrity);
+		_integrity = (int)Mathf.Clamp (_integrity + value, 0, maxintegrity);
 	}
 }
