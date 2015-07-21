@@ -63,7 +63,7 @@ public class Manager_GameTime : MonoBehaviour
 		GUI.Box(new Rect(35.0f, 35.0f, 100.0f, 25.0f), timeInHours[0].ToString() + "h:" + timeInHours[1].ToString() + "m:" + timeInHours[2].ToString() + "s");
 		if(timeToAdd > 0.0f)
 		{
-			GUI.Label(new Rect(35.0f, 55.0f, 100.0f, 25.0f), timeToAdd)
+			//GUI.Label(new Rect(35.0f, 55.0f, 100.0f, 25.0f), timeToAdd);
 		}
 	}
 
@@ -74,7 +74,7 @@ public class Manager_GameTime : MonoBehaviour
 
 	public void TimeLeap(float _value)
 	{
-		dayTimer += 
+		//dayTimer += 
 	}
 
 	public void TimeLeap(int _hours, int _mins, int _seconds)
