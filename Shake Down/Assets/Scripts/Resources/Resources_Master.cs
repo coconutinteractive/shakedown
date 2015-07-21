@@ -21,7 +21,6 @@ public class Resources_Master
 
 	public Resources_Master(string newID, string gender, string buildingID, string profileImageID = "DefaultFace")
 	{
-		Debug.Log ("Fixin' Stuff!");
 		_gender = gender;
 		_referenceID = newID;
 		_homeID = buildingID;

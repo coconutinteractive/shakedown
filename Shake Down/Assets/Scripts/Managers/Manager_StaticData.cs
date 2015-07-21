@@ -6,7 +6,6 @@ using System.Linq;
 
 public class Manager_StaticData : MonoBehaviour
 {
-	public GameObject temp;
 	public TextAsset worldDataText;
 	public TextAsset dialogueDataText;
 	public TextAsset scenarioDataText;
@@ -70,5 +69,10 @@ public class Manager_StaticData : MonoBehaviour
 			gameObject.transform.FindChild ("DialogueRoot").FindChild("DialoguePanelMain").GetComponent<Dialogue_Script>().ClearDisplay();
 
 		}
+	}
+
+	public string temp ()
+	{
+		return _worldData.str + _dialogueData.str;
 	}
 }
