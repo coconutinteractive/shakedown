@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -84,10 +78,7 @@
     <Compile Include="Assets\Scripts\Managers\Manager_AI.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_GameTime.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_MouseInput.cs" />
-<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Managers\Manager_Resources.cs" />
-=======
->>>>>>> origin/master
     <Compile Include="Assets\Scripts\Managers\Manager_SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_StaticData.cs" />
     <Compile Include="Assets\Scripts\MiniMap\HelpArrow.cs" />
@@ -117,11 +108,7 @@
     <Compile Include="Assets\Scripts\Saving_Loading\BinarySerialization.cs" />
     <Compile Include="Assets\Scripts\Saving_Loading\MySerializables.cs" />
     <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\Scenarios\Scenario_01.cs" />
     <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
-=======
->>>>>>> origin/master
     <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
   </ItemGroup>
   <ItemGroup>

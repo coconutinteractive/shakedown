@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
 Project("{4BF21C51-0FD2-5976-80C0-B36759FB68C6}") = "Shake Down", "Assembly-CSharp.csproj", "{92BCB910-5C25-3B83-257D-9720F986492B}"
-EndProject
-Project("{4BF21C51-0FD2-5976-80C0-B36759FB68C6}") = "Shake Down", "Assembly-CSharp-Editor.csproj", "{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,15 +13,11 @@ Global
 		{92BCB910-5C25-3B83-257D-9720F986492B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BCB910-5C25-3B83-257D-9720F986492B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BCB910-5C25-3B83-257D-9720F986492B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																															GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -42,34 +35,6 @@ Global
 		$3.inheritsSet = Mono
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
-	EndGlobalSection
-
-EndGlobal
-=======
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{4BF21C51-0FD2-5976-80C0-B36759FB68C6}") = "Shake Down", "Assembly-CSharp.csproj", "{92BCB910-5C25-3B83-257D-9720F986492B}"
-EndProject
-Project("{4BF21C51-0FD2-5976-80C0-B36759FB68C6}") = "Shake Down", "Assembly-CSharp-Editor.csproj", "{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{92BCB910-5C25-3B83-257D-9720F986492B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92BCB910-5C25-3B83-257D-9720F986492B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92BCB910-5C25-3B83-257D-9720F986492B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92BCB910-5C25-3B83-257D-9720F986492B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21DA4812-AB2D-E2DE-A926-7806E3DDE9D6}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 																																																																																																													GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
@@ -130,4 +95,3 @@ Global
 	EndGlobalSection
 
 EndGlobal
->>>>>>> Stashed changes

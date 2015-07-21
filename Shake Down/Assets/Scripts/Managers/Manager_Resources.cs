@@ -8,7 +8,7 @@ public class Manager_Resources : MonoBehaviour
 	// Master Dictionary of Resource instances
 	static private Dictionary<string, Resources_Master> referenceIDs = new Dictionary<string, Resources_Master>();
 
-	public void ClearAllResources()
+	public static void ClearAllResources()
 	{
 		referenceIDs = new Dictionary<string, Resources_Master> ();
 		_shopkeepers = new Dictionary<string, Resources_Shopkeeper> ();
@@ -61,16 +61,4 @@ public class Manager_Resources : MonoBehaviour
 		}	return true;
 	}
 
-	private void Update()
-	{
-		if (Input.GetMouseButtonDown (0))
-		{
-			Debug.Log ("Click");
-			Scenario_01 test = new Scenario_01 ();
-			foreach(KeyValuePair<string, Resources_Master> entry in referenceIDs)
-			{
-				Debug.Log (entry);
-			}
-		}
-	}
 }

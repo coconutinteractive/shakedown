@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Resources_Officer : Resources_Master
 {
-	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity) : base (newID)
+	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity, string gender, string buildingID, string profileImageID) : base (newID, gender, buildingID, profileImageID)
 	{
 		Debug.Log ("Fixin' Stuff!");
 		_strength = startingStrength;
