@@ -7,6 +7,7 @@ public class Resources_Player : Resources_Master
 {
 	public Resources_Player (int startingStrength, int startingPresence, int startingOpinion, int startingMoney, string gender, string buildingID, string profileImageID = "DefaultFace") : base ("player", gender, buildingID, profileImageID)
 	{
+		Debug.Log ("Fixin' Stuff!");
 		_strength = startingStrength;
 		_energy = startingStrength;
 		_presence = startingPresence;

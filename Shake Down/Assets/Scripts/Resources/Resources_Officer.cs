@@ -5,6 +5,7 @@ public class Resources_Officer : Resources_Master
 {
 	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity) : base (newID)
 	{
+		Debug.Log ("Fixin' Stuff!");
 		_strength = startingStrength;
 		_greed = startingGreed;
 		_integrity = startingIntegrity;

@@ -6,6 +6,7 @@ public class Resources_Shopkeeper : Resources_Master
 {
 	public Resources_Shopkeeper (string newID, int startingStrength, int startingRespect, int startingFear, int startingMoney, int startingIncome, int startingExpenses, int startingProtectionPayment, string gender, string buildingID, string profileImageID = "DefaultFace") : base (newID, gender, buildingID, profileImageID)
 	{
+		Debug.Log ("Fixin' Stuff!");
 		_strength = startingStrength;
 		_respect = startingRespect;
 		_fear = startingFear;
