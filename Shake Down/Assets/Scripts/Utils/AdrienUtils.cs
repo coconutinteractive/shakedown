@@ -24,4 +24,15 @@ public static class AdrienUtils
 
 		return timeValue;
 	}
+
+	public static float ConvertToSeconds(int _hours, int _minutes, int _seconds)
+	{
+		float valueToReturn = 0.0f;
+
+		valueToReturn += _hours * 3600.0f;
+		valueToReturn += _minutes * 60.0f;
+		valueToReturn += _seconds;
+
+		return valueToReturn;
+	}
 }

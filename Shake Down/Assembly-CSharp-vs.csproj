@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\AI\RoadEndTrigger.cs" />
      <Compile Include="Assets\Scripts\AI\StreetCornerTrigger.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_AI.cs" />
+     <Compile Include="Assets\Scripts\Managers\Manager_GameTime.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_MouseInput.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_Resources.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_SaveLoad.cs" />
