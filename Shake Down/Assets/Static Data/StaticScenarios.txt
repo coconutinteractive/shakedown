@@ -178,40 +178,30 @@
                 "expenses": "35",
                 "protectionpayment": "0",
                 "portrait": "DefaultFace"
-            },
+            }
+        },
+        "officer": {
             "maude": {
                 "id": "maude",
                 "buildingid": "building14",
-                "shoptype": "building_liquor",
                 "gender": "female",
-                "strength": "62",
-                "respect": "0",
-                "fear": "0",
-                "money": "250",
-                "income": "45",
-                "expenses": "35",
-                "protectionpayment": "0",
+                "strength": "45",
+                "greed": "50",
+                "integrity": "50",
                 "portrait": "DefaultFace"
             },
             "natalie": {
                 "id": "natalie",
-                "buildingid": "building15",
-                "shoptype": "building_grocery",
+                "buildingid": "building14",
                 "gender": "female",
-                "strength": "31",
-                "respect": "0",
-                "fear": "0",
-                "money": "250",
-                "income": "45",
-                "expenses": "35",
-                "protectionpayment": "0",
+                "strength": "45",
+                "greed": "50",
+                "integrity": "50",
                 "portrait": "DefaultFace"
-            }
-        },
-        "officer": {
+            },
             "oglivie": {
                 "id": "oglivie",
-                "buildingid": "building16",
+                "buildingid": "building14",
                 "gender": "male",
                 "strength": "45",
                 "greed": "50",
@@ -220,7 +210,7 @@
             },
             "paul": {
                 "id": "paul",
-                "buildingid": "building16",
+                "buildingid": "building14",
                 "gender": "male",
                 "strength": "43",
                 "greed": "1",
@@ -229,7 +219,7 @@
             },
             "quark": {
                 "id": "quark",
-                "buildingid": "building16",
+                "buildingid": "building15",
                 "gender": "male",
                 "strength": "84",
                 "greed": "50",
@@ -238,7 +228,7 @@
             },
             "ralph": {
                 "id": "ralph",
-                "buildingid": "building17",
+                "buildingid": "building15",
                 "gender": "male",
                 "strength": "57",
                 "greed": "80",
@@ -247,7 +237,7 @@
             },
             "stephanie": {
                 "id": "stephanie",
-                "buildingid": "building17",
+                "buildingid": "building15",
                 "gender": "female",
                 "strength": "30",
                 "greed": "60",

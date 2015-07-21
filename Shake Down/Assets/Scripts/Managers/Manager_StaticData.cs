@@ -66,8 +66,7 @@ public class Manager_StaticData : MonoBehaviour
 				profile["portrait"] = "DefaultFace";
 				Scenario_Script.SetupScenarioFromJSON("scenario_01",_scenarioData, profile);
 			}
-			gameObject.transform.FindChild ("DialogueRoot").FindChild("DialoguePanelMain").GetComponent<Dialogue_Script>().ClearDisplay();
-
+			Dialogue_Panel_Script.panelReference.mainDialogueScript.ClearDisplay();
 		}
 	}
 
