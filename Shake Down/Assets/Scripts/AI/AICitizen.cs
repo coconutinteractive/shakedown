@@ -6,6 +6,7 @@ public class AICitizen : AIParent
 {
 	protected override IEnumerator EnterBuilding (Collider _trigger, bool _isHome)
 	{
+		//this is a comment.
 		Vector3 targetVec = _trigger.gameObject.transform.position + _trigger.gameObject.transform.forward * 3.0f;
 		targetVec.y = transform.position.y;
 		

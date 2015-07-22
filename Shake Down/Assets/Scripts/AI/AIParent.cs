@@ -52,6 +52,7 @@ public class AIParent : MonoBehaviour
 
 	}
 
+	//This is also a comment.
 	virtual public void Initialize(GameObject _newCamPoint, GameObject _triggerObj)
 	{
 		currentCamPoint = _newCamPoint;
