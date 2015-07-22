@@ -22,34 +22,34 @@ public class Manager_AI : MonoBehaviour
 	}
 	private static Manager_AI instance;
 	#endregion
-
+	
 	[SerializeField] private int maxAmountOfCitizens = 0;
 	[SerializeField] private List<GameObject> housesList = new List<GameObject> ();
 	[SerializeField] private List<GameObject> citizensObjectPool = new List<GameObject> ();
 	private List<GameObject> currentCitizensList = new List<GameObject> ();
-
+	
 	[SerializeField] private List<GameObject> policeStationsList = new List<GameObject> ();
 	[SerializeField] private GameObject citizenPrefab = null, policemanPrefab = null;
-
+	
 	[SerializeField] private List<GameObject> carSpawnersList = new List<GameObject>();
 	public int maxAmountOfCars = 0;
 	private List<GameObject> currentSpawnedCars = new List<GameObject>();
 	[SerializeField] private List<GameObject> carObjectsPool = new List<GameObject>();
-
+	
 	#region ALL CAM POINTS
 	[SerializeField] private List<GameObject> allCamPoints = new List<GameObject> ();
-
+	
 	#endregion
-
+	
 	static private float CITIZEN_SPAWN_DELAY = 5.0f;
 	static private float POLICEMAN_SPAWN_DELAY = 5.0f;
 	static private float CAR_SPAWN_DELAY = 5.0f;
 	
-
+	
 	private void Start()
 	{
 		Manager_GameTime.OnChangeDayState += HandleOnChangeDayState;;
-
+		
 		/*foreach (GameObject curHouse in housesList)
 		{
 			GameObject newCitizen = GameObject.Instantiate(citizenPrefab, curHouse.transform.position + curHouse.transform.forward * 3.0f - curHouse.transform.up * 0.6f, curHouse.transform.rotation) as GameObject;
@@ -60,14 +60,14 @@ public class Manager_AI : MonoBehaviour
 			GameObject newPoliceman = GameObject.Instantiate(policemanPrefab, curPoliceStation.transform.position + curPoliceStation.transform.forward * 3.0f - curPoliceStation.transform.up * 0.6f, curPoliceStation.transform.rotation) as GameObject;
 			newPoliceman.GetComponent<AIPoliceman>().Initialize(curPoliceStation.GetComponent<HouseTrigger>().cameraPoint, curPoliceStation);
 		}*/
-
+		
 		StartCoroutine (CitizenSpawning());
 		StartCoroutine (PolicemanSpawning());
 		StartCoroutine (CarSpawning());
 	}
-
-
-
+	
+	
+	
 	public void MoveToPoliceStation(GameObject _objectToMove)
 	{
 		GameObject targetPoliceStation = policeStationsList [UnityEngine.Random.Range (0, policeStationsList.Count)];
@@ -75,7 +75,7 @@ public class Manager_AI : MonoBehaviour
 		//_objectToMove.transform.eulerAngles = targetPoliceStation.GetComponent<HouseTrigger> ().cameraPoint.transform.eulerAngles;
 		_objectToMove.GetComponent<AIPoliceman> ().Initialize (targetPoliceStation.GetComponent<HouseTrigger> ().cameraPoint, targetPoliceStation);
 	}
-
+	
 	private IEnumerator CitizenSpawning()
 	{
 		while(true)
@@ -87,7 +87,7 @@ public class Manager_AI : MonoBehaviour
 			yield return new WaitForSeconds(CITIZEN_SPAWN_DELAY / (maxAmountOfCitizens - currentCitizensList.Count + 1.0f));
 		}
 	}
-
+	
 	private IEnumerator PolicemanSpawning()
 	{
 		/*while(true)
@@ -100,7 +100,7 @@ public class Manager_AI : MonoBehaviour
 		}*/
 		yield return null;
 	}
-
+	
 	private IEnumerator CarSpawning()
 	{
 		while(true)
@@ -109,23 +109,23 @@ public class Manager_AI : MonoBehaviour
 			{
 				RandomSpawnCar();
 			}
-
+			
 			float amountToWait = CAR_SPAWN_DELAY / (maxAmountOfCars - currentSpawnedCars.Count + 1.0f);
 			Mathf.Clamp(amountToWait, 1.0f, CAR_SPAWN_DELAY * 2.0f);
-
+			
 			yield return new WaitForSeconds(amountToWait);
 		}
 	}
-
+	
 	public void RandomSpawnCitizen()
 	{
 		GameObject newCitizen = citizensObjectPool [UnityEngine.Random.Range (0, citizensObjectPool.Count)];
 		AICitizen citizenRef = newCitizen.GetComponent<AICitizen> ();
-
+		
 		citizensObjectPool.Remove (newCitizen);
 		currentCitizensList.Add (newCitizen);
 		newCitizen.SetActive (true);
-
+		
 		if(citizenRef.currentHouse == null)
 		{
 			GameObject curHouse = housesList [UnityEngine.Random.Range (0, housesList.Count)];
@@ -135,10 +135,10 @@ public class Manager_AI : MonoBehaviour
 		}
 		else
 			citizenRef.Initialize (citizenRef.currentHouse.GetComponent<HouseTrigger>().cameraPoint, citizenRef.currentHouse);
-
+		
 		citizenRef.enabled = true;
 	}
-
+	
 	public void MoveToCitizenObjectPool(GameObject _citizenToMove)
 	{
 		_citizenToMove.SetActive (false);
@@ -146,7 +146,7 @@ public class Manager_AI : MonoBehaviour
 		currentCitizensList.Remove (_citizenToMove);
 		citizensObjectPool.Add (_citizenToMove);
 	}
-
+	
 	public void RandomSpawnCar()
 	{
 		GameObject newCar = carObjectsPool [UnityEngine.Random.Range (0, carObjectsPool.Count)];
@@ -154,7 +154,7 @@ public class Manager_AI : MonoBehaviour
 		carObjectsPool.Remove (newCar);
 		currentSpawnedCars.Add (newCar);
 	}
-
+	
 	public void MoveToCarObjectPool(GameObject _carToMove)
 	{
 		_carToMove.SetActive (false);
@@ -163,7 +163,7 @@ public class Manager_AI : MonoBehaviour
 		currentSpawnedCars.Remove (_carToMove);
 		carObjectsPool.Add (_carToMove);
 	}
-
+	
 	public GameObject GetSavedCamPoint(int _savedID)
 	{
 		foreach (GameObject curCP in allCamPoints) 
@@ -174,12 +174,12 @@ public class Manager_AI : MonoBehaviour
 		}
 		return allCamPoints.Find (camPoint => camPoint.GetComponent<CameraPoint> ().localID == _savedID);
 	}
-
+	
 	private void HandleOnChangeDayState (Manager_GameTime.DayStateClass obj)
 	{
 		maxAmountOfCars = obj.maxCarAmount;
 		maxAmountOfCitizens = obj.maxCitizenAmount;
-
+		
 		int i = maxAmountOfCitizens;
 		foreach (GameObject curCitizen in currentCitizensList) 
 		{
@@ -188,7 +188,7 @@ public class Manager_AI : MonoBehaviour
 				--i;
 				continue;
 			}
-
+			
 			curCitizen.GetComponent<AIParent>().isGoingHome = true;
 		}
 	}

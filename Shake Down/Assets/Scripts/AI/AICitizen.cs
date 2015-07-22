@@ -4,9 +4,11 @@ using System.Collections;
 [System.Serializable]
 public class AICitizen : AIParent 
 {
+	private GameObject _currentHouse = null;
+	public GameObject currentHouse{get{return _currentHouse;}set{_currentHouse = value;}}
+	
 	protected override IEnumerator EnterBuilding (Collider _trigger, bool _isHome)
 	{
-		//this is a comment.
 		Vector3 targetVec = _trigger.gameObject.transform.position + _trigger.gameObject.transform.forward * 3.0f;
 		targetVec.y = transform.position.y;
 		
@@ -19,16 +21,17 @@ public class AICitizen : AIParent
 		if (!_isHome) 
 		{
 			yield return new WaitForSeconds (shoppingTime + UnityEngine.Random.Range (-shoppingTime * 0.5f, shoppingTime * 0.5f));
+			StartCoroutine (ExitBuilding (_trigger, _isHome));
 		}
 		else
 		{
-			yield return new WaitForSeconds (sleepingTime);
+			currentHouse = _trigger.gameObject;
+			Manager_AI.Instance.MoveToCitizenObjectPool(gameObject);
 		}
 		
-		StartCoroutine (ExitBuilding (_trigger, _isHome));
 		yield return null;
 	}
-
+	
 	protected override IEnumerator ExitBuilding (Collider _trigger, bool _isHome)
 	{
 		Vector3 targetVec = _trigger.gameObject.transform.position + _trigger.gameObject.transform.forward * -0.25f;
@@ -47,8 +50,8 @@ public class AICitizen : AIParent
 		
 		direction = RandomDirection ();
 		currentState = CurrentState.CS_Walking;
-
+		
 		yield return null;
 	}
-
+	
 }

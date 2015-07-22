@@ -46,6 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\3rd Party\JSON\JSONObject.cs" />
+     <Compile Include="Assets\3rd Party\JSON\JSONTemplates.cs" />
+     <Compile Include="Assets\3rd Party\JSON\VectorTemplates.cs" />
      <Compile Include="Assets\Scripts\AI\AICarParent.cs" />
      <Compile Include="Assets\Scripts\AI\AICitizen.cs" />
      <Compile Include="Assets\Scripts\AI\AIInformant.cs" />
@@ -56,8 +59,11 @@
      <Compile Include="Assets\Scripts\AI\RoadEndTrigger.cs" />
      <Compile Include="Assets\Scripts\AI\StreetCornerTrigger.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_AI.cs" />
+     <Compile Include="Assets\Scripts\Managers\Manager_GameTime.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_MouseInput.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_Resources.cs" />
+     <Compile Include="Assets\Scripts\Managers\Manager_SaveLoad.cs" />
+     <Compile Include="Assets\Scripts\Managers\Manager_StaticData.cs" />
      <Compile Include="Assets\Scripts\MiniMap\HelpArrow.cs" />
      <Compile Include="Assets\Scripts\MiniMap\MiniMapBackground.cs" />
      <Compile Include="Assets\Scripts\MiniMap\MiniMapCamera.cs" />
@@ -67,7 +73,14 @@
      <Compile Include="Assets\Scripts\MiniMap\UICamera.cs" />
      <Compile Include="Assets\Scripts\MiniMap\UI_DisplayText.cs" />
      <Compile Include="Assets\Scripts\MiniMap\WaypointComponent.cs" />
+     <Compile Include="Assets\Scripts\Misc\Building_Script.cs" />
      <Compile Include="Assets\Scripts\Misc\CrossWalk.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Option_Logic.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Panel_Script.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Script.cs" />
+     <Compile Include="Assets\Scripts\Misc\NightActivities.cs" />
+     <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
+     <Compile Include="Assets\Scripts\Misc\Utilities.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CornerTrigger.cs" />
@@ -79,8 +92,13 @@
      <Compile Include="Assets\Scripts\Saving_Loading\BinarySerialization.cs" />
      <Compile Include="Assets\Scripts\Saving_Loading\MySerializables.cs" />
      <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
-     <Compile Include="Assets\Scripts\Scenarios\Scenario_01.cs" />
      <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
+     <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
+     <None Include="Assets\3rd Party\JSON\readme.txt" />
+     <None Include="Assets\Static Data\StaticDialogue.txt" />
+     <None Include="Assets\Static Data\StaticWorld.txt" />
+     <None Include="Assets\Static Data\StaticLocalization.txt" />
+     <None Include="Assets\Static Data\StaticScenarios.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

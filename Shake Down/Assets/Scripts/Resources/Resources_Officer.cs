@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Resources_Officer : Resources_Master
 {
-	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity) : base (newID)
+	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity, string gender, string buildingID, string profileImageID) : base (newID, gender, buildingID, profileImageID)
 	{
 		_strength = startingStrength;
 		_greed = startingGreed;
 		_integrity = startingIntegrity;
 		Manager_Resources.NewOfficer (this);
 	}
-
+	
 	// Strength
 	private const uint maxStrength = 100;
 	[SerializeField] private int _strength;
@@ -18,7 +18,7 @@ public class Resources_Officer : Resources_Master
 	public void AugmentStrength (int value)
 	{	_strength = (int)Mathf.Clamp (_strength + value, 0, maxStrength);
 		if (_strength <= 0) { DeathByLackOfResources(this); } }
-
+	
 	// Greed
 	private const uint maxGreed = 100;
 	[SerializeField] private int _greed;
@@ -27,7 +27,7 @@ public class Resources_Officer : Resources_Master
 	{
 		_greed = (int)Mathf.Clamp (_greed + value, 0, maxGreed);
 	}
-
+	
 	// Integrity
 	private const uint maxIntegrity = 100;
 	[SerializeField] private int _integrity;
