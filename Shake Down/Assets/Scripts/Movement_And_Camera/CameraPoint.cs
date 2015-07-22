@@ -27,4 +27,9 @@ public class CameraPoint : MonoBehaviour
 			Gizmos.DrawSphere(transform.position, 1.0f);
 		}
 	}
+
+	private void OnDestroy()
+	{
+		currentID = 1;
+	}
 }

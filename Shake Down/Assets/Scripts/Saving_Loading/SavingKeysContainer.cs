@@ -20,6 +20,8 @@ public class SavingKeysContainer
 
 	public static string TIME_STAMP = "TIME_STAMP";
 	public static string TIME_ELAPSED = "TIME_ELAPSED";
+
+	public static string GAME_TIME_DATA = "GAME_TIME_DATA";
 	
 	#endregion
 
@@ -34,11 +36,6 @@ public class SavingKeysContainer
 	#region AI Data
 	public static string BASE_CITIZEN = "CITIZEN_"; // Use this + the citizen's name to save their state to Player Prefs.
 #endregion
-
-	public static void InitializeSavedGames()
-	{
-
-	}
 
 	public static void SaveEvent(string _ID)
 	{

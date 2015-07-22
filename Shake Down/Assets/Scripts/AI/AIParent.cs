@@ -7,7 +7,6 @@ using System.Linq;
 public class AIParent : MonoBehaviour 
 {
 	[SerializeField] protected string name = "";
-	[SerializeField] protected float timeToDespawn = 0.0f;
 	[SerializeField] protected float moveSpeed = 0.0f;
 	[SerializeField] protected float triggerRefusalChance = 0.0f;
 	[SerializeField] protected int shoppingAmount = 0;
@@ -16,10 +15,12 @@ public class AIParent : MonoBehaviour
 	[SerializeField] protected float sleepingTime = 0.0f;
 	[SerializeField] protected float talkingTime = 0.0f, talkingChance = 0.0f;
 
-	protected int direction = 1;
+	protected bool _isGoingHome = false;
+	public bool isGoingHome{get{return _isGoingHome;}set{_isGoingHome = value;}}
+
+	protected int direction = 0;
 	protected bool isCrossing = false;
 	[SerializeField] protected GameObject currentCamPoint = null;
-	protected float currentTimeToDespawn = 0.0f;
 	protected int currentShoppingAmount = 0;
 
 	protected List<GameObject> visibleObjects = new List<GameObject>();
@@ -54,10 +55,11 @@ public class AIParent : MonoBehaviour
 
 	virtual public void Initialize(GameObject _newCamPoint, GameObject _triggerObj)
 	{
+		isGoingHome = false;
 		currentCamPoint = _newCamPoint;
-		Vector3 targetEuler = currentCamPoint.transform.eulerAngles;
-		targetEuler.x = transform.eulerAngles.x;
-		transform.eulerAngles = targetEuler;
+		//Vector3 targetEuler = currentCamPoint.transform.eulerAngles;
+		//targetEuler.x = transform.eulerAngles.x;
+		//transform.eulerAngles = targetEuler;
 
 		ResetDayTimers ();
 		direction = RandomDirection ();
@@ -73,7 +75,6 @@ public class AIParent : MonoBehaviour
 			transform.position += (transform.right * moveSpeed * Time.deltaTime) * direction;
 		}
 
-		currentTimeToDespawn -= Time.deltaTime;
 	}
 
 	virtual protected void OnTriggerEnter(Collider c)
@@ -91,7 +92,7 @@ public class AIParent : MonoBehaviour
 			if(currentState != CurrentState.CS_Walking)
 				return;
 
-			if(currentShoppingAmount < 1 || currentTimeToDespawn <= 0.0f)
+			if(currentShoppingAmount < 1)
 			{
 				return;
 			}
@@ -135,7 +136,7 @@ public class AIParent : MonoBehaviour
 		if(c.CompareTag("House Trigger"))
 		{
 			//check if time to go back home
-			if(currentTimeToDespawn <= 0.0f)
+			if(isGoingHome)
 			{
 				if(currentState == CurrentState.CS_Walking)
 				{
@@ -147,7 +148,7 @@ public class AIParent : MonoBehaviour
 
 		if(c.CompareTag("Citizen"))
 		{
-			if(UnityEngine.Random.Range(0, 101) < talkingChance && currentState == CurrentState.CS_Walking && timeToDespawn >  0.0f)
+			if(UnityEngine.Random.Range(0, 101) < talkingChance && currentState == CurrentState.CS_Walking && !isGoingHome)
 			{
 				if(c.GetComponent<AIParent>().StartTalking())
 				{
@@ -252,7 +253,6 @@ public class AIParent : MonoBehaviour
 	virtual protected void ResetDayTimers()
 	{
 		currentShoppingAmount = shoppingAmount;
-		currentTimeToDespawn = timeToDespawn;
 		currentState = CurrentState.CS_Walking;
 	}
 }

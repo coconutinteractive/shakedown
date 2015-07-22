@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using AdrienSerializables;
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -163,6 +164,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private IEnumerator EnterShop(AvailableAction _currentAction)
 	{
+		Manager_GameTime.Instance.PauseGameTime (true);
+
 		myRigidbody.velocity = Vector3.zero;
 		currentAvailableActions.Remove(currentAvailableActions.Find(aa => aa._action == PossibleAction.Action_EnterShop));
 		Vector3 targetVec = _currentAction.triggerObj.transform.position + _currentAction.triggerObj.transform.forward * 3.0f;
@@ -179,6 +182,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private IEnumerator ExitShop(AvailableAction _currentAction)
 	{
+		Manager_GameTime.Instance.PauseGameTime (false);
+		Manager_GameTime.Instance.TimeLeap (1, 20, 0);
 		myRigidbody.velocity = Vector3.zero;
 		currentAvailableActions.Remove(currentAvailableActions.Find(aa => aa._action == PossibleAction.Action_ExitShop));
 		Vector3 targetVec = _currentAction.triggerObj.transform.position + _currentAction.triggerObj.transform.forward * -0.25f;
@@ -311,5 +316,11 @@ public class PlayerMovement : MonoBehaviour
 		GameObject savedCamPoint = Manager_AI.Instance.GetSavedCamPoint((int)BinarySerialization.LoadFromPlayerPrefs(_ID + SavingKeysContainer.PLAYER_CAMERA_CAMPOINT));
 		myCamera.GetComponent<CameraScript>().MoveTransition(savedCamPoint);
 		savedCamPoint.GetComponent<CameraPoint>().isActive = true;
+	}
+
+	private void OnDestroy()
+	{
+		SavingKeysContainer.OnSaveGame -= HandleOnSaveGame;
+		SavingKeysContainer.OnLoadGame -= HandleOnLoadGame;
 	}
 }

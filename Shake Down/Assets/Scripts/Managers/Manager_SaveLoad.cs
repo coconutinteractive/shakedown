@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using AdrienSerializables;
 
 public class Manager_SaveLoad : MonoBehaviour 
 {
 	#region Singleton
+	private static Manager_SaveLoad instance;
+
 	public static Manager_SaveLoad Instance 
 	{
 		get 
 		{
 			if(instance == null)
+			{
 				instance = FindObjectOfType(typeof(Manager_SaveLoad)) as Manager_SaveLoad;
+				DontDestroyOnLoad(instance.gameObject);
+			}
 			
 			return instance;
 		}
@@ -18,7 +24,6 @@ public class Manager_SaveLoad : MonoBehaviour
 			instance = value;
 		}
 	}
-	private static Manager_SaveLoad instance;
 	#endregion
 
 	public int loadNewGame = 0;
@@ -27,7 +32,17 @@ public class Manager_SaveLoad : MonoBehaviour
 
 	private void Awake()
 	{
-		DontDestroyOnLoad (this);
+		//persistent singleton
+		if(instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(this);
+		}
+		else
+		{
+			if(this != instance)
+				Destroy(this.gameObject);
+		}
 
 		if (BinarySerialization.LoadFromPlayerPrefs (SavingKeysContainer.SAVE1_ID) == null)
 			BinarySerialization.SaveToPlayerPrefs (SavingKeysContainer.SAVE1_ID, false);
@@ -64,6 +79,9 @@ public class Manager_SaveLoad : MonoBehaviour
 					{
 						int[] timeValue = AdrienUtils.ConvertToTime((float)BinarySerialization.LoadFromPlayerPrefs((i+1).ToString() + "_" + SavingKeysContainer.TIME_ELAPSED));
 						GUI.Label(new Rect(195.0f, 195.0f + i*70.0f, 270.0f, 55.0f), timeValue[0].ToString () + "h:" + timeValue[1].ToString() + "m:" + timeValue[2].ToString() + "s");
+						MySerializables.GameTime gameTime = ((MySerializables.GameTime)BinarySerialization.LoadFromPlayerPrefs((i+1).ToString() + "_" + SavingKeysContainer.GAME_TIME_DATA));
+
+						GUI.Label(new Rect(285.0f, 195.0f + i*70.0f, 270.0f, 55.0f), "Day " + gameTime.dayCount + ", " + gameTime.currentDayOfTheWeek + " " + gameTime.currentDayState); 
 					}
 
 					if(GUI.Button(new Rect(450.0f, 165.0f + i*70.0f, 50.0f, 55.0f), "LOAD"))
@@ -104,7 +122,9 @@ public class Manager_SaveLoad : MonoBehaviour
 
 			if(GUI.Button(new Rect(165.0f, 250.0f, 400.0f, 35.0f), "SAVE AND QUIT"))
 			{
-
+				SavingKeysContainer.SaveEvent(loadNewGame.ToString() + "_");
+				isMainMenu = true;
+				Application.LoadLevel("Scene02_LoadGame");
 			}
 		}
 	}
