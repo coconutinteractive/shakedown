@@ -1,0 +1,126 @@
+{
+    "Buildings": {
+        "ld_buildings_jewelry": {
+            "id": "ld_buildings_jewelry",
+            "englishus": "Jewelry Store",
+            "englishuk": "Jewellery Store"
+        },
+        "ld_buildings_clothes": {
+            "id": "ld_buildings_clothes",
+            "englishus": "Clothes Store",
+            "englishuk": "Clothes Store"
+        },
+        "ld_buildings_gymnasium": {
+            "id": "ld_buildings_gymnasium",
+            "englishus": "Gymnasium",
+            "englishuk": "Gymnasium"
+        },
+        "ld_buildings_restaurant": {
+            "id": "ld_buildings_restaurant",
+            "englishus": "Restaurant",
+            "englishuk": "Restaurant"
+        },
+        "ld_buildings_butcher": {
+            "id": "ld_buildings_butcher",
+            "englishus": "Butcher Shop",
+            "englishuk": "Butcher Shop"
+        },
+        "ld_buildings_safehouse": {
+            "id": "ld_buildings_safehouse",
+            "englishus": "Safehouse",
+            "englishuk": "Safehouse"
+        },
+        "ld_buildings_bar": {
+            "id": "ld_buildings_bar",
+            "englishus": "Bar",
+            "englishuk": "Bar"
+        },
+        "ld_buildings_police": {
+            "id": "ld_buildings_police",
+            "englishus": "Police Station",
+            "englishuk": "Police Station"
+        },
+        "ld_buildings_liquor": {
+            "id": "ld_buildings_liquor",
+            "englishus": "Liquor Store",
+            "englishuk": "Liquor Store"
+        },
+        "ld_buildings_tobaccoist": {
+            "id": "ld_buildings_tobaccoist",
+            "englishus": "Tobaccoist",
+            "englishuk": "Tobaccoist"
+        },
+        "ld_buildings_grocery": {
+            "id": "ld_buildings_grocery",
+            "englishus": "Grocery",
+            "englishuk": "Grocery"
+        },
+        "ld_buildings_strip_club": {
+            "id": "ld_buildings_strip_club",
+            "englishus": "Strip Club",
+            "englishuk": "Strip Club"
+        }
+    },
+    "Copy of Buildings": {
+        "1": {
+            "id": "1",
+            "englishus": "111",
+            "englishuk": "111"
+        },
+        "2": {
+            "id": "2",
+            "englishus": "222",
+            "englishuk": "222"
+        },
+        "3": {
+            "id": "3",
+            "englishus": "333",
+            "englishuk": "333"
+        },
+        "4": {
+            "id": "4",
+            "englishus": "444",
+            "englishuk": "444"
+        },
+        "5": {
+            "id": "5",
+            "englishus": "555",
+            "englishuk": "555"
+        },
+        "6": {
+            "id": "6",
+            "englishus": "666",
+            "englishuk": "666"
+        },
+        "7": {
+            "id": "7",
+            "englishus": "777",
+            "englishuk": "777"
+        },
+        "8": {
+            "id": "8",
+            "englishus": "888",
+            "englishuk": "888"
+        },
+        "9": {
+            "id": "9",
+            "englishus": "999",
+            "englishuk": "999"
+        },
+        "0": {
+            "id": "0",
+            "englishus": "000",
+            "englishuk": "000"
+        },
+        "10": {
+            "id": "10",
+            "englishus": "100",
+            "englishuk": "100"
+        },
+        "11": {
+            "id": "11",
+            "englishus": "110",
+            "englishuk": "110"
+        }
+    }
+}

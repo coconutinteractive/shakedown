@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Resources_Shopkeeper : Resources_Master
 {
-	public Resources_Shopkeeper (string newID, int startingStrength, int startingRespect, int startingFear, int startingMoney, int startingIncome, int startingExpenses) : base (newID)
+	public Resources_Shopkeeper (string newID, int startingStrength, int startingRespect, int startingFear, int startingMoney, int startingIncome, int startingExpenses, int startingProtectionPayment, string gender, string buildingID, string profileImageID = "DefaultFace") : base (newID, gender, buildingID, profileImageID)
 	{
+		Debug.Log ("Fixin' Stuff!");
 		_strength = startingStrength;
 		_respect = startingRespect;
 		_fear = startingFear;
 		_money = startingMoney;
 		_income = startingIncome;
 		_expenses = startingExpenses;
+		_protectionPayment = startingProtectionPayment;
 		Manager_Resources.NewShopkeeper(this);
+		/*Resources_Player.setProof(newID, false);*/
 	}
-
+	
 	// Strength
 	private const uint maxStrength = 100;
 	[SerializeField] private int _strength;
@@ -62,8 +66,16 @@ public class Resources_Shopkeeper : Resources_Master
 	public void AugmentExpenses (int value)
 	{	_expenses += value;
 		if (_expenses < 0) {
-			_expenses = 0;
-		} }
+			_expenses = 0; } }
+
+	//Protection Payment
+	[SerializeField] private int _protectionPayment;
+	public int protectionPayment { get {return _protectionPayment; } }
+	public void AugmentPayment (int value)
+	{
+		_protectionPayment += value;
+		if(_protectionPayment < 0)
+		{ _protectionPayment = 0; } }
 
 	public bool CalculateFinances ()
 	{	_money = _money + (_income - _expenses);
@@ -71,6 +83,19 @@ public class Resources_Shopkeeper : Resources_Master
 			return false;
 		}
 		return true; }
+
+	public bool IsShopkeeperAggrivated(int playerPresence)
+	{
+		float paymentRelatedAnger = 0;
+		if (protectionPayment > profit)
+		{ paymentRelatedAnger += (protectionPayment - profit) / 100; }
+		float debtRelatedAnger = 0;
+		if (profit < 0)
+		{ debtRelatedAnger -= profit; }
+		if((protectionPayment + debtRelatedAnger + fear - playerPresence) > 100)
+		{ return true; }
+		return false;
+	}
 
 	public int profit { get { return _income - _expenses; } }
 }

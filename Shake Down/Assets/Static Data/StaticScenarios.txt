@@ -1,0 +1,259 @@
+{
+    "scenario_01": {
+        "player": {
+            "player": {
+                "id": "player",
+                "buildingid": "building01",
+                "strength": "31",
+                "presence": "32",
+                "opinion": "33",
+                "money": "34"
+            }
+        },
+        "shopkeeper": {
+            "alfred": {
+                "id": "alfred",
+                "buildingid": "building02",
+                "shoptype": "building_jewelry",
+                "gender": "male",
+                "strength": "10",
+                "respect": "0",
+                "fear": "45",
+                "money": "8675309",
+                "income": "250",
+                "expenses": "100",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "bigsby": {
+                "id": "bigsby",
+                "buildingid": "building03",
+                "shoptype": "building_clothes",
+                "gender": "male",
+                "strength": "15",
+                "respect": "0",
+                "fear": "15",
+                "money": "788667",
+                "income": "80",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "chanlie": {
+                "id": "chanlie",
+                "buildingid": "building04",
+                "shoptype": "building_gym",
+                "gender": "female",
+                "strength": "65",
+                "respect": "0",
+                "fear": "0",
+                "money": "887643",
+                "income": "100",
+                "expenses": "80",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "douglas": {
+                "id": "douglas",
+                "buildingid": "building05",
+                "shoptype": "building_restaurant",
+                "gender": "male",
+                "strength": "34",
+                "respect": "0",
+                "fear": "37",
+                "money": "34567890",
+                "income": "125",
+                "expenses": "50",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "evan": {
+                "id": "evan",
+                "buildingid": "building06",
+                "shoptype": "building_butcher",
+                "gender": "male",
+                "strength": "40",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "francine": {
+                "id": "francine",
+                "buildingid": "building07",
+                "shoptype": "building_bar",
+                "gender": "female",
+                "strength": "28",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "gus": {
+                "id": "gus",
+                "buildingid": "building08",
+                "shoptype": "building_liquor",
+                "gender": "male",
+                "strength": "18",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "heather": {
+                "id": "heather",
+                "buildingid": "building09",
+                "shoptype": "building_tobacco",
+                "gender": "female",
+                "strength": "27",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "izzy": {
+                "id": "izzy",
+                "buildingid": "building10",
+                "shoptype": "building_grocery",
+                "gender": "male",
+                "strength": "13",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "jean": {
+                "id": "jean",
+                "buildingid": "building11",
+                "shoptype": "building_strip_club",
+                "gender": "male",
+                "strength": "4",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "keilan": {
+                "id": "keilan",
+                "buildingid": "building12",
+                "shoptype": "building_clothes",
+                "gender": "male",
+                "strength": "19",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "larry": {
+                "id": "larry",
+                "buildingid": "building13",
+                "shoptype": "building_restaurant",
+                "gender": "male",
+                "strength": "55",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "maude": {
+                "id": "maude",
+                "buildingid": "building14",
+                "shoptype": "building_liquor",
+                "gender": "female",
+                "strength": "62",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "natalie": {
+                "id": "natalie",
+                "buildingid": "building15",
+                "shoptype": "building_grocery",
+                "gender": "female",
+                "strength": "31",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            }
+        },
+        "officer": {
+            "oglivie": {
+                "id": "oglivie",
+                "buildingid": "building16",
+                "gender": "male",
+                "strength": "45",
+                "greed": "50",
+                "integrity": "50",
+                "portrait": "DefaultFace"
+            },
+            "paul": {
+                "id": "paul",
+                "buildingid": "building16",
+                "gender": "male",
+                "strength": "43",
+                "greed": "1",
+                "integrity": "100",
+                "portrait": "DefaultFace"
+            },
+            "quark": {
+                "id": "quark",
+                "buildingid": "building16",
+                "gender": "male",
+                "strength": "84",
+                "greed": "50",
+                "integrity": "10",
+                "portrait": "DefaultFace"
+            },
+            "ralph": {
+                "id": "ralph",
+                "buildingid": "building17",
+                "gender": "male",
+                "strength": "57",
+                "greed": "80",
+                "integrity": "35",
+                "portrait": "DefaultFace"
+            },
+            "stephanie": {
+                "id": "stephanie",
+                "buildingid": "building17",
+                "gender": "female",
+                "strength": "30",
+                "greed": "60",
+                "integrity": "65",
+                "portrait": "DefaultFace"
+            }
+        }
+    }
+}
