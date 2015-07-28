@@ -69,7 +69,8 @@ public class AICarParent : MonoBehaviour
 			if (!CheckDistance(currentCrosswalk.gameObject))
 				return;
 			cannotAccelerate = true;
-			StartCoroutine(Decelerate(0.0f));
+			if(gameObject.activeInHierarchy)
+				StartCoroutine(Decelerate(0.0f));
 
 		}
 	}

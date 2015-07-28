@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\Misc\NightActivities.cs" />
      <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
      <Compile Include="Assets\Scripts\Misc\Utilities.cs" />
+     <Compile Include="Assets\Scripts\Misc\spaceBackgroundAnimate.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CornerTrigger.cs" />

@@ -57,9 +57,6 @@ public class AIParent : MonoBehaviour
 	{
 		isGoingHome = false;
 		currentCamPoint = _newCamPoint;
-		//Vector3 targetEuler = currentCamPoint.transform.eulerAngles;
-		//targetEuler.x = transform.eulerAngles.x;
-		//transform.eulerAngles = targetEuler;
 		
 		ResetDayTimers ();
 		direction = RandomDirection ();
@@ -81,6 +78,12 @@ public class AIParent : MonoBehaviour
 	{
 		if(c.CompareTag("Corner Trigger"))
 		{
+			if(c.GetComponent<CornerTrigger>().isImpassible)
+			{
+				direction *= -1;
+				return;
+			}
+
 			//Turn Corner
 			GameObject newCamPoint = c.GetComponent<CornerTrigger>().GetCitizenCamerapoint(currentCamPoint);
 			currentCamPoint = newCamPoint;
@@ -183,7 +186,7 @@ public class AIParent : MonoBehaviour
 		
 		while(isCrossing)
 		{
-			transform.position += (transform.forward * moveSpeed * Time.deltaTime);
+			transform.position += (_crossingTrigger.transform.forward * moveSpeed * Time.deltaTime);
 			yield return null;
 		}
 		

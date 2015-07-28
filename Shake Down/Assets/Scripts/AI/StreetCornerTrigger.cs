@@ -12,7 +12,7 @@ public class StreetCornerTrigger : MonoBehaviour
 		List<GameObject> availableCamPoints = new List<GameObject> ();
 		foreach (GameObject curCamPoint in cameraPoints)
 		{
-			if(curCamPoint.gameObject != _curCamPoint.gameObject)
+			//if(curCamPoint.gameObject != _curCamPoint.gameObject)
 				availableCamPoints.Add(curCamPoint);
 		}
 

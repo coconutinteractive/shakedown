@@ -110,7 +110,7 @@ public class Manager_AI : MonoBehaviour
 				RandomSpawnCar();
 			}
 			
-			float amountToWait = CAR_SPAWN_DELAY / (maxAmountOfCars - currentSpawnedCars.Count + 1.0f);
+			float amountToWait = (CAR_SPAWN_DELAY / (maxAmountOfCars - currentSpawnedCars.Count + 1.0f)) + 1.0f;
 			Mathf.Clamp(amountToWait, 1.0f, CAR_SPAWN_DELAY * 2.0f);
 			
 			yield return new WaitForSeconds(amountToWait);

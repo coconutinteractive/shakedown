@@ -6,7 +6,7 @@ public class RoadEndTrigger : MonoBehaviour
 	[SerializeField] private GameObject camPoint = null;
 	private GameObject childSpawner = null;
 
-	private void Start()
+	private void Awake()
 	{
 		childSpawner = transform.GetChild (0).gameObject;
 	}

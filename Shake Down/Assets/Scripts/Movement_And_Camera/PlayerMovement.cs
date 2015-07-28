@@ -67,28 +67,13 @@ public class PlayerMovement : MonoBehaviour
 	
 	private void OnGUI()
 	{
-		if(Event.current.type == EventType.KeyUp)
+		if (Event.current.type == EventType.KeyDown) 
 		{
-			AvailableAction currentAction = currentAvailableActions.Find(aa => aa._actionKey == Event.current.keyCode);
-			if(currentAction != null)
-			{
-				Execute(currentAction);
+			AvailableAction currentAction = currentAvailableActions.Find (aa => aa._actionKey == Event.current.keyCode);
+			if (currentAction != null) {
+				Execute (currentAction);
 			}
 		}
-		
-		/*if (Input.GetKeyDown (KeyCode.Keypad1))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE1_ID);
-		if (Input.GetKeyDown (KeyCode.Keypad2))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE2_ID);
-		if (Input.GetKeyDown (KeyCode.Keypad3))
-			SavingKeysContainer.SaveEvent (SavingKeysContainer.SAVE3_ID);
-
-		if(Input.GetKeyDown(KeyCode.Keypad7))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE1_ID);
-		if(Input.GetKeyDown(KeyCode.Keypad8))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE2_ID);
-		if(Input.GetKeyDown(KeyCode.Keypad9))
-			SavingKeysContainer.LoadEvent (SavingKeysContainer.SAVE3_ID);*/
 	}
 	
 	private void Update()
@@ -104,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate()
 	{
 		if(canMove)
-			myRigidbody.velocity = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, 0/*Input.GetAxis("Vertical")*/)) * moveSpeed;
+			myRigidbody.velocity = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, 0)) * moveSpeed;
 	}
 	
 	private void Execute(AvailableAction _currentAction)
@@ -159,7 +144,10 @@ public class PlayerMovement : MonoBehaviour
 		GameObject newCamPoint =  _currentAction.triggerObj.GetComponent<CornerTrigger> ().SwitchCameraPoint ();
 		myCamera.gameObject.GetComponent<CameraScript> ().MoveTransition (newCamPoint);
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, newCamPoint.transform.eulerAngles.y, newCamPoint.transform.eulerAngles.z);
-		transform.position = _currentAction.triggerObj.transform.position - new Vector3(0.0f, transform.position.y, 0.0f);
+
+		Vector3 targetPos = _currentAction.triggerObj.transform.position;
+		targetPos.y = transform.position.y;
+		transform.position = targetPos;
 	}
 	
 	private IEnumerator EnterShop(AvailableAction _currentAction)
