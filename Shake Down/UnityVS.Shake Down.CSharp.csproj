@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
     <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
     <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\DialogueInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Party\JSON\readme.txt" />

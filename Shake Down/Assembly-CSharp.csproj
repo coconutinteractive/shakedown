@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
      <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
      <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
+     <Compile Include="Assets\Scripts\Utils\DialogueInterface.cs" />
      <None Include="Assets\3rd Party\JSON\readme.txt" />
      <None Include="Assets\Static Data\StaticDialogue.txt" />
      <None Include="Assets\Static Data\StaticWorld.txt" />
