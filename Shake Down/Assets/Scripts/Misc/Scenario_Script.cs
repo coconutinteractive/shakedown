@@ -49,7 +49,7 @@ public class Scenario_Script
 					Debug.LogError ("Whoa there, Sally. Someone done goofed. Go tell whoever was messing with the static data that " + shopkeeper.GetField("id").str + " can't set up shop in " + shopkeeper.GetField("buildingid").str + ". Someone else is already in there! -Scott");
 				}
 
-				new Resources_Shopkeeper(
+				Resources_Shopkeeper newShopkeeper = new Resources_Shopkeeper(
 					shopkeeper.GetField("id").str,
 					int.Parse (shopkeeper.GetField("strength").str),
 					int.Parse (shopkeeper.GetField("respect").str),
@@ -62,6 +62,9 @@ public class Scenario_Script
 					shopkeeper.GetField("portrait").str,
 					shopkeeper.GetField("buildingid").str
 					);
+
+				newShopkeeper.buildingRef = Building_Script.GetBuilding(shopkeeper.GetField("buildingid").str);
+				Building_Script.GetBuilding(shopkeeper.GetField("buildingid").str).RegisterShopkeeper(newShopkeeper);
 				occupiedBuildings.Add (shopkeeper.GetField("buildingid").str);
 			}
 			

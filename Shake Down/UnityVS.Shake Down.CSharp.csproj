@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -98,8 +92,11 @@
     <Compile Include="Assets\Scripts\MiniMap\WaypointComponent.cs" />
     <Compile Include="Assets\Scripts\Misc\Building_Script.cs" />
     <Compile Include="Assets\Scripts\Misc\CrossWalk.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Option.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Option_Logic.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Panel_Script.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt_Logic.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Script.cs" />
     <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
     <Compile Include="Assets\Scripts\Misc\Utilities.cs" />

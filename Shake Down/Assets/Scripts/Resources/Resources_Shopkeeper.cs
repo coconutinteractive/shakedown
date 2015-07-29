@@ -97,4 +97,6 @@ public class Resources_Shopkeeper : Resources_Master
 	}
 
 	public int profit { get { return _income - _expenses; } }
+	private Building_Script _buildingRef;
+	public Building_Script buildingRef { get { return _buildingRef; } set { _buildingRef = value; } }
 }

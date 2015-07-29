@@ -75,10 +75,14 @@
      <Compile Include="Assets\Scripts\MiniMap\WaypointComponent.cs" />
      <Compile Include="Assets\Scripts\Misc\Building_Script.cs" />
      <Compile Include="Assets\Scripts\Misc\CrossWalk.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Option.cs" />
      <Compile Include="Assets\Scripts\Misc\Dialogue_Option_Logic.cs" />
      <Compile Include="Assets\Scripts\Misc\Dialogue_Panel_Script.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt.cs" />
+     <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt_Logic.cs" />
      <Compile Include="Assets\Scripts\Misc\Dialogue_Script.cs" />
      <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
+     <Compile Include="Assets\Scripts\Misc\ShopItem.cs" />
      <Compile Include="Assets\Scripts\Misc\Utilities.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" />
      <Compile Include="Assets\Scripts\Movement_And_Camera\CameraScript.cs" />

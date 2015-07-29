@@ -60,5 +60,4 @@ public class Manager_Resources : MonoBehaviour
 		{	return false;
 		}	return true;
 	}
-
 }

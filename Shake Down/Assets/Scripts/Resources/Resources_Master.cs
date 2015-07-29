@@ -13,8 +13,8 @@ public class Resources_Master
 	private string _gender;
 	public string gender { get { return _gender; } }
 
-	private Material _profileImage;
-	public Material profileImage { get { return _profileImage; } }
+	private string _profileImage;
+	public string profileImage { get { return _profileImage; } }
 
 	private string _homeID;
 	public string homeID { get { return _homeID; } }
@@ -24,7 +24,7 @@ public class Resources_Master
 		_gender = gender;
 		_referenceID = newID;
 		_homeID = buildingID;
-		_profileImage = Utilities.GetMaterialFromID(profileImageID);
+		_profileImage = profileImageID;
 	}
 	
 	protected void DeathByLackOfResources(Resources_Master script)
