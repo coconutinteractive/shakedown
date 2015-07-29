@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace AdrienSerializables
+{
+
 [System.Serializable]
 public class MySerializables
 {
@@ -49,4 +52,27 @@ public class MySerializables
 		
 		public Quaternion _quaternion {get{return new Quaternion(x,y,z,w);}}
 	}
+
+	[System.Serializable]
+	public class GameTime
+	{
+		public string currentDayState, currentDayOfTheWeek;
+		public float dayTimer, timeToAdd;
+		public int dayCount;
+		public bool isAM;
+
+		public GameTime (string currentDayState, string currentDayOfTheWeek, float dayTimer, float timeToAdd, int dayCount, bool isAM)
+		{
+			this.currentDayState = currentDayState;
+			this.currentDayOfTheWeek = currentDayOfTheWeek;
+			this.dayTimer = dayTimer;
+			this.timeToAdd = timeToAdd;
+			this.dayCount = dayCount;
+			this.isAM = isAM;
+		}
+
+//		public GameTime _gameTime{get{return this;}}
+	}
+
+}
 }

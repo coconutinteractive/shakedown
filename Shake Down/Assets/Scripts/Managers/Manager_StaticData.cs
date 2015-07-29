@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Manager_StaticData : MonoBehaviour
 {
+	public GameObject temp;
 	public TextAsset worldDataText;
 	public TextAsset dialogueDataText;
 	public TextAsset scenarioDataText;
@@ -96,10 +97,5 @@ public class Manager_StaticData : MonoBehaviour
 			Debug.Log (activePrompt.promptID);
 			//Dialogue_Panel_Script.panelReference.StartDialogue(Manager_Resources.player, Manager_Resources.shopkeepers["evan"], Manager_Resources.shopkeepers["evan"].buildingRef);
 		}
-	}
-
-	public string temp ()
-	{
-		return _worldData.str + _dialogueData.str;
 	}
 }
