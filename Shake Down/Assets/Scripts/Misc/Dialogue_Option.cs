@@ -10,7 +10,7 @@ public class Dialogue_Option
 	static public Dialogue_Option GetOptionByName(string key) { return _dialogueOptions[key]; }
 	
 	private List<Dialogue_Prompt> _followUps = new List<Dialogue_Prompt>();
-	public List<Dialogue_Prompt> followUps { get { return SelectFollowUp(_followUps); } }
+	public Dialogue_Prompt followUps { get { return SelectFollowUp(_followUps); } }
 	
 	private string _dialogueOptionID;
 	public string optionID { get { return _dialogueOptionID; } }
@@ -146,7 +146,7 @@ public class Dialogue_Option
 	private Dialogue_Prompt SelectFollowUp (List<Dialogue_Prompt> baseList)
 	{
 		Dialogue_Prompt followUp;
-		string promptID;
+		string promptID = "";
 		switch (optionID) {
 			case "dialogue_option_enterShop": {
 				promptID = DeterminePrompt_FirstEntry();
@@ -166,7 +166,7 @@ public class Dialogue_Option
 				promptID = DeterminePrompt_Purchase();
 				break; }
 			}
-		return promptID;
+		return Dialogue_Prompt.GetPromptByName(promptID);
 	}
 
 	private string DeterminePrompt_FirstEntry()

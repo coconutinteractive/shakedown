@@ -90,7 +90,7 @@ public class Manager_SaveLoad : MonoBehaviour
 						Invoke("StartLoadedGame", 0.05f);
 						displaySaveUI = false;
 						isMainMenu = false;
-						Application.LoadLevel("Scene01_AdrienMovementTest");
+						Application.LoadLevel("Scene03_Map01_Peninsula");
 					}
 					if(GUI.Button(new Rect(515.0f, 165.0f + i*70.0f, 50.0f, 55.0f), "DEL"))
 					{
@@ -105,7 +105,7 @@ public class Manager_SaveLoad : MonoBehaviour
 						loadNewGame	= (i+1);
 						displaySaveUI = false;
 						isMainMenu = false;
-						Application.LoadLevel("Scene01_AdrienMovementTest");
+						Application.LoadLevel("Scene03_Map01_Peninsula");
 					}
 				}
 			}

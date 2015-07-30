@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour
 {
 	public static event Action onJayWalking;
 	
-	[SerializeField] private string playerName = "Bacon";
+	[SerializeField] private string playerName = "Zaldran", playerLastName = "Aenderfell";
 	
-	private bool canMove = true;
+	private static bool canMove = true, canExecuteAction = true;
 	[System.Serializable]
 	public enum PossibleAction
 	{
@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 	private CrossWalk currentCrosswalk = null;
 	private bool isBeingApprehended = false;
 	public static float elapsedTime = 0.0f;
+
+	[SerializeField] private Sprite portrait = null;
 	
 	private void Start()
 	{
@@ -106,14 +108,17 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if(canMove)
 			{
-				canMove = false;
+				CanMove(false);
+				CanExecuteAction(false);
 				StartCoroutine(EnterShop (_currentAction));
 			}
 			break;
 		}
 		case PossibleAction.Action_ExitShop:
 		{
-			StartCoroutine(ExitShop (_currentAction));
+			if(canExecuteAction)
+				StartCoroutine(ExitShop (_currentAction));
+
 			break;
 		}
 		case PossibleAction.Action_CrossStreet:
@@ -165,11 +170,13 @@ public class PlayerMovement : MonoBehaviour
 			yield return null;
 		}
 		
+		_currentAction.triggerObj.GetComponent<ShopEntrance> ().StartDialogue (portrait, playerName, playerLastName);
 		currentAvailableActions.Add (new AvailableAction (PossibleAction.Action_ExitShop, KeyCode.S, _currentAction.triggerObj));
 	}
 	
 	private IEnumerator ExitShop(AvailableAction _currentAction)
 	{
+		_currentAction.triggerObj.GetComponent<ShopEntrance> ().EndDialogue ();
 		Manager_GameTime.Instance.PauseGameTime (false);
 		Manager_GameTime.Instance.TimeLeap (1, 20, 0);
 		myRigidbody.velocity = Vector3.zero;
@@ -183,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
 			yield return null;
 		}
 		
-		canMove = true;
+		CanMove (true);
 		//		currentAvailableActions.Add (new AvailableAction (PossibleAction.Action_ExitShop, KeyCode.S, _currentAction.triggerObj));
 	}
 	
@@ -311,4 +318,15 @@ public class PlayerMovement : MonoBehaviour
 		SavingKeysContainer.OnSaveGame -= HandleOnSaveGame;
 		SavingKeysContainer.OnLoadGame -= HandleOnLoadGame;
 	}
+
+	public static void CanMove(bool _canMove)
+	{
+		canMove = _canMove;
+	}
+
+	public static void CanExecuteAction(bool _canExecuteAction)
+	{
+		canExecuteAction = _canExecuteAction;
+	}
+
 }

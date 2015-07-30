@@ -120,6 +120,8 @@ public class Dialogue_Prompt
 				filteredList.Add(baseList[i]);
 			}
 		}
+
+		return filteredList;
 	}
 
 	private bool FilterIDOut(string optionID)

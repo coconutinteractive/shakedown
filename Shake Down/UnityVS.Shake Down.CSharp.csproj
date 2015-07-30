@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\AI\HouseTrigger.cs" />
     <Compile Include="Assets\Scripts\AI\RoadEndTrigger.cs" />
     <Compile Include="Assets\Scripts\AI\StreetCornerTrigger.cs" />
+    <Compile Include="Assets\Scripts\Managers\DialogueInterface.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_AI.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_GameTime.cs" />
     <Compile Include="Assets\Scripts\Managers\Manager_MouseInput.cs" />
@@ -92,11 +93,16 @@
     <Compile Include="Assets\Scripts\MiniMap\WaypointComponent.cs" />
     <Compile Include="Assets\Scripts\Misc\Building_Script.cs" />
     <Compile Include="Assets\Scripts\Misc\CrossWalk.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Option.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Option_Logic.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Panel_Script.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt.cs" />
+    <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt_Logic.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Script.cs" />
     <Compile Include="Assets\Scripts\Misc\NightActivities.cs" />
     <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
+    <Compile Include="Assets\Scripts\Misc\ShopEntrance.cs" />
+    <Compile Include="Assets\Scripts\Misc\ShopItem.cs" />
     <Compile Include="Assets\Scripts\Misc\Utilities.cs" />
     <Compile Include="Assets\Scripts\Misc\spaceBackgroundAnimate.cs" />
     <Compile Include="Assets\Scripts\Movement_And_Camera\CameraPoint.cs" />
@@ -112,7 +118,7 @@
     <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
     <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
     <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
-    <Compile Include="Assets\Scripts\Utils\DialogueInterface.cs" />
+    <Compile Include="Assets\Static Data\ButtonActionsKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Party\JSON\readme.txt" />
