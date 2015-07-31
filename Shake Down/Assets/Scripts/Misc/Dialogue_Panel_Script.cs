@@ -25,7 +25,7 @@ public class Dialogue_Panel_Script : MonoBehaviour
 		altDialoguePanel.SetActive(false);
 	}
 
-	public void StartDialogue(Resources_Master leftCharacter, Resources_Master rightCharacter, Building_Script building = null, Resources_Officer nearbyOfficer = null)
+	public void StartDialogue(Resources_Root leftCharacter, Resources_Root rightCharacter, Building_Script building = null, Resources_Officer nearbyOfficer = null)
 	{
 		if (leftCharacter is Resources_Player || rightCharacter is Resources_Player)
 		{	mainDialogueScript.GenerateDialogue(leftCharacter, rightCharacter, building, nearbyOfficer);

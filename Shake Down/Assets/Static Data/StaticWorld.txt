@@ -60,5 +60,14 @@
             "refid": "building_strip_club",
             "displayname": "ld_buildings_strip_club"
         }
-    }
+    },
+    "StartingInventories": {
+        "inventory_blank": {
+            "id": "inventory_blank",
+            "weapon": "none",
+            "clothing": "none",
+            "jewelry": "none"
+        }
+    },
+    "Purchasables": {}
 }

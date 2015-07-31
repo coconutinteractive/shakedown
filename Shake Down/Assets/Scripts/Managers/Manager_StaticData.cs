@@ -19,6 +19,7 @@ public class Manager_StaticData : MonoBehaviour
 	private JSONObject _dialogueData;
 	private JSONObject _scenarioData;
 	private JSONObject _localizationData;
+	private Dictionary<string, JSONObject> _startingInventories = new Dictionary<string, JSONObject>();
 
 	private void populateData()
 	{
@@ -27,16 +28,26 @@ public class Manager_StaticData : MonoBehaviour
 		_scenarioData = new JSONObject (scenarioDataText.ToString ()); 
 		_localizationData = removeTabHeadersAsKeys(new JSONObject (localizationDataText.ToString()));
 		Dialogue_Script.SetupDialogueOptionsFromJSON(_dialogueData);
-		
+		//PopulateStartingInventories();
 		LoadScenario();
 	}
-	
+
+	private void PopulateStartingInventories()
+	{
+		/*for (int i = 0; i < _worldData["StartingInventories"].Count; i++)
+		{
+
+		}
+		*/
+	}
+
 	private void LoadScenario()
 	{
 		// TODO: Implement Player Profile Settings
-		Dictionary<string, string> profile = new Dictionary<string, string>();
-		profile["gender"] = Resources_Master.GENDER_FEMALE;
-		profile["portrait"] = "DefaultFace";
+		ProfileSettings profile = new ProfileSettings();
+		profile.gender = Enums.Gender.female;
+		profile.image = "DefaultFace";
+		profile.name = "ProfileName";
 
 		// Hard coded to load scenario_01;
 		Scenario_Script.SetupScenarioFromJSON("scenario_01",_scenarioData, profile);
@@ -76,25 +87,9 @@ public class Manager_StaticData : MonoBehaviour
 			{
 				tempB = true;
 				populateData();
-				activePrompt = Dialogue_Prompt.GetPromptByName("dialogue_prompt_outsideShop");
+				Debug.Log (" ====================== DATA POPULATED ====================== ");
+				//activePrompt = Dialogue_Prompt.GetPromptByName("dialogue_prompt_outsideShop");
 			}
-			Debug.Log (activePrompt.promptID);
-			for (int i = 0; i < activePrompt.followUps.Count; i++)
-			{
-				Debug.Log ("---Option " + i + ": " + activePrompt.followUps[i].optionID);
-			}
-			int randOption = Random.Range(0, activePrompt.followUps.Count);
-			Dialogue_Option opt = activePrompt.followUps[randOption];
-
-			Debug.Log ("[" + opt.optionID + "]");
-
-			for (int j = 0; j < opt.followUps.Count; j++)
-			{
-				Debug.Log ("------Prompt " + j + ": " + opt.followUps[j].promptID);
-			}
-			int randPrompt = Random.Range(0, opt.followUps.Count);
-			activePrompt = opt.followUps[randPrompt];
-			Debug.Log (activePrompt.promptID);
 			//Dialogue_Panel_Script.panelReference.StartDialogue(Manager_Resources.player, Manager_Resources.shopkeepers["evan"], Manager_Resources.shopkeepers["evan"].buildingRef);
 		}
 	}
