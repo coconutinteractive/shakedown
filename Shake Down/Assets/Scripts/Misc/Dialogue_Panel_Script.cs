@@ -3,48 +3,42 @@ using System.Collections;
 
 public class Dialogue_Panel_Script : MonoBehaviour
 {
-	static private Dialogue_Panel_Script _panelReference;
-	static public Dialogue_Panel_Script panelReference { get { return _panelReference; } }
+	[SerializeField] private GameObject _mainDialogue;
+	private Dialogue_Script mainDialogueScript;
+	public GameObject mainDialogue { get { return _mainDialogue; } }
 
-	[SerializeField] private GameObject _mainDialoguePanel;
-	public GameObject mainDialoguePanel { get { return _mainDialoguePanel; } }
-	private Dialogue_Script _mainDialogueScript;
-	public Dialogue_Script mainDialogueScript { get { return _mainDialogueScript; } }
-
-	[SerializeField] private GameObject _altDialoguePanel;
-	public GameObject altDialoguePanel { get { return _altDialoguePanel; } }
-	private Dialogue_Script _altDialogueScript;
-	public Dialogue_Script altDialogueScript { get { return _altDialogueScript; } }
+	[SerializeField] private GameObject _altDialogue;
+	private Dialogue_Script altDialogueScript;
+	public GameObject altDialogue { get { return _altDialogue; } }
 
 	void Start()
 	{
-		_panelReference = this;
-		_mainDialogueScript = mainDialoguePanel.GetComponent<Dialogue_Script>();
-		_altDialogueScript = mainDialoguePanel.GetComponent<Dialogue_Script>();
-		mainDialoguePanel.SetActive(false);
-		altDialoguePanel.SetActive(false);
+		mainDialogueScript = mainDialogue.GetComponent<Dialogue_Script>();
+		altDialogueScript = mainDialogue.GetComponent<Dialogue_Script>();
+		mainDialogue.SetActive(false);
+		altDialogue.SetActive(false);
 	}
 
+<<<<<<< HEAD
 	public void StartDialogue(Resources_Root leftCharacter, Resources_Root rightCharacter, Building_Script building = null, Resources_Officer nearbyOfficer = null)
+=======
+	public void StartDialogue(Resources_Master leftCharacter, Resources_Master rightCharacter, Building_Script building, Resources_Officer nearbyOfficer = null)
+>>>>>>> origin/master
 	{
 		if (leftCharacter is Resources_Player || rightCharacter is Resources_Player)
-		{	mainDialogueScript.GenerateDialogue(leftCharacter, rightCharacter, building, nearbyOfficer);
-			mainDialoguePanel.SetActive(true); 
-		}
+			mainDialogueScript.GenerateDialogue(leftCharacter, rightCharacter, building, nearbyOfficer);
 		else
-		{	altDialogueScript.GenerateDialogue(leftCharacter, rightCharacter, building, nearbyOfficer);
-			altDialoguePanel.SetActive(true);
-		}
+			altDialogueScript.GenerateDialogue(leftCharacter, rightCharacter, building, nearbyOfficer);
 	}
 
 	public void EndDialogue(bool targetMainDialogue = true)
 	{
 		if(targetMainDialogue)
 		{
-			mainDialoguePanel.SetActive(false);
+			mainDialogue.SetActive(false);
 			mainDialogueScript.ClearDisplay();
 		} else {
-			altDialoguePanel.SetActive(false);
+			altDialogue.SetActive(false);
 			altDialogueScript.ClearDisplay();
 		}
 	}

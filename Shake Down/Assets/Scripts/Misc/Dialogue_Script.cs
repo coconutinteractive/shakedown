@@ -18,18 +18,19 @@ public class Dialogue_Script : MonoBehaviour
 	private Resources_Root npc;
 	private Building_Script building;
 	private Resources_Officer presentOfficer;
+<<<<<<< HEAD
 
 	private List<ShopItem> shopItems = new List<ShopItem>();
 	private Enums.ShopkeeperStates shopkeeperState;
 	private Enums.OfficerStates officerState;
+=======
+	
+	private Utilities.ShopkeeperStates shopkeeperState;
+	private Utilities.OfficerStates officerState;
+>>>>>>> origin/master
 
 	public void GenerateDialogue (Resources_Root leftCharacter, Resources_Root rightCharacter, Building_Script building, Resources_Officer nearbyOfficer = null)
 	{
-		// TODO: Set Up Shop Items
-		shopItems.Add (new ShopItem("item1", 50));
-		shopItems.Add (new ShopItem("item2", 150));
-		shopItems.Add (new ShopItem("item3", 250));
-
 		SetMaterials();
 		characterLeft = leftCharacter;
 		characterRight = rightCharacter;
@@ -51,8 +52,13 @@ public class Dialogue_Script : MonoBehaviour
 
 	private void UpdateProfileImages()
 	{
+<<<<<<< HEAD
 		leftProfileMaterial	= Utilities.GetMaterialFromID(characterLeft.image);
 		rightProfileMaterial = Utilities.GetMaterialFromID(characterRight.image);
+=======
+		leftProfileMaterial	= characterLeft.profileImage;
+		rightProfileMaterial = characterRight.profileImage;
+>>>>>>> origin/master
 	}
 
 	public void ClearDisplay()
@@ -80,7 +86,7 @@ public class Dialogue_Script : MonoBehaviour
 			Options.Add ("Purchase Wares");
 			if(shopkeeperState == Enums.ShopkeeperStates.Vandalized)
 			{ Options.Add("Inquire"); }
-		} else {
+		}else{
 			/*if(player.getProof(shopkeeper.referenceID))
 			{ Options.Add ("Placate"); }*/
 			Options.Add ("Inquire");
@@ -102,36 +108,5 @@ public class Dialogue_Script : MonoBehaviour
 			leftProfileMaterial = leftProfileImage.GetComponent<MeshRenderer>().material;
 			rightProfileMaterial = rightProfileImage.GetComponent<MeshRenderer>().material;
 		}
-	}
-
-	static public void SetupDialogueOptionsFromJSON(JSONObject json)
-	{
-		int i;
-		for(i = 0; i < json.Count; i++)
-		{
-			int j;
-			JSONObject foo;
-			JSONObject bar;
-			if(json.keys[i] == "Prompts")
-			{
-				foo = json.list[i];
-				for (j = 0; j < foo.Count; j++)
-				{
-					bar = foo.list[j];
-					new Dialogue_Prompt(bar.list[0].str);
-				}
-			}
-			else if (json.keys[i] == "Options")
-			{
-				foo = json.list[i];
-				for (j = 0; j < foo.Count; j++)
-				{
-					bar = foo.list[j];
-					new Dialogue_Option(bar.list[0].str);
-				}
-			}
-		}
-		Dialogue_Option.AddFollowUps();
-		Dialogue_Prompt.AddFollowUps();
 	}
 }

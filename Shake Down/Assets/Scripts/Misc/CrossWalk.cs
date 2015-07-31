@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CrossWalk : MonoBehaviour 
 {
+	[SerializeField] private bool hasStreetLight = true;
+
 	public enum CrosswalkState
 	{
 		CWS_Green = 0,
@@ -20,8 +22,12 @@ public class CrossWalk : MonoBehaviour
 
 	[SerializeField] private CrosswalkTrigger myCrossWalkTrigger = null;
 
+
 	private void Start()
 	{
+		if (!hasStreetLight)
+			return;
+
 		curTimeToGreen = timeToGreen;
 		curTimeToOrange = timeToOrange;
 		curTimeToRed = timeToRed;

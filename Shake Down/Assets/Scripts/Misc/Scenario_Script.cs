@@ -79,6 +79,7 @@ public class Scenario_Script
 				}
 
 				Resources_Shopkeeper newShopkeeper = new Resources_Shopkeeper(
+<<<<<<< HEAD
 					//id, name, image, gender, home, money, income, expenses, 
 					//strength, respect, fear, greed, integrity, stubbornness, attitude, inventory
 					shopkeeper.GetField ("id").str,
@@ -103,6 +104,21 @@ public class Scenario_Script
 
 				//Building_Script.GetBuilding(shopkeeper.GetField("home").str).RegisterShopkeeper(newShopkeeper);
 				occupiedBuildings.Add (shopkeeper.GetField("home").str);
+=======
+					shopkeeper.GetField("id").str,
+					int.Parse (shopkeeper.GetField("strength").str),
+					int.Parse (shopkeeper.GetField("respect").str),
+					int.Parse (shopkeeper.GetField("fear").str),
+					int.Parse (shopkeeper.GetField("money").str),
+					int.Parse (shopkeeper.GetField("income").str),
+					int.Parse (shopkeeper.GetField("expenses").str),
+					int.Parse (shopkeeper.GetField("protectionpayment").str),
+					shopkeeper.GetField("gender").str,
+					shopkeeper.GetField("portrait").str,
+					shopkeeper.GetField("buildingid").str
+					);
+				occupiedBuildings.Add (shopkeeper.GetField("buildingid").str);
+>>>>>>> origin/master
 			}
 			
 			List<string> temporaryPoliceStationList = new List<string>();

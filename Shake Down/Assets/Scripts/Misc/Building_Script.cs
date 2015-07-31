@@ -9,11 +9,11 @@ public class Building_Script : MonoBehaviour
 	static private Dictionary<string, Building_Script> _buildings = new Dictionary<string, Building_Script>();
 	static public Building_Script GetBuilding(string buildingID) { return _buildings[buildingID]; }
 	static private List<string> _buildingIDs = new List<string>();
-	static public List<string> buildingIDs { get { return _buildingIDs; } }
+	static public List<string> buildingIDs { get { return _buildingIDs; } } 
 
-	private bool _buildingRobbed;
+	private bool _buildingRobbed = false;
 	public bool buildingRobbed { get { return _buildingRobbed; } }
-	private bool _buildingVandalized;
+	private bool _buildingVandalized = false;
 	public bool buildingVandalized { get { return _buildingVandalized; } }
 
 	private Resources_Shopkeeper _shopkeeper;

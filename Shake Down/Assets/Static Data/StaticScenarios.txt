@@ -406,6 +406,7 @@
                 "money": "250",
                 "income": "45",
                 "expenses": "35",
+<<<<<<< HEAD
                 "strength": "55",
                 "respect": "0",
                 "fear": "0",
@@ -454,6 +455,44 @@
                 "id": "oglivie",
                 "name": "oglivie",
                 "image": "DefaultFace",
+=======
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "maude": {
+                "id": "maude",
+                "buildingid": "building14",
+                "shoptype": "building_liquor",
+                "gender": "female",
+                "strength": "62",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            },
+            "natalie": {
+                "id": "natalie",
+                "buildingid": "building15",
+                "shoptype": "building_grocery",
+                "gender": "female",
+                "strength": "31",
+                "respect": "0",
+                "fear": "0",
+                "money": "250",
+                "income": "45",
+                "expenses": "35",
+                "protectionpayment": "0",
+                "portrait": "DefaultFace"
+            }
+        },
+        "officer": {
+            "oglivie": {
+                "id": "oglivie",
+                "buildingid": "building16",
+>>>>>>> origin/master
                 "gender": "male",
                 "home": "building14",
                 "money": "0",
@@ -469,8 +508,12 @@
             },
             "paul": {
                 "id": "paul",
+<<<<<<< HEAD
                 "name": "paul",
                 "image": "DefaultFace",
+=======
+                "buildingid": "building16",
+>>>>>>> origin/master
                 "gender": "male",
                 "home": "building14",
                 "money": "0",
@@ -486,8 +529,12 @@
             },
             "quark": {
                 "id": "quark",
+<<<<<<< HEAD
                 "name": "quark",
                 "image": "DefaultFace",
+=======
+                "buildingid": "building16",
+>>>>>>> origin/master
                 "gender": "male",
                 "home": "building15",
                 "money": "0",
@@ -503,8 +550,12 @@
             },
             "ralph": {
                 "id": "ralph",
+<<<<<<< HEAD
                 "name": "ralph",
                 "image": "DefaultFace",
+=======
+                "buildingid": "building17",
+>>>>>>> origin/master
                 "gender": "male",
                 "home": "building15",
                 "money": "0",
@@ -520,8 +571,12 @@
             },
             "stephanie": {
                 "id": "stephanie",
+<<<<<<< HEAD
                 "name": "stephanie",
                 "image": "DefaultFace",
+=======
+                "buildingid": "building17",
+>>>>>>> origin/master
                 "gender": "female",
                 "home": "building15",
                 "money": "0",
