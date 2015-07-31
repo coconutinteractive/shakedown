@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ButtonActionsKeys : MonoBehaviour
+public static class ButtonActionsKeys
 {
 	// General Actions: the syntax is: ACTION_{TARGET}_{EFFECT};
 

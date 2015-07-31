@@ -36,9 +36,9 @@ public class Building_Script : MonoBehaviour
 		}
 	}
 
-	public void RegisterShopkeeper(Resources_Shopkeeper shopkeeper)
+	public void RegisterShopkeeper(Resources_Shopkeeper newShopkeeper)
 	{
-		_shopkeeper = shopkeeper;
+		_shopkeeper = newShopkeeper;
 	}
 
 	public void enterBuilding()

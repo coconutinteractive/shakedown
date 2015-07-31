@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.UI;
+using System;
 
 public enum ElementState
 {
@@ -39,6 +40,8 @@ public class DialogueInterface : MonoBehaviour
 
 	private static bool _isActive = false;
 	public static bool isActive{get{return _isActive;}}
+
+	public event Action OnIntimidate, OnAskForPayment, OnOfferProtection, OnRenegotiateProtection, OnGoShopping, OnChitChat, OnExitShop;
 
 	[System.Serializable]
 	public class UIElementsGroup
@@ -223,7 +226,6 @@ public class DialogueInterface : MonoBehaviour
 			break;
 		}
 		}
-		
 		for (int i = 0; i < numberOfChoices; ++i)
 		{
 			GameObject buttonObj = selectedBox.transform.GetChild(i).gameObject;
@@ -238,15 +240,15 @@ public class DialogueInterface : MonoBehaviour
 		}
 	}
 	
-	private void HideChoices()
+	public void HideChoices()
 	{
-		CrossFadeGroup (oneButton, 0.0f, 0.0f, 1.0f);
-		CrossFadeGroup (twoButtons, 0.0f, 0.0f, 1.0f);
-		CrossFadeGroup (threeButtons, 0.0f, 0.0f, 1.0f);
-		CrossFadeGroup (sixButtons, 0.0f, 0.0f, 1.0f);
-		choicesBackground.GetComponent<Image> ().CrossFadeAlpha(0.0f, 1.0f, true);
+		CrossFadeGroup (oneButton, 0.0f, 0.0f, 0.25f);
+		CrossFadeGroup (twoButtons, 0.0f, 0.0f, 0.25f);
+		CrossFadeGroup (threeButtons, 0.0f, 0.0f, 0.25f);
+		CrossFadeGroup (sixButtons, 0.0f, 0.0f, 0.25f);
+		choicesBackground.GetComponent<Image> ().CrossFadeAlpha(0.0f, 0.25f, true);
 
-		Invoke ("DeactivateChoices", 1.0f);
+		Invoke ("DeactivateChoices", 0.25f);
 	}
 
 	private void DeactivateChoices()
@@ -317,26 +319,14 @@ public class DialogueInterface : MonoBehaviour
 
 #region Dialogue Handling
 
-	public void StartDialogue()
+	public void StartDialogue(bool _initialDelay, string _completeString, bool _displayChoices)
 	{
-//		SetChoices(new string[1]{"click"});
-//		SetChoices(new string[2]{"click" , "press"});
-//		SetChoices(new string[3]{"click" , "press", "Exit Shop"});
-//		SetChoices(new string[4]{"click" , "press", "push", "pull"});
-//		SetChoices(new string[5]{"click" , "press", "push", "pull", "choose"});
-		SetChoices(new string[6]{"Intimidate" , "Offer Protection", "Ask For Payment", "Go Shopping", "Chit Chat", "Exit Shop"});
-		SetBtnActions(1, GetButtonAction(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE));
-		SetBtnActions(2, GetButtonAction(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION));
-		SetBtnActions(3, GetButtonAction(ButtonActionsKeys.ACTION_SHOPKEEP_ASK_FOR_PAYMENT));
-		SetBtnActions(4, GetButtonAction(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING));
-		SetBtnActions(5, GetButtonAction(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT));		
-		SetBtnActions(6, GetButtonAction(ButtonActionsKeys.ACTION_SHOP_EXIT));
-		StartCoroutine(AnimatedDialogue(true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed suscipit diam, eget mollis quam. Nam consectetur rhoncus metus id commodo. Cras venenatis pulvinar cursus." + "\n\n\tWhat can I do for you today?", true));
+		StartCoroutine (AnimatedDialogue (_initialDelay, _completeString, _displayChoices));
 	}
 	
-	private IEnumerator AnimatedDialogue(bool initialDelay, string _completeString, bool _displayChoices)
+	private IEnumerator AnimatedDialogue(bool _initialDelay, string _completeString, bool _displayChoices)
 	{
-		if(initialDelay)
+		if(_initialDelay)
 			yield return new WaitForSeconds(1.0f);
 
 		isSomeoneTalking = true;
@@ -417,7 +407,6 @@ public class DialogueInterface : MonoBehaviour
 
 #endregion
 
-
 #region Logic
 
 	public void SetBtnActions(UnityEngine.Events.UnityAction[][] _actions)
@@ -450,7 +439,7 @@ public class DialogueInterface : MonoBehaviour
 		currentBtnActions [_btnIndex - 1].Add (_action);
 	}
 
-	public UnityEngine.Events.UnityAction GetButtonAction(string _actionKey)
+	public UnityEngine.Events.UnityAction GetButtonActionFromDict(string _actionKey)
 	{
 		if(btnActionsDict.ContainsKey(_actionKey))
 		{
@@ -462,7 +451,21 @@ public class DialogueInterface : MonoBehaviour
 			return null;
 		}
 	}
-	
+
+	public UnityEngine.Events.UnityAction[] GetButtonActionFromDict(string[] _actionKeys)
+	{
+		List<UnityEngine.Events.UnityAction> actionsList = new List<UnityEngine.Events.UnityAction> ();
+
+		for (int i = 0; i < _actionKeys.Length; ++i) 
+		{
+			if(btnActionsDict.ContainsKey(_actionKeys[i]))
+				actionsList.Add(btnActionsDict[_actionKeys[i]]);
+			else
+				Debug.LogError("The action: " + _actionKeys[i] + " does not exist!");
+		}
+		return actionsList.ToArray ();
+	}
+
 	private void PopulateButtonActionDict()
 	{
 		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOP_EXIT, (() => {ExitShop ();}));
@@ -475,44 +478,57 @@ public class DialogueInterface : MonoBehaviour
 	}
 #endregion
 
-
 #region Potential Actions
 	private void ExitShop()
 	{
-		StartCoroutine(AnimatedDialogue(false, "Have a good day!", false));
+		StartCoroutine(AnimatedDialogue(false, Dialogues_Lines.SHOPKEEP_GOODBYE_TERROR, false));
 		PlayerMovement.CanExecuteAction (true);
 		HideChoices();
 		Debug.Log ("Exit!");
+		if (OnExitShop != null)
+			OnExitShop ();
 	}
 
 	private void Intimidate()
 	{
 		Debug.Log ("Intimidate");
+		if (OnIntimidate != null)
+			OnIntimidate ();
 	}
 
 	private void AskForPayment()
 	{
 		Debug.Log ("Ask for Payment");
+		if (OnAskForPayment != null)
+			OnAskForPayment ();
 	}
 	
 	private void OfferProtection()
 	{
 		Debug.Log ("Offer Protection");
+		if (OnOfferProtection != null)
+			OnOfferProtection ();
 	}
 
 	private void RenegotiateProtection()
 	{
 		Debug.Log ("Renegotiate Protection");
+		if (OnRenegotiateProtection != null)
+			OnRenegotiateProtection ();
 	}
 
 	private void GoShopping()
 	{
 		Debug.Log ("Go Shopping");
+		if (OnGoShopping != null)
+			OnGoShopping ();
 	}
 
 	private void ChitChat()
 	{
 		Debug.Log ("Chit Chat");
+		if (OnChitChat != null)
+			OnChitChat ();
 	}
 #endregion
 }
