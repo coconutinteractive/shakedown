@@ -1,15 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Resources_Officer : Resources_Master
+public class Resources_Officer : Resources_NPC
 {
-	public Resources_Officer (string newID, int startingStrength, int startingGreed, int startingIntegrity, string gender, string buildingID, string profileImageID) : base (newID, gender, buildingID, profileImageID)
+	public Resources_Officer (string id,
+	                          string name,
+	                          string image,
+	                          Enums.Gender gender,
+	                          Resources_Building home,
+	                          int money,
+	                          int income,
+	                          int expenses,
+	                          int strength,
+	                          int respect,
+	                          int fear,
+	                          int greed,
+	                          int integrity,
+	                          int stubbornness,
+	                          Resources_Inventory inventory)
+		: base (id,
+		        name,
+		        image,
+		        gender,
+		        home,
+		        money,
+		        income,
+		        expenses,
+		        strength,
+		        respect,
+		        fear,
+		        greed,
+		        integrity,
+		        stubbornness,
+		        inventory)
 	{
-		_strength = startingStrength;
-		_greed = startingGreed;
-		_integrity = startingIntegrity;
 		Manager_Resources.NewOfficer (this);
 	}
+<<<<<<< HEAD
+=======
 	
 	// Strength
 	private const uint maxStrength = 100;
@@ -36,4 +64,5 @@ public class Resources_Officer : Resources_Master
 	{
 		_integrity = (int)Mathf.Clamp (_integrity + value, 0, maxIntegrity);
 	}
+>>>>>>> origin/master
 }

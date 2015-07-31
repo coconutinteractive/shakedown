@@ -12,17 +12,24 @@ public class Dialogue_Script : MonoBehaviour
 	private Material leftProfileMaterial;
 	private Material rightProfileMaterial;
 
-	private Resources_Master characterLeft;
-	private Resources_Master characterRight;
+	private Resources_Root characterLeft;
+	private Resources_Root characterRight;
 	private Resources_Player player;
-	private Resources_Master npc;
+	private Resources_Root npc;
 	private Building_Script building;
 	private Resources_Officer presentOfficer;
+<<<<<<< HEAD
+
+	private List<ShopItem> shopItems = new List<ShopItem>();
+	private Enums.ShopkeeperStates shopkeeperState;
+	private Enums.OfficerStates officerState;
+=======
 	
 	private Utilities.ShopkeeperStates shopkeeperState;
 	private Utilities.OfficerStates officerState;
+>>>>>>> origin/master
 
-	public void GenerateDialogue (Resources_Master leftCharacter, Resources_Master rightCharacter, Building_Script building, Resources_Officer nearbyOfficer = null)
+	public void GenerateDialogue (Resources_Root leftCharacter, Resources_Root rightCharacter, Building_Script building, Resources_Officer nearbyOfficer = null)
 	{
 		SetMaterials();
 		characterLeft = leftCharacter;
@@ -45,8 +52,13 @@ public class Dialogue_Script : MonoBehaviour
 
 	private void UpdateProfileImages()
 	{
+<<<<<<< HEAD
+		leftProfileMaterial	= Utilities.GetMaterialFromID(characterLeft.image);
+		rightProfileMaterial = Utilities.GetMaterialFromID(characterRight.image);
+=======
 		leftProfileMaterial	= characterLeft.profileImage;
 		rightProfileMaterial = characterRight.profileImage;
+>>>>>>> origin/master
 	}
 
 	public void ClearDisplay()
@@ -61,18 +73,18 @@ public class Dialogue_Script : MonoBehaviour
 		List<string> Options = new List<string>();
 
 		if(building.buildingRobbed)
-			shopkeeperState = Utilities.ShopkeeperStates.Robbed;
+			shopkeeperState = Enums.ShopkeeperStates.Robbed;
 		else if(building.buildingVandalized)
-			shopkeeperState = Utilities.ShopkeeperStates.Vandalized;
-		else if(shopkeeper.IsShopkeeperAggrivated(player.presence))
-			shopkeeperState = Utilities.ShopkeeperStates.Aggrivated;
+			shopkeeperState = Enums.ShopkeeperStates.Vandalized;
+		//else if(shopkeeper.IsShopkeeperAggrivated(player.presence))
+		//	shopkeeperState = Enums.ShopkeeperStates.Aggrivated;
 		else
-			shopkeeperState = Utilities.ShopkeeperStates.Passive;
+			shopkeeperState = Enums.ShopkeeperStates.Passive;
 
-		if(shopkeeperState != Utilities.ShopkeeperStates.Robbed)
+		if(shopkeeperState != Enums.ShopkeeperStates.Robbed)
 		{
 			Options.Add ("Purchase Wares");
-			if(shopkeeperState == Utilities.ShopkeeperStates.Vandalized)
+			if(shopkeeperState == Enums.ShopkeeperStates.Vandalized)
 			{ Options.Add("Inquire"); }
 		}else{
 			/*if(player.getProof(shopkeeper.referenceID))
@@ -80,7 +92,7 @@ public class Dialogue_Script : MonoBehaviour
 			Options.Add ("Inquire");
 		}
 
-		if(shopkeeper.protectionPayment > 0)
+		if(shopkeeper.home.payment > 0)
 		{
 			Options.Add ("Request Payment");
 			Options.Add ("Renegotiate Payment");

@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 	private CrossWalk currentCrosswalk = null;
 	private bool isBeingApprehended = false;
 	public static float elapsedTime = 0.0f;
-
+	
 	[SerializeField] private Sprite portrait = null;
 	
 	private void Start()
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			if(canExecuteAction)
 				StartCoroutine(ExitShop (_currentAction));
-
+			
 			break;
 		}
 		case PossibleAction.Action_CrossStreet:
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 		GameObject newCamPoint =  _currentAction.triggerObj.GetComponent<CornerTrigger> ().SwitchCameraPoint ();
 		myCamera.gameObject.GetComponent<CameraScript> ().MoveTransition (newCamPoint);
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, newCamPoint.transform.eulerAngles.y, newCamPoint.transform.eulerAngles.z);
-
+		
 		Vector3 targetPos = _currentAction.triggerObj.transform.position;
 		targetPos.y = transform.position.y;
 		transform.position = targetPos;
@@ -318,15 +318,15 @@ public class PlayerMovement : MonoBehaviour
 		SavingKeysContainer.OnSaveGame -= HandleOnSaveGame;
 		SavingKeysContainer.OnLoadGame -= HandleOnLoadGame;
 	}
-
+	
 	public static void CanMove(bool _canMove)
 	{
 		canMove = _canMove;
 	}
-
+	
 	public static void CanExecuteAction(bool _canExecuteAction)
 	{
 		canExecuteAction = _canExecuteAction;
 	}
-
+	
 }

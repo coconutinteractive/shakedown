@@ -83,7 +83,6 @@ public class AIParent : MonoBehaviour
 				direction *= -1;
 				return;
 			}
-
 			//Turn Corner
 			GameObject newCamPoint = c.GetComponent<CornerTrigger>().GetCitizenCamerapoint(currentCamPoint);
 			currentCamPoint = newCamPoint;

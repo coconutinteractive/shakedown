@@ -1,0 +1,186 @@
+{
+    "Prompts": {
+        "dialogue_prompt_askToLowerPayment": {
+            "id": "dialogue_prompt_askToLowerPayment"
+        },
+        "dialogue_prompt_assaultInitial": {
+            "id": "dialogue_prompt_assaultInitial"
+        },
+        "dialogue_prompt_assaultSecondary": {
+            "id": "dialogue_prompt_assaultSecondary"
+        },
+        "dialogue_prompt_giveDetails": {
+            "id": "dialogue_prompt_giveDetails"
+        },
+        "dialogue_prompt_greeting": {
+            "id": "dialogue_prompt_greeting"
+        },
+        "dialogue_prompt_intimidatedCallsPolice": {
+            "id": "dialogue_prompt_intimidatedCallsPolice"
+        },
+        "dialogue_prompt_intimidatedFightsBack": {
+            "id": "dialogue_prompt_intimidatedFightsBack"
+        },
+        "dialogue_prompt_intimidatedRattled": {
+            "id": "dialogue_prompt_intimidatedRattled"
+        },
+        "dialogue_prompt_intimidatedUnaffected": {
+            "id": "dialogue_prompt_intimidatedUnaffected"
+        },
+        "dialogue_prompt_offerAccepted": {
+            "id": "dialogue_prompt_offerAccepted"
+        },
+        "dialogue_prompt_offerRefused": {
+            "id": "dialogue_prompt_offerRefused"
+        },
+        "dialogue_prompt_outsideShop": {
+            "id": "dialogue_prompt_outsideShop"
+        },
+        "dialogue_prompt_paymentFull": {
+            "id": "dialogue_prompt_paymentFull"
+        },
+        "dialogue_prompt_paymentNone": {
+            "id": "dialogue_prompt_paymentNone"
+        },
+        "dialogue_prompt_paymentPartial": {
+            "id": "dialogue_prompt_paymentPartial"
+        },
+        "dialogue_prompt_placated": {
+            "id": "dialogue_prompt_placated"
+        },
+        "dialogue_prompt_problemWithPayment": {
+            "id": "dialogue_prompt_problemWithPayment"
+        },
+        "dialogue_prompt_productCost": {
+            "id": "dialogue_prompt_productCost"
+        },
+        "dialogue_prompt_purchaseFailed": {
+            "id": "dialogue_prompt_purchaseFailed"
+        },
+        "dialogue_prompt_purchaseSuccessful": {
+            "id": "dialogue_prompt_purchaseSuccessful"
+        },
+        "dialogue_prompt_root": {
+            "id": "dialogue_prompt_root"
+        },
+        "dialogue_prompt_schedulePayment": {
+            "id": "dialogue_prompt_schedulePayment"
+        },
+        "dialogue_prompt_shopInventory": {
+            "id": "dialogue_prompt_shopInventory"
+        },
+        "dialogue_prompt_smallTalk": {
+            "id": "dialogue_prompt_smallTalk"
+        }
+    },
+    "Options": {
+        "dialogue_option_acceptPayment": {
+            "id": "dialogue_option_acceptPayment"
+        },
+        "dialogue_option_acceptProposition": {
+            "id": "dialogue_option_acceptProposition"
+        },
+        "dialogue_option_acknowledge": {
+            "id": "dialogue_option_acknowledge"
+        },
+        "dialogue_option_cancelPurchase": {
+            "id": "dialogue_option_cancelPurchase"
+        },
+        "dialogue_option_checkTheRegister": {
+            "id": "dialogue_option_checkTheRegister"
+        },
+        "dialogue_option_chitChat": {
+            "id": "dialogue_option_chitChat"
+        },
+        "dialogue_option_confirmPurchase": {
+            "id": "dialogue_option_confirmPurchase"
+        },
+        "dialogue_option_continueIntimidating": {
+            "id": "dialogue_option_continueIntimidating"
+        },
+        "dialogue_option_defaultAmount": {
+            "id": "dialogue_option_defaultAmount"
+        },
+        "dialogue_option_earlyPayment": {
+            "id": "dialogue_option_earlyPayment"
+        },
+        "dialogue_option_enterShop": {
+            "id": "dialogue_option_enterShop"
+        },
+        "dialogue_option_exitShop": {
+            "id": "dialogue_option_exitShop"
+        },
+        "dialogue_option_getDetails": {
+            "id": "dialogue_option_getDetails"
+        },
+        "dialogue_option_goShopping": {
+            "id": "dialogue_option_goShopping"
+        },
+        "dialogue_option_hearProposition": {
+            "id": "dialogue_option_hearProposition"
+        },
+        "dialogue_option_ignore": {
+            "id": "dialogue_option_ignore"
+        },
+        "dialogue_option_intimidate": {
+            "id": "dialogue_option_intimidate"
+        },
+        "dialogue_option_intimidate2_Act": {
+            "id": "dialogue_option_intimidate2_Act"
+        },
+        "dialogue_option_intimidate2_Imply": {
+            "id": "dialogue_option_intimidate2_Imply"
+        },
+        "dialogue_option_intimidate2_Threaten": {
+            "id": "dialogue_option_intimidate2_Threaten"
+        },
+        "dialogue_option_intimidate3_AttackShopkeeper": {
+            "id": "dialogue_option_intimidate3_AttackShopkeeper"
+        },
+        "dialogue_option_intimidate3_BreakMerchandise": {
+            "id": "dialogue_option_intimidate3_BreakMerchandise"
+        },
+        "dialogue_option_intimidate3_BurnDownShop": {
+            "id": "dialogue_option_intimidate3_BurnDownShop"
+        },
+        "dialogue_option_intimidate3_InformBoss": {
+            "id": "dialogue_option_intimidate3_InformBoss"
+        },
+        "dialogue_option_neverMind": {
+            "id": "dialogue_option_neverMind"
+        },
+        "dialogue_option_offerProtection": {
+            "id": "dialogue_option_offerProtection"
+        },
+        "dialogue_option_offerToAidBusiness": {
+            "id": "dialogue_option_offerToAidBusiness"
+        },
+        "dialogue_option_otherAmount": {
+            "id": "dialogue_option_otherAmount"
+        },
+        "dialogue_option_placate": {
+            "id": "dialogue_option_placate"
+        },
+        "dialogue_option_rejectProposition": {
+            "id": "dialogue_option_rejectProposition"
+        },
+        "dialogue_option_renegotiate": {
+            "id": "dialogue_option_renegotiate"
+        },
+        "dialogue_option_requestPayment": {
+            "id": "dialogue_option_requestPayment"
+        },
+        "dialogue_option_resumeTalking": {
+            "id": "dialogue_option_resumeTalking"
+        },
+        "dialogue_option_returnGreeting": {
+            "id": "dialogue_option_returnGreeting"
+        },
+        "dialogue_option_shopProduct": {
+            "id": "dialogue_option_shopProduct"
+        },
+        "dialogue_option_tryAnotherOffer": {
+            "id": "dialogue_option_tryAnotherOffer"
+        }
+    }
+}

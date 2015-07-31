@@ -120,7 +120,10 @@ public class Dialogue_Prompt
 				filteredList.Add(baseList[i]);
 			}
 		}
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 		return filteredList;
 	}
 

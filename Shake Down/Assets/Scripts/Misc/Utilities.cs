@@ -1,12 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Utilities
 {
-	public enum DaysOfWeek {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
-	public enum OfficerStates {Passive, Active, Aggressive};
-	public enum ShopkeeperStates {Passive, Aggrivated, Vandalized, Robbed};
-
 	// Looks for gender text formatted as {male/female} and replaces with either male or female only text.
 	static public string ParseStringForGender(string unparsedText, string gender)
 	{
@@ -51,5 +48,14 @@ public class Utilities
 	static public Material GetMaterialFromID(string id)
 	{
 		return Resources.Load(id, typeof(Material)) as Material;
+	}
+
+	static public bool FoundStringInList (string id, List<string> list)
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			if (list[i] == id) return true;
+		}
+		return false;
 	}
 }
