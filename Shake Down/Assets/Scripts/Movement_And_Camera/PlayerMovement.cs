@@ -169,14 +169,14 @@ public class PlayerMovement : MonoBehaviour
 			yield return null;
 		}
 		
-		_currentAction.triggerObj.GetComponent<ShopEntrance> ().StartDialogue (portrait, playerName, playerLastName);
-		_currentAction.triggerObj.GetComponent<ShopEntrance> ().Initialize ();
+		_currentAction.triggerObj.GetComponent<Building_Script> ().StartDialogue (portrait, playerName, playerLastName);
+		_currentAction.triggerObj.GetComponent<Building_Script> ().Initialize ();
 		currentAvailableActions.Add (new AvailableAction (PossibleAction.Action_ExitShop, KeyCode.S, _currentAction.triggerObj));
 	}
 	
 	private IEnumerator ExitShop(AvailableAction _currentAction)
 	{
-		_currentAction.triggerObj.GetComponent<ShopEntrance> ().EndDialogue ();
+		_currentAction.triggerObj.GetComponent<Building_Script> ().EndDialogue ();
 		Manager_GameTime.Instance.PauseGameTime (false);
 		Manager_GameTime.Instance.TimeLeap (1, 20, 0);
 		myRigidbody.velocity = Vector3.zero;

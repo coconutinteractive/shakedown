@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class Resources_Shopkeeper : Resources_NPC
 {
-	private int _respect;
-	
-	public int respect { get { return _respect; } }
-	
 	public Resources_Shopkeeper (string id,
 	                             string name,
 	                             string image,

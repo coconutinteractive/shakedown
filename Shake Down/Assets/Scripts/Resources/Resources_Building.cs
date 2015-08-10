@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class Resources_Building : Resources_Root
 {
 	private Enums.BuildingTypes _type;
@@ -9,10 +10,12 @@ public class Resources_Building : Resources_Root
 	private int _payment;
 	private Enums.DaysOfWeek _day;
 
+
 	public Enums.BuildingTypes type { get { return _type; } }
 	public int rent { get { return _rent; } } 
 	public int payment { get { return _payment; } }
 	public Enums.DaysOfWeek day { get { return _day; } }
+
 
 	public Resources_Building  (string id,
 	                            string name,

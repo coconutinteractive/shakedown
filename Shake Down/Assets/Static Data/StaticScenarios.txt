@@ -195,6 +195,19 @@
                 "payment": "0",
                 "day": "day_monday",
                 "inventory": "inventory_blank"
+            },
+            "building16": {
+                "id": "building16",
+                "name": "building16",
+                "image": "DefaultBuilding",
+                "type": "building_clothes",
+                "money": "1000",
+                "income": "201",
+                "expenses": "26",
+                "rent": "1",
+                "payment": "1",
+                "day": "day_monday",
+                "inventory": "inventory_blank"
             }
         },
         "player": {
@@ -213,10 +226,10 @@
             "alfred": {
                 "id": "alfred",
                 "name": "alfred",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building02",
-                "money": "8675309",
+                "money": "300",
                 "income": "45",
                 "expenses": "100",
                 "strength": "10",
@@ -230,10 +243,10 @@
             "bigsby": {
                 "id": "bigsby",
                 "name": "bigsby",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building03",
-                "money": "788667",
+                "money": "275",
                 "income": "45",
                 "expenses": "35",
                 "strength": "15",
@@ -247,10 +260,10 @@
             "chanlie": {
                 "id": "chanlie",
                 "name": "chanlie",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "female",
                 "home": "building04",
-                "money": "887643",
+                "money": "225",
                 "income": "45",
                 "expenses": "80",
                 "strength": "65",
@@ -264,10 +277,10 @@
             "douglas": {
                 "id": "douglas",
                 "name": "douglas",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building05",
-                "money": "34567890",
+                "money": "325",
                 "income": "45",
                 "expenses": "50",
                 "strength": "34",
@@ -281,7 +294,7 @@
             "evan": {
                 "id": "evan",
                 "name": "evan",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building06",
                 "money": "250",
@@ -298,7 +311,7 @@
             "francine": {
                 "id": "francine",
                 "name": "francine",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "female",
                 "home": "building07",
                 "money": "250",
@@ -315,7 +328,7 @@
             "gus": {
                 "id": "gus",
                 "name": "gus",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building08",
                 "money": "250",
@@ -332,7 +345,7 @@
             "heather": {
                 "id": "heather",
                 "name": "heather",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "female",
                 "home": "building09",
                 "money": "250",
@@ -349,7 +362,7 @@
             "izzy": {
                 "id": "izzy",
                 "name": "izzy",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building10",
                 "money": "250",
@@ -366,7 +379,7 @@
             "jean": {
                 "id": "jean",
                 "name": "jean",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building11",
                 "money": "250",
@@ -383,7 +396,7 @@
             "keilan": {
                 "id": "keilan",
                 "name": "keilan",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building12",
                 "money": "250",
@@ -400,7 +413,7 @@
             "larry": {
                 "id": "larry",
                 "name": "larry",
-                "image": "DefaultFace",
+                "image": "Shopkeep Image Temp",
                 "gender": "male",
                 "home": "building13",
                 "money": "250",
@@ -412,6 +425,23 @@
                 "greed": "0",
                 "integrity": "0",
                 "stubbornness": "10",
+                "inventory": "inventory_blank"
+            },
+            "scott": {
+                "id": "scott",
+                "name": "scott",
+                "image": "Shopkeep Image Temp",
+                "gender": "male",
+                "home": "building16",
+                "money": "251",
+                "income": "46",
+                "expenses": "36",
+                "strength": "56",
+                "respect": "0",
+                "fear": "0",
+                "greed": "0",
+                "integrity": "0",
+                "stubbornness": "50",
                 "inventory": "inventory_blank"
             }
         },

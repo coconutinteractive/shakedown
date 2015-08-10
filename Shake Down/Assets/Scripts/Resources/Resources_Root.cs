@@ -9,7 +9,7 @@ public class Resources_Root
 	private string _id;
 	private string _name;
 	private string _image;
-	private int _money = 350;
+	private int _money;
 	private int _income;
 	private int _expenses;
 	private Resources_Inventory _inventory;
@@ -19,9 +19,9 @@ public class Resources_Root
 	public string id { get { return _id; } }
 	public string name { get { return _name; } }
 	public string image { get { return _image; } }
-	public int money { get { return _money; } }
-	public int income { get { return _income; } }
-	public int expenses { get { return _expenses; } }
+	public int money { get { return _money; } set{_money = value;} }
+	public int income { get { return _income; } set{_income = value;}}
+	public int expenses { get { return _expenses; } set{_expenses = value;}}
 	public Resources_Inventory inventory { get { return _inventory; } }
 
 	public Resources_Root (string id, string name, string image, int money, int income, int expenses, Resources_Inventory inventory)

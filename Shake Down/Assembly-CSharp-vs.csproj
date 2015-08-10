@@ -86,7 +86,6 @@
      <Compile Include="Assets\Scripts\Misc\GameChart_Shopkeeper.cs" />
      <Compile Include="Assets\Scripts\Misc\NightActivities.cs" />
      <Compile Include="Assets\Scripts\Misc\Scenario_Script.cs" />
-     <Compile Include="Assets\Scripts\Misc\ShopEntrance.cs" />
      <Compile Include="Assets\Scripts\Misc\ShopItem.cs" />
      <Compile Include="Assets\Scripts\Misc\Utilities.cs" />
      <Compile Include="Assets\Scripts\Misc\spaceBackgroundAnimate.cs" />

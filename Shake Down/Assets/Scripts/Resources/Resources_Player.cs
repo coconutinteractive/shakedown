@@ -10,6 +10,8 @@ public class Resources_Player : Resources_Character
 	
 	public int presence { get { return _presence; } }
 	public int opinion { get { return _opinion; } }
+
+	static public Resources_Player playerRef;
 	
 	public Resources_Player (ProfileSettings profile,
 	                         Resources_Building home,
@@ -33,6 +35,7 @@ public class Resources_Player : Resources_Character
 	{
 		_presence = presence;
 		_opinion = opinion;
+		playerRef = this;
 		
 		Manager_Resources.NewPlayer(this);
 	}

@@ -105,7 +105,7 @@ public class Scenario_Script
 					)	
 					);
 				
-				//Building_Script.GetBuilding(shopkeeper.GetField("home").str).RegisterShopkeeper(newShopkeeper);
+				Building_Script.GetBuilding(shopkeeper.GetField("home").str).RegisterShopkeeper(newShopkeeper);
 				occupiedBuildings.Add (shopkeeper.GetField("home").str);
 			}
 			
@@ -164,6 +164,10 @@ public class Scenario_Script
 					}
 					if(staticBuildingsToCheck[j] == designBuildingsToCheck[i])
 					{
+						// do stuff here
+						Building_Script buildRef = Building_Script.GetBuilding(designBuildingsToCheck[i]);
+						buildRef.building = Resources_Building.GetBuildingByID(designBuildingsToCheck[i]);
+
 						staticBuildingsToCheck.RemoveAt(j);
 						buildingFound = true;
 					}

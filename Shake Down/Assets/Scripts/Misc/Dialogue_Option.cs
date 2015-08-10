@@ -207,36 +207,44 @@ public class Dialogue_Option
 	{
 		// TODO: Logic for Shopkeeper Assault State vs Shopkeeper Money/Profit vs Shopkeeper Respect
 		return "dialogue_prompt_greeting";
+		/*
 		return "dialogue_prompt_assaultInitial";
 		return "dialogue_prompt_assaultSecondary";
 		return "dialogue_prompt_problemWithPayment";
 		return "dialogue_prompt_paymentFull";
 		return "dialogue_prompt_paymentPartial";
 		return "dialogue_prompt_paymentNone";
+		*/
 	}
 
 	private string DeterminePrompt_GetPayment()
 	{
 		// TODO: Logic for Shopkeeper Money/Profit vs Shopkeeper Fear/Respect
 		return "dialogue_prompt_paymentPartial";
+		/*
 		return "dialogue_prompt_paymentFull";
 		return "dialogue_prompt_paymentNone";
+		*/
 	}
 
 	private string DeterminePrompt_Offer()
 	{
 		// TODO: Logic for Player Strength/Presence vs Shopkeeper Money/Profit/Respect
 		return "dialogue_prompt_offerAccepted";
+		/*
 		return "dialogue_prompt_offerRefused";
+		*/
 	}
 
 	private string DeterminePrompt_Intimidate(string _action)
 	{
 		// TODO: Logic for Player Strength/Presence vs Shopkeeper Strength/Fear/Respect
 		return "dialogue_prompt_intimidatedCallsPolice";
+		/*
 		return "dialogue_prompt_intimidatedFightsBack";
 		return "dialogue_prompt_intimidatedNoEffect";
 		return "dialogue_prompt_intimidatedRattled";
+		*/
 	}
 
 	private string DeterminePrompt_Purchase()

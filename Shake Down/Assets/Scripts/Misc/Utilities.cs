@@ -50,6 +50,11 @@ public class Utilities
 		return Resources.Load(id, typeof(Material)) as Material;
 	}
 
+	static public Sprite GetSpriteFromID(string id)
+	{
+		return Resources.Load(id, typeof(Sprite)) as Sprite;
+	}
+
 	static public bool FoundStringInList (string id, List<string> list)
 	{
 		for (int i = 0; i < list.Count; i++)

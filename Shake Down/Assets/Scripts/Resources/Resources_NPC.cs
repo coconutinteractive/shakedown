@@ -10,8 +10,8 @@ public class Resources_NPC : Resources_Character
 	private int _stubbornness;
 	private int _attitude;
 
-	public int respect { get { return _respect; } }
-	public int fear { get { return _fear; } }
+	public int respect { get { return _respect; } set{_respect = value;} }
+	public int fear { get { return _fear; } set{_fear = value;} }
 	public int greed { get { return _greed; } }
 	public int integrity { get { return _integrity; } }
 	public int stubbornness { get { return _stubbornness; } }

@@ -9,7 +9,11 @@ public class Enums
 								building_liquor, building_tobacco, building_grocery, building_strip_club};
 	public enum OfficerStates {};
 	public enum ShopkeeperStates {Robbed, Vandalized, Aggressive, Passive};
+	public enum ShopkeeperAttitude {Normal, Disdain, Neutral, Terror, Admiration, Awe, High_Respect, High_Fear};
 	public enum Gender {female = 0, male = 1};
+
+	public enum IntimidateAction {None, Imply = 2, Threaten = 3, Act = 4};
+	
 
 	static public Enums.Gender GenderFromString(string text)
 	{

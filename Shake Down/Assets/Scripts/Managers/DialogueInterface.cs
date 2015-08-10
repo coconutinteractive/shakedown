@@ -99,6 +99,9 @@ public class DialogueInterface : MonoBehaviour
 	[SerializeField] private GameObject sixChoicesBox = null, threeChoicesBox = null, twoChoicesBox = null, oneChoiceBox = null,
 										digitSelectorBox = null, shopInventoryBox = null;
 
+	// TEMP! 
+	[SerializeField] public Sprite cashRegisterPortrait = null;
+
 	// Choices
 	private int numberOfChoices = 0;
 	private List<string> choicesTextID = new List<string>(), choicesText = new List<string>();
