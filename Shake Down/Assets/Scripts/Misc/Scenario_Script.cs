@@ -5,13 +5,13 @@ using System.Collections.Generic;
 public class Scenario_Script
 {
 	static private bool scenarioExists = false;
-
+	
 	static public void ClearScenario()
 	{
 		Manager_Resources.ClearAllResources();
 		scenarioExists = false;
 	}
-
+	
 	static public void SetupScenarioFromJSON(string scenarioID, JSONObject json, ProfileSettings profileSettings)
 	{
 		if(!scenarioExists)
@@ -21,14 +21,14 @@ public class Scenario_Script
 			JSONObject settings_shopkeepers = scenario.GetField ("shopkeeper");
 			JSONObject settings_officers = scenario.GetField ("officer");
 			JSONObject settings_buildings = scenario.GetField ("building");
-
+			
 			List<string> occupiedBuildings = new List<string>();
-
+			
 			int i;
 			for (i = 0; i < settings_buildings.Count; i++)
 			{
 				JSONObject building = settings_buildings[i];
-
+				
 				new Resources_Building(
 					//id, name, image, type, money, income, expenses, rent, payment, day, inventory
 					building.GetField ("id").str,
@@ -41,18 +41,20 @@ public class Scenario_Script
 					int.Parse (building.GetField ("rent").str),
 					int.Parse (building.GetField ("payment").str),
 					Enums.DaysOfWeekFromString(building.GetField ("day").str),
+
 					Resources_Inventory.GenerateInventoryFromJSON(
 						building.GetField ("inventory").str,
 						building.GetField ("id").str
 					)	 
-				);
+					);
 			}
 			for (i = 0; i < settings_player.Count; i++)
 			{
 				JSONObject player = settings_player[i];
 				
 				new Resources_Player(
-					//
+					// profile settings, home, money, income, expenses, strength, presence, opinion, inventory
+
 					profileSettings,
 					Resources_Building.GetBuildingByID(player.GetField ("home").str),
 					int.Parse (player.GetField ("money").str),
@@ -61,25 +63,25 @@ public class Scenario_Script
 					int.Parse (player.GetField ("strength").str),
 					int.Parse (player.GetField ("presence").str),
 					int.Parse (player.GetField ("opinion").str),
+
 					Resources_Inventory.GenerateInventoryFromJSON(
 						player.GetField ("inventory").str,
 						profileSettings.id
 					)
-				);
-
+					);
+				
 				occupiedBuildings.Add (player.GetField("home").str);
 			}
 			for (i = 0; i < settings_shopkeepers.Count; i++)
 			{
 				JSONObject shopkeeper = settings_shopkeepers[i];
-
+				
 				if(occupiedBuildings.Contains(shopkeeper.GetField("home").str))
 				{
 					Debug.LogError ("Whoa there, Sally. Someone done goofed. Go tell whoever was messing with the static data that " + shopkeeper.GetField("id").str + " can't set up shop in " + shopkeeper.GetField("home").str + ". Someone else is already in there! -Scott");
 				}
-
+				
 				Resources_Shopkeeper newShopkeeper = new Resources_Shopkeeper(
-<<<<<<< HEAD
 					//id, name, image, gender, home, money, income, expenses, 
 					//strength, respect, fear, greed, integrity, stubbornness, attitude, inventory
 					shopkeeper.GetField ("id").str,
@@ -96,41 +98,27 @@ public class Scenario_Script
 					int.Parse (shopkeeper.GetField ("greed").str),
 					int.Parse (shopkeeper.GetField ("integrity").str),
 					int.Parse (shopkeeper.GetField ("stubbornness").str),
+
 					Resources_Inventory.GenerateInventoryFromJSON(
 						shopkeeper.GetField ("inventory").str,
-				        shopkeeper.GetField ("id").str
-					)
-				);
-
+						shopkeeper.GetField ("id").str
+					)	
+					);
+				
 				//Building_Script.GetBuilding(shopkeeper.GetField("home").str).RegisterShopkeeper(newShopkeeper);
 				occupiedBuildings.Add (shopkeeper.GetField("home").str);
-=======
-					shopkeeper.GetField("id").str,
-					int.Parse (shopkeeper.GetField("strength").str),
-					int.Parse (shopkeeper.GetField("respect").str),
-					int.Parse (shopkeeper.GetField("fear").str),
-					int.Parse (shopkeeper.GetField("money").str),
-					int.Parse (shopkeeper.GetField("income").str),
-					int.Parse (shopkeeper.GetField("expenses").str),
-					int.Parse (shopkeeper.GetField("protectionpayment").str),
-					shopkeeper.GetField("gender").str,
-					shopkeeper.GetField("portrait").str,
-					shopkeeper.GetField("buildingid").str
-					);
-				occupiedBuildings.Add (shopkeeper.GetField("buildingid").str);
->>>>>>> origin/master
 			}
 			
 			List<string> temporaryPoliceStationList = new List<string>();
 			for (i = 0; i < settings_officers.Count; i++)
 			{
 				JSONObject officer = settings_officers[i];
-
+				
 				if(occupiedBuildings.Contains(officer.GetField("home").str))
 				{
 					Debug.LogError ("Dial it back there, toots. " + officer.GetField ("home").str + " isn't a police station. Go tell whoever was doing the static data to send officer " + officer.GetField("id").str + " someplace else! -Scott");
 				}
-
+				
 				new Resources_Officer(
 					//id, name, image, gender, home, money, income, expenses,
 					//strength, respect, fear, greed, integrity, stubbornness, attitude, inventory
@@ -148,19 +136,20 @@ public class Scenario_Script
 					int.Parse (officer.GetField ("greed").str),
 					int.Parse (officer.GetField ("integrity").str),
 					int.Parse (officer.GetField ("stubbornness").str),
+
 					Resources_Inventory.GenerateInventoryFromJSON(
 						officer.GetField ("inventory").str,
 						officer.GetField ("id").str
 					)
-				);
-
+					);
+				
 				temporaryPoliceStationList.Add (officer.GetField("home").str);
 			}
 			foreach(string policeStation in temporaryPoliceStationList)
 			{
 				occupiedBuildings.Add (policeStation);
 			}
-
+			
 			int j;
 			List<string> staticBuildingsToCheck = occupiedBuildings;
 			List<string> designBuildingsToCheck = Building_Script.buildingIDs;
@@ -188,9 +177,11 @@ public class Scenario_Script
 			{ Debug.LogError ("Hey pal. " + staticBuildingID + " exists in the static data but not in the design world. I just thought you should know. -Scott"); }
 			foreach(string designBuildingID in designBuildingsToCheck)
 			{ Debug.LogWarning ("Hey pal. " + designBuildingID + " exists in the design world but isn't used in the static data. I just thought you should know. -Scott"); }
+		
 			scenarioExists = true;
-
-		} else {
+			
+		} 
+		else {
 			Debug.LogError ("You really shoulnd't be loading a new scenario when you've already got one there, buddy. -Scott");
 		}
 	}

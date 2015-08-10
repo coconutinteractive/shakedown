@@ -19,7 +19,7 @@ public class Dialogue_Option_Logic
 	}
 	static public void SetPrompts_CheckTheRegister (Dialogue_Option obj) {
 		// TODO: Logic for Check the Register
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+		//obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 	static public void SetPrompts_ChitChat (Dialogue_Option obj) {
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_smallTalk"));
@@ -32,10 +32,16 @@ public class Dialogue_Option_Logic
 		// TODO: Logic for Intimidate
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
+	static public void SetPrompts_CutProtectionCost (Dialogue_Option obj) {
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+	}
 	static public void SetPrompts_DefaultAmount (Dialogue_Option obj) {
 		// TODO: Logic for Accept/Refuse offer
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_offerAccepted"));
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_offerRefused"));
+	}
+	static public void SetPrompts_Donate (Dialogue_Option obj) {
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 	static public void SetPrompts_EarlyPayment (Dialogue_Option obj) {
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentFull"));
@@ -57,7 +63,7 @@ public class Dialogue_Option_Logic
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_giveDetails"));
 	}
 	static public void SetPrompts_GoShopping (Dialogue_Option obj) {
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_shopInventory"));
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_shopInventory"));		
 	}
 	static public void SetPrompts_HearProposition (Dialogue_Option obj) {
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_askToLowerPayment"));
@@ -71,31 +77,31 @@ public class Dialogue_Option_Logic
 	}
 	static public void SetPrompts_Intimidate2_Act(Dialogue_Option obj) {
 		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_intimidate_action"));
 	}
 	static public void SetPrompts_Intimidate2_Imply(Dialogue_Option obj) {
 		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_intimidate_action"));
 	}
 	static public void SetPrompts_Intimidate2_Threaten(Dialogue_Option obj) {
 		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
-	}
-	static public void SetPrompts_Intimidate3_AttackShopkeeper(Dialogue_Option obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
-	}
-	static public void SetPrompts_Intimidate3_BreakMerchandise(Dialogue_Option obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
-	}
-	static public void SetPrompts_Intimidate3_BurnDownShop(Dialogue_Option obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_intimidate_action"));
 	}
 	static public void SetPrompts_Intimidate3_InformBoss(Dialogue_Option obj) {
 		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
+		//obj.AddFollowUp(Dialogue_Prompt.GetPromptByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_INFORM_BOSS));
+	}
+	static public void SetPrompts_Intimidate3_BreakMerchandise(Dialogue_Option obj) {
+		// TODO: Logic for Intimidate
+		//obj.AddFollowUp(Dialogue_Prompt.GetPromptByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BREAK_MERCHANDISE));
+	}
+	static public void SetPrompts_Intimidate3_AttackShopkeeper(Dialogue_Option obj) {
+		// TODO: Logic for Intimidate
+		//obj.AddFollowUp(Dialogue_Prompt.GetPromptByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ATTACK_SHOPKEEPER));
+	}
+	static public void SetPrompts_Intimidate3_BurnDownShop(Dialogue_Option obj) {
+		// TODO: Logic for Intimidate
+		//obj.AddFollowUp(Dialogue_Prompt.GetPromptByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BURN_SHOP_DOWN));
 	}
 	static public void SetPrompts_NeverMind (Dialogue_Option obj) {
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
@@ -104,7 +110,6 @@ public class Dialogue_Option_Logic
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_schedulePayment"));
 	}
 	static public void SetPrompts_OfferAidToBusiness (Dialogue_Option obj) {
-		// TODO: Logic for Offer To Aid Business
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 	static public void SetPrompts_OtherAmount (Dialogue_Option obj) {
@@ -126,13 +131,15 @@ public class Dialogue_Option_Logic
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentNone"));
 	}
 	static public void SetPrompts_ResumeTalking (Dialogue_Option obj) {
-		// TODO: Logic for Intimidate
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 	static public void SetPrompts_ReturnGreeting (Dialogue_Option obj) {
 		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 	static public void SetPrompts_ShopProduct (Dialogue_Option obj) {
-		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_productCost"));
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_confirmPurchase"));
+	}
+	static public void SetPrompts_TakeRegisterMoney (Dialogue_Option obj) {
+		obj.AddFollowUp(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"));
 	}
 }

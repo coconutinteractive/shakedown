@@ -1,5 +1,8 @@
 {
     "Prompts": {
+        "dialogue_prompt_aidingBusiness": {
+            "id": "dialogue_prompt_aidingBusiness"
+        },
         "dialogue_prompt_askToLowerPayment": {
             "id": "dialogue_prompt_askToLowerPayment"
         },
@@ -14,6 +17,12 @@
         },
         "dialogue_prompt_greeting": {
             "id": "dialogue_prompt_greeting"
+        },
+        "dialogue_prompt_intimidate": {
+            "id": "dialogue_prompt_intimidate"
+        },
+        "dialogue_prompt_intimidate_action": {
+            "id": "dialogue_prompt_intimidate_action"
         },
         "dialogue_prompt_intimidatedCallsPolice": {
             "id": "dialogue_prompt_intimidatedCallsPolice"
@@ -51,14 +60,26 @@
         "dialogue_prompt_problemWithPayment": {
             "id": "dialogue_prompt_problemWithPayment"
         },
-        "dialogue_prompt_productCost": {
-            "id": "dialogue_prompt_productCost"
+        "dialogue_prompt_confirmPurchase": {
+            "id": "dialogue_prompt_confirmPurchase"
         },
         "dialogue_prompt_purchaseFailed": {
             "id": "dialogue_prompt_purchaseFailed"
         },
         "dialogue_prompt_purchaseSuccessful": {
             "id": "dialogue_prompt_purchaseSuccessful"
+        },
+        "dialogue_prompt_registerEmpty": {
+            "id": "dialogue_prompt_registerEmpty"
+        },
+        "dialogue_prompt_registerSomeMoney": {
+            "id": "dialogue_prompt_registerSomeMoney"
+        },
+        "dialogue_prompt_registerHiddenMoney": {
+            "id": "dialogue_prompt_registerHiddenMoney"
+        },
+        "dialogue_prompt_registerTakeOrLeaveMoney": {
+            "id": "dialogue_prompt_registerTakeOrLeaveMoney"
         },
         "dialogue_prompt_root": {
             "id": "dialogue_prompt_root"
@@ -98,8 +119,14 @@
         "dialogue_option_continueIntimidating": {
             "id": "dialogue_option_continueIntimidating"
         },
+        "dialogue_option_cutProtectionCost": {
+            "id": "dialogue_option_cutProtectionCost"
+        },
         "dialogue_option_defaultAmount": {
             "id": "dialogue_option_defaultAmount"
+        },
+        "dialogue_option_donate": {
+            "id": "dialogue_option_donate"
         },
         "dialogue_option_earlyPayment": {
             "id": "dialogue_option_earlyPayment"
@@ -125,26 +152,26 @@
         "dialogue_option_intimidate": {
             "id": "dialogue_option_intimidate"
         },
-        "dialogue_option_intimidate2_Act": {
-            "id": "dialogue_option_intimidate2_Act"
+        "dialogue_option_intimidate2_act": {
+            "id": "dialogue_option_intimidate2_act"
         },
-        "dialogue_option_intimidate2_Imply": {
-            "id": "dialogue_option_intimidate2_Imply"
+        "dialogue_option_intimidate2_imply": {
+            "id": "dialogue_option_intimidate2_imply"
         },
-        "dialogue_option_intimidate2_Threaten": {
-            "id": "dialogue_option_intimidate2_Threaten"
+        "dialogue_option_intimidate2_threaten": {
+            "id": "dialogue_option_intimidate2_threaten"
         },
-        "dialogue_option_intimidate3_AttackShopkeeper": {
-            "id": "dialogue_option_intimidate3_AttackShopkeeper"
+        "dialogue_option_intimidate3_attackShopkeeper": {
+            "id": "dialogue_option_intimidate3_attackShopkeeper"
         },
-        "dialogue_option_intimidate3_BreakMerchandise": {
-            "id": "dialogue_option_intimidate3_BreakMerchandise"
+        "dialogue_option_intimidate3_breakMerchandise": {
+            "id": "dialogue_option_intimidate3_breakMerchandise"
         },
-        "dialogue_option_intimidate3_BurnDownShop": {
-            "id": "dialogue_option_intimidate3_BurnDownShop"
+        "dialogue_option_intimidate3_burnDownShop": {
+            "id": "dialogue_option_intimidate3_burnDownShop"
         },
-        "dialogue_option_intimidate3_InformBoss": {
-            "id": "dialogue_option_intimidate3_InformBoss"
+        "dialogue_option_intimidate3_informBoss": {
+            "id": "dialogue_option_intimidate3_informBoss"
         },
         "dialogue_option_neverMind": {
             "id": "dialogue_option_neverMind"
@@ -178,6 +205,9 @@
         },
         "dialogue_option_shopProduct": {
             "id": "dialogue_option_shopProduct"
+        },
+        "dialogue_option_takeRegisterMoney": {
+            "id": "dialogue_option_takeRegisterMoney"
         },
         "dialogue_option_tryAnotherOffer": {
             "id": "dialogue_option_tryAnotherOffer"

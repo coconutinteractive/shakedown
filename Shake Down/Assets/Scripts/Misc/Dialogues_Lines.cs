@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Dialogues_Lines
 {
-	public static string SHOPKEEP_GREETINGS_NORMAL = "Hello, sir! \n\n What can I do for you today?";
+	public static string SHOPKEEP_GREETINGS_NORMAL = "What can I do for you today?";
 	public static string SHOPKEEP_GREETINGS_DISDAIN = "Hello, s... oh, it's you. \n\n If you're not buying anything, please leave my store.";
 	public static string SHOPKEEP_GREETINGS_TERROR = "H-Hello, sir. *gulp* \n\n What c-can I do for you today? \n Please don't hurt us....";
 	public static string SHOPKEEP_GREETINGS_ADMIRATION = "Good afternoon, my good friend! You are always welcome here! \n\n How can I help you today?";
@@ -20,7 +20,7 @@ public class Dialogues_Lines
 	public static string SHOPKEEP_ASKFORPAYMENT_FULL = "Please keep protecting our store. Your help is very precious to us.";
 	public static string SHOPKEEP_ASKFORPAYMENT_PARTIAL = "I am very sorry sir, I couldn't have it all for today... This is all I can give you.";
 	public static string SHOPKEEP_ASKFORPAYMENT_NONE_BROKE = "My deepest apologies, sir. We haven't been making any money lately, and can't afford to pay you...";
-	public static string SHOPKEEP_ASKFORPAYMENT_NONE_HATE = "I refuse to give money to a criminal. If It were up to me, people like you would never bother anyone ever again.";
+	public static string SHOPKEEP_ASKFORPAYMENT_NONE_HATE = "I refuse to give money to a criminal. If It were up to me, people like you would never be allowed to roam the streets.";
 
 	public static string SHOPKEEP_GOODBYE_NORMAL = "Have a good day!";
 	public static string SHOPKEEP_GOODBYE_DISDAIN = "And don't come back!";

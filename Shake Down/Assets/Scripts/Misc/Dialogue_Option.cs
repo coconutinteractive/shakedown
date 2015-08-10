@@ -9,8 +9,12 @@ public class Dialogue_Option
 	static public List<string> dialogueOptions { get { return _dialogueOptions.Keys.ToList(); } }
 	static public Dialogue_Option GetOptionByName(string key) { return _dialogueOptions[key]; }
 	
+	private List<string> _followUpKeys = new List<string> ();
+	public List<string> followUpKeys { get { return _followUpKeys; } }
+	public Dialogue_Prompt followUps { get { return SelectFollowUp(/*_followUps*/); } }
 	private List<Dialogue_Prompt> _followUps = new List<Dialogue_Prompt>();
-	public Dialogue_Prompt followUps { get { return SelectFollowUp(_followUps); } }
+	private List<string> _followUpBtnText = new List<string> ();
+	public List<string> followUpBtnText{get{return _followUpBtnText;}}
 	
 	private string _dialogueOptionID;
 	public string optionID { get { return _dialogueOptionID; } }
@@ -28,7 +32,7 @@ public class Dialogue_Option
 			string id = dialogueOptions[i];
 			switch(id)
 			{
-				case "dialogue_option_acceptPayment": {
+				case ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT: {
 					Dialogue_Option_Logic.SetPrompts_AcceptPayment(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_acceptProposition": {
@@ -40,17 +44,23 @@ public class Dialogue_Option
 				case "dialogue_option_cancelPurchase": { 
 					Dialogue_Option_Logic.SetPrompts_CancelPurchase(Dialogue_Option.GetOptionByName(id));				
 					break; }
-				case "dialogue_option_checkTheRegister": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_CHECK_REGISTER: { 
 					Dialogue_Option_Logic.SetPrompts_CheckTheRegister(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_chitChat": {
+				case ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT: {
 					Dialogue_Option_Logic.SetPrompts_ChitChat(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_confirmPurchase": { 
+				case ButtonActionsKeys.ACTION_SHOPPRODUCT_CONFIRM_PURCHASE: { 
 					Dialogue_Option_Logic.SetPrompts_ConfirmPurchase(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_continueIntimidating": { 
 					Dialogue_Option_Logic.SetPrompts_ContinueIntimidating(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_SHOPKEEP_CUT_PROTECTION_COST: { 
+					Dialogue_Option_Logic.SetPrompts_CutProtectionCost(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_SHOPKEEP_DONATE: { 
+					Dialogue_Option_Logic.SetPrompts_Donate(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_earlyPayment": { 
 					Dialogue_Option_Logic.SetPrompts_EarlyPayment(Dialogue_Option.GetOptionByName(id));
@@ -58,13 +68,13 @@ public class Dialogue_Option
 				case "dialogue_option_enterShop": { 
 					Dialogue_Option_Logic.SetPrompts_EnterShop(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_exitShop": { 
+				case ButtonActionsKeys.ACTION_SHOP_EXIT: { 
 					Dialogue_Option_Logic.SetPrompts_ExitShop(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_getDetails": { 
 					Dialogue_Option_Logic.SetPrompts_GetDetails(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_goShopping": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING: { 
 					Dialogue_Option_Logic.SetPrompts_GoShopping(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_hearProposition": { 
@@ -73,37 +83,37 @@ public class Dialogue_Option
 				case "dialogue_option_ignore": { 
 					Dialogue_Option_Logic.SetPrompts_Ignore(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_intimidate": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE: { 
 					Dialogue_Option_Logic.SetPrompts_Intimidate(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_intimidate2_Act": { 
-					Dialogue_Option_Logic.SetPrompts_Intimidate2_Act(Dialogue_Option.GetOptionByName(id));
-					break; }
-				case "dialogue_option_intimidate2_Imply": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_IMPLY: { 
 					Dialogue_Option_Logic.SetPrompts_Intimidate2_Imply(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_intimidate2_Threaten": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_THREATEN: { 
 					Dialogue_Option_Logic.SetPrompts_Intimidate2_Threaten(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_intimidate3_AttackShopkeeper": { 
-					Dialogue_Option_Logic.SetPrompts_Intimidate3_AttackShopkeeper(Dialogue_Option.GetOptionByName(id));
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ACT: { 
+					Dialogue_Option_Logic.SetPrompts_Intimidate2_Act(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_intimidate3_BreakMerchandise": { 
-					Dialogue_Option_Logic.SetPrompts_Intimidate3_BreakMerchandise(Dialogue_Option.GetOptionByName(id));
-					break; }
-				case "dialogue_option_intimidate3_BurnDownShop": { 
-					Dialogue_Option_Logic.SetPrompts_Intimidate3_BurnDownShop(Dialogue_Option.GetOptionByName(id));
-					break; }
-				case "dialogue_option_intimidate3_InformBoss": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_INFORM_BOSS: { 
 					Dialogue_Option_Logic.SetPrompts_Intimidate3_InformBoss(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_neverMind": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BREAK_MERCHANDISE: { 
+					Dialogue_Option_Logic.SetPrompts_Intimidate3_BreakMerchandise(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ATTACK_SHOPKEEPER: { 
+					Dialogue_Option_Logic.SetPrompts_Intimidate3_AttackShopkeeper(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BURN_SHOP_DOWN: { 
+					Dialogue_Option_Logic.SetPrompts_Intimidate3_BurnDownShop(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_NEVERMIND: { 
 					Dialogue_Option_Logic.SetPrompts_NeverMind(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_offerProtection": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION: { 
 					Dialogue_Option_Logic.SetPrompts_OfferProtection(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_offerToAidBusiness": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_AID_BUSINESS: { 
 					Dialogue_Option_Logic.SetPrompts_OfferAidToBusiness(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_otherAmount": { 
@@ -118,10 +128,10 @@ public class Dialogue_Option
 				case "dialogue_option_rejectProposition": { 
 					Dialogue_Option_Logic.SetPrompts_RejectProposition(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_renegotiate": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_RENEGOTIATE_PROTECTION: { 
 					Dialogue_Option_Logic.SetPrompts_Renegotiate(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_requestPayment": { 
+				case ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT: { 
 					Dialogue_Option_Logic.SetPrompts_RequestPayment(Dialogue_Option.GetOptionByName(id));
 					break; }
 				case "dialogue_option_resumeTalking": { 
@@ -130,28 +140,37 @@ public class Dialogue_Option
 				case "dialogue_option_returnGreeting": { 
 					Dialogue_Option_Logic.SetPrompts_ReturnGreeting(Dialogue_Option.GetOptionByName(id));
 					break; }
-				case "dialogue_option_shopProduct": { 
+				case ButtonActionsKeys.ACTION_SHOP_PRODUCT: { 
 					Dialogue_Option_Logic.SetPrompts_ShopProduct(Dialogue_Option.GetOptionByName(id));
+					break; }
+				case ButtonActionsKeys.ACTION_SHOPKEEP_TAKE_REGISTER_MONEY: { 
+					Dialogue_Option_Logic.SetPrompts_TakeRegisterMoney(Dialogue_Option.GetOptionByName(id));
 					break; }
 			}
 		}
 	}
 
-	
 	public void AddFollowUp(Dialogue_Prompt prompts)
 	{
 		_followUps.Add (prompts);
+		_followUpKeys.Add (prompts.promptID);
 	}
 
-	private Dialogue_Prompt SelectFollowUp (List<Dialogue_Prompt> baseList)
+	public void AddFollowUp(Dialogue_Prompt prompts, string _btnText)
 	{
-		Dialogue_Prompt followUp;
+		_followUps.Add (prompts);
+		_followUpKeys.Add (prompts.promptID);
+		_followUpBtnText.Add (_btnText);
+	}
+
+	private Dialogue_Prompt SelectFollowUp (/*List<Dialogue_Prompt> baseList*/)
+	{
 		string promptID = "";
 		switch (optionID) {
 			case "dialogue_option_enterShop": {
 				promptID = DeterminePrompt_FirstEntry();
 				break; }
-			case "dialogue_option_requestPayment":
+			case ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT:
 			case "dialogue_option_earlyPayment": {
 				promptID = DeterminePrompt_GetPayment();
 				break; }
@@ -159,10 +178,25 @@ public class Dialogue_Option
 			case "dialogue_option_otherAmount": {
 				promptID = DeterminePrompt_Offer();
 				break; }
-			case "dialogue_option_intimidate": {
-				promptID = DeterminePrompt_Intimidate();
+			case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE: {
+				//promptID = DeterminePrompt_Intimidate();
+				promptID = "dialogue_prompt_intimidate";
 				break; }
-			case "dialogue_option_confirmPurchase": {
+			case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_IMPLY:
+			case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_THREATEN:
+			case ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ACT: {
+				promptID = "dialogue_prompt_intimidate_action";
+				break; }
+			case ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT: {
+				promptID = "dialogue_prompt_smallTalk";
+				break; }
+			case ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING:{
+				promptID = "dialogue_prompt_shopInventory";
+				break; }
+			case ButtonActionsKeys.ACTION_SHOP_PRODUCT: {
+				promptID = "dialogue_prompt_confirmPurchase";
+				break; }
+			case ButtonActionsKeys.ACTION_SHOPPRODUCT_CONFIRM_PURCHASE: {
 				promptID = DeterminePrompt_Purchase();
 				break; }
 			}
@@ -184,8 +218,8 @@ public class Dialogue_Option
 	private string DeterminePrompt_GetPayment()
 	{
 		// TODO: Logic for Shopkeeper Money/Profit vs Shopkeeper Fear/Respect
-		return "dialogue_prompt_paymentFull";
 		return "dialogue_prompt_paymentPartial";
+		return "dialogue_prompt_paymentFull";
 		return "dialogue_prompt_paymentNone";
 	}
 
@@ -196,7 +230,7 @@ public class Dialogue_Option
 		return "dialogue_prompt_offerRefused";
 	}
 
-	private string DeterminePrompt_Intimidate()
+	private string DeterminePrompt_Intimidate(string _action)
 	{
 		// TODO: Logic for Player Strength/Presence vs Shopkeeper Strength/Fear/Respect
 		return "dialogue_prompt_intimidatedCallsPolice";

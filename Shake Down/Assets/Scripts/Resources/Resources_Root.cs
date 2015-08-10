@@ -9,7 +9,7 @@ public class Resources_Root
 	private string _id;
 	private string _name;
 	private string _image;
-	private int _money;
+	private int _money = 350;
 	private int _income;
 	private int _expenses;
 	private Resources_Inventory _inventory;

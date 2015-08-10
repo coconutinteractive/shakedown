@@ -6,37 +6,31 @@ using System.Linq;
 
 public class Manager_StaticData : MonoBehaviour
 {
-	public GameObject temp;
 	public TextAsset worldDataText;
 	public TextAsset dialogueDataText;
 	public TextAsset scenarioDataText;
 	public TextAsset localizationDataText;
-
+	
 	static public string LOC_ENGLISH_US = "englishus";
 	static public string LOC_ENGLISH_UK = "englishuk";
-
+	
 	private JSONObject _worldData;
 	private JSONObject _dialogueData;
 	private JSONObject _scenarioData;
 	private JSONObject _localizationData;
-<<<<<<< HEAD
 	private Dictionary<string, JSONObject> _startingInventories = new Dictionary<string, JSONObject>();
-
-=======
 	
->>>>>>> origin/master
 	private void populateData()
 	{
 		_worldData = new JSONObject (worldDataText.ToString ());
 		_dialogueData = new JSONObject (dialogueDataText.ToString ());
 		_scenarioData = new JSONObject (scenarioDataText.ToString ()); 
 		_localizationData = removeTabHeadersAsKeys(new JSONObject (localizationDataText.ToString()));
-<<<<<<< HEAD
 		Dialogue_Script.SetupDialogueOptionsFromJSON(_dialogueData);
 		//PopulateStartingInventories();
 		LoadScenario();
 	}
-
+	
 	private void PopulateStartingInventories()
 	{
 		/*for (int i = 0; i < _worldData["StartingInventories"].Count; i++)
@@ -45,7 +39,7 @@ public class Manager_StaticData : MonoBehaviour
 		}
 		*/
 	}
-
+	
 	private void LoadScenario()
 	{
 		// TODO: Implement Player Profile Settings
@@ -53,13 +47,11 @@ public class Manager_StaticData : MonoBehaviour
 		profile.gender = Enums.Gender.female;
 		profile.image = "DefaultFace";
 		profile.name = "ProfileName";
-
+		
 		// Hard coded to load scenario_01;
 		Scenario_Script.SetupScenarioFromJSON("scenario_01",_scenarioData, profile);
-=======
->>>>>>> origin/master
 	}
-
+	
 	private JSONObject removeTabHeadersAsKeys(JSONObject jsonObject)
 	{
 		JSONObject data = new JSONObject();
@@ -75,7 +67,7 @@ public class Manager_StaticData : MonoBehaviour
 		}
 		return data;
 	}
-
+	
 	public string getLocalizationTextFromKey(string key, string locLanguage)
 	{
 		string locText = "";
@@ -83,32 +75,21 @@ public class Manager_StaticData : MonoBehaviour
 		locText = obj[locLanguage].ToString ();
 		return locText;
 	}
-
+	
 	private bool tempB = false;
+	private Dialogue_Prompt activePrompt;
 	void Update()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			populateData();
 			if(!tempB)
 			{
 				tempB = true;
-<<<<<<< HEAD
 				populateData();
 				Debug.Log (" ====================== DATA POPULATED ====================== ");
 				//activePrompt = Dialogue_Prompt.GetPromptByName("dialogue_prompt_outsideShop");
 			}
 			//Dialogue_Panel_Script.panelReference.StartDialogue(Manager_Resources.player, Manager_Resources.shopkeepers["evan"], Manager_Resources.shopkeepers["evan"].buildingRef);
-=======
-				Dictionary<string, string> profile = new Dictionary<string, string>();
-				//TODO: player profile name/gender/image/etc
-				profile["gender"] = Resources_Master.GENDER_FEMALE;
-				profile["portrait"] = "DefaultFace";
-				Scenario_Script.SetupScenarioFromJSON("scenario_01",_scenarioData, profile);
-			}
-			gameObject.transform.FindChild ("DialogueRoot").FindChild("DialoguePanelMain").GetComponent<Dialogue_Script>().ClearDisplay();
-
->>>>>>> origin/master
 		}
 	}
 }
