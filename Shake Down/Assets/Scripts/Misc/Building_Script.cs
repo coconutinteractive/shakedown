@@ -35,7 +35,7 @@ public class Building_Script : MonoBehaviour
 	#endregion
 
 	private Enums.IntimidateAction currentIntimidateAction = Enums.IntimidateAction.None;
-	private Enums.ShopkeeperAttitude currentAttitude = Enums.ShopkeeperAttitude.Normal;
+	private Enums.ShopkeeperAttitude currentAttitude = Enums.ShopkeeperAttitude.Neutral;
 	
 	public void Initialize()
 	{
@@ -149,6 +149,7 @@ public class Building_Script : MonoBehaviour
 	{
 		DialogueInterface.Instance.Activate ();
 		DialogueInterface.Instance.DisplayLeftCharacter (_playerPortrait, ElementState.Normal, 1.0f, false);
+		Debug.Log (shopkeeper);
 		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), ElementState.Normal, 2.5f, true);
 		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString (), "", ""});
 		
@@ -161,7 +162,6 @@ public class Building_Script : MonoBehaviour
 		switch (currentAttitude)
 		{
 		case Enums.ShopkeeperAttitude.Neutral:
-		case Enums.ShopkeeperAttitude.Normal:
 			dialogueLineVariation = hasSeenPlayerToday ? "Hello again sir!\n" : "Hello sir, \n" + Dialogues_Lines.SHOPKEEP_GREETINGS_NORMAL;
 			break;
 		case Enums.ShopkeeperAttitude.Disdain:
@@ -485,7 +485,6 @@ public class Building_Script : MonoBehaviour
 		switch (currentAttitude)
 		{
 		case Enums.ShopkeeperAttitude.Neutral:
-		case Enums.ShopkeeperAttitude.Normal:
 			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
 			break;
 		case Enums.ShopkeeperAttitude.Disdain:
@@ -524,7 +523,6 @@ public class Building_Script : MonoBehaviour
 		switch (currentAttitude)
 		{
 		case Enums.ShopkeeperAttitude.Neutral:
-		case Enums.ShopkeeperAttitude.Normal:
 			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
 			break;
 		case Enums.ShopkeeperAttitude.Disdain:
@@ -564,7 +562,6 @@ public class Building_Script : MonoBehaviour
 		switch (currentAttitude)
 		{
 		case Enums.ShopkeeperAttitude.Neutral:
-		case Enums.ShopkeeperAttitude.Normal:
 			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
 			break;
 		case Enums.ShopkeeperAttitude.Disdain:
@@ -604,7 +601,6 @@ public class Building_Script : MonoBehaviour
 		switch (currentAttitude)
 		{
 		case Enums.ShopkeeperAttitude.Neutral:
-		case Enums.ShopkeeperAttitude.Normal:
 			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
 			break;
 		case Enums.ShopkeeperAttitude.Disdain:

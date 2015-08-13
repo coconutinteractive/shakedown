@@ -6,7 +6,7 @@ using System.Linq;
 [System.Serializable]
 public class AIParent : MonoBehaviour 
 {
-	[SerializeField] protected string name = "";
+	[SerializeField] new protected string name = "";
 	[SerializeField] protected float moveSpeed = 0.0f;
 	[SerializeField] protected float triggerRefusalChance = 0.0f;
 	[SerializeField] protected int shoppingAmount = 0;
@@ -181,7 +181,7 @@ public class AIParent : MonoBehaviour
 		currentCamPoint = newCamPoint;
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, newCamPoint.transform.eulerAngles.y, newCamPoint.transform.eulerAngles.z);
 		
-		Vector3 targetVec = transform.forward * _crossingTrigger.GetComponent<CornerTrigger> ().distanceToCross;
+		//Vector3 targetVec = transform.forward * _crossingTrigger.GetComponent<CornerTrigger> ().distanceToCross;
 		
 		while(isCrossing)
 		{

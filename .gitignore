@@ -25,3 +25,15 @@ Shake Down/Assets/Scripts/Scenarios.meta
 
 *.meta
 Shake Down/Assets/Scripts/Misc/ShopItem.cs
+
+*.bin
+
+*.info
+
+*.info
+
+Shake Down/Library/metadata/00/00000000000000004000000000000000
+
+*.mdb
+
+*.dll

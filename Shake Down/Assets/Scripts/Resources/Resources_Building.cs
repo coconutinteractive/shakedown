@@ -5,28 +5,28 @@ using System.Collections.Generic;
 [System.Serializable]
 public class Resources_Building : Resources_Root
 {
-	private Enums.BuildingTypes _type;
+	private Enums.BuildingType _type;
 	private int _rent;
 	private int _payment;
-	private Enums.DaysOfWeek _day;
+	private Enums.DayOfTheWeek _day;
 
 
-	public Enums.BuildingTypes type { get { return _type; } }
+	public Enums.BuildingType type { get { return _type; } }
 	public int rent { get { return _rent; } } 
 	public int payment { get { return _payment; } }
-	public Enums.DaysOfWeek day { get { return _day; } }
+	public Enums.DayOfTheWeek day { get { return _day; } }
 
 
 	public Resources_Building  (string id,
 	                            string name,
 	                            string image,
-	                            Enums.BuildingTypes type,
+	                            Enums.BuildingType type,
 	                            int money,
 	                            int income,
 	                            int expenses,
 	                            int rent,
 	                            int payment,
-	                            Enums.DaysOfWeek day,
+	                            Enums.DayOfTheWeek day,
 	                            Resources_Inventory inventory)
 		: base (id,
 		        name,

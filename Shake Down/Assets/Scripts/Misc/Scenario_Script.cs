@@ -23,6 +23,7 @@ public class Scenario_Script
 			JSONObject settings_buildings = scenario.GetField ("building");
 			
 			List<string> occupiedBuildings = new List<string>();
+			List<string> unoccupiedBuildings = new List<string>();
 			
 			int i;
 			for (i = 0; i < settings_buildings.Count; i++)
@@ -40,13 +41,14 @@ public class Scenario_Script
 					int.Parse (building.GetField ("expenses").str),
 					int.Parse (building.GetField ("rent").str),
 					int.Parse (building.GetField ("payment").str),
-					Enums.DaysOfWeekFromString(building.GetField ("day").str),
+					Enums.DayOfTheWeekFromString(building.GetField ("day").str),
 
 					Resources_Inventory.GenerateInventoryFromJSON(
 						building.GetField ("inventory").str,
 						building.GetField ("id").str
 					)	 
 					);
+				unoccupiedBuildings.Add (building.GetField("id").str);
 			}
 			for (i = 0; i < settings_player.Count; i++)
 			{
@@ -69,7 +71,7 @@ public class Scenario_Script
 						profileSettings.id
 					)
 					);
-				
+
 				occupiedBuildings.Add (player.GetField("home").str);
 			}
 			for (i = 0; i < settings_shopkeepers.Count; i++)
@@ -153,23 +155,35 @@ public class Scenario_Script
 			int j;
 			List<string> staticBuildingsToCheck = occupiedBuildings;
 			List<string> designBuildingsToCheck = Building_Script.buildingIDs;
+			for(i = unoccupiedBuildings.Count - 1; i >= 0; i--)
+			{
+				if(occupiedBuildings.Contains(unoccupiedBuildings[i]))
+				{
+					unoccupiedBuildings.RemoveAt(i);
+				}
+			}
 			for(i = designBuildingsToCheck.Count - 1; i >= 0; i--)
 			{
 				bool buildingFound = false;
 				for(j = staticBuildingsToCheck.Count - 1; j >= 0; j--)
 				{
-					if(j == 4 || j == 6 || j == 10 || j == 11)
-					{
-						Building_Script.GetBuilding(designBuildingsToCheck[i]);
-					}
 					if(staticBuildingsToCheck[j] == designBuildingsToCheck[i])
 					{
-						// do stuff here
 						Building_Script buildRef = Building_Script.GetBuilding(designBuildingsToCheck[i]);
 						buildRef.building = Resources_Building.GetBuildingByID(designBuildingsToCheck[i]);
 
 						staticBuildingsToCheck.RemoveAt(j);
 						buildingFound = true;
+					}
+				}
+				if(!buildingFound)
+				{
+					for(j = unoccupiedBuildings.Count - 1; j >= 0; j--)
+					{
+						if(unoccupiedBuildings[j] == designBuildingsToCheck[i])
+						{
+							buildingFound = true;
+						}
 					}
 				}
 				if(buildingFound)
@@ -178,10 +192,12 @@ public class Scenario_Script
 				}
 			}
 			foreach(string staticBuildingID in staticBuildingsToCheck)
-			{ Debug.LogError ("Hey pal. " + staticBuildingID + " exists in the static data but not in the design world. I just thought you should know. -Scott"); }
+			{ Debug.LogError ("Hey buddy. " + staticBuildingID + " exists in the static data but not in the design world. I just thought you should know. -Scott"); }
 			foreach(string designBuildingID in designBuildingsToCheck)
-			{ Debug.LogWarning ("Hey pal. " + designBuildingID + " exists in the design world but isn't used in the static data. I just thought you should know. -Scott"); }
-		
+			{ Debug.LogWarning ("Hey guy. " + designBuildingID + " exists in the design world but isn't used in the static data. I just thought you should know. -Scott"); }
+			foreach(string unoccupiedBuildingID in unoccupiedBuildings)
+			{ Debug.LogError ("Hey friend. " + unoccupiedBuildingID + " exists in static data, but has no characters associated with it."); }
+			
 			scenarioExists = true;
 			
 		} 

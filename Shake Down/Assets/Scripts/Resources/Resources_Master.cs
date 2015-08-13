@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class Resources_Master
 {
-	public const string GENDER_MALE = "gender_male";
-	public const string GENDER_FEMALE = "gender_female";
-
 	private string _referenceID;
 	public string referenceID { get { return _referenceID; } }
 	

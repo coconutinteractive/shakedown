@@ -20,8 +20,8 @@ public class Dialogue_Script : MonoBehaviour
 	private Resources_Officer presentOfficer;
 	
 	private List<ShopItem> shopItems = new List<ShopItem>();
-	private Enums.ShopkeeperStates shopkeeperState;
-	private Enums.OfficerStates officerState;
+	private Enums.ShopkeeperState shopkeeperState;
+	private Enums.OfficerState officerState;
 	
 	public void GenerateDialogue (Resources_Root leftCharacter, Resources_Root rightCharacter, Building_Script building, Resources_Officer nearbyOfficer = null)
 	{
@@ -67,18 +67,18 @@ public class Dialogue_Script : MonoBehaviour
 		List<string> Options = new List<string>();
 		
 		if(building.buildingRobbed)
-			shopkeeperState = Enums.ShopkeeperStates.Robbed;
+			shopkeeperState = Enums.ShopkeeperState.Robbed;
 		else if(building.buildingVandalized)
-			shopkeeperState = Enums.ShopkeeperStates.Vandalized;
+			shopkeeperState = Enums.ShopkeeperState.Vandalized;
 		//else if(shopkeeper.IsShopkeeperAggrivated(player.presence))
 		//	shopkeeperState = Enums.ShopkeeperStates.Aggrivated;
 		else
-			shopkeeperState = Enums.ShopkeeperStates.Passive;
+			shopkeeperState = Enums.ShopkeeperState.Passive;
 		
-		if(shopkeeperState != Enums.ShopkeeperStates.Robbed)
+		if(shopkeeperState != Enums.ShopkeeperState.Robbed)
 		{
 			Options.Add ("Purchase Wares");
-			if(shopkeeperState == Enums.ShopkeeperStates.Vandalized)
+			if(shopkeeperState == Enums.ShopkeeperState.Vandalized)
 			{ Options.Add("Inquire"); }
 		} else {
 			/*if(player.getProof(shopkeeper.referenceID))

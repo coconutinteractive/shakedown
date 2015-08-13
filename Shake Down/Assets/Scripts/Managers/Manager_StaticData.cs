@@ -6,18 +6,15 @@ using System.Linq;
 
 public class Manager_StaticData : MonoBehaviour
 {
-	public TextAsset worldDataText;
-	public TextAsset dialogueDataText;
-	public TextAsset scenarioDataText;
-	public TextAsset localizationDataText;
+	[SerializeField] private TextAsset worldDataText;
+	[SerializeField] private TextAsset dialogueDataText;
+	[SerializeField] private TextAsset scenarioDataText;
+	[SerializeField] private TextAsset localizationDataText;
 	
-	static public string LOC_ENGLISH_US = "englishus";
-	static public string LOC_ENGLISH_UK = "englishuk";
-	
-	private JSONObject _worldData;
-	private JSONObject _dialogueData;
-	private JSONObject _scenarioData;
-	private JSONObject _localizationData;
+	static private JSONObject _worldData;
+	static private JSONObject _dialogueData;
+	static private JSONObject _scenarioData;
+	static private JSONObject _localizationData;
 	private Dictionary<string, JSONObject> _startingInventories = new Dictionary<string, JSONObject>();
 	
 	private void populateData()
@@ -68,11 +65,11 @@ public class Manager_StaticData : MonoBehaviour
 		return data;
 	}
 	
-	public string getLocalizationTextFromKey(string key, string locLanguage)
+	static public string getLocalizationTextFromKey(string key, Enums.Language locLanguage)
 	{
 		string locText = "";
 		JSONObject obj = _localizationData.list[_localizationData.keys.IndexOf(key)];
-		locText = obj[locLanguage].ToString ();
+		locText = obj[locLanguage.ToString()].ToString ();
 		return locText;
 	}
 	
@@ -87,9 +84,7 @@ public class Manager_StaticData : MonoBehaviour
 				tempB = true;
 				populateData();
 				Debug.Log (" ====================== DATA POPULATED ====================== ");
-				//activePrompt = Dialogue_Prompt.GetPromptByName("dialogue_prompt_outsideShop");
 			}
-			//Dialogue_Panel_Script.panelReference.StartDialogue(Manager_Resources.player, Manager_Resources.shopkeepers["evan"], Manager_Resources.shopkeepers["evan"].buildingRef);
 		}
 	}
 }
