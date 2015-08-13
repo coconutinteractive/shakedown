@@ -15,13 +15,36 @@ public class Localization : MonoBehaviour
 	private const string FLAG_DIVISION = "/";
 	private const string FLAG_HEADER = ":";
 
-	static public string LocalizeTextAsDialogue (string key, List<Resources_Character> subjectPeople, List<string> parameters = null)
+	static public string LocalizeText (string key)
+	{		
+		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
+		string parsedText = ParseString(basicText, new List<Resources_Character>(), new List<string>());
+		return parsedText;
+	}
+
+	static public string LocalizeText (string key, List<Resources_Character> subjectPeople)
+	{
+		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
+		string parsedText = ParseString(basicText, subjectPeople, new List<string>());
+		return parsedText;
+	}
+
+	static public string LocalizeText (string key, List<Resources_Character> subjectPeople, List<string> parameters)
 	{
 		parameters = parameters ?? new List<string>();
+		
 		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
 		string parsedText = ParseString(basicText, subjectPeople, parameters);
 		return parsedText;
 	}
+
+	static public string LocalizeText (string key, List<string> parameters)
+	{
+		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
+		string parsedText = ParseString(basicText, new List<Resources_Character>(), parameters);
+		return parsedText;
+	}
+
 
 	// Parses a string for the following formats, indicating a replacement needing to be made:
 	// GENDER: {0:male/female} - where '0' is the subject who's gender determines the content, and 'male' and 'female' are the content options
@@ -31,6 +54,7 @@ public class Localization : MonoBehaviour
 	{
 		//For debug use only
 		parameters = parameters ?? new List<string>();
+		subjectPeople = subjectPeople ?? new List<Resources_Character>();
 
 		// In this method, -1 is treated as an "undefined int"
 		int indexOfStart = -1;
@@ -95,7 +119,7 @@ public class Localization : MonoBehaviour
 							}
 							else {
 								// There is no character entry for the listed subject, so keep the entirety of it and move on
-								Debug.LogError ("Subject number " + id + " in '" + flaggedText + "' does not exist in the passed in subject characters list.");
+								Debug.LogError ("Subject number " + id + " in '" + flaggedText + "'. Make sure to pass in a reference to the person you are referring to.");
 								newText += unparsedText.Substring(indexOfStart, indexOfEnd - indexOfStart + 1);
 							}
 						}
@@ -168,12 +192,12 @@ public class Localization : MonoBehaviour
 				return parameters[id].ToString ();
 			}
 			else {
-				Debug.LogError("There is no available parameter at index '" + id + "'.");
+				Debug.LogError("There is no available parameter at index '" + id + "'. Make sure you are passing in a parameter that exists on this character.");
 				return text;
 			}
 		}
 		else {
-			Debug.LogError("The index '" + id + "'. is not a valid parameter id.");
+			Debug.LogError("The index '" + id + "'. is not a valid parameter id. Make sure to pass in any referenced parameters");
 			return text;
 		}
 	}
