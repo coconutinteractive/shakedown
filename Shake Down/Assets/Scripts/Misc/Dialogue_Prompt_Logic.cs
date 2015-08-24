@@ -1,106 +1,95 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Dialogue_Prompt_Logic
 {
+	#region Prompt-to-Option Set-up
 	static public void SetOptions_AidingBusiness (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_DONATE), ButtonActionsKeys.TEXT_AID_DONATE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CUT_PROTECTION_COST), ButtonActionsKeys.TEXT_AID_CUT_PROTECTION_COST);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_donate"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_cutProtectionCost"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_AskToLowerPayment (Dialogue_Prompt obj) {
-		//obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acceptProposition"), "Accept");
-		//obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_rejectProposition"), "Decline");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_reject"));
 	}
 	static public void SetOptions_AssaultInitial (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_getDetails"), "Ask for details");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_ignore"), "Ignore");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_getDetails"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_ignore"));
 	}
 	static public void SetOptions_AssaultSecondary (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_placate"), "Placate");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_getDetails"), "Ask for details");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_ignore"), "Ignore");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_placate"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_getDetails"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_ignore"));
+
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_placate"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_getDetails"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_ignore"));
 	}
 	static public void SetOptions_GiveDetails (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"), "Acknowledge");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"));
+	}
+	static public void SetOptions_Goodbye (Dialogue_Prompt obj) {
 	}
 	static public void SetOptions_Greeting (Dialogue_Prompt obj) 
 	{
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE), ButtonActionsKeys.TEXT_INTIMIDATE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_returnGreeting"));
 	}
+	
 	static public void SetOptions_Intimidate (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_IMPLY), ButtonActionsKeys.TEXT_INTIMIDATE_IMPLY);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_THREATEN), ButtonActionsKeys.TEXT_INTIMIDATE_THREATEN);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ACT), ButtonActionsKeys.TEXT_INTIMIDATE_ACT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_2_imply"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_2_threaten"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_2_act"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 		
 	}
 	static public void SetOptions_Intimidate_Action (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_INFORM_BOSS), ButtonActionsKeys.TEXT_INTIMIDATE_INFORM_BOSS);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BREAK_MERCHANDISE), ButtonActionsKeys.TEXT_INTIMIDATE_BREAK_MERCHANDISE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ATTACK_SHOPKEEPER), ButtonActionsKeys.TEXT_INTIMIDATE_ATTACK_SHOPKEEPER);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BURN_SHOP_DOWN), ButtonActionsKeys.TEXT_INTIMIDATE_BURN_SHOP_DOWN);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_3_informBoss"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_3_breakMerchandise"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_3_attackShopkeeper"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate_3_burnShopDown"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_IntimidatedCallsPolice (Dialogue_Prompt obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		// TODO: follow ups for intimidate
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_IntimidatedFightsBack (Dialogue_Prompt obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		// TODO: follow ups for intimidate
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_IntimidatedRattled (Dialogue_Prompt obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		// TODO: follow ups for intimidate
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_IntimidatedUnaffected (Dialogue_Prompt obj) {
-		// TODO: Logic for Intimidate
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		// TODO: follow ups for intimidate
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
+
 	static public void SetOptions_OfferAccepted (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"), "Acknowledge");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"));
 	}
 	static public void SetOptions_OfferRefused (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate"), ButtonActionsKeys.TEXT_INTIMIDATE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_tryAnotherOffer"), "Change offer");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_tryAnotherOffer"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_OutsideShop (Dialogue_Prompt obj) {
 		obj.AddFollowUp (Dialogue_Option.GetOptionByName("dialogue_option_enterShop"));
 	}
 	static public void SetOptions_PaymentFull (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
 	}
 	static public void SetOptions_PaymentPartial (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHECK_REGISTER), ButtonActionsKeys.TEXT_CHECK_REGISTER);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_checkTheRegister"));
 	}
 	static public void SetOptions_PaymentNone (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE), ButtonActionsKeys.TEXT_INTIMIDATE, "Give a warning");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHECK_REGISTER), ButtonActionsKeys.TEXT_CHECK_REGISTER);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT, "Leave them be");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_checkTheRegister"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
 	}
 	static public void SetOptions_Placated (Dialogue_Prompt obj) {
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"));
@@ -110,16 +99,16 @@ public class Dialogue_Prompt_Logic
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_offerToAidBusiness"));
 	}
 	static public void SetOptions_ConfirmPurchase (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPPRODUCT_CONFIRM_PURCHASE), ButtonActionsKeys.TEXT_CONFIRM_PURCHASE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_confirmPurchase"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_PurchaseFailed (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND, "Back to shop");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_PurchaseSuccessful (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND, "Yes");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_Root (Dialogue_Prompt obj) {
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_requestPayment"));
@@ -133,24 +122,24 @@ public class Dialogue_Prompt_Logic
 	}
 	static public void SetOptions_RegisterEmpty (Dialogue_Prompt obj)
 	{
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT, "Continue");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_AID_BUSINESS), ButtonActionsKeys.TEXT_AID_BUSINESS, "Offer to donate");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_offerToAidBusiness"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_exitShop"));
 	}
 	static public void SetOptions_RegisterSomeMoney (Dialogue_Prompt obj)
 	{
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT, "Leave the money");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_TAKE_REGISTER_MONEY), ButtonActionsKeys.TEXT_TAKE_REGISTER_MONEY);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_takeRegisterMoney"));
 	}
 	static public void SetOptions_RegisterHiddenMoney (Dialogue_Prompt obj)
 	{
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT, "Leave the money");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_TAKE_REGISTER_MONEY), ButtonActionsKeys.TEXT_TAKE_REGISTER_MONEY);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_takeRegisterMoney"));
 	}
 	static public void SetOptions_RegisterTakeOrLeaveMoney (Dialogue_Prompt obj)
 	{
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT), ButtonActionsKeys.TEXT_ACCEPT_PAYMENT, "Leave them be");
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE), ButtonActionsKeys.TEXT_INTIMIDATE, "Punish them");
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_accept"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate"));
 	}
 	static public void SetOptions_SchedulePayment (Dialogue_Prompt obj) {
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_defaultAmount"));
@@ -158,18 +147,89 @@ public class Dialogue_Prompt_Logic
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_ShopInventory (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_PRODUCT), ButtonActionsKeys.TEXT_SHOP_PRODUCT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_NEVERMIND), ButtonActionsKeys.TEXT_NEVERMIND);
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_SmallTalk (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE), ButtonActionsKeys.TEXT_INTIMIDATE);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT), ButtonActionsKeys.TEXT_REQUEST_PAYMENT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION), ButtonActionsKeys.TEXT_OFFER_PROTECTION);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING), ButtonActionsKeys.TEXT_GO_SHOPPING);
-//		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT), ButtonActionsKeys.TEXT_CHIT_CHAT);
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName(ButtonActionsKeys.ACTION_SHOP_EXIT), ButtonActionsKeys.TEXT_SHOP_EXIT);
-//		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"));
+	}
+	#endregion
+
+	#region Follow-Up Option Filter Logic
+	static public List<string> FilterKeys(Dialogue_Prompt prompt, Resources_Shopkeeper shopkeeper)
+	{
+		List<string> returnKeys = new List<string>();
+
+		switch (prompt.promptID)
+		{
+			case "dialogue_prompt_root": {
+				returnKeys = FilterRoot (prompt.followUpKeys, shopkeeper);
+				break;
+			}
+			default: {
+				returnKeys = prompt.followUpKeys;
+				break;
+			}
+		}
+		return returnKeys;
 	}
 
+	static public List<string> FilterRoot(List<string> keys, Resources_Shopkeeper shopkeeper)
+	{
+		List<string> returnKeys = new List<string>();
 
+		if(shopkeeper.home.payment > 0)
+		{
+			if(shopkeeper.home.day == Manager_GameTime.Instance.currentDayOfTheWeek && !shopkeeper.home.hasPaid)
+			{
+				returnKeys.Add ("dialogue_option_requestPayment");
+			} else {
+				returnKeys.Add ("dialogue_option_earlyPayment");
+			}
+			returnKeys.Add ("dialogue_option_renegotiate");
+		} else {
+			returnKeys.Add ("dialogue_option_offerProtection");
+		}
+		returnKeys.Add("dialogue_option_intimidate");
+		returnKeys.Add("dialogue_option_goShopping");
+		returnKeys.Add("dialogue_option_chitChat");
+		returnKeys.Add("dialogue_option_exitShop");
+		return returnKeys;
+	}
+	#endregion
+
+	#region Prompt On-Call Logic
+	static public void AidingBusiness () { }
+	static public void AskToLowerPayment () { }
+	static public void AssaultInitial () { }
+	static public void AssaultSecondary () { }
+	static public void GiveDetails () { }
+	static public void Goodbye () { }
+	static public void Greeting () { }
+	static public void Intimidate () { }
+	static public void Intimidate_Action () { }
+	static public void IntimidatedCallsPolice () { }
+	static public void IntimidatedFightsBack () { }
+	static public void IntimidatedRattled () { }
+	static public void IntimidatedUnaffected () { }
+	static public void OfferAccepted () { }
+	static public void OfferRefused () { }
+	static public void OutsideShop () { }
+	static public void PaymentFull () { }
+	static public void PaymentPartial () { }
+	static public void PaymentNone () { }
+	static public void Placated () { }
+	static public void ProblemWithPayment () { }
+	static public void ConfirmPurchase () { }
+	static public void PurchaseFailed () { }
+	static public void PurchaseSuccessful () { }
+	static public void Root () { }
+	static public void RegisterEmpty () { }
+	static public void RegisterSomeMoney () { }
+	static public void RegisterHiddenMoney () { }
+	static public void RegisterTakeOrLeaveMoney () { }
+	static public void SchedulePayment () { }
+	static public void ShopInventory () { }
+	static public void SmallTalk () { }
+	#endregion
 }

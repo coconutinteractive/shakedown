@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Scenario_Script
 {
 	static private bool scenarioExists = false;
+	const int statMin = 1;
+	const int statMax = 100;
 	
 	static public void ClearScenario()
 	{
@@ -35,13 +37,13 @@ public class Scenario_Script
 					building.GetField ("id").str,
 					building.GetField ("name").str,
 					building.GetField ("image").str,
-					Enums.BuildingTypeFromString(building.GetField ("type").str),
+					Enums.BuildingTypeFromStatic(building.GetField ("type").str),
 					int.Parse (building.GetField ("money").str),
 					int.Parse (building.GetField ("income").str),
 					int.Parse (building.GetField ("expenses").str),
 					int.Parse (building.GetField ("rent").str),
 					int.Parse (building.GetField ("payment").str),
-					Enums.DayOfTheWeekFromString(building.GetField ("day").str),
+					Enums.DayOfTheWeekFromStatic(building.GetField ("day").str),
 
 					Resources_Inventory.GenerateInventoryFromJSON(
 						building.GetField ("inventory").str,
@@ -81,11 +83,11 @@ public class Scenario_Script
 				if(occupiedBuildings.Contains(shopkeeper.GetField("home").str))
 				{
 					Debug.LogError ("Whoa there, Sally. Someone done goofed. Go tell whoever was messing with the static data that " + shopkeeper.GetField("id").str + " can't set up shop in " + shopkeeper.GetField("home").str + ". Someone else is already in there! -Scott");
-				}
-				
+				};
+
 				Resources_Shopkeeper newShopkeeper = new Resources_Shopkeeper(
 					//id, name, image, gender, home, money, income, expenses, 
-					//strength, respect, fear, greed, integrity, stubbornness, attitude, inventory
+					//strength, respect, fear, greed, integrity, stubbornness, personality, inventory
 					shopkeeper.GetField ("id").str,
 					shopkeeper.GetField ("name").str,
 					shopkeeper.GetField ("image").str,
@@ -94,20 +96,21 @@ public class Scenario_Script
 					int.Parse (shopkeeper.GetField ("money").str),
 					int.Parse (shopkeeper.GetField ("income").str),
 					int.Parse (shopkeeper.GetField ("expenses").str),
-					int.Parse (shopkeeper.GetField ("strength").str),
-					int.Parse (shopkeeper.GetField ("respect").str),
-					int.Parse (shopkeeper.GetField ("fear").str),
-					int.Parse (shopkeeper.GetField ("greed").str),
-					int.Parse (shopkeeper.GetField ("integrity").str),
-					int.Parse (shopkeeper.GetField ("stubbornness").str),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("strength").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("respect").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("fear").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("greed").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("integrity").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (shopkeeper.GetField ("stubbornness").str), statMin, statMax),
+					Enums.PersonalityFromStatic (shopkeeper.GetField ("personality").str),
 
 					Resources_Inventory.GenerateInventoryFromJSON(
 						shopkeeper.GetField ("inventory").str,
 						shopkeeper.GetField ("id").str
 					)	
-					);
+				);
 				
-				Building_Script.GetBuilding(shopkeeper.GetField("home").str).RegisterShopkeeper(newShopkeeper);
+				Building_Script.GetBuilding(shopkeeper.GetField("home").str).shopkeeper = newShopkeeper;
 				occupiedBuildings.Add (shopkeeper.GetField("home").str);
 			}
 			
@@ -123,7 +126,7 @@ public class Scenario_Script
 				
 				new Resources_Officer(
 					//id, name, image, gender, home, money, income, expenses,
-					//strength, respect, fear, greed, integrity, stubbornness, attitude, inventory
+					//strength, respect, fear, greed, integrity, stubbornness, personality, inventory
 					officer.GetField ("id").str,
 					officer.GetField ("name").str,
 					officer.GetField ("image").str,
@@ -132,12 +135,13 @@ public class Scenario_Script
 					int.Parse (officer.GetField ("money").str),
 					int.Parse (officer.GetField ("income").str),
 					int.Parse (officer.GetField ("expenses").str),
-					int.Parse (officer.GetField ("strength").str),
-					int.Parse (officer.GetField ("respect").str),
-					int.Parse (officer.GetField ("fear").str),
-					int.Parse (officer.GetField ("greed").str),
-					int.Parse (officer.GetField ("integrity").str),
-					int.Parse (officer.GetField ("stubbornness").str),
+					Mathf.Clamp (int.Parse (officer.GetField ("strength").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (officer.GetField ("respect").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (officer.GetField ("fear").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (officer.GetField ("greed").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (officer.GetField ("integrity").str), statMin, statMax),
+					Mathf.Clamp (int.Parse (officer.GetField ("stubbornness").str), statMin, statMax),
+					Enums.PersonalityFromStatic (officer.GetField ("personality").str),
 
 					Resources_Inventory.GenerateInventoryFromJSON(
 						officer.GetField ("inventory").str,

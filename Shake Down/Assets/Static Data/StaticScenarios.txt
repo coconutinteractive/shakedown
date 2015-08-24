@@ -441,11 +441,12 @@
                 "income": "45",
                 "expenses": "100",
                 "strength": "10",
-                "respect": "0",
-                "fear": "45",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "42",
+                "fear": "55",
+                "greed": "1",
+                "integrity": "9",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "bigsby": {
@@ -458,11 +459,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "15",
-                "respect": "0",
-                "fear": "15",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "42",
+                "fear": "38",
+                "greed": "2",
+                "integrity": "8",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "chanlie": {
@@ -475,11 +477,12 @@
                 "income": "45",
                 "expenses": "80",
                 "strength": "65",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "54",
+                "fear": "98",
+                "greed": "3",
+                "integrity": "7",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "douglas": {
@@ -492,11 +495,12 @@
                 "income": "45",
                 "expenses": "50",
                 "strength": "34",
-                "respect": "0",
-                "fear": "37",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "78",
+                "fear": "100",
+                "greed": "4",
+                "integrity": "6",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "evan": {
@@ -509,11 +513,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "40",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "10",
+                "fear": "61",
+                "greed": "5",
+                "integrity": "5",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "francine": {
@@ -526,11 +531,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "28",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "8",
+                "fear": "35",
+                "greed": "6",
+                "integrity": "4",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "gus": {
@@ -543,11 +549,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "18",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "47",
+                "fear": "22",
+                "greed": "7",
+                "integrity": "3",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "heather": {
@@ -560,11 +567,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "27",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "60",
+                "fear": "47",
+                "greed": "8",
+                "integrity": "29",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "izzy": {
@@ -577,11 +585,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "13",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "30",
+                "fear": "24",
+                "greed": "9",
+                "integrity": "28",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "jean": {
@@ -594,11 +603,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "4",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "69",
+                "fear": "4",
+                "greed": "10",
+                "integrity": "27",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "keilan": {
@@ -611,11 +621,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "19",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "57",
+                "fear": "48",
+                "greed": "11",
+                "integrity": "26",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "larry": {
@@ -628,11 +639,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "22",
+                "fear": "69",
+                "greed": "12",
+                "integrity": "25",
                 "stubbornness": "10",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott01": {
@@ -645,11 +657,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "84",
+                "fear": "61",
+                "greed": "13",
+                "integrity": "24",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott02": {
@@ -662,11 +675,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "98",
+                "fear": "63",
+                "greed": "14",
+                "integrity": "23",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott03": {
@@ -679,11 +693,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "43",
+                "fear": "70",
+                "greed": "15",
+                "integrity": "22",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott04": {
@@ -696,11 +711,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "83",
+                "fear": "35",
+                "greed": "16",
+                "integrity": "21",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott05": {
@@ -713,11 +729,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "74",
+                "fear": "56",
+                "greed": "17",
+                "integrity": "20",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott06": {
@@ -730,11 +747,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "76",
+                "fear": "13",
+                "greed": "18",
+                "integrity": "2",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott07": {
@@ -747,11 +765,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "21",
+                "fear": "4",
+                "greed": "19",
+                "integrity": "19",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott08": {
@@ -764,11 +783,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "55",
+                "fear": "99",
+                "greed": "20",
+                "integrity": "18",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott09": {
@@ -781,11 +801,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "57",
+                "fear": "44",
+                "greed": "21",
+                "integrity": "17",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott10": {
@@ -798,11 +819,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "36",
+                "fear": "14",
+                "greed": "22",
+                "integrity": "16",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott11": {
@@ -815,11 +837,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "26",
+                "fear": "1",
+                "greed": "23",
+                "integrity": "15",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott12": {
@@ -832,11 +855,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "10",
+                "fear": "63",
+                "greed": "24",
+                "integrity": "14",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott13": {
@@ -849,11 +873,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "34",
+                "fear": "76",
+                "greed": "25",
+                "integrity": "13",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott14": {
@@ -866,11 +891,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "5",
+                "fear": "56",
+                "greed": "26",
+                "integrity": "12",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott15": {
@@ -883,11 +909,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "19",
+                "fear": "71",
+                "greed": "27",
+                "integrity": "11",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott16": {
@@ -900,11 +927,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "51",
+                "fear": "70",
+                "greed": "28",
+                "integrity": "10",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "scott17": {
@@ -917,11 +945,12 @@
                 "income": "45",
                 "expenses": "35",
                 "strength": "55",
-                "respect": "0",
-                "fear": "0",
-                "greed": "0",
-                "integrity": "0",
+                "respect": "78",
+                "fear": "62",
+                "greed": "29",
+                "integrity": "1",
                 "stubbornness": "50",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             }
         },
@@ -941,6 +970,7 @@
                 "greed": "50",
                 "integrity": "50",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "natalie": {
@@ -958,6 +988,7 @@
                 "greed": "50",
                 "integrity": "50",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "oglivie": {
@@ -975,6 +1006,7 @@
                 "greed": "50",
                 "integrity": "50",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "paul": {
@@ -992,6 +1024,7 @@
                 "greed": "1",
                 "integrity": "100",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "quark": {
@@ -1009,6 +1042,7 @@
                 "greed": "50",
                 "integrity": "10",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "ralph": {
@@ -1026,6 +1060,7 @@
                 "greed": "80",
                 "integrity": "35",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             },
             "stephanie": {
@@ -1043,6 +1078,7 @@
                 "greed": "60",
                 "integrity": "65",
                 "stubbornness": "0",
+                "personality": "personality_gruff",
                 "inventory": "inventory_blank"
             }
         }

@@ -3,18 +3,21 @@ using System.Collections;
 
 public class Enums
 {
-	public enum DayOfTheWeek {Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday};
-	public enum BuildingType { building_empty, building_jewelry, building_clothes, building_gym, building_restaurant,
+	public enum DayOfTheWeek {Sun = 0, Mon, Tue, Wed, Thu, Fri, Sat};
+	public enum BuildingType { building_empty = 0, building_jewelry, building_clothes, building_gym, building_restaurant,
 							    building_butcher, building_safehouse, building_bar, building_police,
 								building_liquor, building_tobacco, building_grocery, building_strip_club};
 	public enum OfficerState {};
 	public enum ShopkeeperState {Robbed, Vandalized, Aggressive, Passive};
 	public enum ShopkeeperAttitude {Neutral, Awe, Admiration, Disdain, Terror, High_Fear, High_Respect};
 	public enum ShopkeeperPersonality {Casual, Formal, Gruff, Bubbly};
+
+	public enum Attitude {Neutral = 0, Loyal, Reliant, Disinterest, Terror};
+	public enum Personality {Outgoing, Introvert, Gruff, Formal};
 	public enum Gender {female = 0, male = 1};
 
 	public enum IntimidateAction {None, Imply = 2, Threaten = 3, Act = 4};
-	public enum Language {englishus, englishuk};
+	public enum Language {test, englishus, englishuk};
 
 	static public Enums.Gender GenderFromString(string text)
 	{
@@ -25,7 +28,7 @@ public class Enums
 		} return value;
 	}
 
-	static public Enums.BuildingType BuildingTypeFromString(string text)
+	static public Enums.BuildingType BuildingTypeFromStatic(string text)
 	{
 		Enums.BuildingType value = Enums.BuildingType.building_empty;
 		switch (text) {
@@ -44,17 +47,40 @@ public class Enums
 		} return value;
 	}
 
-	static public Enums.DayOfTheWeek DayOfTheWeekFromString(string text)
+	static public Enums.DayOfTheWeek DayOfTheWeekFromStatic(string text)
 	{
-		Enums.DayOfTheWeek value = Enums.DayOfTheWeek.Monday;
+		Enums.DayOfTheWeek value = Enums.DayOfTheWeek.Mon;
 		switch (text) {
-		case "day_monday":		value = Enums.DayOfTheWeek.Monday; break;
-		case "day_tuesday":		value = Enums.DayOfTheWeek.Tuesday; break;
-		case "day_wednesday":	value = Enums.DayOfTheWeek.Wednesday; break;
-		case "day_thursday":	value = Enums.DayOfTheWeek.Thursday; break;
-		case "day_friday":		value = Enums.DayOfTheWeek.Friday; break;
-		case "day_saturday":	value = Enums.DayOfTheWeek.Saturday; break;
-		case "day_sunday":		value = Enums.DayOfTheWeek.Sunday; break;
+		case "day_monday":		value = Enums.DayOfTheWeek.Mon; break;
+		case "day_tuesday":		value = Enums.DayOfTheWeek.Tue; break;
+		case "day_wednesday":	value = Enums.DayOfTheWeek.Wed; break;
+		case "day_thursday":	value = Enums.DayOfTheWeek.Thu; break;
+		case "day_friday":		value = Enums.DayOfTheWeek.Fri; break;
+		case "day_saturday":	value = Enums.DayOfTheWeek.Sat; break;
+		case "day_sunday":		value = Enums.DayOfTheWeek.Sun; break;
+		} return value;
+	}
+
+	static public Enums.Personality PersonalityFromStatic(string text)
+	{
+		Enums.Personality value = Enums.Personality.Formal;
+		switch (text) {
+		case "personality_outgoing":	value = Enums.Personality.Outgoing; break;
+		case "personality_introvert":	value = Enums.Personality.Introvert; break;
+		case "personality_gruff":		value = Enums.Personality.Gruff; break;
+		case "personality_formal":		value = Enums.Personality.Formal; break;
+		} return value;
+	}
+
+	static public Enums.Attitude AttitudeFromStatic(string text)
+	{
+		Enums.Attitude value = Enums.Attitude.Neutral;
+		switch (text) {
+		case "attitude_neutral":		value = Enums.Attitude.Neutral; break;
+		case "attitude_disinterest": 	value = Enums.Attitude.Disinterest; break;
+		case "attitude_loyal":			value = Enums.Attitude.Loyal; break;
+		case "attitude_reliant":		value = Enums.Attitude.Reliant; break;
+		case "attitude_terror":			value = Enums.Attitude.Terror; break;
 		} return value;
 	}
 }

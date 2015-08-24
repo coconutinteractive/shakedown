@@ -15,40 +15,63 @@ public class Localization : MonoBehaviour
 	private const string FLAG_DIVISION = "/";
 	private const string FLAG_HEADER = ":";
 
+	#region Localize Text Method & Overflows
 	static public string LocalizeText (string key)
-	{		
+	{	
+		key = RemoveQuotes (key);
 		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
 		string parsedText = ParseString(basicText, new List<Resources_Character>(), new List<string>());
+		parsedText = RemoveQuotes (parsedText);
 		return parsedText;
 	}
 
 	static public string LocalizeText (string key, List<Resources_Character> subjectPeople)
 	{
+		key = RemoveQuotes (key);
 		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
 		string parsedText = ParseString(basicText, subjectPeople, new List<string>());
+		parsedText = RemoveQuotes (parsedText);
 		return parsedText;
 	}
 
 	static public string LocalizeText (string key, List<Resources_Character> subjectPeople, List<string> parameters)
 	{
 		parameters = parameters ?? new List<string>();
+		key = RemoveQuotes (key);
 		
 		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
 		string parsedText = ParseString(basicText, subjectPeople, parameters);
+		parsedText = RemoveQuotes (parsedText);
 		return parsedText;
 	}
 
 	static public string LocalizeText (string key, List<string> parameters)
 	{
+		key = RemoveQuotes (key);
 		string basicText = Manager_StaticData.getLocalizationTextFromKey(key, currentLanguage);
 		string parsedText = ParseString(basicText, new List<Resources_Character>(), parameters);
+		parsedText = RemoveQuotes (parsedText);
 		return parsedText;
 	}
 
-
+	static private string RemoveQuotes(string key)
+	{
+		if(key != null)
+		{
+			string newKey = "";
+			if (key.Substring(0,1) == "\"" && key.Substring(key.Length - 1, 1) == "\"") {
+				newKey = key.Substring (1, key.Length - 2);
+				return newKey;
+			}
+		}
+		return key;
+	}
+	#endregion
+	#region Parse String Method
 	// Parses a string for the following formats, indicating a replacement needing to be made:
 	// GENDER: {0:male/female} - where '0' is the subject who's gender determines the content, and 'male' and 'female' are the content options
-	// CHARACTER STAT: {0:stat} - where '0' is the subject who's stats are being referende, and 'stat' is the character stat that is being returned
+	// 0 is player, 1 is shopkeeper, 2+ is additional references
+	// CHARACTER STAT: {0:stat} - where '0' is the subject who's stats are being referenced, and 'stat' is the character stat that is being returned
 	// PARAMETER: {0} - where '0' is the index of a predetermined list of parameters that have been passed in when the method is called.
 	static public string ParseString(string unparsedText, List<Resources_Character> subjectPeople, List<string> parameters = null)
 	{
@@ -153,7 +176,8 @@ public class Localization : MonoBehaviour
 		newText += unparsedText.Substring (newTextIndex, unparsedText.Length - newTextIndex);
 		return newText;
 	}
-	
+	#endregion
+	#region Parse String Support Methods
 	static private string ReplaceFlagsWithGender(string text, int indexOfId, int indexOfDivision, Enums.Gender gender)
 	{
 		string maleText = text.Substring (indexOfId + 1, indexOfDivision - (indexOfId + 1));
@@ -174,6 +198,7 @@ public class Localization : MonoBehaviour
 	{
 		string stat = text.Substring (indexOfId + 1, text.Length -(indexOfId + 1));
 
+		// Holy shit. This is getting a dynamic property from a dynamic object. That's pretty baller! 
 		PropertyInfo myPropertyInfo = typeof(Resources_Character).GetProperty(stat);
 		if (myPropertyInfo.GetValue (subject, null) != null) {
 			return myPropertyInfo.GetValue (subject, null).ToString();
@@ -188,17 +213,22 @@ public class Localization : MonoBehaviour
 	{
 		int id;
 		if(int.TryParse (text, out id)) {
-			if(parameters[id] != null) {
+			if(id < parameters.Count) {
 				return parameters[id].ToString ();
 			}
 			else {
-				Debug.LogError("There is no available parameter at index '" + id + "'. Make sure you are passing in a parameter that exists on this character.");
-				return text;
+				Debug.LogError("There is no available parameter at index '" + id + "'. Make sure you are passing in a parameter.");
+				return "{" + text + "}";
 			}
 		}
 		else {
 			Debug.LogError("The index '" + id + "'. is not a valid parameter id. Make sure to pass in any referenced parameters");
-			return text;
+			return "{" + text + "}";
 		}
+	}
+	#endregion
+	static public string GetButtonTextKey(string dialogueOptionKey)
+	{
+		return Manager_StaticData.ButtonKeyFromDialogueKey(dialogueOptionKey);
 	}
 }

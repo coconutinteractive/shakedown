@@ -168,15 +168,15 @@ public class PlayerMovement : MonoBehaviour
 			transform.position = Vector3.Lerp(transform.position, targetVec, Time.deltaTime * moveSpeed * 0.45f);
 			yield return null;
 		}
-		
+
 		_currentAction.triggerObj.GetComponent<Building_Script> ().StartDialogue (portrait, playerName, playerLastName);
-		_currentAction.triggerObj.GetComponent<Building_Script> ().Initialize ();
+		_currentAction.triggerObj.GetComponent<Building_Script> ().ApplyEventMethods ();
 		currentAvailableActions.Add (new AvailableAction (PossibleAction.Action_ExitShop, KeyCode.S, _currentAction.triggerObj));
 	}
 	
 	private IEnumerator ExitShop(AvailableAction _currentAction)
 	{
-		_currentAction.triggerObj.GetComponent<Building_Script> ().EndDialogue ();
+		_currentAction.triggerObj.GetComponent<Building_Script> ().RemoveEventMethods ();
 		Manager_GameTime.Instance.PauseGameTime (false);
 		Manager_GameTime.Instance.TimeLeap (1, 20, 0);
 		myRigidbody.velocity = Vector3.zero;

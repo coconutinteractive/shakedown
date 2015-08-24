@@ -98,7 +98,6 @@
     <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Prompt_Logic.cs" />
     <Compile Include="Assets\Scripts\Misc\Dialogue_Script.cs" />
-    <Compile Include="Assets\Scripts\Misc\Dialogues_Lines.cs" />
     <Compile Include="Assets\Scripts\Misc\Enums.cs" />
     <Compile Include="Assets\Scripts\Misc\GameChart_Shopkeeper.cs" />
     <Compile Include="Assets\Scripts\Misc\NightActivities.cs" />

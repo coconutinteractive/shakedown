@@ -1,216 +1,356 @@
 {
     "Prompts": {
         "dialogue_prompt_aidingBusiness": {
-            "id": "dialogue_prompt_aidingBusiness"
+            "id": "dialogue_prompt_aidingBusiness",
+            "onflowchart": true,
+            "locsuffix": "aidingBusiness"
         },
         "dialogue_prompt_askToLowerPayment": {
-            "id": "dialogue_prompt_askToLowerPayment"
+            "id": "dialogue_prompt_askToLowerPayment",
+            "onflowchart": true,
+            "locsuffix": "askToLowerPayment"
         },
         "dialogue_prompt_assaultInitial": {
-            "id": "dialogue_prompt_assaultInitial"
+            "id": "dialogue_prompt_assaultInitial",
+            "onflowchart": true,
+            "locsuffix": "assaultInitial"
         },
         "dialogue_prompt_assaultSecondary": {
-            "id": "dialogue_prompt_assaultSecondary"
-        },
-        "dialogue_prompt_giveDetails": {
-            "id": "dialogue_prompt_giveDetails"
-        },
-        "dialogue_prompt_greeting": {
-            "id": "dialogue_prompt_greeting"
-        },
-        "dialogue_prompt_intimidate": {
-            "id": "dialogue_prompt_intimidate"
-        },
-        "dialogue_prompt_intimidate_action": {
-            "id": "dialogue_prompt_intimidate_action"
-        },
-        "dialogue_prompt_intimidatedCallsPolice": {
-            "id": "dialogue_prompt_intimidatedCallsPolice"
-        },
-        "dialogue_prompt_intimidatedFightsBack": {
-            "id": "dialogue_prompt_intimidatedFightsBack"
-        },
-        "dialogue_prompt_intimidatedRattled": {
-            "id": "dialogue_prompt_intimidatedRattled"
-        },
-        "dialogue_prompt_intimidatedUnaffected": {
-            "id": "dialogue_prompt_intimidatedUnaffected"
-        },
-        "dialogue_prompt_offerAccepted": {
-            "id": "dialogue_prompt_offerAccepted"
-        },
-        "dialogue_prompt_offerRefused": {
-            "id": "dialogue_prompt_offerRefused"
-        },
-        "dialogue_prompt_outsideShop": {
-            "id": "dialogue_prompt_outsideShop"
-        },
-        "dialogue_prompt_paymentFull": {
-            "id": "dialogue_prompt_paymentFull"
-        },
-        "dialogue_prompt_paymentNone": {
-            "id": "dialogue_prompt_paymentNone"
-        },
-        "dialogue_prompt_paymentPartial": {
-            "id": "dialogue_prompt_paymentPartial"
-        },
-        "dialogue_prompt_placated": {
-            "id": "dialogue_prompt_placated"
-        },
-        "dialogue_prompt_problemWithPayment": {
-            "id": "dialogue_prompt_problemWithPayment"
+            "id": "dialogue_prompt_assaultSecondary",
+            "onflowchart": true,
+            "locsuffix": "assaultSecondary"
         },
         "dialogue_prompt_confirmPurchase": {
-            "id": "dialogue_prompt_confirmPurchase"
+            "id": "dialogue_prompt_confirmPurchase",
+            "onflowchart": true,
+            "locsuffix": "confirmPurchase"
+        },
+        "dialogue_prompt_giveDetails": {
+            "id": "dialogue_prompt_giveDetails",
+            "onflowchart": true,
+            "locsuffix": "giveDetails"
+        },
+        "dialogue_prompt_goodbye": {
+            "id": "dialogue_prompt_goodbye",
+            "onflowchart": true,
+            "locsuffix": "goodbye"
+        },
+        "dialogue_prompt_greeting": {
+            "id": "dialogue_prompt_greeting",
+            "onflowchart": true,
+            "locsuffix": "greeting"
+        },
+        "dialogue_prompt_intimidate": {
+            "id": "dialogue_prompt_intimidate",
+            "onflowchart": true,
+            "locsuffix": "intimidate"
+        },
+        "dialogue_prompt_intimidate_action": {
+            "id": "dialogue_prompt_intimidate_action",
+            "onflowchart": true,
+            "locsuffix": "intimidate_action"
+        },
+        "dialogue_prompt_intimidatedCallsPolice": {
+            "id": "dialogue_prompt_intimidatedCallsPolice",
+            "onflowchart": true,
+            "locsuffix": "intimidatedCallsPolice"
+        },
+        "dialogue_prompt_intimidatedFightsBack": {
+            "id": "dialogue_prompt_intimidatedFightsBack",
+            "onflowchart": true,
+            "locsuffix": "intimidatedFightsBack"
+        },
+        "dialogue_prompt_intimidatedRattled": {
+            "id": "dialogue_prompt_intimidatedRattled",
+            "onflowchart": true,
+            "locsuffix": "intimidatedRattled"
+        },
+        "dialogue_prompt_intimidatedUnaffected": {
+            "id": "dialogue_prompt_intimidatedUnaffected",
+            "onflowchart": true,
+            "locsuffix": "intimidatedUnaffected"
+        },
+        "dialogue_prompt_offerAccepted": {
+            "id": "dialogue_prompt_offerAccepted",
+            "onflowchart": true,
+            "locsuffix": "offerAccepted"
+        },
+        "dialogue_prompt_offerRefused": {
+            "id": "dialogue_prompt_offerRefused",
+            "onflowchart": true,
+            "locsuffix": "offerRefused"
+        },
+        "dialogue_prompt_outsideShop": {
+            "id": "dialogue_prompt_outsideShop",
+            "onflowchart": true,
+            "locsuffix": "outsideShop"
+        },
+        "dialogue_prompt_paymentFull": {
+            "id": "dialogue_prompt_paymentFull",
+            "onflowchart": true,
+            "locsuffix": "paymentFull"
+        },
+        "dialogue_prompt_paymentNone": {
+            "id": "dialogue_prompt_paymentNone",
+            "onflowchart": true,
+            "locsuffix": "paymentNone"
+        },
+        "dialogue_prompt_paymentPartial": {
+            "id": "dialogue_prompt_paymentPartial",
+            "onflowchart": true,
+            "locsuffix": "paymentPartial"
+        },
+        "dialogue_prompt_placated": {
+            "id": "dialogue_prompt_placated",
+            "onflowchart": true,
+            "locsuffix": "placated"
+        },
+        "dialogue_prompt_problemWithPayment": {
+            "id": "dialogue_prompt_problemWithPayment",
+            "onflowchart": true,
+            "locsuffix": "problemWithPayment"
         },
         "dialogue_prompt_purchaseFailed": {
-            "id": "dialogue_prompt_purchaseFailed"
+            "id": "dialogue_prompt_purchaseFailed",
+            "onflowchart": true,
+            "locsuffix": "purchaseFailed"
         },
         "dialogue_prompt_purchaseSuccessful": {
-            "id": "dialogue_prompt_purchaseSuccessful"
+            "id": "dialogue_prompt_purchaseSuccessful",
+            "onflowchart": true,
+            "locsuffix": "purchaseSuccessful"
         },
         "dialogue_prompt_registerEmpty": {
-            "id": "dialogue_prompt_registerEmpty"
-        },
-        "dialogue_prompt_registerSomeMoney": {
-            "id": "dialogue_prompt_registerSomeMoney"
+            "id": "dialogue_prompt_registerEmpty",
+            "onflowchart": true,
+            "locsuffix": "registerEmpty"
         },
         "dialogue_prompt_registerHiddenMoney": {
-            "id": "dialogue_prompt_registerHiddenMoney"
+            "id": "dialogue_prompt_registerHiddenMoney",
+            "onflowchart": true,
+            "locsuffix": "registerHiddenMoney"
+        },
+        "dialogue_prompt_registerSomeMoney": {
+            "id": "dialogue_prompt_registerSomeMoney",
+            "onflowchart": true,
+            "locsuffix": "registerSomeMoney"
         },
         "dialogue_prompt_registerTakeOrLeaveMoney": {
-            "id": "dialogue_prompt_registerTakeOrLeaveMoney"
+            "id": "dialogue_prompt_registerTakeOrLeaveMoney",
+            "onflowchart": true,
+            "locsuffix": "registerTakeOrLeaveMoney"
         },
         "dialogue_prompt_root": {
-            "id": "dialogue_prompt_root"
+            "id": "dialogue_prompt_root",
+            "onflowchart": true,
+            "locsuffix": "root"
         },
         "dialogue_prompt_schedulePayment": {
-            "id": "dialogue_prompt_schedulePayment"
+            "id": "dialogue_prompt_schedulePayment",
+            "onflowchart": true,
+            "locsuffix": "schedulePayment"
         },
         "dialogue_prompt_shopInventory": {
-            "id": "dialogue_prompt_shopInventory"
+            "id": "dialogue_prompt_shopInventory",
+            "onflowchart": true,
+            "locsuffix": "shopInventory"
         },
         "dialogue_prompt_smallTalk": {
-            "id": "dialogue_prompt_smallTalk"
+            "id": "dialogue_prompt_smallTalk",
+            "onflowchart": true,
+            "locsuffix": "smallTalk"
         }
     },
     "Options": {
-        "dialogue_option_acceptPayment": {
-            "id": "dialogue_option_acceptPayment"
-        },
-        "dialogue_option_acceptProposition": {
-            "id": "dialogue_option_acceptProposition"
+        "dialogue_option_accept": {
+            "id": "dialogue_option_accept",
+            "onflowchart": true,
+            "buttontext": "ld_btn_accept"
         },
         "dialogue_option_acknowledge": {
-            "id": "dialogue_option_acknowledge"
+            "id": "dialogue_option_acknowledge",
+            "onflowchart": true,
+            "buttontext": "ld_btn_acknowledge"
         },
         "dialogue_option_cancelPurchase": {
-            "id": "dialogue_option_cancelPurchase"
+            "id": "dialogue_option_cancelPurchase",
+            "onflowchart": true,
+            "buttontext": "ld_btn_cancelPurchase"
         },
         "dialogue_option_checkTheRegister": {
-            "id": "dialogue_option_checkTheRegister"
+            "id": "dialogue_option_checkTheRegister",
+            "onflowchart": true,
+            "buttontext": "ld_btn_checkTheRegister"
         },
         "dialogue_option_chitChat": {
-            "id": "dialogue_option_chitChat"
+            "id": "dialogue_option_chitChat",
+            "onflowchart": true,
+            "buttontext": "ld_btn_chitChat"
         },
         "dialogue_option_confirmPurchase": {
-            "id": "dialogue_option_confirmPurchase"
+            "id": "dialogue_option_confirmPurchase",
+            "onflowchart": true,
+            "buttontext": "ld_btn_confirmPurchase"
         },
         "dialogue_option_continueIntimidating": {
-            "id": "dialogue_option_continueIntimidating"
+            "id": "dialogue_option_continueIntimidating",
+            "onflowchart": true,
+            "buttontext": "ld_btn_continueIntimidating"
         },
         "dialogue_option_cutProtectionCost": {
-            "id": "dialogue_option_cutProtectionCost"
+            "id": "dialogue_option_cutProtectionCost",
+            "onflowchart": false,
+            "buttontext": "ld_btn_cutProtectionCost"
         },
         "dialogue_option_defaultAmount": {
-            "id": "dialogue_option_defaultAmount"
+            "id": "dialogue_option_defaultAmount",
+            "onflowchart": true,
+            "buttontext": "ld_btn_defaultAmount"
         },
         "dialogue_option_donate": {
-            "id": "dialogue_option_donate"
+            "id": "dialogue_option_donate",
+            "onflowchart": false,
+            "buttontext": "ld_btn_donate"
         },
         "dialogue_option_earlyPayment": {
-            "id": "dialogue_option_earlyPayment"
+            "id": "dialogue_option_earlyPayment",
+            "onflowchart": true,
+            "buttontext": "ld_btn_earlyPayment"
         },
         "dialogue_option_enterShop": {
-            "id": "dialogue_option_enterShop"
+            "id": "dialogue_option_enterShop",
+            "onflowchart": true,
+            "buttontext": "ld_btn_enterShop"
         },
         "dialogue_option_exitShop": {
-            "id": "dialogue_option_exitShop"
+            "id": "dialogue_option_exitShop",
+            "onflowchart": true,
+            "buttontext": "ld_btn_exitShop"
         },
         "dialogue_option_getDetails": {
-            "id": "dialogue_option_getDetails"
+            "id": "dialogue_option_getDetails",
+            "onflowchart": true,
+            "buttontext": "ld_btn_getDetails"
         },
         "dialogue_option_goShopping": {
-            "id": "dialogue_option_goShopping"
+            "id": "dialogue_option_goShopping",
+            "onflowchart": true,
+            "buttontext": "ld_btn_goShopping"
         },
         "dialogue_option_hearProposition": {
-            "id": "dialogue_option_hearProposition"
+            "id": "dialogue_option_hearProposition",
+            "onflowchart": true,
+            "buttontext": "ld_btn_hearProposition"
         },
         "dialogue_option_ignore": {
-            "id": "dialogue_option_ignore"
+            "id": "dialogue_option_ignore",
+            "onflowchart": true,
+            "buttontext": "ld_btn_ignore"
         },
         "dialogue_option_intimidate": {
-            "id": "dialogue_option_intimidate"
+            "id": "dialogue_option_intimidate",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate"
         },
         "dialogue_option_intimidate2_act": {
-            "id": "dialogue_option_intimidate2_act"
+            "id": "dialogue_option_intimidate2_act",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate2_act"
         },
         "dialogue_option_intimidate2_imply": {
-            "id": "dialogue_option_intimidate2_imply"
+            "id": "dialogue_option_intimidate2_imply",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate2_imply"
         },
         "dialogue_option_intimidate2_threaten": {
-            "id": "dialogue_option_intimidate2_threaten"
+            "id": "dialogue_option_intimidate2_threaten",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate2_threaten"
         },
         "dialogue_option_intimidate3_attackShopkeeper": {
-            "id": "dialogue_option_intimidate3_attackShopkeeper"
+            "id": "dialogue_option_intimidate3_attackShopkeeper",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate3_attackShopkeeper"
         },
         "dialogue_option_intimidate3_breakMerchandise": {
-            "id": "dialogue_option_intimidate3_breakMerchandise"
+            "id": "dialogue_option_intimidate3_breakMerchandise",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate3_breakMerchandise"
         },
         "dialogue_option_intimidate3_burnDownShop": {
-            "id": "dialogue_option_intimidate3_burnDownShop"
+            "id": "dialogue_option_intimidate3_burnDownShop",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate3_burnDownShop"
         },
         "dialogue_option_intimidate3_informBoss": {
-            "id": "dialogue_option_intimidate3_informBoss"
+            "id": "dialogue_option_intimidate3_informBoss",
+            "onflowchart": true,
+            "buttontext": "ld_btn_intimidate3_informBoss"
         },
         "dialogue_option_neverMind": {
-            "id": "dialogue_option_neverMind"
+            "id": "dialogue_option_neverMind",
+            "onflowchart": true,
+            "buttontext": "ld_btn_neverMind"
         },
         "dialogue_option_offerProtection": {
-            "id": "dialogue_option_offerProtection"
+            "id": "dialogue_option_offerProtection",
+            "onflowchart": true,
+            "buttontext": "ld_btn_offerProtection"
         },
         "dialogue_option_offerToAidBusiness": {
-            "id": "dialogue_option_offerToAidBusiness"
+            "id": "dialogue_option_offerToAidBusiness",
+            "onflowchart": true,
+            "buttontext": "ld_btn_offerToAidBusiness"
         },
         "dialogue_option_otherAmount": {
-            "id": "dialogue_option_otherAmount"
+            "id": "dialogue_option_otherAmount",
+            "onflowchart": true,
+            "buttontext": "ld_btn_otherAmount"
         },
         "dialogue_option_placate": {
-            "id": "dialogue_option_placate"
+            "id": "dialogue_option_placate",
+            "onflowchart": true,
+            "buttontext": "ld_btn_placate"
         },
-        "dialogue_option_rejectProposition": {
-            "id": "dialogue_option_rejectProposition"
+        "dialogue_option_reject": {
+            "id": "dialogue_option_reject",
+            "onflowchart": true,
+            "buttontext": "ld_btn_reject"
         },
         "dialogue_option_renegotiate": {
-            "id": "dialogue_option_renegotiate"
+            "id": "dialogue_option_renegotiate",
+            "onflowchart": true,
+            "buttontext": "ld_btn_renegotiate"
         },
         "dialogue_option_requestPayment": {
-            "id": "dialogue_option_requestPayment"
+            "id": "dialogue_option_requestPayment",
+            "onflowchart": true,
+            "buttontext": "ld_btn_requestPayment"
         },
         "dialogue_option_resumeTalking": {
-            "id": "dialogue_option_resumeTalking"
+            "id": "dialogue_option_resumeTalking",
+            "onflowchart": true,
+            "buttontext": "ld_btn_resumeTalking"
         },
         "dialogue_option_returnGreeting": {
-            "id": "dialogue_option_returnGreeting"
+            "id": "dialogue_option_returnGreeting",
+            "onflowchart": true,
+            "buttontext": "ld_btn_returnGreeting"
         },
         "dialogue_option_shopProduct": {
-            "id": "dialogue_option_shopProduct"
+            "id": "dialogue_option_shopProduct",
+            "onflowchart": true,
+            "buttontext": "ld_btn_shopProduct"
         },
         "dialogue_option_takeRegisterMoney": {
-            "id": "dialogue_option_takeRegisterMoney"
+            "id": "dialogue_option_takeRegisterMoney",
+            "onflowchart": true,
+            "buttontext": "ld_btn_takeRegisterMoney"
         },
         "dialogue_option_tryAnotherOffer": {
-            "id": "dialogue_option_tryAnotherOffer"
+            "id": "dialogue_option_tryAnotherOffer",
+            "onflowchart": true,
+            "buttontext": "ld_btn_tryAnotherOffer"
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -23,18 +23,10 @@ public class Manager_StaticData : MonoBehaviour
 		_dialogueData = new JSONObject (dialogueDataText.ToString ());
 		_scenarioData = new JSONObject (scenarioDataText.ToString ()); 
 		_localizationData = removeTabHeadersAsKeys(new JSONObject (localizationDataText.ToString()));
-		Dialogue_Script.SetupDialogueOptionsFromJSON(_dialogueData);
-		//PopulateStartingInventories();
-		LoadScenario();
-	}
-	
-	private void PopulateStartingInventories()
-	{
-		/*for (int i = 0; i < _worldData["StartingInventories"].Count; i++)
-		{
 
-		}
-		*/
+		Dialogue_Script.SetupDialogueOptionsFromJSON(_dialogueData);
+
+		LoadScenario();
 	}
 	
 	private void LoadScenario()
@@ -57,22 +49,34 @@ public class Manager_StaticData : MonoBehaviour
 		{
 			for (int j = 0; j < jsonObject[i].Count; j++)
 			{
-				//data.keys.Add (jsonObject[i].keys[j]);
 				data.Add(jsonObject[i][j]);
 				data.keys.Add (jsonObject[i].keys[j]);
 			}
 		}
 		return data;
 	}
-	
+
+	static public string ButtonKeyFromDialogueKey(string dialogueKey)
+	{
+		return _dialogueData[dialogueKey].GetField("button_text").ToString();
+	}
+
 	static public string getLocalizationTextFromKey(string key, Enums.Language locLanguage)
 	{
 		string locText = "";
-		JSONObject obj = _localizationData.list[_localizationData.keys.IndexOf(key)];
-		locText = obj[locLanguage.ToString()].ToString ();
-		return locText;
+		if (_localizationData.keys.IndexOf (key) == -1)
+		{
+			return key;
+		}
+		else
+		{
+			JSONObject obj = _localizationData.list[_localizationData.keys.IndexOf(key)];
+			if(obj[locLanguage.ToString ()]) { locText = obj[locLanguage.ToString()].ToString (); }
+			else {locText = key; }
+			return locText;
+		}
 	}
-	
+
 	private bool tempB = false;
 	private Dialogue_Prompt activePrompt;
 	void Update()
@@ -83,6 +87,7 @@ public class Manager_StaticData : MonoBehaviour
 			{
 				tempB = true;
 				populateData();
+				DialogueInterface.Instance.PopulateButtonActionDict();
 				Debug.Log (" ====================== DATA POPULATED ====================== ");
 			}
 		}

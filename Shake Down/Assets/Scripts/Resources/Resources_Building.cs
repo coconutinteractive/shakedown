@@ -9,12 +9,13 @@ public class Resources_Building : Resources_Root
 	private int _rent;
 	private int _payment;
 	private Enums.DayOfTheWeek _day;
+	private bool _hasPaid = false;
 
-
-	public Enums.BuildingType type { get { return _type; } }
-	public int rent { get { return _rent; } } 
-	public int payment { get { return _payment; } }
-	public Enums.DayOfTheWeek day { get { return _day; } }
+	public Enums.BuildingType type 	{ get { return _type; 		} }
+	public int rent 				{ get { return _rent; 		} } 
+	public int payment 				{ get { return _payment; 	} }
+	public Enums.DayOfTheWeek day 	{ get { return _day; 		} }
+	public bool hasPaid 			{ get { return _hasPaid; 	} set { _hasPaid = value; } }
 
 
 	public Resources_Building  (string id,

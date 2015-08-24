@@ -10,21 +10,21 @@ public class Dialogue_Prompt
 	static public Dialogue_Prompt GetPromptByName(string key) { return _dialoguePrompts[key]; }
 	
 	private List<Dialogue_Option> _followUps = new List<Dialogue_Option>();
-	public List<Dialogue_Option> followUps { get { return /*FilterFollowUps(_followUps)*/ _followUps; } }
+	public List<Dialogue_Option> followUps { get { return _followUps; } }
+
 	private List<string> _followUpKeys = new List<string> ();
 	public List<string> followUpKeys{get{return _followUpKeys;}}
-	private List<string> _followUpBtnText = new List<string>();
-	public List<string> followUpBtnText{get{return _followUpBtnText;}}
-	private List<string> _followUpAltBtnText = new List<string>();
-	public List<string> followUpAltBtnText{get{return _followUpAltBtnText;}}
-	
+
 	private string _dialoguePromptID;
 	public string promptID { get { return _dialoguePromptID; } }
+	private string _suffix;
+	public string suffix { get {return _suffix; } }
 	
-	public Dialogue_Prompt(string id)
+	public Dialogue_Prompt(string id, string suffix)
 	{
 		_dialoguePromptID = id;
 		_dialoguePrompts.Add(id, this);
+		_suffix = suffix;
 	}
 	
 	static public void AddFollowUps()
@@ -52,9 +52,13 @@ public class Dialogue_Prompt
 			case "dialogue_prompt_giveDetails": {
 				Dialogue_Prompt_Logic.SetOptions_GiveDetails(Dialogue_Prompt.GetPromptByName(id));
 				break; }
+			case "dialogue_prompt_goodbye": {
+				Dialogue_Prompt_Logic.SetOptions_Goodbye(Dialogue_Prompt.GetPromptByName(id));
+				break; }
 			case "dialogue_prompt_greeting": {
 				Dialogue_Prompt_Logic.SetOptions_Greeting(Dialogue_Prompt.GetPromptByName(id));
 				break; }
+				/*
 			case "dialogue_prompt_intimidate": {
 				Dialogue_Prompt_Logic.SetOptions_Intimidate(Dialogue_Prompt.GetPromptByName(id));
 				break; }
@@ -73,6 +77,7 @@ public class Dialogue_Prompt
 			case "dialogue_prompt_intimidatedUnaffected": {
 				Dialogue_Prompt_Logic.SetOptions_IntimidatedUnaffected(Dialogue_Prompt.GetPromptByName(id));
 				break; }
+				*/
 			case "dialogue_prompt_offerAccepted": {
 				Dialogue_Prompt_Logic.SetOptions_OfferAccepted(Dialogue_Prompt.GetPromptByName(id));
 				break; }
@@ -127,7 +132,7 @@ public class Dialogue_Prompt
 			case "dialogue_prompt_smallTalk": {
 				Dialogue_Prompt_Logic.SetOptions_SmallTalk(Dialogue_Prompt.GetPromptByName(id));
 				break; }
-			default:{
+			default: {
 				Debug.LogWarning("PROMPT NOT RECOGNIZED! " + id);
 				break; }
 			}
@@ -137,61 +142,6 @@ public class Dialogue_Prompt
 	public void AddFollowUp(Dialogue_Option option)
 	{
 		_followUps.Add (option);
-		_followUpKeys.Add (option.optionID);
-	}
-	
-	public void AddFollowUp(Dialogue_Option option, string _btnText)
-	{
-		_followUps.Add (option);
-		_followUpKeys.Add (option.optionID);
-		_followUpBtnText.Add (_btnText);
-		_followUpAltBtnText.Add ("");		
-	}
-
-	public void AddFollowUp(Dialogue_Option option, string _btnText, string _altBtnText)
-	{
-		_followUps.Add (option);
-		_followUpKeys.Add (option.optionID);
-		_followUpBtnText.Add (_btnText);
-		_followUpAltBtnText.Add (_altBtnText);
-	}
-	
-	private List<Dialogue_Option> FilterFollowUps (List<Dialogue_Option> baseList)
-	{
-		List<Dialogue_Option> filteredList = new List<Dialogue_Option>();
-		for(int i = baseList.Count; i >= 0; i--)
-		{
-			bool remove = FilterIDOut(baseList[i].optionID);
-			if (!remove)
-			{
-				filteredList.Add(baseList[i]);
-			}
-		}
-		return filteredList;
-	}
-	
-	private bool FilterIDOut(string optionID)
-	{
-		switch (promptID) {
-		case "dialogue_prompt_root": {
-			switch (optionID) {
-			case "dialogue_option_requestPayment": {
-				// Remove if shop is not protected
-				// Remove if payment scheduled for now
-				break; }
-			case "dialogue_option_earlyPayment": {
-				// Remove if shop is not protected
-				// Remove if payment not scheduled for now
-				break; }
-			case "dialogue_option_renegotiate": {
-				// Remove if shop is not protected
-				break; }
-			case "dialogue_option_offerProtection": {
-				// Remove if shop is protected
-				break; }
-			}
-			break; }
-		}
-		return false;
+		_followUpKeys.Add (option.id);
 	}
 }

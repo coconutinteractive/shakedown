@@ -61,6 +61,44 @@
             "displayname": "ld_buildings_strip_club"
         }
     },
+    "Personality & Attitude": {
+        "personality_outgoing": {
+            "id": "personality_outgoing",
+            "displayname": "ld_personality_outgoing"
+        },
+        "personality_introvert": {
+            "id": "personality_introvert",
+            "displayname": "ld_personality_introvert"
+        },
+        "personality_gruff": {
+            "id": "personality_gruff",
+            "displayname": "ld_personality_gruff"
+        },
+        "personality_formal": {
+            "id": "personality_formal",
+            "displayname": "ld_personality_formal"
+        },
+        "attitude_reliant": {
+            "id": "attitude_reliant",
+            "displayname": "ld_attitude_reliant"
+        },
+        "attitude_loyal": {
+            "id": "attitude_loyal",
+            "displayname": "ld_attitude_loyal"
+        },
+        "attitude_disinterested": {
+            "id": "attitude_disinterested",
+            "displayname": "ld_attitude_disinterested"
+        },
+        "attitude_neutral": {
+            "id": "attitude_neutral",
+            "displayname": "ld_attitude_neutral"
+        },
+        "attitude_terror": {
+            "id": "attitude_terror",
+            "displayname": "ld_attitude_terror"
+        }
+    },
     "StartingInventories": {
         "inventory_blank": {
             "id": "inventory_blank",

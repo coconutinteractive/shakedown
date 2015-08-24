@@ -66,14 +66,7 @@ public class Dialogue_Script : MonoBehaviour
 	{
 		List<string> Options = new List<string>();
 		
-		if(building.buildingRobbed)
-			shopkeeperState = Enums.ShopkeeperState.Robbed;
-		else if(building.buildingVandalized)
-			shopkeeperState = Enums.ShopkeeperState.Vandalized;
-		//else if(shopkeeper.IsShopkeeperAggrivated(player.presence))
-		//	shopkeeperState = Enums.ShopkeeperStates.Aggrivated;
-		else
-			shopkeeperState = Enums.ShopkeeperState.Passive;
+		shopkeeperState = Enums.ShopkeeperState.Passive;
 		
 		if(shopkeeperState != Enums.ShopkeeperState.Robbed)
 		{
@@ -118,7 +111,7 @@ public class Dialogue_Script : MonoBehaviour
 				for (j = 0; j < foo.Count; j++)
 				{
 					bar = foo.list[j];
-					new Dialogue_Prompt(bar.list[0].str);
+					new Dialogue_Prompt(bar.GetField("id").str, bar.GetField("locsuffix").str);
 				}
 			}
 			else if (json.keys[i] == "Options")
@@ -127,11 +120,10 @@ public class Dialogue_Script : MonoBehaviour
 				for (j = 0; j < foo.Count; j++)
 				{
 					bar = foo.list[j];
-					new Dialogue_Option(bar.list[0].str);
+					Dialogue_Option newOption = new Dialogue_Option(bar.GetField("id").str, bar.GetField ("buttontext").ToString());
 				}
 			}
 		}
-		Dialogue_Option.AddFollowUps();
 		Dialogue_Prompt.AddFollowUps();
 	}
 }

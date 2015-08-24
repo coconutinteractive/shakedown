@@ -5,73 +5,21 @@ using System.Linq;
 using UnityEngine.UI;
 using System;
 
-public enum ElementState
-{
-	Normal,
-	Angry,
-	Outraged,
-	Happy,
-	Scared,
-	Sad,
-	Worried
-}
-
 public class DialogueInterface : MonoBehaviour 
 {
-	private static int MAX_CHAR_LIMIT_PER_BODY = 120;
-
 	#region Singleton
 	public static DialogueInterface Instance 
 	{
-		get 
-		{
+		get {
 			if(instance == null)
 				instance = FindObjectOfType(typeof(DialogueInterface)) as DialogueInterface;
-			
 			return instance;
-		}
-		set 
-		{
+		} set {
 			instance = value;
 		}
 	}
 	private static DialogueInterface instance;
 	#endregion
-
-	private static bool _isActive = false;
-	public static bool isActive{get{return _isActive;}}
-
-	public event Action 
-		OnIntimidate,
-			OnIntimidateImply,
-			OnIntimidateThreaten,
-			OnIntimidateAct,
-				OnIntimidateInformBoss,
-				OnIntimidateBreakMerchandise,
-				OnIntimidateAttackShopkeeper,
-				OnIntimidateBurnShopDown,
-		
-		OnAskForPayment,
-			OnAcceptPayment,
-			OnCheckRegister,
-				OnTakeRegisterMoney,
-				OnOfferToAidBusiness,
-					OnDonateConfirm,
-					OnDonateCancel,
-					OnCutProtectionConfirm,
-					OnCutProtectionCancel,		
-
-		OnOfferProtection,
-
-		OnRenegotiateProtection,
-
-		OnGoShopping,
-			OnShopProduct,
-				OnConfirmPurchase,
-
-		OnChitChat,
-
-		OnExitShop;
 
 	[System.Serializable]
 	public class UIElementsGroup
@@ -80,6 +28,14 @@ public class DialogueInterface : MonoBehaviour
 		public List<Text> groupTextList = new List<Text> ();
 	}
 
+	private static bool _isActive = false;
+	public static bool isActive{get{return _isActive;}}
+
+	private static int MAX_CHAR_LIMIT_PER_BODY = 120;
+
+	static private Building_Script _currentBuilding;
+	static public Building_Script currentBuilding { get { return _currentBuilding; } set { _currentBuilding = value; } }
+	
 	private Dictionary<string, UnityEngine.Events.UnityAction> btnActionsDict = new Dictionary<string, UnityEngine.Events.UnityAction>();
 
 	// Groups
@@ -103,7 +59,6 @@ public class DialogueInterface : MonoBehaviour
 	[SerializeField] public Sprite cashRegisterPortrait = null;
 
 	// Choices
-	private int numberOfChoices = 0;
 	private List<string> choicesTextID = new List<string>(), choicesText = new List<string>();
 	private List<List<UnityEngine.Events.UnityAction>> currentBtnActions = new List<List<UnityEngine.Events.UnityAction>>();
 
@@ -112,17 +67,85 @@ public class DialogueInterface : MonoBehaviour
 
 	// Dialogue stuff?
 	private Dialogue_Prompt currentDialoguePrompt = null;
-	private Dialogue_Option currentDialogueOption = null;
 
 	private List<Dialogue_Prompt> previousPrompts = new List<Dialogue_Prompt>();
 	private List<string> previousDialogueText = new List<string>();
+
+	public event Action
+		/* OnIntimidate,
+			OnIntimidateImply,
+			OnIntimidateThreaten,
+			OnIntimidateAct,
+				OnIntimidateInformBoss,
+				OnIntimidateBreakMerchandise,
+				OnIntimidateAttackShopkeeper,
+				OnIntimidateBurnShopDown,
+		
+		OnAskForPayment,
+			OnAccept,
+			OnCheckRegister,
+				OnTakeRegisterMoney,
+				OnOfferToAidBusiness,
+					OnDonateConfirm,
+					OnDonateCancel,
+					OnCutProtectionConfirm,
+					OnCutProtectionCancel,		
+
+		OnOfferProtection,
+
+		OnRenegotiateProtection,
+
+		OnGoShopping,
+			OnShopProduct,
+				OnConfirmPurchase,
+
+		OnChitChat,
+
+		OnExitShop; */
+
+		OnIntimidate,
+		OnIntimidate2Imply,
+		OnIntimidate2Threaten,
+		OnIntimidate2Act,
+		OnIntimidate3InformBoss,
+		OnIntimidate3BreakMerchandise,
+		OnIntimidate3AttackShopkeeper,
+		OnIntimidate3BurnDownShop,
+		OnRequestPayment,
+		OnAccept,
+		OnCheckTheRegister,
+		OnTakeRegisterMoney,
+		OnOfferToAidBusiness,
+		OnDonate,
+		OnCutProtectionCost,
+		OnOfferProtection,
+		OnRenegotiate,
+		OnGoShopping,
+		OnShopProduct,
+		OnConfirmPurchase,
+		OnChitChat,
+		OnNeverMind,
+		OnExitShop,
+		OnAcknowledge,
+		OnCancelPurchase,
+		OnContinueIntimidating,
+		OnDefaultAmount,
+		OnEarlyPayment,
+		OnEnterShop,
+		OnGetDetails,
+		OnHearProposition,
+		OnIgnore,
+		OnOtherAmount,
+		OnPlacate,
+		OnReject,
+		OnResumeTalking,
+		OnReturnGreeting,
+		OnTryAnotherOffer;
 
 	private void Awake()
 	{
 		for (int i = 0; i < 6; ++i) 
 			currentBtnActions.Add(new List<UnityEngine.Events.UnityAction>());
-
-		PopulateButtonActionDict ();
 
 		rightArrowImage.canvasRenderer.SetAlpha (0.0f);
 		leftArrowImage.canvasRenderer.SetAlpha (0.0f);
@@ -163,7 +186,7 @@ public class DialogueInterface : MonoBehaviour
 		_isActive = false;
 	}
 
-#region UI Handling
+	#region UI Handling
 	public void Activate()
 	{
 		_isActive = true;
@@ -178,13 +201,13 @@ public class DialogueInterface : MonoBehaviour
 
 	public void HideAll()
 	{
-		HideChoices ();
+		//HideChoices ();
 		dialogueText.CrossFadeAlpha (0.0f, 1.0f, true);
 		HideLeftCharacter ();
 		HideRightCharacter ();
 	}
 
-	public void DisplayLeftCharacter(Sprite _portrait, ElementState _characterState, float _fadeTime, bool _isTalking)
+	public void DisplayLeftCharacter(Sprite _portrait, float _fadeTime, bool _isTalking)
 	{
 		leftPortraitImage.sprite = _portrait;
 		CrossFadeGroup (leftSide, 0.92f, 1.0f, _fadeTime);
@@ -194,7 +217,7 @@ public class DialogueInterface : MonoBehaviour
 
 	}
 
-	public void DisplayRightCharacter(Sprite _portrait, ElementState _characterState, float _fadeTime, bool _isTalking)
+	public void DisplayRightCharacter(Sprite _portrait, float _fadeTime, bool _isTalking)
 	{
 		rightPortraitImage.sprite = _portrait;
 		CrossFadeGroup (rightSide, 0.92f, 0.92f, _fadeTime);
@@ -234,21 +257,16 @@ public class DialogueInterface : MonoBehaviour
 			curElement.groupTextList[i].text = _values[i];
 	}
 
-	public void SetChoices(string[] _choices)
-	{
-		choicesTextID.Clear ();
-		numberOfChoices = _choices.Length;
-		foreach (string curChoice in _choices) 
-			choicesTextID.Add (curChoice);
-	}
-
 	private void DisplayChoices()
 	{
-		
 		choicesBackground.SetActive (true);
 		choicesBackground.GetComponent<Image> ().CrossFadeAlpha (0.92f, 1.0f, true);
 		GameObject selectedBox = null;
-		
+
+		int numberOfChoices = 0;
+		for (int i = 0; i < choicesTextID.Count; i++) {
+			if (choicesTextID[i] != null) { numberOfChoices++; }
+		}
 		switch(numberOfChoices)
 		{
 		case 1:
@@ -431,16 +449,56 @@ public class DialogueInterface : MonoBehaviour
 			curText.CrossFadeAlpha(_textAlphaValue, _fadeTime, true);
 		}
 	}
+	#endregion
 
-#endregion
-
-#region Dialogue Handling
-
-	public void StartDialogue(bool _initialDelay, float _delay, string _completeString, bool _displayChoices)
+	#region Dialogue Handling
+	public void NewPrompt(Dialogue_Prompt dialoguePrompt, bool initialDelay, float delay, bool displayChoices)
 	{
-		StartCoroutine (AnimatedDialogue (_initialDelay, _delay, _completeString, _displayChoices));
+		currentDialoguePrompt = dialoguePrompt;
+		SetOptions();
+		string promptTextContent = currentBuilding.GetPersonalityText(dialoguePrompt.suffix);
+		StartCoroutine (AnimatedDialogue (initialDelay, delay, promptTextContent, displayChoices));
+	}
+
+	public void PreviousPrompt()
+	{
+		NewPrompt (previousPrompts.Last (), false, 0.0f, true);
+		previousPrompts.Remove (previousPrompts.Last ());
+		previousDialogueText.Remove (previousDialogueText.Last ());
 	}
 	
+	private void SetOptions()
+	{
+		UnityEngine.Events.UnityAction[] actions = GetButtonActionFromDict ((Dialogue_Prompt_Logic.FilterKeys(currentDialoguePrompt, shopkeeperRef)).ToArray());
+
+		for (int i = 0; i < actions.Length; ++i)
+		{
+			SetBtnActions (i+1, actions [i]);
+		}
+
+		List<string> buttonKeys = Dialogue_Prompt_Logic.FilterKeys(currentDialoguePrompt, shopkeeperRef);
+
+		string[] choicesString = new string[6];
+		for (int i = 0; i < buttonKeys.Count; ++i) {
+			string buttonTextKey = Dialogue_Option.GetOptionByName(buttonKeys[i]).buttonTextKey;
+			choicesString[i] = Localization.LocalizeText(buttonTextKey);
+		}
+
+		choicesText.Clear ();
+		choicesText = choicesString.ToList ();
+		
+		SetChoices (choicesString);
+	}
+
+	public void SetChoices(string[] _choices)
+	{
+		choicesTextID.Clear ();
+		foreach (string curChoice in _choices) 
+		{
+			choicesTextID.Add (curChoice);
+		}
+	}
+
 	private IEnumerator AnimatedDialogue(bool _initialDelay, float _delay, string _completeString, bool _displayChoices)
 	{
 		if(_initialDelay)
@@ -531,8 +589,9 @@ public class DialogueInterface : MonoBehaviour
 	public void SetBtnActions(UnityEngine.Events.UnityAction[][] _actions)
 	{
 		// idiot check: Garbage collection?
-		for (int i = 0; i < 6; ++i) 
+		for (int i = 0; i < 6; ++i) {
 			currentBtnActions[i].Clear ();
+		}
 		currentBtnActions.Clear ();
 
 		for (int i = 0; i < _actions.Length; ++i) 
@@ -554,14 +613,15 @@ public class DialogueInterface : MonoBehaviour
 	public void SetBtnActions(int _btnIndex, UnityEngine.Events.UnityAction _action)
 	{
 		currentBtnActions [_btnIndex-1].Clear ();
+
 		currentBtnActions [_btnIndex - 1].Add (_action);
 	}
 
-	public UnityEngine.Events.UnityAction GetButtonActionFromDict(string _actionKey)
+	public UnityEngine.Events.UnityAction GetButtonActionFromDict(string actionKey)
 	{
-		if(btnActionsDict.ContainsKey(_actionKey))
+		if(btnActionsDict.ContainsKey(actionKey))
 		{
-			return btnActionsDict[_actionKey];
+			return btnActionsDict[actionKey];
 		}
 		else
 		{
@@ -570,226 +630,255 @@ public class DialogueInterface : MonoBehaviour
 		}
 	}
 
-	public UnityEngine.Events.UnityAction[] GetButtonActionFromDict(string[] _actionKeys)
+	public UnityEngine.Events.UnityAction[] GetButtonActionFromDict(string[] actionKeys)
 	{
 		List<UnityEngine.Events.UnityAction> actionsList = new List<UnityEngine.Events.UnityAction> ();
 
-		for (int i = 0; i < _actionKeys.Length; ++i) 
+		for (int i = 0; i < actionKeys.Length; ++i) 
 		{
-			if(btnActionsDict.ContainsKey(_actionKeys[i]))
-				actionsList.Add(btnActionsDict[_actionKeys[i]]);
+			if(btnActionsDict.ContainsKey(actionKeys[i]))
+				actionsList.Add(btnActionsDict[actionKeys[i]]);
 			else
-				Debug.LogError("The action: " + _actionKeys[i] + " does not exist!");
+				Debug.LogError("The action '" + actionKeys[i] + "' does not exist!");
 		}
 		return actionsList.ToArray ();
 	}
 
-	private void PopulateButtonActionDict()
+	//temp to prove concept. do it better later
+	private Resources_Shopkeeper _shopkeeperRef;
+	public Resources_Shopkeeper shopkeeperRef { get { return _shopkeeperRef; } set { _shopkeeperRef = value; } }
+
+	public void PopulateButtonActionDict()
 	{
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE, (() => {Intimidate ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_IMPLY, (() => {IntimidateImply ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_THREATEN, (() => {IntimidateThreaten ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ACT, (() => {IntimidateAct ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_INFORM_BOSS, (() => {IntimidateInformBoss ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BREAK_MERCHANDISE, (() => {IntimidateBreakMechandise ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_ATTACK_SHOPKEEPER, (() => {IntimidateAttackShopKeeper ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_INTIMIDATE_BURN_SHOP_DOWN, (() => {IntimidateBurnShopDown ();}));
-		
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_REQUEST_PAYMENT, (() => {RequestPayment ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_ACCEPT_PAYMENT, (() => {AcceptPayment ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_CHECK_REGISTER, (() => {CheckRegister ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_TAKE_REGISTER_MONEY, (() => {TakeRegisterMoney ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_AID_BUSINESS, (() => {OfferToAidBusiness ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_DONATE, (() => {Donate ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_CUT_PROTECTION_COST, (() => {CutProtectionCost ();}));
+		/*
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate"					).id, (() => {Dialogue_Option_Logic.Intimidate (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_imply"				).id, (() => {Dialogue_Option_Logic.Intimidate2Imply (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_threaten"			).id, (() => {Dialogue_Option_Logic.Intimidate2Threaten (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_act"				).id, (() => {Dialogue_Option_Logic.Intimidate2Act (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_informBoss"		).id, (() => {Dialogue_Option_Logic.Intimidate3InformBoss (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_breakMerchandise"	).id, (() => {Dialogue_Option_Logic.Intimidate3BreakMerchandise (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_attackShopkeeper"	).id, (() => {Dialogue_Option_Logic.Intimidate3AttackShopKeeper (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_burnDownShop"		).id, (() => {Dialogue_Option_Logic.Intimidate3BurnShopDown (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_requestPayment"				).id, (() => {Dialogue_Option_Logic.RequestPayment (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_accept"						).id, (() => {Dialogue_Option_Logic.Accept (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_checkTheRegister"				).id, (() => {Dialogue_Option_Logic.CheckRegister (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_takeRegisterMoney"				).id, (() => {Dialogue_Option_Logic.TakeRegisterMoney (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_offerToAidBusiness"			).id, (() => {Dialogue_Option_Logic.OfferToAidBusiness (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_donate"						).id, (() => {Dialogue_Option_Logic.Donate (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_cutProtectionCost"				).id, (() => {Dialogue_Option_Logic.CutProtectionCost (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_offerProtection"				).id, (() => {Dialogue_Option_Logic.OfferProtection (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_renegotiate"					).id, (() => {Dialogue_Option_Logic.Renegotiate (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_goShopping"					).id, (() => {Dialogue_Option_Logic.GoShopping (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"					).id, (() => {Dialogue_Option_Logic.ShopProduct (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_confirmPurchase"				).id, (() => {Dialogue_Option_Logic.ConfirmPurchase (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_chitChat"						).id, (() => {Dialogue_Option_Logic.ChitChat (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_neverMind"						).id, (() => {Dialogue_Option_Logic.NeverMind (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_exitShop"						).id, (() => {Dialogue_Option_Logic.ExitShop (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"					).id, (() => {Dialogue_Option_Logic.Acknowledge (Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_cancelPurchase"				).id, (() => {Dialogue_Option_Logic.CancelPurchase(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_continueIntimidating"			).id, (() => {Dialogue_Option_Logic.ContinueIntimidating(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_defaultAmount"					).id, (() => {Dialogue_Option_Logic.DefaultAmount(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_earlyPayment"					).id, (() => {Dialogue_Option_Logic.EarlyPayment(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_enterShop"						).id, (() => {Dialogue_Option_Logic.EnterShop(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_getDetails"					).id, (() => {Dialogue_Option_Logic.GetDetails(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_hearProposition"				).id, (() => {Dialogue_Option_Logic.HearProposition(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_ignore"						).id, (() => {Dialogue_Option_Logic.Ignore(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_otherAmount"					).id, (() => {Dialogue_Option_Logic.OtherAmount(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_placate"						).id, (() => {Dialogue_Option_Logic.Placate(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_reject"						).id, (() => {Dialogue_Option_Logic.Reject(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_resumeTalking"					).id, (() => {Dialogue_Option_Logic.ResumeTalking(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_returnGreeting"				).id, (() => {Dialogue_Option_Logic.ReturnGreeting(Resources_Player.instance, shopkeeperRef);}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_tryAnotherOffer"				).id, (() => {Dialogue_Option_Logic.TryAnotherOffer(Resources_Player.instance, shopkeeperRef);}));
+		*/
 
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_OFFER_PROTECTION, (() => {OfferProtection ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_RENEGOTIATE_PROTECTION, (() => {RenegotiateProtection ();}));
-
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_GO_SHOPPING, (() => {GoShopping ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOP_PRODUCT, (() => {ShopProduct ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPPRODUCT_CONFIRM_PURCHASE, (() => {ConfirmPurchase ();}));
-
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOPKEEP_CHITCHAT, (() => {ChitChat ();}));
-
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_NEVERMIND, (() => {NeverMind ();}));
-		btnActionsDict.Add (ButtonActionsKeys.ACTION_SHOP_EXIT, (() => {ExitShop ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate"					).id, (() => {Intimidate ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_imply"				).id, (() => {Intimidate2Imply ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_threaten"			).id, (() => {Intimidate2Threaten ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate2_act"				).id, (() => {Intimidate2Act ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_informBoss"		).id, (() => {Intimidate3InformBoss ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_breakMerchandise"	).id, (() => {Intimidate3BreakMerchandise ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_attackShopkeeper"	).id, (() => {Intimidate3AttackShopkeeper ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_intimidate3_burnDownShop"		).id, (() => {Intimidate3BurnShopDown ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_requestPayment"				).id, (() => {RequestPayment ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_accept"						).id, (() => {Accept ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_checkTheRegister"				).id, (() => {CheckTheRegister ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_takeRegisterMoney"				).id, (() => {TakeRegisterMoney ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_offerToAidBusiness"			).id, (() => {OfferToAidBusiness ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_donate"						).id, (() => {Donate ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_cutProtectionCost"				).id, (() => {CutProtectionCost ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_offerProtection"				).id, (() => {OfferProtection ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_renegotiate"					).id, (() => {Renegotiate ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_goShopping"					).id, (() => {GoShopping ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"					).id, (() => {ShopProduct ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_confirmPurchase"				).id, (() => {ConfirmPurchase ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_chitChat"						).id, (() => {ChitChat ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_neverMind"						).id, (() => {NeverMind ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_exitShop"						).id, (() => {ExitShop ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_acknowledge"					).id, (() => {Acknowledge ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_cancelPurchase"				).id, (() => {CancelPurchase ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_continueIntimidating"			).id, (() => {ContinueIntimidating ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_defaultAmount"					).id, (() => {DefaultAmount ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_earlyPayment"					).id, (() => {EarlyPayment ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_enterShop"						).id, (() => {EnterShop ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_getDetails"					).id, (() => {GetDetails ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_hearProposition"				).id, (() => {HearProposition ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_ignore"						).id, (() => {Ignore ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_otherAmount"					).id, (() => {OtherAmount ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_placate"						).id, (() => {Placate ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_reject"						).id, (() => {Reject ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_resumeTalking"					).id, (() => {ResumeTalking ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_returnGreeting"				).id, (() => {ReturnGreeting ();}));
+		btnActionsDict.Add (Dialogue_Option.GetOptionByName("dialogue_option_tryAnotherOffer"				).id, (() => {TryAnotherOffer ();}));
 	}
 
 	private void SaveCurrentDialoguePrompt()
 	{
+		HideChoices ();
 		previousPrompts.Add (currentDialoguePrompt);
 		previousDialogueText.Add (dialogueText.text);
-	}
-
-	private void GoBackToPreviousPrompt()
-	{
-		SetDialoguePrompt (previousPrompts.Last ());
-		StartDialogue (false, 0.0f, previousDialogueText.Last (), true);
-		previousPrompts.Remove (previousPrompts.Last ());
-		previousDialogueText.Remove (previousDialogueText.Last ());
-	}
-
-	public void SetDialoguePrompt(Dialogue_Prompt _dialoguePrompt)
-	{
-		currentDialoguePrompt = _dialoguePrompt;
-		UnityEngine.Events.UnityAction[] actions = GetButtonActionFromDict ((currentDialoguePrompt.followUpKeys).ToArray ());
-
-		for (int i = 0; i < actions.Length; ++i)
-			SetBtnActions (i+1, actions [i]);
-
-		string[] choicesString = new string[6];
-		for (int i = 0; i < currentDialoguePrompt.followUpBtnText.ToArray ().Length; ++i) 
-		{
-			if(currentDialoguePrompt.followUpAltBtnText.ToArray ()[i].Equals(""))
-				choicesString[i] = currentDialoguePrompt.followUpBtnText.ToArray ()[i];
-			else
-				choicesString[i] = currentDialoguePrompt.followUpAltBtnText.ToArray ()[i];
-		}
-		choicesText.Clear ();
-		choicesText = choicesString.ToList ();
-
-		SetChoices (currentDialoguePrompt.followUpBtnText.ToArray ());
-	}
-
-	public void SetDialogueOption(Dialogue_Option _dialogueOption)
-	{
-		currentDialogueOption = _dialogueOption;
-		UnityEngine.Events.UnityAction[] actions = GetButtonActionFromDict ((currentDialogueOption.followUps.followUpKeys).ToArray());
-
-		for (int i = 0; i < actions.Length; ++i)
-			SetBtnActions (i+1, actions [i]);
-
-		string[] choicesString = new string[6];
-		for (int i = 0; i < currentDialogueOption.followUps.followUpBtnText.ToArray ().Length; ++i) 
-		{
-			if(currentDialogueOption.followUps.followUpAltBtnText.ToArray ()[i].Equals(""))
-				choicesString[i] = currentDialogueOption.followUps.followUpBtnText.ToArray ()[i];
-			else
-				choicesString[i] = currentDialogueOption.followUps.followUpAltBtnText.ToArray ()[i];
-		}
-		choicesText.Clear ();
-		choicesText = choicesString.ToList ();
-
-		SetChoices (currentDialogueOption.followUps.followUpBtnText.ToArray ());
 	}
 #endregion
 
 #region Potential Actions
-	private void ExitShop()
-	{
-		Debug.Log ("Exit!");
-		if (OnExitShop != null)
-			OnExitShop ();
-	}
+	private void Intimidate () 					{ SaveCurrentDialoguePrompt (); if (OnIntimidate != null) { OnIntimidate (); } }
+	private void Intimidate2Imply () 			{ SaveCurrentDialoguePrompt (); if (OnIntimidate2Imply != null) { OnIntimidate2Imply (); } }
+	private void Intimidate2Threaten () 		{ SaveCurrentDialoguePrompt (); if (OnIntimidate2Threaten != null) { OnIntimidate2Threaten (); } }
+	private void Intimidate2Act () 				{ SaveCurrentDialoguePrompt (); if (OnIntimidate2Act != null) { OnIntimidate2Act (); } }
+	private void Intimidate3InformBoss () 		{ SaveCurrentDialoguePrompt (); if (OnIntimidate3InformBoss != null) { OnIntimidate3InformBoss (); } }
+	private void Intimidate3BreakMerchandise () { SaveCurrentDialoguePrompt (); if (OnIntimidate3BreakMerchandise != null) { OnIntimidate3BreakMerchandise (); } }
+	private void Intimidate3AttackShopkeeper () { SaveCurrentDialoguePrompt (); if (OnIntimidate3AttackShopkeeper != null) { OnIntimidate3AttackShopkeeper (); } }
+	private void Intimidate3BurnShopDown () 	{ SaveCurrentDialoguePrompt (); if (OnIntimidate3BurnDownShop != null) { OnIntimidate3BurnDownShop (); } }
+	private void RequestPayment () 				{ SaveCurrentDialoguePrompt (); if (OnRequestPayment != null) { OnRequestPayment (); } }
+	private void Accept () 						{ SaveCurrentDialoguePrompt (); if (OnAccept != null) { OnAccept (); } }
+	private void CheckTheRegister () 			{ SaveCurrentDialoguePrompt (); if (OnCheckTheRegister != null) { OnCheckTheRegister (); } }
+	private void TakeRegisterMoney () 			{ SaveCurrentDialoguePrompt (); if (OnTakeRegisterMoney != null) { OnTakeRegisterMoney (); } }
+	private void OfferToAidBusiness () 			{ SaveCurrentDialoguePrompt (); if (OnOfferToAidBusiness != null) { OnOfferToAidBusiness (); } }
+	private void Donate () 						{ SaveCurrentDialoguePrompt (); if (OnDonate != null) { OnDonate (); } }
+	private void CutProtectionCost () 			{ SaveCurrentDialoguePrompt (); if (OnCutProtectionCost != null) { OnCutProtectionCost (); } }
+	private void OfferProtection () 			{ SaveCurrentDialoguePrompt (); if (OnOfferProtection != null) { OnOfferProtection (); DisplayDigitSelector("00000"); } }
+	private void Renegotiate () 				{ SaveCurrentDialoguePrompt (); if (OnRenegotiate != null) { OnRenegotiate (); } }
+	private void GoShopping () 					{ SaveCurrentDialoguePrompt (); if (OnGoShopping != null) { OnGoShopping (); } }
+	private void ShopProduct () 				{ SaveCurrentDialoguePrompt (); if (OnShopProduct != null) { OnShopProduct (); } }
+	private void ConfirmPurchase () 			{ SaveCurrentDialoguePrompt (); if (OnConfirmPurchase != null) { OnConfirmPurchase (); } }
+	private void ChitChat () 					{ SaveCurrentDialoguePrompt (); if (OnChitChat != null) { OnChitChat (); } }
+	private void NeverMind () 					{ SaveCurrentDialoguePrompt (); if (OnNeverMind != null) { OnNeverMind (); } }
+	private void ExitShop () 					{ SaveCurrentDialoguePrompt (); if (OnExitShop != null) { OnExitShop (); } }
+	private void Acknowledge () 				{ SaveCurrentDialoguePrompt (); if (OnAcknowledge != null) { OnAcknowledge (); } }
+	private void CancelPurchase () 				{ SaveCurrentDialoguePrompt (); if (OnCancelPurchase != null) { OnCancelPurchase (); } }
+	private void ContinueIntimidating () 		{ SaveCurrentDialoguePrompt (); if (OnContinueIntimidating != null) { OnContinueIntimidating (); } }
+	private void DefaultAmount () 				{ SaveCurrentDialoguePrompt (); if (OnDefaultAmount != null) { OnDefaultAmount (); } }
+	private void EarlyPayment () 				{ SaveCurrentDialoguePrompt (); if (OnEarlyPayment != null) { OnEarlyPayment (); } }
+	private void EnterShop () 					{ SaveCurrentDialoguePrompt (); if (OnEnterShop != null) { OnEnterShop (); } }
+	private void GetDetails () 					{ SaveCurrentDialoguePrompt (); if (OnGetDetails != null) { OnGetDetails (); } }
+	private void HearProposition () 			{ SaveCurrentDialoguePrompt (); if (OnHearProposition != null) { OnHearProposition (); } }
+	private void Ignore () 						{ SaveCurrentDialoguePrompt (); if (OnIgnore != null) { OnIgnore (); } }
+	private void OtherAmount () 				{ SaveCurrentDialoguePrompt (); if (OnOtherAmount != null) { OnOtherAmount (); } }
+	private void Placate () 					{ SaveCurrentDialoguePrompt (); if (OnPlacate != null) { OnPlacate (); } }
+	private void Reject () 						{ SaveCurrentDialoguePrompt (); if (OnReject != null) { OnReject (); } }
+	private void ResumeTalking () 				{ SaveCurrentDialoguePrompt (); if (OnResumeTalking != null) { OnResumeTalking (); } }
+	private void ReturnGreeting () 				{ SaveCurrentDialoguePrompt (); if (OnReturnGreeting != null) { OnReturnGreeting (); } }
+	private void TryAnotherOffer () 			{ SaveCurrentDialoguePrompt (); if (OnTryAnotherOffer != null) { OnTryAnotherOffer (); } }
 
-	private void Intimidate()
-	{
-		Debug.Log ("Intimidate");
-		SaveCurrentDialoguePrompt ();
-		if (OnIntimidate != null)
-			OnIntimidate ();
-		HideChoices ();
-		SetDialoguePrompt (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE)].followUps);
-	}
+
+	/*
+	private void Intimidate() { SaveCurrentDialoguePrompt (); if (OnIntimidate != null) { OnIntimidate (); } }
 
 	private void IntimidateImply()
 	{
 		Debug.Log ("Intimidate Imply");
-		if (OnIntimidateImply != null)
-			SaveCurrentDialoguePrompt ();
-			OnIntimidateImply ();
-
-		HideChoices ();
-		SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_IMPLY)]);
-		StartDialogue (false, 0.0f, "What are you implying?", true);
+		SaveCurrentDialoguePrompt ();
+		if (OnIntimidate2_imply != null)
+			OnIntimidate2_imply ();
+		//HideChoices ();
+		//SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_IMPLY)]);
+		//StartDialogue (false, 0.0f, "What are you implying?", true);
 	}
 
 	private void IntimidateThreaten()
 	{
 		Debug.Log ("Intimidate Threaten");
 		SaveCurrentDialoguePrompt ();
-		if (OnIntimidateThreaten != null)
-			OnIntimidateThreaten ();
-		HideChoices ();
-		SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_THREATEN)]);
-		StartDialogue (false, 0.0f, "Let's hear that threat...", true);
+		if (OnIntimidate2_threaten != null)
+			OnIntimidate2_threaten ();
+		//HideChoices ();
+		//SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_THREATEN)]);
+		//StartDialogue (false, 0.0f, "Let's hear that threat...", true);
 	}
 	
 	private void IntimidateAct()
 	{
 		Debug.Log ("Intimidate Act");
 		SaveCurrentDialoguePrompt ();
-		if (OnIntimidateAct != null)
-			OnIntimidateAct ();
-		HideChoices ();
-		SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_ACT)]);
-		StartDialogue (false, 0.0f, "Wait, what are you doing!?", true);
+		if (OnIntimidate2_act != null)
+			OnIntimidate2_act ();
+		//HideChoices ();
+		//SetDialogueOption (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_INTIMIDATE_ACT)]);
+		//StartDialogue (false, 0.0f, "Wait, what are you doing!?", true);
 	}
 
 	private void IntimidateInformBoss()
 	{
 		Debug.Log ("Intimidate InformBoss");
-		if (OnIntimidateInformBoss != null)
-			OnIntimidateInformBoss ();
-		HideChoices ();
+		if (OnIntimidate3_informBoss != null)
+			OnIntimidate3_informBoss ();
+		//HideChoices ();
 	}
 
-	private void IntimidateBreakMechandise()
+	private void IntimidateBreakMerchandise()
 	{
 		Debug.Log ("Intimidate Break Merchandise");
-		if (OnIntimidateBreakMerchandise != null)
-			OnIntimidateBreakMerchandise ();
-		HideChoices ();
+		if (OnIntimidate3_breakMerchandise != null)
+			OnIntimidate3_breakMerchandise ();
+		//HideChoices ();
 	}
 
 	private void IntimidateAttackShopKeeper()
 	{
 		Debug.Log ("Intimidate Attack ShopKeeper");
-		if (OnIntimidateAttackShopkeeper != null)
-			OnIntimidateAttackShopkeeper ();
-		HideChoices ();
+		if (OnIntimidate3_attackShopkeeper != null)
+			OnIntimidate3_attackShopkeeper ();
+		//HideChoices ();
 	}
 
 	private void IntimidateBurnShopDown()
 	{
 		Debug.Log ("Intimidate Burn Shop Down");
-		if (OnIntimidateBurnShopDown != null)
-			OnIntimidateBurnShopDown ();
-		HideChoices ();
+		if (OnIntimidate3_burnDownShop != null)
+			OnIntimidate3_burnDownShop ();
+		//HideChoices ();
 	}
 
 	private void RequestPayment()
 	{
 		Debug.Log ("Ask for Payment");
 		SaveCurrentDialoguePrompt ();
-		if (OnAskForPayment != null)
-			OnAskForPayment ();
-		HideChoices ();
+		if (OnRequestPayment != null)
+			OnRequestPayment ();
+		//HideChoices ();
 	}
 	
-	private void AcceptPayment()
+	private void Accept()
 	{
 		Debug.Log ("Accept Payment");
-		if (OnAcceptPayment != null)
-			OnAcceptPayment ();
-		HideChoices ();
+		if (OnAccept != null)
+			OnAccept ();
+		//HideChoices ();
 		//GoBackToPreviousPrompt ();
 	}
 
 	private void CheckRegister()
 	{
 		Debug.Log ("Check Register");
-		if (OnCheckRegister != null)
-			OnCheckRegister ();
-		HideChoices ();
+		if (OnCheckTheRegister != null)
+			OnCheckTheRegister ();
+		//HideChoices ();
 	}
 	private void TakeRegisterMoney()
 	{
 		Debug.Log ("Take Register Money");
 		if (OnTakeRegisterMoney != null)
 			OnTakeRegisterMoney ();
-		HideChoices ();
+		//HideChoices ();
 	}
 
 	private void OfferToAidBusiness()
@@ -798,9 +887,9 @@ public class DialogueInterface : MonoBehaviour
 		SaveCurrentDialoguePrompt ();
 		if (OnOfferToAidBusiness != null)
 			OnOfferToAidBusiness ();
-		HideChoices ();
+		//HideChoices ();
 	}
-
+	/*
 	private void Donate()
 	{
 		Debug.Log ("Donate");
@@ -822,7 +911,7 @@ public class DialogueInterface : MonoBehaviour
 		if (OnDonateConfirm != null)
 			OnDonateConfirm ();
 
-		HideChoices ();
+		//HideChoices ();
 		HideDigitSelector ();
 	}
 
@@ -833,9 +922,9 @@ public class DialogueInterface : MonoBehaviour
 		if (OnDonateCancel != null)
 			OnDonateCancel ();
 
-		//HideChoices ();
+		////HideChoices ();
 		HideDigitSelector ();
-		GoBackToPreviousPrompt ();
+		PreviousPrompt ();
 	}
 
 	private void CutProtectionCost()
@@ -859,7 +948,7 @@ public class DialogueInterface : MonoBehaviour
 		if (OnCutProtectionConfirm != null)
 			OnCutProtectionConfirm ();
 
-		HideChoices ();
+		//HideChoices ();
 		HideDigitSelector ();
 	}
 
@@ -870,9 +959,9 @@ public class DialogueInterface : MonoBehaviour
 		if (OnCutProtectionCancel != null)
 			OnCutProtectionCancel ();
 
-		//HideChoices ();
+		////HideChoices ();
 		HideDigitSelector ();
-		GoBackToPreviousPrompt ();
+		PreviousPrompt ();
 	}
 
 	private void OfferProtection()
@@ -885,8 +974,8 @@ public class DialogueInterface : MonoBehaviour
 	private void RenegotiateProtection()
 	{
 		Debug.Log ("Renegotiate Protection");
-		if (OnRenegotiateProtection != null)
-			OnRenegotiateProtection ();
+		if (OnRenegotiate != null)
+			OnRenegotiate ();
 	}
 
 	private void GoShopping()
@@ -895,9 +984,12 @@ public class DialogueInterface : MonoBehaviour
 		SaveCurrentDialoguePrompt ();
 		if (OnGoShopping != null)
 			OnGoShopping ();
-		HideChoices ();
-		SetDialoguePrompt (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_GO_SHOPPING)].followUps);
-		StartDialogue (false, 0.0f, "With pleasure! What would you like, sir?", true);
+		//HideChoices ();
+
+		//NewPrompt (, false, 0.0f, true);
+		//Dialogue_Option
+		//SetDialoguePrompt (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_GO_SHOPPING)].followUps);
+		//StartDialogue (false, 0.0f, currentBuilding.GetPersonalityText(currentDialoguePrompt.suffix), true);
 	}
 
 	private void ChitChat()
@@ -905,8 +997,8 @@ public class DialogueInterface : MonoBehaviour
 		Debug.Log ("Chit Chat");
 		if (OnChitChat != null)
 			OnChitChat ();
-		HideChoices ();
-		SetDialoguePrompt (currentDialoguePrompt.followUps [choicesTextID.IndexOf (ButtonActionsKeys.TEXT_CHIT_CHAT)].followUps);
+		//HideChoices ();
+		//SetDialoguePrompt (currentDialoguePrompt.followUps [choicesTextID.IndexOf (ButtonActionsKeys.TEXT_CHIT_CHAT)].followUps);
 	}
 
 
@@ -916,9 +1008,9 @@ public class DialogueInterface : MonoBehaviour
 		SaveCurrentDialoguePrompt ();
 		if (OnShopProduct != null)
 			OnShopProduct ();
-		HideChoices ();
-		SetDialoguePrompt (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_SHOP_PRODUCT)].followUps);
-		StartDialogue (false, 0.0f, "An excellent choice, sir. {INSERT COST} and this {INSERT OBJECT NAME} is yours!", true);
+		//HideChoices ();
+		//SetDialoguePrompt (currentDialoguePrompt.followUps[choicesTextID.IndexOf(ButtonActionsKeys.TEXT_SHOP_PRODUCT)].followUps);
+		//StartDialogue (false, 0.0f, "An excellent choice, sir. {INSERT COST} and this {INSERT OBJECT NAME} is yours!", true);
 	}
 
 	private void ConfirmPurchase()
@@ -926,14 +1018,20 @@ public class DialogueInterface : MonoBehaviour
 		Debug.Log ("Confirm Purchase");
 		if (OnConfirmPurchase != null)
 			OnConfirmPurchase ();
-		HideChoices ();
+		//HideChoices ();
 	}
 
 	private void NeverMind()
 	{
 		Debug.Log ("Never mind");
-		HideChoices ();
-		GoBackToPreviousPrompt ();
+		//HideChoices ();
 	}
+
+	private void ExitShop()
+	{
+		Debug.Log ("Exit Shop");
+		//HideChoices ();
+	}
+	*/
 #endregion
 }

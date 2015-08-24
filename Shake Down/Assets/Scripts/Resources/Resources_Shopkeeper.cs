@@ -18,6 +18,7 @@ public class Resources_Shopkeeper : Resources_NPC
 	                             int greed,
 	                             int integrity,
 	                             int stubbornness,
+	                             Enums.Personality personality,
 	                             Resources_Inventory inventory)
 		: base (id,
 		        name,
@@ -33,6 +34,7 @@ public class Resources_Shopkeeper : Resources_NPC
 		        greed,
 		        integrity,
 		        stubbornness,
+		        personality,
 		        inventory)
 	{
 		Manager_Resources.NewShopkeeper(this);

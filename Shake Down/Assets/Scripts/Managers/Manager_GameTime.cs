@@ -55,8 +55,8 @@ public class Manager_GameTime : MonoBehaviour
 	private int[] timeToAddInHours = new int[3];
 	private int elapsedDays = 1;
 	private string currentDayState = "Night";
-	private List<string> daysOfTheWeek = new List<string>(){"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-	private string currentDayOfTheWeek = "Sun";
+	private Enums.DayOfTheWeek _currentDayOfTheWeek = Enums.DayOfTheWeek.Sun;
+	public Enums.DayOfTheWeek currentDayOfTheWeek { get { return _currentDayOfTheWeek; } }
 	
 	private List<NightActivities.NightActivity> activitiesList = new List<NightActivities.NightActivity>();
 	
@@ -71,7 +71,7 @@ public class Manager_GameTime : MonoBehaviour
 	
 	private void HandleOnSaveGame (string _ID)
 	{
-		MySerializables.GameTime gameTime = new MySerializables.GameTime (currentDayState, currentDayOfTheWeek, dayTimer, timeToAdd, elapsedDays, isAM);
+		MySerializables.GameTime gameTime = new MySerializables.GameTime (currentDayState, currentDayOfTheWeek.ToString(), dayTimer, timeToAdd, elapsedDays, isAM);
 		BinarySerialization.SaveToPlayerPrefs (_ID + SavingKeysContainer.GAME_TIME_DATA, gameTime);
 	}
 	
@@ -79,7 +79,8 @@ public class Manager_GameTime : MonoBehaviour
 	{
 		MySerializables.GameTime gameTime = (MySerializables.GameTime)BinarySerialization.LoadFromPlayerPrefs (_ID + SavingKeysContainer.GAME_TIME_DATA);
 		currentDayState = gameTime.currentDayState;
-		currentDayOfTheWeek = gameTime.currentDayOfTheWeek;
+		_currentDayOfTheWeek = (Enums.DayOfTheWeek)Enum.Parse (typeof(Enums.DayOfTheWeek), gameTime.currentDayOfTheWeek);
+
 		dayTimer = gameTime.dayTimer;
 		timeToAdd = gameTime.timeToAdd;
 		elapsedDays = gameTime.dayCount;
@@ -105,10 +106,10 @@ public class Manager_GameTime : MonoBehaviour
 			if(OnChangeDayState != null)
 				OnChangeDayState(morning);
 			
-			int newDayIndex = daysOfTheWeek.IndexOf(currentDayOfTheWeek) + 1;
+			int newDayIndex = (int)currentDayOfTheWeek + 1;
 			if(newDayIndex > 6)
 				newDayIndex = 0;
-			currentDayOfTheWeek = daysOfTheWeek[newDayIndex];
+			_currentDayOfTheWeek = (Enums.DayOfTheWeek)newDayIndex;
 		}
 		if(dayTimer >= morning.exitThreshold && currentDayState != afternoon.name)
 		{
