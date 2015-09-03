@@ -101,10 +101,1053 @@
     },
     "StartingInventories": {
         "inventory_blank": {
-            "id": "inventory_blank",
-            "weapon": "none",
-            "clothing": "none",
-            "jewelry": "none"
+            "id": "inventory_blank"
+        },
+        "jewelry1": {
+            "id": "jewelry1",
+            "gun": "item_gun_magnum",
+            "melee": "item_melee_bat",
+            "clothes": "item_clothes_bespoke",
+            "shoes": "item_shoe_leather",
+            "neck": "item_neck_diamond",
+            "pin": "item_pin_diamond",
+            "ring": "item_ring_diamond",
+            "wrist": "item_wrist_diamond",
+            "hair": "item_decay_haircutAndStyle",
+            "flower": "item_decay_flower"
+        }
+    },
+    "ShopInventories": {
+        "shop_blank": {
+            "id": "shop_blank"
+        },
+        "ammo": {
+            "id": "ammo",
+            "item1": "item_gun_handgun",
+            "item2": "item_gun_magnum",
+            "item3": "item_gun_shotgun"
+        },
+        "bakery": {
+            "id": "bakery",
+            "item1": "item_consum_cannoli",
+            "item2": "item_consum_cheesecake"
+        },
+        "bar": {
+            "id": "bar",
+            "item1": "item_consum_pint",
+            "item2": "item_consum_alcoholShot",
+            "item3": "item_consum_fishAndChips",
+            "item4": "item_consum_friedCalamari"
+        },
+        "barber1": {
+            "id": "barber1",
+            "item1": "item_decay_haircutBasic",
+            "item2": "item_decay_haircutAndShave"
+        },
+        "barber2": {
+            "id": "barber2",
+            "item1": "item_decay_haircutFull",
+            "item2": "item_decay_haircutAndStyle"
+        },
+        "cafe": {
+            "id": "cafe",
+            "item1": "item_consum_coffee",
+            "item2": "item_consum_espresso",
+            "item3": "item_consum_chocolateJava"
+        },
+        "casino": {
+            "id": "casino",
+            "item1": "item_instant_roulette",
+            "item2": "item_instant_blackjack",
+            "item3": "item_instant_poker"
+        },
+        "clothing1": {
+            "id": "clothing1",
+            "item1": "item_clothes_clearance",
+            "item2": "item_clothes_activeLine",
+            "item3": "item_clothes_dressToImpress",
+            "item4": "item_clothes_hoodies"
+        },
+        "clothing2": {
+            "id": "clothing2",
+            "item1": "item_clothes_skinnyFit",
+            "item2": "item_clothes_modernClassic",
+            "item3": "item_clothes_businessSavey",
+            "item4": "item_clothes_tahitiBreeze"
+        },
+        "clothing3": {
+            "id": "clothing3",
+            "item1": "item_clothes_offTheRack",
+            "item2": "item_clothes_madeToMeasure",
+            "item3": "item_clothes_bespoke"
+        },
+        "florist": {
+            "id": "florist",
+            "item1": "item_decay_flower"
+        },
+        "grocery1": {
+            "id": "grocery1",
+            "item1": "item_consum_hamSandwich",
+            "item2": "item_consum_lottoTicket",
+            "item3": "item_consum_batteryEnergy"
+        },
+        "grocery2": {
+            "id": "grocery2",
+            "item1": "item_consum_chickenClub",
+            "item2": "item_consum_saladBar",
+            "item3": "item_consum_bowlOfSoup"
+        },
+        "grocery3": {
+            "id": "grocery3",
+            "item1": "item_consum_panini",
+            "item2": "item_consum_rotisserieChicken",
+            "item3": "item_consum_yogurtParfait"
+        },
+        "gym": {
+            "id": "gym",
+            "item1": "item_instant_workoutShort",
+            "item2": "item_instant_workoutSerious",
+            "item3": "item_instant_workoutSports",
+            "item4": "item_instant_workoutTrainer"
+        },
+        "jewelry1": {
+            "id": "jewelry1",
+            "item1": "item_pin_diamond",
+            "item2": "item_ring_diamond",
+            "item3": "item_neck_diamond",
+            "item4": "item_wrist_diamond"
+        },
+        "jewelry2": {
+            "id": "jewelry2",
+            "item1": "item_pin_luxury",
+            "item2": "item_ring_luxury",
+            "item3": "item_neck_luxury",
+            "item4": "item_wrist_luxury"
+        },
+        "restaurant1a": {
+            "id": "restaurant1a",
+            "item1": "item_consum_valueMeal",
+            "item2": "item_consum_fullFixins",
+            "item3": "item_consum_bottomlessBucket"
+        },
+        "restaurant1b": {
+            "id": "restaurant1b",
+            "item1": "item_consum_sliceOne",
+            "item2": "item_consum_sliceTwo"
+        },
+        "restaurant1c": {
+            "id": "restaurant1c",
+            "item1": "item_consum_sliceOne",
+            "item2": "item_consum_sliceTwo"
+        },
+        "shoes1": {
+            "id": "shoes1",
+            "item1": "item_shoe_canvas",
+            "item2": "item_shoe_comfort",
+            "item3": "item_shoe_everyday"
+        },
+        "shoes2": {
+            "id": "shoes2",
+            "item1": "item_shoe_wingtips",
+            "item2": "item_shoe_wwwu",
+            "item3": "item_shoe_leather"
+        },
+        "sporting": {
+            "id": "sporting",
+            "item1": "item_melee_bat",
+            "item2": "item_shoe_runners",
+            "item3": "item_melee_putter",
+            "item4": "item_melee_hockeyStick"
+        },
+        "strip_female": {
+            "id": "strip_female",
+            "item1": "item_consum_beerJugs",
+            "item2": "item_consum_privateDance",
+            "item3": "item_consum_champaignRoom"
+        },
+        "strip_male": {
+            "id": "strip_male",
+            "item1": "item_consum_cockTail",
+            "item2": "item_consum_persanalShow",
+            "item3": "item_consum_vip"
+        }
+    },
+    "Items": {
+        "item_gun_handgun": {
+            "id": "item_gun_handgun",
+            "refname": "Handgun",
+            "type": "item_weapon_gun",
+            "price": "600",
+            "strength": "20",
+            "presence": "10",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_gun_magnum": {
+            "id": "item_gun_magnum",
+            "refname": "Magnum",
+            "type": "item_weapon_gun",
+            "price": "900",
+            "strength": "25",
+            "presence": "20",
+            "opinion": "3",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_gun_shotgun": {
+            "id": "item_gun_shotgun",
+            "refname": "Shotgun",
+            "type": "item_weapon_gun",
+            "price": "1500",
+            "strength": "35",
+            "presence": "35",
+            "opinion": "4",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_consum_cannoli": {
+            "id": "item_consum_cannoli",
+            "refname": "Cannoli",
+            "type": "item_consumable",
+            "price": "5",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "8",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_consum_cheesecake": {
+            "id": "item_consum_cheesecake",
+            "refname": "Cheesecake",
+            "type": "item_consumable",
+            "price": "12",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "15",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_consum_pint": {
+            "id": "item_consum_pint",
+            "refname": "A Pint",
+            "type": "item_consumable",
+            "price": "8",
+            "strength": "-4",
+            "presence": "7",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_consum_alcoholShot": {
+            "id": "item_consum_alcoholShot",
+            "refname": "Shots!",
+            "type": "item_consumable",
+            "price": "13",
+            "strength": "-6",
+            "presence": "10",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_consum_fishAndChips": {
+            "id": "item_consum_fishAndChips",
+            "refname": "Fish 'n Chips",
+            "type": "item_consumable",
+            "price": "15",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "35",
+            "timespent": "30",
+            "duration": "0"
+        },
+        "item_consum_friedCalamari": {
+            "id": "item_consum_friedCalamari",
+            "refname": "Fried Calamari",
+            "type": "item_consumable",
+            "price": "12",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "18",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_decay_haircutBasic": {
+            "id": "item_decay_haircutBasic",
+            "refname": "Basic Haircut",
+            "type": "item_decay_hair",
+            "price": "18",
+            "strength": "0",
+            "presence": "8",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "10"
+        },
+        "item_decay_haircutAndShave": {
+            "id": "item_decay_haircutAndShave",
+            "refname": "Shave and a Haircut",
+            "type": "item_decay_hair",
+            "price": "25",
+            "strength": "0",
+            "presence": "12",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "30",
+            "duration": "10"
+        },
+        "item_decay_haircutFull": {
+            "id": "item_decay_haircutFull",
+            "refname": "Full Cut",
+            "type": "item_decay_hair",
+            "price": "30",
+            "strength": "0",
+            "presence": "13",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "45",
+            "duration": "10"
+        },
+        "item_decay_haircutAndStyle": {
+            "id": "item_decay_haircutAndStyle",
+            "refname": "Cut and Style",
+            "type": "item_decay_hair",
+            "price": "50",
+            "strength": "0",
+            "presence": "16",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "60",
+            "duration": "10"
+        },
+        "item_consum_coffee": {
+            "id": "item_consum_coffee",
+            "refname": "Coffee",
+            "type": "item_consumable",
+            "price": "5",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "18",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_consum_espresso": {
+            "id": "item_consum_espresso",
+            "refname": "Espresso",
+            "type": "item_consumable",
+            "price": "7",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "25",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_consum_chocolateJava": {
+            "id": "item_consum_chocolateJava",
+            "refname": "Triple Chocolate Java Ice Blast",
+            "type": "item_consumable",
+            "price": "10",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "40",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_instant_roulette": {
+            "id": "item_instant_roulette",
+            "refname": "Roulette",
+            "type": "item_instant",
+            "price": "20",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_instant_blackjack": {
+            "id": "item_instant_blackjack",
+            "refname": "Blackjack",
+            "type": "item_instant",
+            "price": "100",
+            "strength": "0",
+            "presence": "1",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "25",
+            "duration": "0"
+        },
+        "item_instant_poker": {
+            "id": "item_instant_poker",
+            "refname": "Poker",
+            "type": "item_instant",
+            "price": "250",
+            "strength": "0",
+            "presence": "4",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "60",
+            "duration": "0"
+        },
+        "item_clothes_clearance": {
+            "id": "item_clothes_clearance",
+            "refname": "CLEARANCE",
+            "type": "item_gear_clothes",
+            "price": "20",
+            "strength": "0",
+            "presence": "-15",
+            "opinion": "-4",
+            "energy": "0",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_clothes_activeLine": {
+            "id": "item_clothes_activeLine",
+            "refname": "Active Line",
+            "type": "item_gear_clothes",
+            "price": "75",
+            "strength": "5",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_dressToImpress": {
+            "id": "item_clothes_dressToImpress",
+            "refname": "Dress to Impress",
+            "type": "item_gear_clothes",
+            "price": "75",
+            "strength": "0",
+            "presence": "5",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_hoodies": {
+            "id": "item_clothes_hoodies",
+            "refname": "Hoodies etc",
+            "type": "item_gear_clothes",
+            "price": "60",
+            "strength": "0",
+            "presence": "-12",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_skinnyFit": {
+            "id": "item_clothes_skinnyFit",
+            "refname": "Skinny Fit",
+            "type": "item_gear_clothes",
+            "price": "150",
+            "strength": "-4",
+            "presence": "15",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_modernClassic": {
+            "id": "item_clothes_modernClassic",
+            "refname": "Modern Classic",
+            "type": "item_gear_clothes",
+            "price": "190",
+            "strength": "2",
+            "presence": "10",
+            "opinion": "3",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_businessSavey": {
+            "id": "item_clothes_businessSavey",
+            "refname": "Business Savey",
+            "type": "item_gear_clothes",
+            "price": "225",
+            "strength": "0",
+            "presence": "20",
+            "opinion": "4",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_tahitiBreeze": {
+            "id": "item_clothes_tahitiBreeze",
+            "refname": "Tahiti Breeze",
+            "type": "item_gear_clothes",
+            "price": "225",
+            "strength": "6",
+            "presence": "18",
+            "opinion": "3",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_clothes_offTheRack": {
+            "id": "item_clothes_offTheRack",
+            "refname": "Off the Rack",
+            "type": "item_gear_clothes",
+            "price": "300",
+            "strength": "0",
+            "presence": "24",
+            "opinion": "5",
+            "energy": "0",
+            "timespent": "25",
+            "duration": "0"
+        },
+        "item_clothes_madeToMeasure": {
+            "id": "item_clothes_madeToMeasure",
+            "refname": "Made to Measure",
+            "type": "item_gear_clothes",
+            "price": "500",
+            "strength": "4",
+            "presence": "30",
+            "opinion": "7",
+            "energy": "0",
+            "timespent": "45",
+            "duration": "0"
+        },
+        "item_clothes_bespoke": {
+            "id": "item_clothes_bespoke",
+            "refname": "Bespoke",
+            "type": "item_gear_clothes",
+            "price": "1200",
+            "strength": "5",
+            "presence": "45",
+            "opinion": "9",
+            "energy": "0",
+            "timespent": "60",
+            "duration": "0"
+        },
+        "item_decay_flower": {
+            "id": "item_decay_flower",
+            "refname": "A Single Rose",
+            "type": "item_decay_flower",
+            "price": "12",
+            "strength": "0",
+            "presence": "4",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "3"
+        },
+        "item_consum_hamSandwich": {
+            "id": "item_consum_hamSandwich",
+            "refname": "Ham Sandwitch",
+            "type": "item_consumable",
+            "price": "8",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "12",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_lottoTicket": {
+            "id": "item_consum_lottoTicket",
+            "refname": "Lotto Ticket",
+            "type": "item_consumable",
+            "price": "5",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_consum_batteryEnergy": {
+            "id": "item_consum_batteryEnergy",
+            "refname": "Battery Energy Drink",
+            "type": "item_consumable",
+            "price": "6",
+            "strength": "0",
+            "presence": "-1",
+            "opinion": "0",
+            "energy": "25",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_consum_chickenClub": {
+            "id": "item_consum_chickenClub",
+            "refname": "Chicken Club",
+            "type": "item_consumable",
+            "price": "10",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "22",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_saladBar": {
+            "id": "item_consum_saladBar",
+            "refname": "Salad Bar",
+            "type": "item_consumable",
+            "price": "10",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "20",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_bowlOfSoup": {
+            "id": "item_consum_bowlOfSoup",
+            "refname": "Bowl of Soup",
+            "type": "item_consumable",
+            "price": "8",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "18",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_panini": {
+            "id": "item_consum_panini",
+            "refname": "Tomato and Brie Panini",
+            "type": "item_consumable",
+            "price": "12",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "35",
+            "timespent": "25",
+            "duration": "0"
+        },
+        "item_consum_rotisserieChicken": {
+            "id": "item_consum_rotisserieChicken",
+            "refname": "Organic Rotisserie Chicken",
+            "type": "item_consumable",
+            "price": "15",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "42",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_consum_yogurtParfait": {
+            "id": "item_consum_yogurtParfait",
+            "refname": "Free Range Yougert Parfait",
+            "type": "item_consumable",
+            "price": "12",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "33",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_instant_workoutShort": {
+            "id": "item_instant_workoutShort",
+            "refname": "Short Workout",
+            "type": "item_instant",
+            "price": "15",
+            "strength": "5",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "-10",
+            "timespent": "30",
+            "duration": "0"
+        },
+        "item_instant_workoutSerious": {
+            "id": "item_instant_workoutSerious",
+            "refname": "Serious Workout",
+            "type": "item_instant",
+            "price": "25",
+            "strength": "9",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "-25",
+            "timespent": "90",
+            "duration": "0"
+        },
+        "item_instant_workoutSports": {
+            "id": "item_instant_workoutSports",
+            "refname": "Drop-in Sports League",
+            "type": "item_instant",
+            "price": "25",
+            "strength": "6",
+            "presence": "5",
+            "opinion": "0",
+            "energy": "-20",
+            "timespent": "60",
+            "duration": "0"
+        },
+        "item_instant_workoutTrainer": {
+            "id": "item_instant_workoutTrainer",
+            "refname": "Personal Trainer",
+            "type": "item_instant",
+            "price": "100",
+            "strength": "14",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "-30",
+            "timespent": "90",
+            "duration": "0"
+        },
+        "item_pin_diamond": {
+            "id": "item_pin_diamond",
+            "refname": "Diamond Pin",
+            "type": "item_gear_pin",
+            "price": "59",
+            "strength": "0",
+            "presence": "5",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_ring_diamond": {
+            "id": "item_ring_diamond",
+            "refname": "Diamond Ring",
+            "type": "item_gear_ring",
+            "price": "89",
+            "strength": "0",
+            "presence": "15",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_neck_diamond": {
+            "id": "item_neck_diamond",
+            "refname": "Diamond Necklace",
+            "type": "item_gear_neck",
+            "price": "199",
+            "strength": "0",
+            "presence": "22",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_wrist_diamond": {
+            "id": "item_wrist_diamond",
+            "refname": "Diamond Bracelet",
+            "type": "item_gear_wrist",
+            "price": "149",
+            "strength": "0",
+            "presence": "20",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_pin_luxury": {
+            "id": "item_pin_luxury",
+            "refname": "Luxury Brooch",
+            "type": "item_gear_pin",
+            "price": "240",
+            "strength": "0",
+            "presence": "25",
+            "opinion": "4",
+            "energy": "0",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_ring_luxury": {
+            "id": "item_ring_luxury",
+            "refname": "Luxury Ring",
+            "type": "item_gear_ring",
+            "price": "580",
+            "strength": "0",
+            "presence": "34",
+            "opinion": "6",
+            "energy": "0",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_neck_luxury": {
+            "id": "item_neck_luxury",
+            "refname": "Luxury Custom Necklace",
+            "type": "item_gear_neck",
+            "price": "1250",
+            "strength": "0",
+            "presence": "45",
+            "opinion": "10",
+            "energy": "0",
+            "timespent": "25",
+            "duration": "0"
+        },
+        "item_wrist_luxury": {
+            "id": "item_wrist_luxury",
+            "refname": "Luxury Bracelet",
+            "type": "item_gear_wrist",
+            "price": "730",
+            "strength": "0",
+            "presence": "40",
+            "opinion": "8",
+            "energy": "0",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_valueMeal": {
+            "id": "item_consum_valueMeal",
+            "refname": "Chicken Value Meal",
+            "type": "item_consumable",
+            "price": "6",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "16",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_consum_fullFixins": {
+            "id": "item_consum_fullFixins",
+            "refname": "Full Fixin's Meal",
+            "type": "item_consumable",
+            "price": "9",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "29",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_consum_bottomlessBucket": {
+            "id": "item_consum_bottomlessBucket",
+            "refname": "Bottomless Bucket Deal",
+            "type": "item_consumable",
+            "price": "13",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "41",
+            "timespent": "25",
+            "duration": "0"
+        },
+        "item_consum_sliceOne": {
+            "id": "item_consum_sliceOne",
+            "refname": "One Slice",
+            "type": "item_consumable",
+            "price": "5",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "27",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_sliceTwo": {
+            "id": "item_consum_sliceTwo",
+            "refname": "Two Slices",
+            "type": "item_consumable",
+            "price": "8",
+            "strength": "0",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "38",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_shoe_canvas": {
+            "id": "item_shoe_canvas",
+            "refname": "Canvas Kicks",
+            "type": "item_gear_shoes",
+            "price": "39",
+            "strength": "2",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_shoe_comfort": {
+            "id": "item_shoe_comfort",
+            "refname": "Comfort Classics",
+            "type": "item_gear_shoes",
+            "price": "69",
+            "strength": "5",
+            "presence": "0",
+            "opinion": "0",
+            "energy": "5",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_shoe_everyday": {
+            "id": "item_shoe_everyday",
+            "refname": "Everyday Dresser",
+            "type": "item_gear_shoes",
+            "price": "69",
+            "strength": "2",
+            "presence": "4",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_shoe_wingtips": {
+            "id": "item_shoe_wingtips",
+            "refname": "Tiptop Wingtips",
+            "type": "item_gear_shoes",
+            "price": "120",
+            "strength": "0",
+            "presence": "12",
+            "opinion": "2",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_shoe_wwwu": {
+            "id": "item_shoe_wwwu",
+            "refname": "Workboots Worldwide United",
+            "type": "item_gear_shoes",
+            "price": "150",
+            "strength": "5",
+            "presence": "8",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_shoe_leather": {
+            "id": "item_shoe_leather",
+            "refname": "Serious Leather",
+            "type": "item_gear_shoes",
+            "price": "225",
+            "strength": "4",
+            "presence": "15",
+            "opinion": "3",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_melee_bat": {
+            "id": "item_melee_bat",
+            "refname": "Tennessee Hitter Bat",
+            "type": "item_weapon_melee",
+            "price": "100",
+            "strength": "12",
+            "presence": "15",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "5",
+            "duration": "0"
+        },
+        "item_shoe_runners": {
+            "id": "item_shoe_runners",
+            "refname": "Lightning Runners",
+            "type": "item_gear_shoes",
+            "price": "150",
+            "strength": "10",
+            "presence": "-5",
+            "opinion": "0",
+            "energy": "10",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_melee_putter": {
+            "id": "item_melee_putter",
+            "refname": "Metal Mulligan Putter",
+            "type": "item_weapon_melee",
+            "price": "50",
+            "strength": "7",
+            "presence": "5",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_melee_hockeyStick": {
+            "id": "item_melee_hockeyStick",
+            "refname": "Great Canadian Hockey Stick",
+            "type": "item_weapon_melee",
+            "price": "75",
+            "strength": "9",
+            "presence": "8",
+            "opinion": "1",
+            "energy": "0",
+            "timespent": "10",
+            "duration": "0"
+        },
+        "item_consum_beerJugs": {
+            "id": "item_consum_beerJugs",
+            "refname": "Beer and Jugs",
+            "type": "item_instant",
+            "price": "30",
+            "strength": "-3",
+            "presence": "8",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_consum_privateDance": {
+            "id": "item_consum_privateDance",
+            "refname": "Private Dance",
+            "type": "item_instant",
+            "price": "75",
+            "strength": "0",
+            "presence": "14",
+            "opinion": "0",
+            "energy": "10",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_champaignRoom": {
+            "id": "item_consum_champaignRoom",
+            "refname": "Champaign Room",
+            "type": "item_instant",
+            "price": "300",
+            "strength": "-5",
+            "presence": "20",
+            "opinion": "0",
+            "energy": "15",
+            "timespent": "45",
+            "duration": "0"
+        },
+        "item_consum_cockTail": {
+            "id": "item_consum_cockTail",
+            "refname": "Cocktails and ... well you know",
+            "type": "item_instant",
+            "price": "30",
+            "strength": "-3",
+            "presence": "8",
+            "opinion": "0",
+            "energy": "0",
+            "timespent": "20",
+            "duration": "0"
+        },
+        "item_consum_persanalShow": {
+            "id": "item_consum_persanalShow",
+            "refname": "Persanal Show",
+            "type": "item_instant",
+            "price": "75",
+            "strength": "0",
+            "presence": "14",
+            "opinion": "0",
+            "energy": "10",
+            "timespent": "15",
+            "duration": "0"
+        },
+        "item_consum_vip": {
+            "id": "item_consum_vip",
+            "refname": "VIP Room",
+            "type": "item_instant",
+            "price": "300",
+            "strength": "-5",
+            "presence": "20",
+            "opinion": "0",
+            "energy": "15",
+            "timespent": "45",
+            "duration": "0"
         }
     },
     "Purchasables": {}

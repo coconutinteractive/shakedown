@@ -67,6 +67,12 @@ public class Manager_GameTime : MonoBehaviour
 		SavingKeysContainer.OnLoadGame += HandleOnLoadGame;
 		
 		activitiesList = GetComponent<NightActivities> ().nightActivitiesList;
+
+		for (int i = 0; i < Building_Script.buildingIDs.Count; i++)
+		{
+			Building_Script buildRef = Building_Script.GetBuilding(Building_Script.buildingIDs[i]);
+			buildRef.firstVisitToday = true;
+		}
 	}
 	
 	private void HandleOnSaveGame (string _ID)

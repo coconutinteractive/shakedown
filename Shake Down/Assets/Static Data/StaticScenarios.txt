@@ -12,7 +12,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "ammo"
             },
             "building02": {
                 "id": "building02",
@@ -25,7 +25,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "bakery"
             },
             "building03": {
                 "id": "building03",
@@ -38,7 +38,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "bar"
             },
             "building04": {
                 "id": "building04",
@@ -51,7 +51,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "barber1"
             },
             "building05": {
                 "id": "building05",
@@ -64,7 +64,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "barber2"
             },
             "building06": {
                 "id": "building06",
@@ -77,7 +77,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "cafe"
             },
             "building07": {
                 "id": "building07",
@@ -90,7 +90,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "casino"
             },
             "building08": {
                 "id": "building08",
@@ -103,7 +103,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "clothing1"
             },
             "building09": {
                 "id": "building09",
@@ -116,7 +116,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "clothing2"
             },
             "building10": {
                 "id": "building10",
@@ -129,7 +129,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "clothing3"
             },
             "building11": {
                 "id": "building11",
@@ -142,7 +142,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "florist"
             },
             "building12": {
                 "id": "building12",
@@ -155,7 +155,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "grocery1"
             },
             "building13": {
                 "id": "building13",
@@ -168,7 +168,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "grocery2"
             },
             "building14": {
                 "id": "building14",
@@ -181,7 +181,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "grocery3"
             },
             "building15": {
                 "id": "building15",
@@ -194,7 +194,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "gym"
             },
             "building16": {
                 "id": "building16",
@@ -207,7 +207,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "jewelry1"
             },
             "building17": {
                 "id": "building17",
@@ -220,7 +220,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "jewelry2"
             },
             "building18": {
                 "id": "building18",
@@ -233,7 +233,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "restaurant1a"
             },
             "building19": {
                 "id": "building19",
@@ -246,7 +246,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "restaurant1b"
             },
             "building20": {
                 "id": "building20",
@@ -259,7 +259,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "restaurant1c"
             },
             "building21": {
                 "id": "building21",
@@ -272,7 +272,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shoes1"
             },
             "building22": {
                 "id": "building22",
@@ -285,7 +285,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shoes2"
             },
             "building23": {
                 "id": "building23",
@@ -298,7 +298,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "sporting"
             },
             "building24": {
                 "id": "building24",
@@ -311,7 +311,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "strip_female"
             },
             "building25": {
                 "id": "building25",
@@ -324,7 +324,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "strip_male"
             },
             "building26": {
                 "id": "building26",
@@ -337,7 +337,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building27": {
                 "id": "building27",
@@ -350,7 +350,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building28": {
                 "id": "building28",
@@ -363,7 +363,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building29": {
                 "id": "building29",
@@ -376,7 +376,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building30": {
                 "id": "building30",
@@ -389,7 +389,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building31": {
                 "id": "building31",
@@ -402,7 +402,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             },
             "building32": {
                 "id": "building32",
@@ -415,7 +415,7 @@
                 "rent": "0",
                 "payment": "0",
                 "day": "day_monday",
-                "inventory": "inventory_blank"
+                "inventory": "shop_blank"
             }
         },
         "player": {
@@ -663,7 +663,7 @@
                 "integrity": "24",
                 "stubbornness": "50",
                 "personality": "personality_gruff",
-                "inventory": "inventory_blank"
+                "inventory": "jewelry1"
             },
             "scott02": {
                 "id": "scott02",

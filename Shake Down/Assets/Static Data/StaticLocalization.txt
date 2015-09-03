@@ -85,6 +85,446 @@
             "test": "ld_buildings_strip_club"
         }
     },
+    "Items": {
+        "item_gun_handgun": {
+            "id": "item_gun_handgun",
+            "englishus": "Handgun",
+            "englishuk": "Handgun",
+            "test": "item_gun_handgun"
+        },
+        "item_gun_magnum": {
+            "id": "item_gun_magnum",
+            "englishus": "Magnum",
+            "englishuk": "Magnum",
+            "test": "item_gun_magnum"
+        },
+        "item_gun_shotgun": {
+            "id": "item_gun_shotgun",
+            "englishus": "Shotgun",
+            "englishuk": "Shotgun",
+            "test": "item_gun_shotgun"
+        },
+        "item_consum_cannoli": {
+            "id": "item_consum_cannoli",
+            "englishus": "Cannoli",
+            "englishuk": "Cannoli",
+            "test": "item_consum_cannoli"
+        },
+        "item_consum_cheesecake": {
+            "id": "item_consum_cheesecake",
+            "englishus": "Cheesecake",
+            "englishuk": "Cheesecake",
+            "test": "item_consum_cheesecake"
+        },
+        "item_consum_pint": {
+            "id": "item_consum_pint",
+            "englishus": "A Pint",
+            "englishuk": "A Pint",
+            "test": "item_consum_pint"
+        },
+        "item_consum_alcoholShot": {
+            "id": "item_consum_alcoholShot",
+            "englishus": "Shots!",
+            "englishuk": "Shots!",
+            "test": "item_consum_alcoholShot"
+        },
+        "item_consum_fishAndChips": {
+            "id": "item_consum_fishAndChips",
+            "englishus": "Fish 'n Chips",
+            "englishuk": "Fish 'n Chips",
+            "test": "item_consum_fishAndChips"
+        },
+        "item_consum_friedCalamari": {
+            "id": "item_consum_friedCalamari",
+            "englishus": "Fried Calamari",
+            "englishuk": "Fried Calamari",
+            "test": "item_consum_friedCalamari"
+        },
+        "item_decay_haircutBasic": {
+            "id": "item_decay_haircutBasic",
+            "englishus": "Basic Haircut",
+            "englishuk": "Basic Haircut",
+            "test": "item_decay_haircutBasic"
+        },
+        "item_decay_haircutAndShave": {
+            "id": "item_decay_haircutAndShave",
+            "englishus": "Shave and a Haircut",
+            "englishuk": "Shave and a Haircut",
+            "test": "item_decay_haircutAndShave"
+        },
+        "item_decay_haircutFull": {
+            "id": "item_decay_haircutFull",
+            "englishus": "Full Cut",
+            "englishuk": "Full Cut",
+            "test": "item_decay_haircutFull"
+        },
+        "item_decay_haircutAndStyle": {
+            "id": "item_decay_haircutAndStyle",
+            "englishus": "Cut and Style",
+            "englishuk": "Cut and Style",
+            "test": "item_decay_haircutAndStyle"
+        },
+        "item_consum_coffee": {
+            "id": "item_consum_coffee",
+            "englishus": "Coffee",
+            "englishuk": "Coffee",
+            "test": "item_consum_coffee"
+        },
+        "item_consum_espresso": {
+            "id": "item_consum_espresso",
+            "englishus": "Espresso",
+            "englishuk": "Espresso",
+            "test": "item_consum_espresso"
+        },
+        "item_consum_chocolateJava": {
+            "id": "item_consum_chocolateJava",
+            "englishus": "Triple Chocolate Java Ice Blast",
+            "englishuk": "Triple Chocolate Java Ice Blast",
+            "test": "item_consum_chocolateJava"
+        },
+        "item_instant_roulette": {
+            "id": "item_instant_roulette",
+            "englishus": "Roulette",
+            "englishuk": "Roulette",
+            "test": "item_instant_roulette"
+        },
+        "item_instant_blackjack": {
+            "id": "item_instant_blackjack",
+            "englishus": "Blackjack",
+            "englishuk": "Blackjack",
+            "test": "item_instant_blackjack"
+        },
+        "item_instant_poker": {
+            "id": "item_instant_poker",
+            "englishus": "Poker",
+            "englishuk": "Poker",
+            "test": "item_instant_poker"
+        },
+        "item_clothes_clearance": {
+            "id": "item_clothes_clearance",
+            "englishus": "CLEARANCE",
+            "englishuk": "CLEARANCE",
+            "test": "item_clothes_clearance"
+        },
+        "item_clothes_activeLine": {
+            "id": "item_clothes_activeLine",
+            "englishus": "Active Line",
+            "englishuk": "Active Line",
+            "test": "item_clothes_activeLine"
+        },
+        "item_clothes_dressToImpress": {
+            "id": "item_clothes_dressToImpress",
+            "englishus": "Dress to Impress",
+            "englishuk": "Dress to Impress",
+            "test": "item_clothes_dressToImpress"
+        },
+        "item_clothes_hoodies": {
+            "id": "item_clothes_hoodies",
+            "englishus": "Hoodies etc",
+            "englishuk": "Hoodies etc",
+            "test": "item_clothes_hoodies"
+        },
+        "item_clothes_skinnyFit": {
+            "id": "item_clothes_skinnyFit",
+            "englishus": "Skinny Fit",
+            "englishuk": "Skinny Fit",
+            "test": "item_clothes_skinnyFit"
+        },
+        "item_clothes_modernClassic": {
+            "id": "item_clothes_modernClassic",
+            "englishus": "Modern Classic",
+            "englishuk": "Modern Classic",
+            "test": "item_clothes_modernClassic"
+        },
+        "item_clothes_businessSavey": {
+            "id": "item_clothes_businessSavey",
+            "englishus": "Business Savey",
+            "englishuk": "Business Savey",
+            "test": "item_clothes_businessSavey"
+        },
+        "item_clothes_tahitiBreeze": {
+            "id": "item_clothes_tahitiBreeze",
+            "englishus": "Tahiti Breeze",
+            "englishuk": "Tahiti Breeze",
+            "test": "item_clothes_tahitiBreeze"
+        },
+        "item_clothes_offTheRack": {
+            "id": "item_clothes_offTheRack",
+            "englishus": "Off the Rack",
+            "englishuk": "Off the Rack",
+            "test": "item_clothes_offTheRack"
+        },
+        "item_clothes_madeToMeasure": {
+            "id": "item_clothes_madeToMeasure",
+            "englishus": "Made to Measure",
+            "englishuk": "Made to Measure",
+            "test": "item_clothes_madeToMeasure"
+        },
+        "item_clothes_bespoke": {
+            "id": "item_clothes_bespoke",
+            "englishus": "Bespoke",
+            "englishuk": "Bespoke",
+            "test": "item_clothes_bespoke"
+        },
+        "item_decay_flower": {
+            "id": "item_decay_flower",
+            "englishus": "A Single Rose",
+            "englishuk": "A Single Rose",
+            "test": "item_decay_flower"
+        },
+        "item_consum_hamSandwich": {
+            "id": "item_consum_hamSandwich",
+            "englishus": "Ham Sandwitch",
+            "englishuk": "Ham Sandwitch",
+            "test": "item_consum_hamSandwich"
+        },
+        "item_consum_lottoTicket": {
+            "id": "item_consum_lottoTicket",
+            "englishus": "Lotto Ticket",
+            "englishuk": "Lotto Ticket",
+            "test": "item_consum_lottoTicket"
+        },
+        "item_consum_batteryEnergy": {
+            "id": "item_consum_batteryEnergy",
+            "englishus": "Battery Energy Drink",
+            "englishuk": "Battery Energy Drink",
+            "test": "item_consum_batteryEnergy"
+        },
+        "item_consum_chickenClub": {
+            "id": "item_consum_chickenClub",
+            "englishus": "Chicken Club",
+            "englishuk": "Chicken Club",
+            "test": "item_consum_chickenClub"
+        },
+        "item_consum_saladBar": {
+            "id": "item_consum_saladBar",
+            "englishus": "Salad Bar",
+            "englishuk": "Salad Bar",
+            "test": "item_consum_saladBar"
+        },
+        "item_consum_bowlOfSoup": {
+            "id": "item_consum_bowlOfSoup",
+            "englishus": "Bowl of Soup",
+            "englishuk": "Bowl of Soup",
+            "test": "item_consum_bowlOfSoup"
+        },
+        "item_consum_panini": {
+            "id": "item_consum_panini",
+            "englishus": "Tomato and Brie Panini",
+            "englishuk": "Tomato and Brie Panini",
+            "test": "item_consum_panini"
+        },
+        "item_consum_rotisserieChicken": {
+            "id": "item_consum_rotisserieChicken",
+            "englishus": "Organic Rotisserie Chicken",
+            "englishuk": "Organic Rotisserie Chicken",
+            "test": "item_consum_rotisserieChicken"
+        },
+        "item_consum_yogurtParfait": {
+            "id": "item_consum_yogurtParfait",
+            "englishus": "Free Range Yougert Parfait",
+            "englishuk": "Free Range Yougert Parfait",
+            "test": "item_consum_yogurtParfait"
+        },
+        "item_instant_workoutShort": {
+            "id": "item_instant_workoutShort",
+            "englishus": "Short Workout",
+            "englishuk": "Short Workout",
+            "test": "item_instant_workoutShort"
+        },
+        "item_instant_workoutSerious": {
+            "id": "item_instant_workoutSerious",
+            "englishus": "Serious Workout",
+            "englishuk": "Serious Workout",
+            "test": "item_instant_workoutSerious"
+        },
+        "item_instant_workoutSports": {
+            "id": "item_instant_workoutSports",
+            "englishus": "Drop-in Sports League",
+            "englishuk": "Drop-in Sports League",
+            "test": "item_instant_workoutSports"
+        },
+        "item_instant_workoutTrainer": {
+            "id": "item_instant_workoutTrainer",
+            "englishus": "Personal Trainer",
+            "englishuk": "Personal Trainer",
+            "test": "item_instant_workoutTrainer"
+        },
+        "item_pin_diamond": {
+            "id": "item_pin_diamond",
+            "englishus": "Diamond Pin",
+            "englishuk": "Diamond Pin",
+            "test": "item_pin_diamond"
+        },
+        "item_ring_diamond": {
+            "id": "item_ring_diamond",
+            "englishus": "Diamond Ring",
+            "englishuk": "Diamond Ring",
+            "test": "item_ring_diamond"
+        },
+        "item_neck_diamond": {
+            "id": "item_neck_diamond",
+            "englishus": "Diamond Necklace",
+            "englishuk": "Diamond Necklace",
+            "test": "item_neck_diamond"
+        },
+        "item_wrist_diamond": {
+            "id": "item_wrist_diamond",
+            "englishus": "Diamond Bracelet",
+            "englishuk": "Diamond Bracelet",
+            "test": "item_wrist_diamond"
+        },
+        "item_pin_luxury": {
+            "id": "item_pin_luxury",
+            "englishus": "Luxury Brooch",
+            "englishuk": "Luxury Brooch",
+            "test": "item_pin_luxury"
+        },
+        "item_ring_luxury": {
+            "id": "item_ring_luxury",
+            "englishus": "Luxury Ring",
+            "englishuk": "Luxury Ring",
+            "test": "item_ring_luxury"
+        },
+        "item_neck_luxury": {
+            "id": "item_neck_luxury",
+            "englishus": "Luxury Custom Necklace",
+            "englishuk": "Luxury Custom Necklace",
+            "test": "item_neck_luxury"
+        },
+        "item_wrist_luxury": {
+            "id": "item_wrist_luxury",
+            "englishus": "Luxury Bracelet",
+            "englishuk": "Luxury Bracelet",
+            "test": "item_wrist_luxury"
+        },
+        "item_consum_valueMeal": {
+            "id": "item_consum_valueMeal",
+            "englishus": "Chicken Value Meal",
+            "englishuk": "Chicken Value Meal",
+            "test": "item_consum_valueMeal"
+        },
+        "item_consum_fullFixins": {
+            "id": "item_consum_fullFixins",
+            "englishus": "Full Fixin's Meal",
+            "englishuk": "Full Fixin's Meal",
+            "test": "item_consum_fullFixins"
+        },
+        "item_consum_bottomlessBucket": {
+            "id": "item_consum_bottomlessBucket",
+            "englishus": "Bottomless Bucket Deal",
+            "englishuk": "Bottomless Bucket Deal",
+            "test": "item_consum_bottomlessBucket"
+        },
+        "item_consum_sliceOne": {
+            "id": "item_consum_sliceOne",
+            "englishus": "One Slice",
+            "englishuk": "One Slice",
+            "test": "item_consum_sliceOne"
+        },
+        "item_consum_sliceTwo": {
+            "id": "item_consum_sliceTwo",
+            "englishus": "Two Slices",
+            "englishuk": "Two Slices",
+            "test": "item_consum_sliceTwo"
+        },
+        "item_shoe_canvas": {
+            "id": "item_shoe_canvas",
+            "englishus": "Canvas Kicks",
+            "englishuk": "Canvas Kicks",
+            "test": "item_shoe_canvas"
+        },
+        "item_shoe_comfort": {
+            "id": "item_shoe_comfort",
+            "englishus": "Comfort Classics",
+            "englishuk": "Comfort Classics",
+            "test": "item_shoe_comfort"
+        },
+        "item_shoe_everyday": {
+            "id": "item_shoe_everyday",
+            "englishus": "Everyday Dresser",
+            "englishuk": "Everyday Dresser",
+            "test": "item_shoe_everyday"
+        },
+        "item_shoe_wingtips": {
+            "id": "item_shoe_wingtips",
+            "englishus": "Tiptop Wingtips",
+            "englishuk": "Tiptop Wingtips",
+            "test": "item_shoe_wingtips"
+        },
+        "item_shoe_wwwu": {
+            "id": "item_shoe_wwwu",
+            "englishus": "Workboots Worldwide United",
+            "englishuk": "Workboots Worldwide United",
+            "test": "item_shoe_wwwu"
+        },
+        "item_shoe_leather": {
+            "id": "item_shoe_leather",
+            "englishus": "Serious Leather",
+            "englishuk": "Serious Leather",
+            "test": "item_shoe_leather"
+        },
+        "item_melee_bat": {
+            "id": "item_melee_bat",
+            "englishus": "Tennessee Hitter Bat",
+            "englishuk": "Tennessee Hitter Bat",
+            "test": "item_melee_bat"
+        },
+        "item_shoe_runners": {
+            "id": "item_shoe_runners",
+            "englishus": "Lightning Runners",
+            "englishuk": "Lightning Runners",
+            "test": "item_shoe_runners"
+        },
+        "item_melee_putter": {
+            "id": "item_melee_putter",
+            "englishus": "Metal Mulligan Putter",
+            "englishuk": "Metal Mulligan Putter",
+            "test": "item_melee_putter"
+        },
+        "item_melee_hockeyStick": {
+            "id": "item_melee_hockeyStick",
+            "englishus": "Great Canadian Hockey Stick",
+            "englishuk": "Great Canadian Hockey Stick",
+            "test": "item_melee_hockeyStick"
+        },
+        "item_consum_beerJugs": {
+            "id": "item_consum_beerJugs",
+            "englishus": "Beer and Jugs",
+            "englishuk": "Beer and Jugs",
+            "test": "item_consum_beerJugs"
+        },
+        "item_consum_privateDance": {
+            "id": "item_consum_privateDance",
+            "englishus": "Private Dance",
+            "englishuk": "Private Dance",
+            "test": "item_consum_privateDance"
+        },
+        "item_consum_champaignRoom": {
+            "id": "item_consum_champaignRoom",
+            "englishus": "Champaign Room",
+            "englishuk": "Champaign Room",
+            "test": "item_consum_champaignRoom"
+        },
+        "item_consum_cockTail": {
+            "id": "item_consum_cockTail",
+            "englishus": "Cocktails and ... well you know",
+            "englishuk": "Cocktails and ... well you know",
+            "test": "item_consum_cockTail"
+        },
+        "item_consum_persanalShow": {
+            "id": "item_consum_persanalShow",
+            "englishus": "Persanal Show",
+            "englishuk": "Persanal Show",
+            "test": "item_consum_persanalShow"
+        },
+        "item_consum_vip": {
+            "id": "item_consum_vip",
+            "englishus": "VIP Room",
+            "englishuk": "VIP Room",
+            "test": "item_consum_vip"
+        }
+    },
     "Button Text": {
         "ld_btn_accept": {
             "id": "ld_btn_accept",
@@ -263,7 +703,7 @@
         },
         "ld_btn_shopProduct": {
             "id": "ld_btn_shopProduct",
-            "englishus": "item: {0}",
+            "englishus": "{0}",
             "test": "ld_btn_shopProduct"
         },
         "ld_btn_takeRegisterMoney": {
@@ -1144,21 +1584,25 @@
         "loc_prompt_introvert_reliant_askToLowerPayment": {
             "id": "loc_prompt_introvert_reliant_askToLowerPayment",
             "context": "an introvert person who is reliant on you asks if they can pay you less money from now on",
+            "englishus": "I'm.. I know we have a deal but I'm having some problems. I need to pay you less in the future.",
             "test": "loc_prompt_introvert_reliant_askToLowerPayment"
         },
         "loc_prompt_introvert_reliant_assaultInitial": {
             "id": "loc_prompt_introvert_reliant_assaultInitial",
             "context": "an introvert person who is reliant on you informs you that their store has been assaulted",
+            "englishus": "It was awful! Someone is messing with my store, I hope you have a plan to deal with that.",
             "test": "loc_prompt_introvert_reliant_assaultInitial"
         },
         "loc_prompt_introvert_reliant_assaultSecondary": {
             "id": "loc_prompt_introvert_reliant_assaultSecondary",
             "context": "an introvert person who is reliant on you reminds you that their store has been assaulted",
+            "englishus": "So have you.. have you taken care of that problem I was having?",
             "test": "loc_prompt_introvert_reliant_assaultSecondary"
         },
         "loc_prompt_introvert_reliant_confirmPurchase": {
             "id": "loc_prompt_introvert_reliant_confirmPurchase",
             "context": "an introvert person who is reliant on you prompts you to confirm your item purchase",
+            "englishus": "So would you like to buy that?",
             "test": "loc_prompt_introvert_reliant_confirmPurchase"
         },
         "loc_prompt_introvert_reliant_giveDetails": {
@@ -1169,11 +1613,13 @@
         "loc_prompt_introvert_reliant_goodbye": {
             "id": "loc_prompt_introvert_reliant_goodbye",
             "context": "an introvert person who is reliant on you acknowledges that you're leaving the store",
+            "englishus": "Bye.",
             "test": "loc_prompt_introvert_reliant_goodbye"
         },
         "loc_prompt_introvert_reliant_greeting": {
             "id": "loc_prompt_introvert_reliant_greeting",
             "context": "an introvert person who is reliant on you greets you when you enter the store",
+            "englishus": "Welcome back, what'll it be today?",
             "test": "loc_prompt_introvert_reliant_greeting"
         },
         "loc_prompt_introvert_reliant_intimidate": {
@@ -1189,31 +1635,37 @@
         "loc_prompt_introvert_reliant_intimidatedCallsPolice": {
             "id": "loc_prompt_introvert_reliant_intimidatedCallsPolice",
             "context": "an introvert person who is reliant on you is so scared that they attempt to call the police",
+            "englishus": "I.. I got no choice. I hate to do this, but I'm afraid I have to call the cops.",
             "test": "loc_prompt_introvert_reliant_intimidatedCallsPolice"
         },
         "loc_prompt_introvert_reliant_intimidatedFightsBack": {
             "id": "loc_prompt_introvert_reliant_intimidatedFightsBack",
             "context": "an introvert person who is reliant on you gets upset with you and tries to stop you by force",
+            "englishus": "Please stop!",
             "test": "loc_prompt_introvert_reliant_intimidatedFightsBack"
         },
         "loc_prompt_introvert_reliant_intimidatedRattled": {
             "id": "loc_prompt_introvert_reliant_intimidatedRattled",
             "context": "an introvert person who is reliant on you backs down because you're intimidating",
+            "englishus": "Yes alright, I'm sorry just please no more!",
             "test": "loc_prompt_introvert_reliant_intimidatedRattled"
         },
         "loc_prompt_introvert_reliant_intimidatedUnaffected": {
             "id": "loc_prompt_introvert_reliant_intimidatedUnaffected",
             "context": "an introvert person who is reliant on you brushes off your threats like they're nothing",
+            "englishus": "Somehow I don't believe you.",
             "test": "loc_prompt_introvert_reliant_intimidatedUnaffected"
         },
         "loc_prompt_introvert_reliant_offerAccepted": {
             "id": "loc_prompt_introvert_reliant_offerAccepted",
             "context": "an introvert person who is reliant on you agrees to pay the offered protection price",
+            "englishus": "If that's the price, sure.",
             "test": "loc_prompt_introvert_reliant_offerAccepted"
         },
         "loc_prompt_introvert_reliant_offerRefused": {
             "id": "loc_prompt_introvert_reliant_offerRefused",
             "context": "an introvert person who is reliant on you refuses to pay the offered protection price",
+            "englishus": "That's way too much!",
             "test": "loc_prompt_introvert_reliant_offerRefused"
         },
         "loc_prompt_introvert_reliant_outsideShop": {
@@ -1224,36 +1676,43 @@
         "loc_prompt_introvert_reliant_paymentFull": {
             "id": "loc_prompt_introvert_reliant_paymentFull",
             "context": "an introvert person who is reliant on you pays the full amount of the protection money",
+            "englishus": "I've got it all here for you.",
             "test": "loc_prompt_introvert_reliant_paymentFull"
         },
         "loc_prompt_introvert_reliant_paymentNone": {
             "id": "loc_prompt_introvert_reliant_paymentNone",
             "context": "an introvert person who is reliant on you won't pay you any protection money",
+            "englishus": "I'm just not going to pay. I have a business too you know.",
             "test": "loc_prompt_introvert_reliant_paymentNone"
         },
         "loc_prompt_introvert_reliant_paymentPartial": {
             "id": "loc_prompt_introvert_reliant_paymentPartial",
             "context": "an introvert person who is reliant on you can only afford to pay you some of the protection money",
+            "englishus": "Sorry, I don't have all the money but I have some.",
             "test": "loc_prompt_introvert_reliant_paymentPartial"
         },
         "loc_prompt_introvert_reliant_placated": {
             "id": "loc_prompt_introvert_reliant_placated",
             "context": "an introvert person who is reliant on you ???",
+            "englishus": "{0}",
             "test": "loc_prompt_introvert_reliant_placated"
         },
         "loc_prompt_introvert_reliant_problemWithPayment": {
             "id": "loc_prompt_introvert_reliant_problemWithPayment",
             "context": "an introvert person who is reliant on you wants to talk to you about renegotiating protection payments",
+            "englishus": "Sorry, I just need a more fair ammount from here on.",
             "test": "loc_prompt_introvert_reliant_problemWithPayment"
         },
         "loc_prompt_introvert_reliant_purchaseFailed": {
             "id": "loc_prompt_introvert_reliant_purchaseFailed",
             "context": "an introvert person who is reliant on you informs you that you can't afford the purchase you're making",
+            "englishus": "I'm sorry, but it seems like you can't afford that.",
             "test": "loc_prompt_introvert_reliant_purchaseFailed"
         },
         "loc_prompt_introvert_reliant_purchaseSuccessful": {
             "id": "loc_prompt_introvert_reliant_purchaseSuccessful",
             "context": "an introvert person who is reliant on you thanks you for your patronage",
+            "englishus": "Hope you like it.",
             "test": "loc_prompt_introvert_reliant_purchaseSuccessful"
         },
         "loc_prompt_introvert_reliant_registerEmpty": {
@@ -1279,6 +1738,7 @@
         "loc_prompt_introvert_reliant_root": {
             "id": "loc_prompt_introvert_reliant_root",
             "context": "an introvert person who is reliant on you generally acknowledging that you are in the store for something",
+            "englishus": "So what more would you like?",
             "test": "loc_prompt_introvert_reliant_root"
         },
         "loc_prompt_introvert_reliant_schedulePayment": {
@@ -1289,11 +1749,13 @@
         "loc_prompt_introvert_reliant_shopInventory": {
             "id": "loc_prompt_introvert_reliant_shopInventory",
             "context": "an introvert person who is reliant on you showing off their wares",
+            "englishus": "We have a wide selection I'm sure you'll love",
             "test": "loc_prompt_introvert_reliant_shopInventory"
         },
         "loc_prompt_introvert_reliant_smallTalk": {
             "id": "loc_prompt_introvert_reliant_smallTalk",
             "context": "an introvert person who is reliant on you making small talk",
+            "englishus": "Um.. how was your weekend?",
             "test": "loc_prompt_introvert_reliant_smallTalk"
         },
         "loc_prompt_introvert_loyal_aidingBusiness": {

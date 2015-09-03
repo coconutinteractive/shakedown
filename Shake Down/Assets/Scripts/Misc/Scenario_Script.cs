@@ -44,12 +44,8 @@ public class Scenario_Script
 					int.Parse (building.GetField ("rent").str),
 					int.Parse (building.GetField ("payment").str),
 					Enums.DayOfTheWeekFromStatic(building.GetField ("day").str),
-
-					Resources_Inventory.GenerateInventoryFromJSON(
-						building.GetField ("inventory").str,
-						building.GetField ("id").str
-					)	 
-					);
+					Resources_InventoryShop.GetShopInventoryByID(building.GetField ("inventory").str)
+				);
 				unoccupiedBuildings.Add (building.GetField("id").str);
 			}
 			for (i = 0; i < settings_player.Count; i++)
@@ -67,12 +63,8 @@ public class Scenario_Script
 					int.Parse (player.GetField ("strength").str),
 					int.Parse (player.GetField ("presence").str),
 					int.Parse (player.GetField ("opinion").str),
-
-					Resources_Inventory.GenerateInventoryFromJSON(
-						player.GetField ("inventory").str,
-						profileSettings.id
-					)
-					);
+					Resources_Inventory.GetInventoryByID(player.GetField ("inventory").str)
+				);
 
 				occupiedBuildings.Add (player.GetField("home").str);
 			}
@@ -103,11 +95,7 @@ public class Scenario_Script
 					Mathf.Clamp (int.Parse (shopkeeper.GetField ("integrity").str), statMin, statMax),
 					Mathf.Clamp (int.Parse (shopkeeper.GetField ("stubbornness").str), statMin, statMax),
 					Enums.PersonalityFromStatic (shopkeeper.GetField ("personality").str),
-
-					Resources_Inventory.GenerateInventoryFromJSON(
-						shopkeeper.GetField ("inventory").str,
-						shopkeeper.GetField ("id").str
-					)	
+					Resources_Inventory.GetInventoryByID(shopkeeper.GetField ("inventory").str)
 				);
 				
 				Building_Script.GetBuilding(shopkeeper.GetField("home").str).shopkeeper = newShopkeeper;
@@ -142,12 +130,8 @@ public class Scenario_Script
 					Mathf.Clamp (int.Parse (officer.GetField ("integrity").str), statMin, statMax),
 					Mathf.Clamp (int.Parse (officer.GetField ("stubbornness").str), statMin, statMax),
 					Enums.PersonalityFromStatic (officer.GetField ("personality").str),
-
-					Resources_Inventory.GenerateInventoryFromJSON(
-						officer.GetField ("inventory").str,
-						officer.GetField ("id").str
-					)
-					);
+					Resources_Inventory.GetInventoryByID(officer.GetField ("inventory").str)
+				);
 				
 				temporaryPoliceStationList.Add (officer.GetField("home").str);
 			}

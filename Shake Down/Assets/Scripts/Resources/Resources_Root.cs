@@ -4,15 +4,14 @@ using System.Collections.Generic;
 
 public class Resources_Root
 {
-	static private List<Resources_Root> _resources = new List<Resources_Root>();
+	static protected List<Resources_Root> _resources = new List<Resources_Root>();
 
-	private string _id;
-	private string _name;
-	private string _image;
-	private int _money;
-	private int _income;
-	private int _expenses;
-	private Resources_Inventory _inventory;
+	protected string _id;
+	protected string _name;
+	protected string _image;
+	protected int _money;
+	protected int _income;
+	protected int _expenses;
 
 	static public List<Resources_Root> resources { get { return _resources; } }
 
@@ -22,9 +21,8 @@ public class Resources_Root
 	public int money { get { return _money; } set{_money = value;} }
 	public int income { get { return _income; } set{_income = value;}}
 	public int expenses { get { return _expenses; } set{_expenses = value;}}
-	public Resources_Inventory inventory { get { return _inventory; } }
 
-	public Resources_Root (string id, string name, string image, int money, int income, int expenses, Resources_Inventory inventory)
+	public Resources_Root (string id, string name, string image, int money, int income, int expenses)
 	{
 		if (GetResourceByID(id) == null)
 		{
@@ -34,7 +32,6 @@ public class Resources_Root
 			_money = money;
 			_income = income;
 			_expenses = expenses;
-			_inventory = inventory;
 
 			_resources.Add (this);
 		}

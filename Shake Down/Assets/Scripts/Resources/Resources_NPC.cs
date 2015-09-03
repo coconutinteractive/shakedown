@@ -3,18 +3,18 @@ using System.Collections;
 
 public class Resources_NPC : Resources_Character
 {
-	static private GraphPoint BOT = new GraphPoint (30 ,  0);
-	static private GraphPoint TOP = new GraphPoint (30 ,100);
-	static private GraphPoint LFT = new GraphPoint (0  , 30);
-	static private GraphPoint RGT = new GraphPoint (100, 30);
+	static protected GraphPoint BOT = new GraphPoint (30 ,  0);
+	static protected GraphPoint TOP = new GraphPoint (30 ,100);
+	static protected GraphPoint LFT = new GraphPoint (0  , 30);
+	static protected GraphPoint RGT = new GraphPoint (100, 30);
 
-	private int 				_respect;
-	private int 				_fear;
-	private int 				_greed;
-	private int 				_integrity;
-	private int 				_stubbornness;
-	private Enums.Personality 	_personality;
-	private Enums.Attitude 		_attitude;
+	protected int 				_respect;
+	protected int 				_fear;
+	protected int 				_greed;
+	protected int 				_integrity;
+	protected int 				_stubbornness;
+	protected Enums.Personality 	_personality;
+	protected Enums.Attitude 		_attitude;
 
 	public int 					respect 		{ get { return _respect; 		} set {_respect = value; 	} }
 	public int 					fear 			{ get { return _fear; 			} set {_fear = value;		} }
@@ -75,7 +75,7 @@ public class Resources_NPC : Resources_Character
 			_attitude = Enums.Attitude.Neutral;
 	}
 
-	private int LineSign(int AX, int AY, int BX, int BY, int PX, int PY)
+	protected int LineSign(int AX, int AY, int BX, int BY, int PX, int PY)
 	{
 		return (int)Mathf.Sign ((BX-AX)*(PY-AY) - (BY-AY)*(PX-AX));
 	}

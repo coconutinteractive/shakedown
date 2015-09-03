@@ -3,13 +3,15 @@ using System.Collections;
 
 public class Resources_Character : Resources_Root
 {
-	private Enums.Gender _gender;
-	private Resources_Building _home;
-	private int _strength;
+	protected Enums.Gender _gender;
+	protected Resources_Building _home;
+	protected int _strength;
+	protected Resources_Inventory _inventory;
 
 	public Enums.Gender gender { get { return _gender; } }
 	public Resources_Building home { get { return _home; } }
 	public int strength { get { return _strength; } }
+	public Resources_Inventory inventory { get { return _inventory; } }
 
 	public Resources_Character (string id,
 	                            string name,
@@ -26,11 +28,11 @@ public class Resources_Character : Resources_Root
 		        image,
 		        money,
 		        income,
-		        expenses,
-		        inventory)
+		        expenses)
 	{
 		_gender = gender;
 		_home = home;
 		_strength = strength;
+		_inventory = inventory;
 	}
 }

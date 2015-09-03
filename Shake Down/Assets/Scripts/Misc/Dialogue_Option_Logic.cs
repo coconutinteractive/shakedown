@@ -27,6 +27,7 @@ public class Dialogue_Option_Logic
 	static public Dialogue_Prompt ConfirmPurchase (int playerCash, int itemPrice) {
 		if (playerCash >= itemPrice) {
 			Dialogue_Prompt_Logic.PurchaseSuccessful();
+			DialogueInterface.Instance.shopkeeperRef.respect += 5;
 			return Dialogue_Prompt.GetPromptByName("dialogue_prompt_purchaseSuccessful");
 		} else {
 			Dialogue_Prompt_Logic.PurchaseFailed();
@@ -66,6 +67,7 @@ public class Dialogue_Option_Logic
 		return Dialogue_Prompt.GetPromptByName("dialogue_prompt_root");	
 	}
 	static public Dialogue_Prompt EarlyPayment(Resources_Player player, Resources_Shopkeeper shopkeeper) {
+		shopkeeper.respect -= 10;
 		return RequestPayment (player, shopkeeper);
 	}
 	static public Dialogue_Prompt EnterShop() {

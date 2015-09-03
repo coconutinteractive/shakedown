@@ -1,14 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Managers/DialogueInterface.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Resources/Resources_Inventory.cs">
     <Files>
-      <File FileName="Assets/Scripts/Managers/DialogueInterface.cs" Line="758" Column="87" />
-      <File FileName="Assets/Scripts/Misc/Dialogue_Prompt_Logic.cs" Line="227" Column="41" />
-      <File FileName="Assets/Scripts/Resources/Resources_Building.cs" Line="16" Column="54" />
-      <File FileName="Assets/Scripts/Misc/Scenario_Script.cs" Line="144" Column="73" />
-      <File FileName="Assets/Scripts/Misc/Building_Script.cs" Line="623" Column="128" />
-      <File FileName="Assets/Scripts/Resources/Localization.cs" Line="220" Column="1" />
-      <File FileName="Assets/Scripts/Misc/Dialogue_Option_Logic.cs" Line="171" Column="40" />
+      <File FileName="Assets/Scripts/Resources/Resources_Inventory.cs" Line="69" Column="3" />
+      <File FileName="Assets/Scripts/Misc/Scenario_Script.cs" Line="133" Column="50" />
+      <File FileName="Assets/Scripts/Managers/Manager_StaticData.cs" Line="93" Column="4" />
+      <File FileName="Assets/Scripts/Resources/Resources_InventoryShop.cs" Line="15" Column="88" />
+      <File FileName="Assets/Scripts/Managers/DialogueInterface.cs" Line="673" Column="64" />
+      <File FileName="Assets/Static Data/StaticWorld.txt" Line="1154" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

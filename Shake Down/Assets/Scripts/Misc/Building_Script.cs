@@ -10,7 +10,9 @@ public class Building_Script : MonoBehaviour
 	static public Building_Script GetBuilding(string buildingID) { return _buildings[buildingID]; }
 	static private List<string> _buildingIDs = new List<string>();
 	static public List<string> buildingIDs { get { return _buildingIDs; } }
-	
+	private bool _firstVisitToday = true;
+	public bool firstVisitToday { get { return _firstVisitToday; } set { _firstVisitToday = value; } } 
+
 	private void Start()
 	{
 		if(!registerBuilding())
@@ -74,6 +76,12 @@ public class Building_Script : MonoBehaviour
 	public void StartDialogue(Sprite _playerPortrait, string _playerName, string _playerLastName)
 	{
 		DialogueInterface.Instance.shopkeeperRef = shopkeeper;
+		if(firstVisitToday)
+		{
+			shopkeeper.respect++;
+			firstVisitToday = false;
+		}
+
 		DialogueInterface.Instance.Activate ();
 		DialogueInterface.Instance.DisplayLeftCharacter (_playerPortrait, 1.0f, false);
 		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), 2.5f, true);
@@ -240,384 +248,6 @@ public class Building_Script : MonoBehaviour
 		DialogueInterface.Instance.OnTryAnotherOffer -= HandleOnTryAnotherOffer;
 	}
 
-	/*
-	private void HandleOnAskForPayment ()
-	{
-		// The register contains enough money to pay the protection, even without taking money from his pocket
-		if(building.money >= building.payment)
-		{
-			//TODO: Does the shopkeep actually WANT to give you their money?
-			building.money -= building.payment;
-			Resources_Player.instance.money += building.payment;
-
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentFull"), false, 0.0f, true);
-		}
-		else
-		{
-			//TODO:
-			//There isn't enough money in the register, so the shopkeeper has to reach in his own pocket
-			if(building.money + shopkeeper.money >= building.payment)
-			{
-				shopkeeper.money -= (building.payment - building.money);
-				building.money = 0;
-				Resources_Player.instance.money += building.payment;
-
-				DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentFull"), false, 0.0f, true);
-				return;
-			}
-			//the shopkeep cannot match the protection cost => partial payment
-			if(building.money + shopkeeper.money > building.payment * 0.25f)
-			{
-				shopkeeper.money -= shopkeeper.money;
-				building.money -= building.money;
-
-				DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentPartial"), false, 0.0f, true);
-				
-				return;
-			}
-			//Even by combining his money with the register's, the shopkeep can't even cover a fraction of the protection cost. He doesn't pay at all.
-			else if(shopkeeper.money + building.money <= building.payment * 0.25f)
-			{
-				DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_paymentNone"), false, 0.0f, true);
-				
-				return;
-			}
-		}
-	}
-	
-	private void HandleOnAccept ()
-	{
-		DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_root"), false, 0.0f, true);
-
-		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), 1.0f, true);
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString(), "", ""});
-	}
-	
-	private void HandleOnCheckRegister ()
-	{
-		DialogueInterface.Instance.DisplayRightCharacter (DialogueInterface.Instance.cashRegisterPortrait, 1.0f, true);
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Cash", "Register", building.money.ToString(), "", ""});
-		
-		//There is enough in the register alone to pay for the protection and more. Clearly the shopkeep was lying about not having enough money.
-		if(building.money >= building.payment)
-		{
-			isGuilty = true;
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_registerHiddenMoney"), false, 0.0f, true);
-
-			return;
-			//TODO: Does the shopkeeper have a reason to keep that money? (Investment, family member in the hospital...)
-		}
-		
-		//There is money in the register, but not enough to pay for protection.
-		//Leaving it there may help the store grow, but clearly the shopkeep was lying about not having anything left.
-		if(building.money < building.payment && building.money >= building.payment * 0.25f)
-		{
-			isGuilty = true;
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_registerSomeMoney"), true, 1.25f, true);
-
-			return;
-		}
-		
-		//There is close to nothing in the register. The shopkeep wasn't lying.
-		if(building.money < building.payment * 0.25f)
-		{
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_registerEmpty"), false, 0.0f, true);
-
-			return;
-		}
-	}
-	private void HandleOnTakeRegisterMoney()
-	{
-		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), 1.0f, true);
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString(), "", ""});
-
-		DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_registerTakeOrLeaveMoney"), false, 0.0f, true);
-	}
-	
-	private void HandleOnOfferToAidBusiness ()
-	{
-		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), 1.0f, true);
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString(), "", ""});
-
-		DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_aidingBusiness"), false, 0.0f, true);
-	}
-	
-	private void HandleOnDonateConfirm ()
-	{
-		int donatedAmount = DialogueInterface.Instance.GetDigitSelectorValue ();
-		//TODO:CHECK if the player can afford it, and if yes deduce he amount from it!
-		DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_greeting"), false, 0.0f, true);
-
-		if (donatedAmount <= 5)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "Are you trying to mess with me, sir?", true);
-			return;
-		}
-		if (donatedAmount < building.payment * 0.25f)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "Erm... thanks, I guess. Sir.", true);
-			return;
-		}
-		else if (donatedAmount < building.payment * 0.5f)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "Thank you, sir. It's better than nothing.", true);
-			return;
-		}
-		else if (donatedAmount <= building.payment)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "Thank you so much sir. This money will definitely help us stay afloat.", true);
-			return;
-		}
-		else if (donatedAmount < 1000)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "With this money, we'll get back into business again! Thank you so much, sir!", true);
-			return;
-		}
-		else if (donatedAmount >= 1000)
-		{
-			DialogueInterface.Instance.StartDialogue (false, 0.0f, "Are... are you sure, sir? That is... that is a lot of money! Thank you so very much!", true);
-			return;
-
-		shopkeeper.money += donatedAmount;
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString(), "", ""});
-	}
-	private void HandleOnDonateCancel ()
-	{
-		
-	}
-	private void HandleOnCutProtectionConfirm ()
-	{
-		
-	}
-	private void HandleOnCutProtectionCancel ()
-	{
-		
-	}
-	
-	private void HandleOnIntimidate ()
-	{
-		if(isGuilty)
-		{
-			//TODO: different answers depending on shopkeep's mood & reason to lie to the player
-			//DialogueInterface.Instance.StartDialogue (false, 0.0f, "No, please! I won't do it anymore!", true);
-			isGuilty = false;
-		}
-		else
-			//DialogueInterface.Instance.StartDialogue (false, 0.0f, "...", true);
-			;
-	}
-
-	private void HandleOnIntimidateInformBoss()
-	{
-		//TODO: Calculations to determine the shopkeeper's reaction
-		shopkeeper.UpdateAttitude ();
-		
-		int threatLevel = CalculateThreatLevel(1), toleranceLevel = CalculateToleranceLevel(4);
-		string prompt = DetermineIntimidateReaction(threatLevel, toleranceLevel);
-		string dialogueLineVariation = "";
-
-		switch (currentAttitude)
-		{
-		case Enums.ShopkeeperAttitude.Neutral:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Disdain:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_FIGHTSBACK;
-			break;
-		case Enums.ShopkeeperAttitude.Terror:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Admiration:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		case Enums.ShopkeeperAttitude.Awe:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.High_Fear:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_CALLSPOLICE;
-			break;
-		case Enums.ShopkeeperAttitude.High_Respect:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		default:
-			break;
-		}
-
-
-		//DialogueInterface.Instance.SetDialoguePrompt (Dialogue_Prompt.GetPromptByName (prompt));
-		//DialogueInterface.Instance.StartDialogue (false, 0.0f, dialogueLineVariation, true);
-	}
-	
-	private void HandleOnIntimidateBreakMerchandise()
-	{
-		shopkeeper.UpdateAttitude ();
-		
-		int threatLevel = CalculateThreatLevel(2), toleranceLevel = CalculateToleranceLevel(3);
-		string prompt = DetermineIntimidateReaction(threatLevel, toleranceLevel);
-		string dialogueLineVariation = "";
-
-
-		switch (currentAttitude)
-		{
-		case Enums.ShopkeeperAttitude.Neutral:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Disdain:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_FIGHTSBACK;
-			break;
-		case Enums.ShopkeeperAttitude.Terror:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Admiration:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		case Enums.ShopkeeperAttitude.Awe:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.High_Fear:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_CALLSPOLICE;
-			break;
-		case Enums.ShopkeeperAttitude.High_Respect:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		default:
-			break;
-		}
-		
-		DialogueInterface.Instance.SetDialoguePrompt (Dialogue_Prompt.GetPromptByName (prompt));
-		DialogueInterface.Instance.StartDialogue (false,0.0f, dialogueLineVariation, true);
-
-	}
-	
-	private void HandleOnIntimidateAttackShopkeeper()
-	{
-		shopkeeper.UpdateAttitude ();
-		
-		int threatLevel = CalculateThreatLevel(3), toleranceLevel = CalculateToleranceLevel(2);
-		string prompt = DetermineIntimidateReaction(threatLevel, toleranceLevel);
-		string dialogueLineVariation = "";
-
-		switch (currentAttitude)
-		{
-		case Enums.ShopkeeperAttitude.Neutral:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Disdain:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_FIGHTSBACK;
-			break;
-		case Enums.ShopkeeperAttitude.Terror:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Admiration:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		case Enums.ShopkeeperAttitude.Awe:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.High_Fear:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_CALLSPOLICE;
-			break;
-		case Enums.ShopkeeperAttitude.High_Respect:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		default:
-			break;
-		}
-		
-		DialogueInterface.Instance.SetDialoguePrompt (Dialogue_Prompt.GetPromptByName (prompt));
-		DialogueInterface.Instance.StartDialogue (false, 0.0f, dialogueLineVariation, true);
-	}
-	
-	private void HandleOnIntimidateBurnDownShop()
-	{
-		shopkeeper.UpdateAttitude ();
-		
-		int threatLevel = CalculateThreatLevel(4), toleranceLevel = CalculateToleranceLevel(1);
-		string prompt = DetermineIntimidateReaction(threatLevel, toleranceLevel);
-		string dialogueLineVariation = "";
-		
-		switch (currentAttitude)
-		{
-		case Enums.ShopkeeperAttitude.Neutral:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Disdain:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_FIGHTSBACK;
-			break;
-		case Enums.ShopkeeperAttitude.Terror:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.Admiration:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		case Enums.ShopkeeperAttitude.Awe:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_TERRIFIED;
-			break;
-		case Enums.ShopkeeperAttitude.High_Fear:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_CALLSPOLICE;
-			break;
-		case Enums.ShopkeeperAttitude.High_Respect:
-			dialogueLineVariation = Dialogues_Lines.SHOPKEEP_INTIMIDATE_RATTLED;
-			break;
-		default:
-			break;
-		}
-		
-		DialogueInterface.Instance.SetDialoguePrompt (Dialogue_Prompt.GetPromptByName (prompt));
-		DialogueInterface.Instance.StartDialogue (false, 0.0f, dialogueLineVariation, true);
-	}
-	
-	private void HandleOnOfferProtection ()
-	{
-		
-	}
-	
-	private void HandleOnRenegotiateProtection ()
-	{
-		
-	}
-	
-	private void HandleOnGoShopping ()
-	{
-		
-	}
-	private void HandleOnConfirmPurchase ()
-	{
-		string prompt = "", dialogueLine = "";
-		
-		//TODO: Get the actual cost of the object
-		if(Manager_Resources.player.money > 50)
-		{
-			prompt = "dialogue_prompt_purchaseSuccessful";
-			dialogueLine = "Thank you for your patronnage! Do you need anything else?";
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_purchaseSuccessful"), false, 0.0f, true);
-		}
-		else
-		{
-			prompt = "dialogue_prompt_purchaseFailed";
-			dialogueLine = "A little short, sir? No problems, pick something else!";
-			DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_purchaseFailed"), false, 0.0f, true);
-		}
-
-		//DialogueInterface.Instance.SetDialoguePrompt (Dialogue_Prompt.GetPromptByName (prompt));
-		//DialogueInterface.Instance.StartDialogue (false, 0.0f, dialogueLine, true);
-	}
-	
-	private void HandleOnChitChat ()
-	{
-		Debug.Log ("HANDLE ON CHIT CHAT CALLED!");
-		//TODO: Different chit chat depending on how the store is doing. We want this to subtly tell the player if the store is facing difficulties
-		UpdateValues (0, 5);
-		DialogueInterface.Instance.NewPrompt(Dialogue_Prompt.GetPromptByName("dialogue_prompt_smallTalk"), false, 0.0f, true);
-	}
-	
-	private void HandleOnExitShop ()
-	{
-		DialogueInterface.Instance.DisplayRightCharacter (Utilities.GetSpriteFromID(shopkeeper.image), 1.0f, true);
-		DialogueInterface.Instance.UpdateInfoValues (false, new string[5]{"Shop", "Keeper", shopkeeper.money.ToString(), "", ""});
-		PlayerMovement.CanExecuteAction (true);
-		DialogueInterface.Instance.HideChoices();
-	}*/
 	#endregion
 
 	private void HandleOnAccept () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Accept(), false, 0.0f, true);}
@@ -628,9 +258,9 @@ public class Building_Script : MonoBehaviour
 	private void HandleOnContinueIntimidating () {			DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ContinueIntimidating(), false, 0.0f, true);}
 	private void HandleOnConfirmPurchase () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ConfirmPurchase(Resources_Player.instance.money, 0), false, 0.0f, true);} // TODO: add item price
 	private void HandleOnCutProtectionCost () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.CutProtectionCost(), false, 0.0f, true);}
-	private void HandleOnDefaultAmount () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.DefaultAmount(Resources_Player.instance, shopkeeper, 200), false, 0.0f, true);} // TODO: add asking price
+	private void HandleOnDefaultAmount () {					/*DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.DefaultAmount(Resources_Player.instance, shopkeeper, 200), false, 0.0f, true);*/} // TODO: add asking price
 	private void HandleOnDonate () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Donate(), false, 0.0f, true);}
-	private void HandleOnEarlyPayment () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.EarlyPayment(Resources_Player.instance, shopkeeper), false, 0.0f, true);} // TODO: add asking price
+	private void HandleOnEarlyPayment () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.EarlyPayment(Resources_Player.instance, shopkeeper), false, 0.0f, true);}
 	private void HandleOnEnterShop () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.EnterShop(), false, 0.0f, true);}
 	private void HandleOnGoShopping () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.GoShopping(), false, 0.0f, true);}
 	private void HandleOnGetDetails () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.GetDetails(), false, 0.0f, true);}
@@ -645,7 +275,7 @@ public class Building_Script : MonoBehaviour
 	private void HandleOnIntimidate3AttackShopkeeper () {	DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Intimidate3AttackShopkeeper(), false, 0.0f, true);}
 	private void HandleOnIntimidate3BurnDownShop () {		DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Intimidate3BurnDownShop(), false, 0.0f, true);}
 	private void HandleOnNeverMind () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.NeverMind(), false, 0.0f, true);}
-	private void HandleOnOfferProtection () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.OfferProtection(), false, 0.0f, true);}
+	private void HandleOnOfferProtection () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.OfferProtection(), false, 0.0f, false);}
 	private void HandleOnOfferToAidBusiness () {			DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.OfferToAidBusiness(), false, 0.0f, true);}
 	private void HandleOnOtherAmount () {					DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.OtherAmount(Resources_Player.instance, shopkeeper, 0), false, 0.0f, true);} // TODO: add asking price
 	private void HandleOnPlacate () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Placate(), false, 0.0f, true);}

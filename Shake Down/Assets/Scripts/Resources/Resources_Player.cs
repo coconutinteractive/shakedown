@@ -5,8 +5,8 @@ using System;
 
 public class Resources_Player : Resources_Character
 {
-	private int _presence;
-	private int _opinion;
+	protected int _presence;
+	protected int _opinion;
 	
 	public int presence { get { return _presence; } }
 	public int opinion { get { return _opinion; } }

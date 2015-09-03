@@ -142,12 +142,16 @@ public class Dialogue_Prompt_Logic
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_intimidate"));
 	}
 	static public void SetOptions_SchedulePayment (Dialogue_Prompt obj) {
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_defaultAmount"));
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_otherAmount"));
-		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
+		//obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_defaultAmount"));
+		//obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_otherAmount"));
+		//obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_ShopInventory (Dialogue_Prompt obj) {
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"));
+		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_shopProduct"));
+		
 		obj.AddFollowUp(Dialogue_Option.GetOptionByName("dialogue_option_neverMind"));
 	}
 	static public void SetOptions_SmallTalk (Dialogue_Prompt obj) {
