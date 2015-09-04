@@ -92,32 +92,7 @@
                 "day": "day_monday",
                 "inventory": "casino"
             },
-            "building08": {
-                "id": "building08",
-                "name": "building08",
-                "image": "DefaultBuilding",
-                "type": "building_liquor",
-                "money": "1000",
-                "income": "200",
-                "expenses": "25",
-                "rent": "0",
-                "payment": "0",
-                "day": "day_monday",
-                "inventory": "clothing1"
-            },
-            "building09": {
-                "id": "building09",
-                "name": "building09",
-                "image": "DefaultBuilding",
-                "type": "building_tobacco",
-                "money": "1000",
-                "income": "200",
-                "expenses": "25",
-                "rent": "0",
-                "payment": "0",
-                "day": "day_monday",
-                "inventory": "clothing2"
-            },
+           
             "building10": {
                 "id": "building10",
                 "name": "building10",
@@ -421,7 +396,7 @@
         "player": {
             "undefined": {
                 "home": "building01",
-                "money": "34",
+                "money": "134",
                 "income": "0",
                 "expenses": "0",
                 "strength": "31",

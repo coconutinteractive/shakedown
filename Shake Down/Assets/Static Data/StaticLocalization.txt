@@ -796,7 +796,8 @@
         },
         "loc_prompt_outgoing_reliant_confirmPurchase": {
             "id": "loc_prompt_outgoing_reliant_confirmPurchase",
-            "context": "an outgoing person who is reliant on you prompts you to confirm your item purchase",
+            "context": "an outgoing person who is reliant on you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_outgoing_reliant_confirmPurchase"
         },
         "loc_prompt_outgoing_reliant_giveDetails": {
@@ -956,7 +957,8 @@
         },
         "loc_prompt_outgoing_loyal_confirmPurchase": {
             "id": "loc_prompt_outgoing_loyal_confirmPurchase",
-            "context": "an outgoing person who is loyal to you prompts you to confirm your item purchase",
+            "context": "an outgoing person who is loyal to you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_outgoing_loyal_confirmPurchase"
         },
         "loc_prompt_outgoing_loyal_giveDetails": {
@@ -1116,7 +1118,8 @@
         },
         "loc_prompt_outgoing_disinterest_confirmPurchase": {
             "id": "loc_prompt_outgoing_disinterest_confirmPurchase",
-            "context": "an outgoing person who is disinterested in you prompts you to confirm your item purchase",
+            "context": "an outgoing person who is disinterested in you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_outgoing_disinterest_confirmPurchase"
         },
         "loc_prompt_outgoing_disinterest_giveDetails": {
@@ -1276,7 +1279,8 @@
         },
         "loc_prompt_outgoing_neutral_confirmPurchase": {
             "id": "loc_prompt_outgoing_neutral_confirmPurchase",
-            "context": "an outgoing person who is neutral towards you prompts you to confirm your item purchase",
+            "context": "an outgoing person who is neutral towards you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_outgoing_neutral_confirmPurchase"
         },
         "loc_prompt_outgoing_neutral_giveDetails": {
@@ -1436,7 +1440,8 @@
         },
         "loc_prompt_outgoing_terror_confirmPurchase": {
             "id": "loc_prompt_outgoing_terror_confirmPurchase",
-            "context": "an outgoing person who is terrified prompts you to confirm your item purchase",
+            "context": "an outgoing person who is terrified prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_outgoing_terror_confirmPurchase"
         },
         "loc_prompt_outgoing_terror_giveDetails": {
@@ -1601,8 +1606,8 @@
         },
         "loc_prompt_introvert_reliant_confirmPurchase": {
             "id": "loc_prompt_introvert_reliant_confirmPurchase",
-            "context": "an introvert person who is reliant on you prompts you to confirm your item purchase",
-            "englishus": "So would you like to buy that?",
+            "context": "an introvert person who is reliant on you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_introvert_reliant_confirmPurchase"
         },
         "loc_prompt_introvert_reliant_giveDetails": {
@@ -1766,21 +1771,25 @@
         "loc_prompt_introvert_loyal_askToLowerPayment": {
             "id": "loc_prompt_introvert_loyal_askToLowerPayment",
             "context": "an introvert person who is loyal to you asks if they can pay you less money from now on",
+            "englishus": "Look, I just need to pay you a little less in the future.",
             "test": "loc_prompt_introvert_loyal_askToLowerPayment"
         },
         "loc_prompt_introvert_loyal_assaultInitial": {
             "id": "loc_prompt_introvert_loyal_assaultInitial",
             "context": "an introvert person who is loyal to you informs you that their store has been assaulted",
+            "englishus": "Someone came in and really tried to mess stuff up. Hope you have a plan to deal with that.",
             "test": "loc_prompt_introvert_loyal_assaultInitial"
         },
         "loc_prompt_introvert_loyal_assaultSecondary": {
             "id": "loc_prompt_introvert_loyal_assaultSecondary",
             "context": "an introvert person who is loyal to you reminds you that their store has been assaulted",
+            "englishus": "Have you taken care of that problem I was having?",
             "test": "loc_prompt_introvert_loyal_assaultSecondary"
         },
         "loc_prompt_introvert_loyal_confirmPurchase": {
             "id": "loc_prompt_introvert_loyal_confirmPurchase",
-            "context": "an introvert person who is loyal to you prompts you to confirm your item purchase",
+            "context": "an introvert person who is loyal to you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "Do ya like that {0}? Only ${1}.",
             "test": "loc_prompt_introvert_loyal_confirmPurchase"
         },
         "loc_prompt_introvert_loyal_giveDetails": {
@@ -1791,11 +1800,13 @@
         "loc_prompt_introvert_loyal_goodbye": {
             "id": "loc_prompt_introvert_loyal_goodbye",
             "context": "an introvert person who is loyal to you acknowledges that you're leaving the store",
+            "englishus": "Bye.",
             "test": "loc_prompt_outgoing_loyal_goodbye"
         },
         "loc_prompt_introvert_loyal_greeting": {
             "id": "loc_prompt_introvert_loyal_greeting",
             "context": "an introvert person who is loyal to you greets you when you enter the store",
+            "englishus": "Welcome back, what'll it be today?",
             "test": "loc_prompt_introvert_loyal_greeting"
         },
         "loc_prompt_introvert_loyal_intimidate": {
@@ -1811,31 +1822,37 @@
         "loc_prompt_introvert_loyal_intimidatedCallsPolice": {
             "id": "loc_prompt_introvert_loyal_intimidatedCallsPolice",
             "context": "an introvert person who is loyal to you is so scared that they attempt to call the police",
+            "englishus": "I.. I got no choice. I hate to do this, but I'm afraid I have to call the cops.",
             "test": "loc_prompt_introvert_loyal_intimidatedCallsPolice"
         },
         "loc_prompt_introvert_loyal_intimidatedFightsBack": {
             "id": "loc_prompt_introvert_loyal_intimidatedFightsBack",
             "context": "an introvert person who is loyal to you gets upset with you and tries to stop you by force",
+            "englishus": "Please stop!",
             "test": "loc_prompt_introvert_loyal_intimidatedFightsBack"
         },
         "loc_prompt_introvert_loyal_intimidatedRattled": {
             "id": "loc_prompt_introvert_loyal_intimidatedRattled",
             "context": "an introvert person who is loyal to you backs down because you're intimidating",
+            "englishus": "Yes alright, I'm sorry just please no more!",
             "test": "loc_prompt_introvert_loyal_intimidatedRattled"
         },
         "loc_prompt_introvert_loyal_intimidatedUnaffected": {
             "id": "loc_prompt_introvert_loyal_intimidatedUnaffected",
             "context": "an introvert person who is loyal to you brushes off your threats like they're nothing",
+            "englishus": "Somehow I don't believe you.",
             "test": "loc_prompt_introvert_loyal_intimidatedUnaffected"
         },
         "loc_prompt_introvert_loyal_offerAccepted": {
             "id": "loc_prompt_introvert_loyal_offerAccepted",
             "context": "an introvert person who is loyal to you agrees to pay the offered protection price",
+            "englishus": "If that's the price, sure.",
             "test": "loc_prompt_introvert_loyal_offerAccepted"
         },
         "loc_prompt_introvert_loyal_offerRefused": {
             "id": "loc_prompt_introvert_loyal_offerRefused",
             "context": "an introvert person who is loyal to you refuses to pay the offered protection price",
+            "englishus": "That's way too much!",
             "test": "loc_prompt_introvert_loyal_offerRefused"
         },
         "loc_prompt_introvert_loyal_outsideShop": {
@@ -1846,36 +1863,43 @@
         "loc_prompt_introvert_loyal_paymentFull": {
             "id": "loc_prompt_introvert_loyal_paymentFull",
             "context": "an introvert person who is loyal to you pays the full amount of the protection money",
+            "englishus": "I've got it all here for you.",
             "test": "loc_prompt_introvert_loyal_paymentFull"
         },
         "loc_prompt_introvert_loyal_paymentNone": {
             "id": "loc_prompt_introvert_loyal_paymentNone",
             "context": "an introvert person who is loyal to you won't pay you any protection money",
+            "englishus": "I'm just not going to pay. I have a business too you know.",
             "test": "loc_prompt_introvert_loyal_paymentNone"
         },
         "loc_prompt_introvert_loyal_paymentPartial": {
             "id": "loc_prompt_introvert_loyal_paymentPartial",
             "context": "an introvert person who is loyal to you can only afford to pay you some of the protection money",
+            "englishus": "Sorry, I don't have all the money but I have some.",
             "test": "loc_prompt_introvert_loyal_paymentPartial"
         },
         "loc_prompt_introvert_loyal_placated": {
             "id": "loc_prompt_introvert_loyal_placated",
             "context": "an introvert person who is loyal to you ???",
+            "englishus": "{0}",
             "test": "loc_prompt_introvert_loyal_placated"
         },
         "loc_prompt_introvert_loyal_problemWithPayment": {
             "id": "loc_prompt_introvert_loyal_problemWithPayment",
             "context": "an introvert person who is loyal to you wants to talk to you about renegotiating protection payments",
+            "englishus": "Sorry, I just need a more fair ammount from here on.",
             "test": "loc_prompt_introvert_loyal_problemWithPayment"
         },
         "loc_prompt_introvert_loyal_purchaseFailed": {
             "id": "loc_prompt_introvert_loyal_purchaseFailed",
             "context": "an introvert person who is loyal to you informs you that you can't afford the purchase you're making",
+            "englishus": "I'm sorry, but it seems like you can't afford that.",
             "test": "loc_prompt_introvert_loyal_purchaseFailed"
         },
         "loc_prompt_introvert_loyal_purchaseSuccessful": {
             "id": "loc_prompt_introvert_loyal_purchaseSuccessful",
             "context": "an introvert person who is loyal to you thanks you for your patronage",
+            "englishus": "Hope you like it.",
             "test": "loc_prompt_introvert_loyal_purchaseSuccessful"
         },
         "loc_prompt_introvert_loyal_registerEmpty": {
@@ -1901,6 +1925,7 @@
         "loc_prompt_introvert_loyal_root": {
             "id": "loc_prompt_introvert_loyal_root",
             "context": "an introvert person who is loyal to you generally acknowledging that you are in the store for something",
+            "englishus": "So what more would you like?",
             "test": "loc_prompt_introvert_loyal_root"
         },
         "loc_prompt_introvert_loyal_schedulePayment": {
@@ -1911,11 +1936,13 @@
         "loc_prompt_introvert_loyal_shopInventory": {
             "id": "loc_prompt_introvert_loyal_shopInventory",
             "context": "an introvert person who is loyal to you showing off their wares",
+            "englishus": "We have a wide selection I'm sure you'll love",
             "test": "loc_prompt_introvert_loyal_shopInventory"
         },
         "loc_prompt_introvert_loyal_smallTalk": {
             "id": "loc_prompt_introvert_loyal_smallTalk",
             "context": "an introvert person who is loyal to you making small talk",
+            "englishus": "Um.. how was your weekend?",
             "test": "loc_prompt_introvert_loyal_smallTalk"
         },
         "loc_prompt_introvert_disinterest_aidingBusiness": {
@@ -1940,7 +1967,8 @@
         },
         "loc_prompt_introvert_disinterest_confirmPurchase": {
             "id": "loc_prompt_introvert_disinterest_confirmPurchase",
-            "context": "an introvert person who is disinterested in you prompts you to confirm your item purchase",
+            "context": "an introvert person who is disinterested in you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_introvert_disinterest_confirmPurchase"
         },
         "loc_prompt_introvert_disinterest_giveDetails": {
@@ -2100,7 +2128,8 @@
         },
         "loc_prompt_introvert_neutral_confirmPurchase": {
             "id": "loc_prompt_introvert_neutral_confirmPurchase",
-            "context": "an introvert person who is neutral towards you prompts you to confirm your item purchase",
+            "context": "an introvert person who is neutral towards you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_introvert_neutral_confirmPurchase"
         },
         "loc_prompt_introvert_neutral_giveDetails": {
@@ -2246,21 +2275,25 @@
         "loc_prompt_introvert_terror_askToLowerPayment": {
             "id": "loc_prompt_introvert_terror_askToLowerPayment",
             "context": "an introvert person who is terrified asks if they can pay you less money from now on",
+            "englishus": "I'm under a lot of god damn stress, I need to pay you less in the future.",
             "test": "loc_prompt_introvert_terror_askToLowerPayment"
         },
         "loc_prompt_introvert_terror_assaultInitial": {
             "id": "loc_prompt_introvert_terror_assaultInitial",
             "context": "an introvert person who is terrified informs you that their store has been assaulted",
+            "englishus": "It was awful! Someone is messing with my store, I hope you have a plan to deal with that.",
             "test": "loc_prompt_introvert_terror_assaultInitial"
         },
         "loc_prompt_introvert_terror_assaultSecondary": {
             "id": "loc_prompt_introvert_terror_assaultSecondary",
             "context": "an introvert person who is terrified reminds you that their store has been assaulted",
+            "englishus": "So have you.. have you taken care of that problem I was having?",
             "test": "loc_prompt_introvert_terror_assaultSecondary"
         },
         "loc_prompt_introvert_terror_confirmPurchase": {
             "id": "loc_prompt_introvert_terror_confirmPurchase",
-            "context": "an introvert person who is terrified prompts you to confirm your item purchase",
+            "context": "an introvert person who is terrified prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_introvert_terror_confirmPurchase"
         },
         "loc_prompt_introvert_terror_giveDetails": {
@@ -2271,11 +2304,13 @@
         "loc_prompt_introvert_terror_goodbye": {
             "id": "loc_prompt_introvert_terror_goodbye",
             "context": "an introvert person who is terrified acknowledges that you're leaving the store",
+            "englishus": "Bye.",
             "test": "loc_prompt_introvert_terror_goodbye"
         },
         "loc_prompt_introvert_terror_greeting": {
             "id": "loc_prompt_introvert_terror_greeting",
             "context": "an introvert person who is terrified greets you when you enter the store",
+            "englishus": "Welcome back, what'll it be today?",
             "test": "loc_prompt_introvert_terror_greeting"
         },
         "loc_prompt_introvert_terror_intimidate": {
@@ -2291,31 +2326,37 @@
         "loc_prompt_introvert_terror_intimidatedCallsPolice": {
             "id": "loc_prompt_introvert_terror_intimidatedCallsPolice",
             "context": "an introvert person who is terrified is so scared that they attempt to call the police",
+            "englishus": "I.. I got no choice. I hate to do this, but I'm afraid I have to call the cops.",
             "test": "loc_prompt_introvert_terror_intimidatedCallsPolice"
         },
         "loc_prompt_introvert_terror_intimidatedFightsBack": {
             "id": "loc_prompt_introvert_terror_intimidatedFightsBack",
             "context": "an introvert person who is terrified gets upset with you and tries to stop you by force",
+            "englishus": "Please stop!",
             "test": "loc_prompt_introvert_terror_intimidatedFightsBack"
         },
         "loc_prompt_introvert_terror_intimidatedRattled": {
             "id": "loc_prompt_introvert_terror_intimidatedRattled",
             "context": "an introvert person who is terrified backs down because you're intimidating",
+            "englishus": "Yes alright, I'm sorry just please no more!",
             "test": "loc_prompt_introvert_terror_intimidatedRattled"
         },
         "loc_prompt_introvert_terror_intimidatedUnaffected": {
             "id": "loc_prompt_introvert_terror_intimidatedUnaffected",
             "context": "an introvert person who is terrified brushes off your threats like they're nothing",
+            "englishus": "Somehow I don't believe you.",
             "test": "loc_prompt_introvert_terror_intimidatedUnaffected"
         },
         "loc_prompt_introvert_terror_offerAccepted": {
             "id": "loc_prompt_introvert_terror_offerAccepted",
             "context": "an introvert person who is terrified agrees to pay the offered protection price",
+            "englishus": "If that's the price, sure.",
             "test": "loc_prompt_introvert_terror_offerAccepted"
         },
         "loc_prompt_introvert_terror_offerRefused": {
             "id": "loc_prompt_introvert_terror_offerRefused",
             "context": "an introvert person who is terrified refuses to pay the offered protection price",
+            "englishus": "That's way too much!",
             "test": "loc_prompt_introvert_terror_offerRefused"
         },
         "loc_prompt_introvert_terror_outsideShop": {
@@ -2326,36 +2367,43 @@
         "loc_prompt_introvert_terror_paymentFull": {
             "id": "loc_prompt_introvert_terror_paymentFull",
             "context": "an introvert person who is terrified pays the full amount of the protection money",
+            "englishus": "I've got it all here for you.",
             "test": "loc_prompt_introvert_terror_paymentFull"
         },
         "loc_prompt_introvert_terror_paymentNone": {
             "id": "loc_prompt_introvert_terror_paymentNone",
             "context": "an introvert person who is terrified won't pay you any protection money",
+            "englishus": "I'm just not going to pay. I have a business too you know.",
             "test": "loc_prompt_introvert_terror_paymentNone"
         },
         "loc_prompt_introvert_terror_paymentPartial": {
             "id": "loc_prompt_introvert_terror_paymentPartial",
             "context": "an introvert person who is terrified can only afford to pay you some of the protection money",
+            "englishus": "Sorry, I don't have all the money but I have some.",
             "test": "loc_prompt_introvert_terror_paymentPartial"
         },
         "loc_prompt_introvert_terror_placated": {
             "id": "loc_prompt_introvert_terror_placated",
             "context": "an introvert person who is terrified ???",
+            "englishus": "{0}",
             "test": "loc_prompt_introvert_terror_placated"
         },
         "loc_prompt_introvert_terror_problemWithPayment": {
             "id": "loc_prompt_introvert_terror_problemWithPayment",
             "context": "an introvert person who is terrified wants to talk to you about renegotiating protection payments",
+            "englishus": "Sorry, I just need a more fair ammount from here on.",
             "test": "loc_prompt_introvert_terror_problemWithPayment"
         },
         "loc_prompt_introvert_terror_purchaseFailed": {
             "id": "loc_prompt_introvert_terror_purchaseFailed",
             "context": "an introvert person who is terrified informs you that you can't afford the purchase you're making",
+            "englishus": "I'm sorry, but it seems like you can't afford that.",
             "test": "loc_prompt_introvert_terror_purchaseFailed"
         },
         "loc_prompt_introvert_terror_purchaseSuccessful": {
             "id": "loc_prompt_introvert_terror_purchaseSuccessful",
             "context": "an introvert person who is terrified thanks you for your patronage",
+            "englishus": "Hope you like it.",
             "test": "loc_prompt_introvert_terror_purchaseSuccessful"
         },
         "loc_prompt_introvert_terror_registerEmpty": {
@@ -2381,6 +2429,7 @@
         "loc_prompt_introvert_terror_root": {
             "id": "loc_prompt_introvert_terror_root",
             "context": "an introvert person who is terrified generally acknowledging that you are in the store for something",
+            "englishus": "So what more would you like?",
             "test": "loc_prompt_introvert_terror_root"
         },
         "loc_prompt_introvert_terror_schedulePayment": {
@@ -2391,11 +2440,13 @@
         "loc_prompt_introvert_terror_shopInventory": {
             "id": "loc_prompt_introvert_terror_shopInventory",
             "context": "an introvert person who is terrified showing off their wares",
+            "englishus": "We have a wide selection I'm sure you'll love",
             "test": "loc_prompt_introvert_terror_shopInventory"
         },
         "loc_prompt_introvert_terror_smallTalk": {
             "id": "loc_prompt_introvert_terror_smallTalk",
             "context": "an introvert person who is terrified making small talk",
+            "englishus": "Um.. how was your weekend?",
             "test": "loc_prompt_introvert_terror_smallTalk"
         }
     },
@@ -2425,8 +2476,8 @@
         },
         "loc_prompt_gruff_reliant_confirmPurchase": {
             "id": "loc_prompt_gruff_reliant_confirmPurchase",
-            "context": "a gruff person who is reliant on you prompts you to confirm your item purchase",
-            "englishus": "You wanna buy that?",
+            "context": "a gruff person who is reliant on you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_gruff_reliant_confirmPurchase"
         },
         "loc_prompt_gruff_reliant_giveDetails": {
@@ -2608,8 +2659,8 @@
         },
         "loc_prompt_gruff_loyal_confirmPurchase": {
             "id": "loc_prompt_gruff_loyal_confirmPurchase",
-            "context": "a gruff person who is loyal to you prompts you to confirm your item purchase",
-            "englishus": "So you're getting that?",
+            "context": "a gruff person who is loyal to you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "So you're getting a {0}? That'll be ${1}",
             "test": "loc_prompt_gruff_loyal_confirmPurchase"
         },
         "loc_prompt_gruff_loyal_giveDetails": {
@@ -2789,8 +2840,8 @@
         },
         "loc_prompt_gruff_disinterest_confirmPurchase": {
             "id": "loc_prompt_gruff_disinterest_confirmPurchase",
-            "context": "a gruff person who is disinterested in you prompts you to confirm your item purchase",
-            "englishus": "Is that so?",
+            "context": "a gruff person who is disinterested in you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_gruff_disinterest_confirmPurchase"
         },
         "loc_prompt_gruff_disinterest_giveDetails": {
@@ -2970,8 +3021,8 @@
         },
         "loc_prompt_gruff_neutral_confirmPurchase": {
             "id": "loc_prompt_gruff_neutral_confirmPurchase",
-            "context": "a gruff person who is neutral towards you prompts you to confirm your item purchase",
-            "englishus": "That what you want?",
+            "context": "a gruff person who is neutral towards you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_gruff_neutral_confirmPurchase"
         },
         "loc_prompt_gruff_neutral_giveDetails": {
@@ -3151,8 +3202,8 @@
         },
         "loc_prompt_gruff_terror_confirmPurchase": {
             "id": "loc_prompt_gruff_terror_confirmPurchase",
-            "context": "a gruff person who is terrified prompts you to confirm your item purchase",
-            "englishus": "So you'll take that?",
+            "context": "a gruff person who is terrified prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "englishus": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_gruff_terror_confirmPurchase"
         },
         "loc_prompt_gruff_terror_giveDetails": {
@@ -3334,8 +3385,8 @@
         },
         "loc_prompt_formal_reliant_confirmPurchase": {
             "id": "loc_prompt_formal_reliant_confirmPurchase",
-            "context": "a formal person who is reliant on you prompts you to confirm your item purchase",
-            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "Thank you here's your purchase.",
+            "context": "a formal person who is reliant on you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_formal_reliant_confirmPurchase"
         },
         "loc_prompt_formal_reliant_giveDetails": {
@@ -3514,8 +3565,8 @@
         },
         "loc_prompt_formal_loyal_confirmPurchase": {
             "id": "loc_prompt_formal_loyal_confirmPurchase",
-            "context": "a formal person who is loyal to you prompts you to confirm your item purchase",
-            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "Thank you here's your purchase.",
+            "context": "a formal person who is loyal to you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_formal_loyal_confirmPurchase"
         },
         "loc_prompt_formal_loyal_giveDetails": {
@@ -3694,8 +3745,8 @@
         },
         "loc_prompt_formal_disinterest_confirmPurchase": {
             "id": "loc_prompt_formal_disinterest_confirmPurchase",
-            "context": "a formal person who is disinterested in you prompts you to confirm your item purchase",
-            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "Is that going to be everything?",
+            "context": "a formal person who is disinterested in you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_formal_disinterest_confirmPurchase"
         },
         "loc_prompt_formal_disinterest_giveDetails": {
@@ -3874,8 +3925,8 @@
         },
         "loc_prompt_formal_neutral_confirmPurchase": {
             "id": "loc_prompt_formal_neutral_confirmPurchase",
-            "context": "a formal person who is neutral towards you prompts you to confirm your item purchase",
-            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "And will that be all?",
+            "context": "a formal person who is neutral towards you prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_formal_neutral_confirmPurchase"
         },
         "loc_prompt_formal_neutral_giveDetails": {
@@ -4054,8 +4105,8 @@
         },
         "loc_prompt_formal_terror_confirmPurchase": {
             "id": "loc_prompt_formal_terror_confirmPurchase",
-            "context": "a formal person who is terrified prompts you to confirm your item purchase",
-            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "Is that everything?",
+            "context": "a formal person who is terrified prompts you to confirm your purchase of item {0} for the price of ${1}",
+            "weHaveBeenAttackedYouNeedToEnsureWhoeverDidThisWontDoThisAgain": "You wanna buy a {0} for ${1}?",
             "test": "loc_prompt_formal_terror_confirmPurchase"
         },
         "loc_prompt_formal_terror_giveDetails": {

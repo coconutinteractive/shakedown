@@ -97,9 +97,13 @@ public class Scenario_Script
 					Enums.PersonalityFromStatic (shopkeeper.GetField ("personality").str),
 					Resources_Inventory.GetInventoryByID(shopkeeper.GetField ("inventory").str)
 				);
-				
-				Building_Script.GetBuilding(shopkeeper.GetField("home").str).shopkeeper = newShopkeeper;
-				occupiedBuildings.Add (shopkeeper.GetField("home").str);
+
+				Building_Script buildingScriptRef = Building_Script.GetBuilding(shopkeeper.GetField("home").str);
+				if(buildingScriptRef != null)
+				{
+					buildingScriptRef.shopkeeper = newShopkeeper;
+					occupiedBuildings.Add (shopkeeper.GetField("home").str);
+				}
 			}
 			
 			List<string> temporaryPoliceStationList = new List<string>();
@@ -185,9 +189,9 @@ public class Scenario_Script
 			{ Debug.LogWarning ("Hey guy. " + designBuildingID + " exists in the design world but isn't used in the static data. I just thought you should know. -Scott"); }
 			foreach(string unoccupiedBuildingID in unoccupiedBuildings)
 			{ Debug.LogError ("Hey friend. " + unoccupiedBuildingID + " exists in static data, but has no characters associated with it."); }
-			
+
+			//SpawnOfficers();
 			scenarioExists = true;
-			
 		} 
 		else {
 			Debug.LogError ("You really shoulnd't be loading a new scenario when you've already got one there, buddy. -Scott");

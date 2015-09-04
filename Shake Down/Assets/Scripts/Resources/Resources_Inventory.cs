@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Resources_Inventory
 {
 	static protected List<Resources_Inventory> _inventories = new List<Resources_Inventory>();
+	protected List<Item_Root> _inventory = new List<Item_Root>();
 
 	private string					_id;
 	private Item_Weapon_Gun			_gun;
@@ -78,6 +79,16 @@ public class Resources_Inventory
 		_wrist = wrist;
 		_hair = hair;
 		_flower = flower;
+		if(gun != null) { _inventory.Add (gun); }
+		if(melee != null) { _inventory.Add (melee); }
+		if(clothes != null) { _inventory.Add (clothes); }
+		if(shoes != null) { _inventory.Add (shoes); }
+		if(pin != null) { _inventory.Add (pin); }
+		if(neck != null) { _inventory.Add (neck); }
+		if(ring != null) { _inventory.Add (ring); }
+		if(wrist != null) { _inventory.Add (wrist); }
+		if(hair != null) { _inventory.Add (hair); }
+		if(flower != null) { _inventory.Add (flower); }
 
 		_inventories.Add (this);
 	}
@@ -97,5 +108,46 @@ public class Resources_Inventory
 	static public void ClearInventories()
 	{
 		_inventories.Clear();
+	}
+
+	public void GetItem(Item_Root item)
+	{
+		_inventory.Add (item);
+		switch (item.GetType().ToString())
+		{
+		case "Item_Weapon_Gun": {
+			_gun = (Item_Weapon_Gun)item;
+			break; }
+		case "Item_Weapon_Melee": {
+			_melee = (Item_Weapon_Melee)item;
+			break; }
+		case "Item_Gear_Clothes": {
+			_clothes = (Item_Gear_Clothes)item;
+			break; }
+		case "Item_Gear_Shoes": {
+			_shoes = (Item_Gear_Shoes)item;
+			break; }
+		case "Item_Gear_Pin": {
+			_pin = (Item_Gear_Pin)item;
+			break; }
+		case "Item_Gear_Neck": {
+			_neck = (Item_Gear_Neck)item;
+			break; }
+		case "Item_Gear_Ring": {
+			_ring = (Item_Gear_Ring)item;
+			break; }
+		case "Item_Gear_Wrist": {
+			_wrist = (Item_Gear_Wrist)item;
+			break; }
+		case "Item_Decay_Hair": {
+			_hair = (Item_Decay_Hair)item;
+			break; }
+		case "Item_Decay_Flower": {
+			_flower = (Item_Decay_Flower)item;
+			break; }
+		case "Item_Consumable": {
+			_consumables.Add((Item_Consumable)item);
+			break; }
+		}
 	}
 }

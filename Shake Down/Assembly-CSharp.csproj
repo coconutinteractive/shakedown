@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\Managers\Manager_Resources.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_SaveLoad.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager_StaticData.cs" />
+     <Compile Include="Assets\Scripts\Managers\NPC_Spawner.cs" />
      <Compile Include="Assets\Scripts\MiniMap\HelpArrow.cs" />
      <Compile Include="Assets\Scripts\MiniMap\MiniMapBackground.cs" />
      <Compile Include="Assets\Scripts\MiniMap\MiniMapCamera.cs" />

@@ -34,7 +34,7 @@ public class DialogueInterface : MonoBehaviour
 
 	static private Building_Script _currentBuilding;
 	static public Building_Script currentBuilding { get { return _currentBuilding; } set { _currentBuilding = value; } }
-	
+
 	private Dictionary<string, UnityEngine.Events.UnityAction> btnActionsDict = new Dictionary<string, UnityEngine.Events.UnityAction>();
 
 	// Groups
@@ -65,7 +65,8 @@ public class DialogueInterface : MonoBehaviour
 	private bool isSomeoneTalking = false;
 
 	// Dialogue stuff?
-	private Dialogue_Prompt currentDialoguePrompt = null;
+	private Dialogue_Prompt _currentDialoguePrompt = null;
+	public Dialogue_Prompt currentDialoguePrompt { get { return _currentDialoguePrompt; } }
 
 	private List<Dialogue_Prompt> previousPrompts = new List<Dialogue_Prompt>();
 	private List<string> previousDialogueText = new List<string>();
@@ -449,9 +450,19 @@ public class DialogueInterface : MonoBehaviour
 	#region Dialogue Handling
 	public void NewPrompt(Dialogue_Prompt dialoguePrompt, bool initialDelay, float delay, bool displayChoices)
 	{
-		currentDialoguePrompt = dialoguePrompt;
+		_currentDialoguePrompt = dialoguePrompt;
 		SetOptions();
-		string promptTextContent = currentBuilding.GetPersonalityText(dialoguePrompt.suffix);
+		List<string> parameters = new List<string>();
+		string promptTextContent;
+
+		if(currentDialoguePrompt == Dialogue_Prompt.GetPromptByName("dialogue_prompt_confirmPurchase"))
+		{
+			parameters.Add (Localization.LocalizeText(_item.id));
+			parameters.Add (_item.price.ToString());
+			promptTextContent = currentBuilding.GetPersonalityText(dialoguePrompt.suffix, parameters);
+		} else {
+			promptTextContent = currentBuilding.GetPersonalityText(dialoguePrompt.suffix);
+		}
 		StartCoroutine (AnimatedDialogue (initialDelay, delay, promptTextContent, displayChoices));
 	}
 
@@ -489,9 +500,9 @@ public class DialogueInterface : MonoBehaviour
 					choicesString[i] = "DISABLE ME!"; 
 				}
 				break; }
-			case "dialogue_option_confirmPurchase": {
+			//case "dialogue_option_confirmPurchase": {
 				//parameters.Add ();
-				break; }
+				//break; }
 			default: {
 				choicesString[i] = Localization.LocalizeText(buttonTextKey);
 				break; }
@@ -596,8 +607,43 @@ public class DialogueInterface : MonoBehaviour
 	}
 
 #endregion
+	private Item_Root _item;
+	private Item_Root item { set { _item = value;} }
+	public Item_Root GetItem() { return _item; }
 
+	private void Test1 ()
+	{
+		item = shopkeeperRef.home.inventory.shopItem1;
+	}
+	private void Test2 ()
+	{
+		item = shopkeeperRef.home.inventory.shopItem2;
+	}
+	private void Test3 ()
+	{
+		item = shopkeeperRef.home.inventory.shopItem3;
+	}
+	private void Test4 ()
+	{
+		item = shopkeeperRef.home.inventory.shopItem4;
+	}
 #region Logic
+
+	private UnityEngine.Events.UnityAction GetTest(int testNum)
+	{
+		switch (testNum)
+		{
+		case 0: {
+			return btnActionsDict["test1"]; }
+		case 1: {
+			return btnActionsDict["test2"]; }
+		case 2: {
+			return btnActionsDict["test3"]; }
+		case 3: {
+			return btnActionsDict["test4"]; }
+		}
+		return null;
+	}
 
 	public void SetBtnActions(UnityEngine.Events.UnityAction[][] _actions)
 	{
@@ -611,25 +657,40 @@ public class DialogueInterface : MonoBehaviour
 		{
 			currentBtnActions.Add(new List<UnityEngine.Events.UnityAction>());
 			for (int j = 0; j < _actions[i].Length; ++j) 
-				currentBtnActions[i].Add(_actions[i][j]);
+			{
+				if(currentDialoguePrompt == Dialogue_Prompt.GetPromptByName("dialogue_prompt_shopInventory"))
+				{
+					currentBtnActions[i].Add (GetTest(i));
+				}
+				currentBtnActions[i].Add (_actions[i][j]);
+			}
 		}
 	}
-
+	
 	public void SetBtnActions(int _btnIndex, UnityEngine.Events.UnityAction[] _actions)
 	{
-		currentBtnActions [_btnIndex-1].Clear ();
+		currentBtnActions [_btnIndex - 1].Clear ();
 
-		for (int i = 0; i < _actions.Length; ++i) 
-			currentBtnActions[_btnIndex-1].Add(_actions[i]);
+		for (int i = 0; i < _actions.Length; ++i) {
+			if(currentDialoguePrompt == Dialogue_Prompt.GetPromptByName("dialogue_prompt_shopInventory"))
+			{
+				currentBtnActions[_btnIndex - 1].Add (GetTest(_btnIndex - 1));
+			}
+			currentBtnActions[_btnIndex - 1].Add (_actions[i]);
+		}
 	}
 
 	public void SetBtnActions(int _btnIndex, UnityEngine.Events.UnityAction _action)
 	{
-		currentBtnActions [_btnIndex-1].Clear ();
+		currentBtnActions [_btnIndex - 1].Clear ();
 
+		if(currentDialoguePrompt == Dialogue_Prompt.GetPromptByName("dialogue_prompt_shopInventory"))
+		{
+			currentBtnActions [_btnIndex - 1].Add (GetTest(_btnIndex - 1));
+		}
 		currentBtnActions [_btnIndex - 1].Add (_action);
 	}
-
+	/*
 	public UnityEngine.Events.UnityAction GetButtonActionFromDict(string actionKey)
 	{
 		if(btnActionsDict.ContainsKey(actionKey))
@@ -641,26 +702,18 @@ public class DialogueInterface : MonoBehaviour
 			Debug.LogError("This action does not exist!");
 			return null;
 		}
-	}
+	}*/
 
 	public UnityEngine.Events.UnityAction[] GetButtonActionFromDict(string[] actionKeys)
 	{
 		List<UnityEngine.Events.UnityAction> actionsList = new List<UnityEngine.Events.UnityAction> ();
 
-		if(currentDialoguePrompt.promptID == "dialogue_prompt_schedulePayment")
+		for (int i = 0; i < actionKeys.Length; ++i) 
 		{
-			//actionsList.Add (
-			;
-		}
-		else
-		{
-			for (int i = 0; i < actionKeys.Length; ++i) 
-			{
-				if(btnActionsDict.ContainsKey(actionKeys[i]))
-					actionsList.Add(btnActionsDict[actionKeys[i]]);
-				else
-					Debug.LogError("The action '" + actionKeys[i] + "' does not exist!");
-			}
+			if(btnActionsDict.ContainsKey(actionKeys[i]))
+				actionsList.Add(btnActionsDict[actionKeys[i]]);
+			else
+				Debug.LogError("The action '" + actionKeys[i] + "' does not exist!");
 		}
 		return actionsList.ToArray ();
 	}
@@ -738,6 +791,10 @@ public class DialogueInterface : MonoBehaviour
 		btnActionsDict.Add ("dialogue_option_shopProduct"					, (() => {ShopProduct ();}));
 		btnActionsDict.Add ("dialogue_option_takeRegisterMoney"				, (() => {TakeRegisterMoney ();}));
 		btnActionsDict.Add ("dialogue_option_tryAnotherOffer"				, (() => {TryAnotherOffer ();}));
+		btnActionsDict.Add ("test1"											, (() => {Test1 ();}));
+		btnActionsDict.Add ("test2"											, (() => {Test2 ();}));
+		btnActionsDict.Add ("test3"											, (() => {Test3 ();}));
+		btnActionsDict.Add ("test4"											, (() => {Test4 ();}));
 	}
 
 	private void SaveCurrentDialoguePrompt()

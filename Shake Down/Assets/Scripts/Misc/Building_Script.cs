@@ -7,7 +7,6 @@ public class Building_Script : MonoBehaviour
 	#region Static Data / Design World Comparisson Stuff
 	[SerializeField] private string _buildingID;
 	static private Dictionary<string, Building_Script> _buildings = new Dictionary<string, Building_Script>();
-	static public Building_Script GetBuilding(string buildingID) { return _buildings[buildingID]; }
 	static private List<string> _buildingIDs = new List<string>();
 	static public List<string> buildingIDs { get { return _buildingIDs; } }
 	private bool _firstVisitToday = true;
@@ -27,6 +26,17 @@ public class Building_Script : MonoBehaviour
 			buildingIDs.Add (_buildingID);
 			_buildings.Add (_buildingID, this.GetComponent<Building_Script>());
 			return true;
+		}
+	}
+
+	static public Building_Script GetBuilding(string buildingID) 
+	{
+		if(_buildings.ContainsKey(buildingID))
+		{
+			return _buildings[buildingID]; 
+		} else {
+			Debug.LogError ("Hey. Yo, Shmuck. There's no building with the id '" + buildingID + "' anywhere in the design world! You ought to do something about that. -Scott");
+			return null;
 		}
 	}
 	#endregion
@@ -60,8 +70,6 @@ public class Building_Script : MonoBehaviour
 		List<Resources_Character> list = new List<Resources_Character>();
 		list.Add(Resources_Player.instance);
 		list.Add(shopkeeper);
-
-		Debug.Log (shopkeeper.personality);
 
 		string newKey = "loc_prompt_";
 		newKey += shopkeeper.personality.ToString().ToLower() + "_";
@@ -256,7 +264,7 @@ public class Building_Script : MonoBehaviour
 	private void HandleOnCheckTheRegister () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.CheckTheRegister(), false, 0.0f, true);}
 	private void HandleOnChitChat () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ChitChat(), false, 0.0f, true);}
 	private void HandleOnContinueIntimidating () {			DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ContinueIntimidating(), false, 0.0f, true);}
-	private void HandleOnConfirmPurchase () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ConfirmPurchase(Resources_Player.instance.money, 0), false, 0.0f, true);} // TODO: add item price
+	private void HandleOnConfirmPurchase () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.ConfirmPurchase(Resources_Player.instance.money, DialogueInterface.Instance.GetItem ()), false, 0.0f, true);}
 	private void HandleOnCutProtectionCost () {				DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.CutProtectionCost(), false, 0.0f, true);}
 	private void HandleOnDefaultAmount () {					/*DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.DefaultAmount(Resources_Player.instance, shopkeeper, 200), false, 0.0f, true);*/} // TODO: add asking price
 	private void HandleOnDonate () {						DialogueInterface.Instance.NewPrompt(Dialogue_Option_Logic.Donate(), false, 0.0f, true);}

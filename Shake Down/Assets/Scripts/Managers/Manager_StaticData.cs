@@ -24,11 +24,8 @@ public class Manager_StaticData : MonoBehaviour
 		_scenarioData = new JSONObject (scenarioDataText.ToString ()); 
 		_localizationData = removeTabHeadersAsKeys(new JSONObject (localizationDataText.ToString()));
 		GenerateItemsFromJSON();
-		Debug.Log ("ITEMS GENERATED: " + Item_Root.items.Count);
 		GenerateShopInventoriesFromJSON();
-		Debug.Log ("SHOP INVENTORIES GENERATED: " + Resources_InventoryShop.inventories.Count);
 		GenerateStartingInventoriesFromJSON();
-		Debug.Log ("STARTING INVENTORIES GENERATED: " + Resources_Inventory.inventories.Count);
 		Dialogue_Script.SetupDialogueOptionsFromJSON(_dialogueData);
 
 		LoadScenario();

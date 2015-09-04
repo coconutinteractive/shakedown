@@ -207,6 +207,7 @@ public class Dialogue_Prompt_Logic
 	static public void AskToLowerPayment () { }
 	static public void AssaultInitial () { }
 	static public void AssaultSecondary () { }
+	static public void ConfirmPurchase () { }
 	static public void GiveDetails () { }
 	static public void Goodbye () { }
 	static public void Greeting () { }
@@ -224,7 +225,6 @@ public class Dialogue_Prompt_Logic
 	static public void PaymentNone () { }
 	static public void Placated () { }
 	static public void ProblemWithPayment () { }
-	static public void ConfirmPurchase () { }
 	static public void PurchaseFailed () { }
 	static public void PurchaseSuccessful () { }
 	static public void Root () { }

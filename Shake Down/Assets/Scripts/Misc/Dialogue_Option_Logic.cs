@@ -24,8 +24,11 @@ public class Dialogue_Option_Logic
 		Dialogue_Prompt_Logic.SmallTalk();
 		return Dialogue_Prompt.GetPromptByName("dialogue_prompt_smallTalk");
 	}
-	static public Dialogue_Prompt ConfirmPurchase (int playerCash, int itemPrice) {
-		if (playerCash >= itemPrice) {
+	static public Dialogue_Prompt ConfirmPurchase (int playerCash, Item_Root item) {
+		if (playerCash >= item.price) {
+			Resources_Player.instance.inventory.GetItem(item);
+			Resources_Player.instance.money -= item.price;
+			DialogueInterface.Instance.shopkeeperRef.money += item.price;
 			Dialogue_Prompt_Logic.PurchaseSuccessful();
 			DialogueInterface.Instance.shopkeeperRef.respect += 5;
 			return Dialogue_Prompt.GetPromptByName("dialogue_prompt_purchaseSuccessful");
