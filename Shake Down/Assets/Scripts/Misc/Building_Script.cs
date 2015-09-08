@@ -43,13 +43,11 @@ public class Building_Script : MonoBehaviour
 
 	private Resources_Shopkeeper _shopkeeper;
 	public Resources_Shopkeeper shopkeeper { 	get { return _shopkeeper; }	set { _shopkeeper = value; } }
-	private Resources_Building _building;
-	public Resources_Building building { 		get { return _building; } 	set { _building = value; } }
+	private Resources_Building _resources;
+	public Resources_Building resources { 		get { return _resources; } 	set { _resources = value; } }
 
 	private bool isGuilty = false;
 	private bool isUnderProtection = false;
-
-	//private Enums.IntimidateAction currentIntimidateAction = Enums.IntimidateAction.None;
 
 	#region Personality Text Methods
 	public string GetPersonalityText(string key)

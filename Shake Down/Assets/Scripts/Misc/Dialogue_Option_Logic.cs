@@ -28,7 +28,7 @@ public class Dialogue_Option_Logic
 		if (playerCash >= item.price) {
 			Resources_Player.instance.inventory.GetItem(item);
 			Resources_Player.instance.money -= item.price;
-			DialogueInterface.Instance.shopkeeperRef.money += item.price;
+			DialogueInterface.Instance.shopkeeperRef.home.money += item.price;
 			Dialogue_Prompt_Logic.PurchaseSuccessful();
 			DialogueInterface.Instance.shopkeeperRef.respect += 5;
 			return Dialogue_Prompt.GetPromptByName("dialogue_prompt_purchaseSuccessful");

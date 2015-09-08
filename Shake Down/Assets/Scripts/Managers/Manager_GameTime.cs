@@ -39,6 +39,7 @@ public class Manager_GameTime : MonoBehaviour
 		public float exitThreshold;
 		public int maxCarAmount;
 		public int maxCitizenAmount;
+		public int maxPolicemanAmount;
 	}
 	
 	[SerializeField] private DayStateClass morning, afternoon, evening, night;

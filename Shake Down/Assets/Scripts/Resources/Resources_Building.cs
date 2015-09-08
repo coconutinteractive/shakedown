@@ -10,6 +10,7 @@ public class Resources_Building : Resources_Root
 	protected int _rent;
 	protected int _payment;
 	protected Resources_InventoryShop _inventory;
+	protected Building_Script _building;
 	protected bool _hasPaid = false;
 
 	public Enums.BuildingType type 				{ get { return _type; 		} }
@@ -17,6 +18,7 @@ public class Resources_Building : Resources_Root
 	public int rent 							{ get { return _rent; 		} } 
 	public int payment 							{ get { return _payment; 	} }
 	public Resources_InventoryShop inventory	{ get { return _inventory;	} }
+	public Building_Script building				{ get { return _building;	} set { _building = value; } }
 	public bool hasPaid 						{ get { return _hasPaid; 	} set { _hasPaid = value; } }
 	
 	public Resources_Building  (string id,
@@ -42,29 +44,8 @@ public class Resources_Building : Resources_Root
 		_day = day;
 		_type = type;
 		_inventory = inventory;
-	}
 
-	static public List<Resources_Building> GetBuildings()
-	{
-		List<Resources_Building> list = new List<Resources_Building>();
-		for (int i = 0; i < Resources_Root.resources.Count; i++)
-		{
-			if (Resources_Root.resources[i] is Resources_Building)
-			{
-				list.Add ((Resources_Building)Resources_Root.resources[i]);
-			}
-		}
-		return list;
-	}
-
-	static public Resources_Building GetBuildingByID(string id)
-	{
-		Resources_Root resource = Resources_Root.GetResourceByID(id);
-		if(resource is Resources_Building)
-		{
-			return (Resources_Building)resource;
-		}
-		return null;
+		Manager_Resources.NewBuilding(this);
 	}
 
 	public string DefaultProtectionOffer()

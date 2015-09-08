@@ -231,4 +231,22 @@ public class Localization : MonoBehaviour
 	{
 		return Manager_StaticData.ButtonKeyFromDialogueKey(dialogueOptionKey);
 	}
+
+	static public string NameCase(string text)
+	{
+		string newText = "";
+		for (int i = 0; i < text.Length; i++)
+		{
+			string charAtI = text.Substring(i,1);
+			if(i == 0) { newText += charAtI.ToUpper(); }
+			else if (charAtI == " " || charAtI == "'") {
+				newText += charAtI;
+				if(text.Length > i+1) {
+					newText += text.Substring(i+1,1).ToUpper();
+					i++;
+				}
+			} else { newText += charAtI; }
+		}
+		return newText;
+	}
 }

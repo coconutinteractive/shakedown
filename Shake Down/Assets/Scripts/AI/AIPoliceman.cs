@@ -3,6 +3,12 @@ using System.Collections;
 
 public class AIPoliceman : AIParent 
 {
+	protected Resources_Officer _resources;
+	public Resources_Officer resources { get { return _resources; } set { _resources = value; } }
+
+	private GameObject _currentStation = null;
+	public GameObject currentStation{get{return _currentStation;}set{_currentStation = value;}}
+
 	protected override void Start ()
 	{
 		PlayerMovement.onJayWalking += HandleonJayWalking;;

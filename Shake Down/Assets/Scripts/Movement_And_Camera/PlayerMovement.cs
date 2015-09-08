@@ -7,6 +7,9 @@ using AdrienSerializables;
 
 public class PlayerMovement : MonoBehaviour 
 {
+	protected Resources_Player _resources;
+	public Resources_Player resources { get { return _resources; } set { _resources = value; } }
+
 	public static event Action onJayWalking;
 	
 	[SerializeField] private string playerName = "Zaldran", playerLastName = "Aenderfell";

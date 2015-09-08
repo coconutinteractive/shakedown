@@ -24,11 +24,14 @@ public class Manager_AI : MonoBehaviour
 	#endregion
 	
 	[SerializeField] private int maxAmountOfCitizens = 0;
+	[SerializeField] private int maxAmountOfPolicemen = 0;
 	[SerializeField] private List<GameObject> housesList = new List<GameObject> ();
 	[SerializeField] private List<GameObject> citizensObjectPool = new List<GameObject> ();
-	private List<GameObject> currentCitizensList = new List<GameObject> ();
-	
+	[SerializeField] private List<GameObject> policemanObjectPool = new List<GameObject> ();
 	[SerializeField] private List<GameObject> policeStationsList = new List<GameObject> ();
+	private List<GameObject> currentCitizensList = new List<GameObject> ();
+	private List<GameObject> currentPolicemanList = new List<GameObject> ();
+
 	[SerializeField] private GameObject citizenPrefab = null, policemanPrefab = null;
 	
 	[SerializeField] private List<GameObject> carSpawnersList = new List<GameObject>();
@@ -90,14 +93,14 @@ public class Manager_AI : MonoBehaviour
 	
 	private IEnumerator PolicemanSpawning()
 	{
-		/*while(true)
+		while(true)
 		{
-			if(currentSpawnedCars.Count < maxAmountOfCars)
+			if(currentPolicemanList.Count < maxAmountOfPolicemen)
 			{
-				RandomSpawnCar();
+				RandomSpawnPoliceman();
 			}
-			yield return new WaitForSeconds(CAR_SPAWN_DELAY / (maxAmountOfCars - currentSpawnedCars.Count + 1.0f));
-		}*/
+			yield return new WaitForSeconds(POLICEMAN_SPAWN_DELAY / (maxAmountOfPolicemen - currentPolicemanList.Count + 1.0f));
+		}
 		yield return null;
 	}
 	
@@ -146,6 +149,36 @@ public class Manager_AI : MonoBehaviour
 		currentCitizensList.Remove (_citizenToMove);
 		citizensObjectPool.Add (_citizenToMove);
 	}
+
+	public void RandomSpawnPoliceman()
+	{
+		GameObject newPoliceman = policemanObjectPool [UnityEngine.Random.Range (0, policemanObjectPool.Count)];
+		AIPoliceman policemanRef = newPoliceman.GetComponent<AIPoliceman> ();
+		
+		policemanObjectPool.Remove (newPoliceman);
+		currentPolicemanList.Add (newPoliceman);
+		newPoliceman.SetActive (true);
+		
+		if(policemanRef.currentStation == null)
+		{
+			GameObject curStation = policeStationsList [UnityEngine.Random.Range (0, policeStationsList.Count)];
+			newPoliceman.transform.position = curStation.transform.position + curStation.transform.forward * 3.0f - Vector3.up * 0.65f;
+			newPoliceman.transform.rotation = curStation.transform.rotation;
+			policemanRef.Initialize (curStation.GetComponent<HouseTrigger>().cameraPoint, curStation);
+		}
+		else
+			policemanRef.Initialize (policemanRef.currentStation.GetComponent<HouseTrigger>().cameraPoint, policemanRef.currentStation);
+		
+		policemanRef.enabled = true;
+	}
+	
+	public void MoveToPolicemanObjectPool(GameObject _policemanToMove)
+	{
+		_policemanToMove.SetActive (false);
+		_policemanToMove.GetComponent<AIPoliceman> ().enabled = false;
+		currentPolicemanList.Remove (_policemanToMove);
+		policemanObjectPool.Add (_policemanToMove);
+	}
 	
 	public void RandomSpawnCar()
 	{
@@ -179,6 +212,7 @@ public class Manager_AI : MonoBehaviour
 	{
 		maxAmountOfCars = obj.maxCarAmount;
 		maxAmountOfCitizens = obj.maxCitizenAmount;
+		maxAmountOfPolicemen = obj.maxPolicemanAmount;
 		
 		int i = maxAmountOfCitizens;
 		foreach (GameObject curCitizen in currentCitizensList) 
@@ -191,5 +225,18 @@ public class Manager_AI : MonoBehaviour
 			
 			curCitizen.GetComponent<AIParent>().isGoingHome = true;
 		}
+
+		int j = maxAmountOfPolicemen;
+		foreach (GameObject curPoliceman in currentPolicemanList) 
+		{
+			if(j > 0)
+			{
+				--j;
+				continue;
+			}
+			
+			curPoliceman.GetComponent<AIParent>().isGoingHome = true;
+		}
 	}
+
 }

@@ -123,7 +123,6 @@
      <Compile Include="Assets\Scripts\Saving_Loading\BinarySerialization.cs" />
      <Compile Include="Assets\Scripts\Saving_Loading\MySerializables.cs" />
      <Compile Include="Assets\Scripts\Saving_Loading\SavingKeysContainer.cs" />
-     <Compile Include="Assets\Scripts\Scenarios\Scenario_Master.cs" />
      <Compile Include="Assets\Scripts\Utils\AdrienUtils.cs" />
      <Compile Include="Assets\Static Data\ButtonActionsKeys.cs" />
      <None Include="Assets\3rd Party\JSON\readme.txt" />
